@@ -9,4 +9,4 @@ def test_Aitken_method():
     assert_equal(physics.Aitken.method(0.9,pnts_1,fn_1),0.9)
     assert_equal(round(physics.Aitken.method(0.9,pnts_2,fn_2),6),0.807473)
 def test_up_and_down():
-    assert_equal(round(physics.up_and_down.aitken((4,0),0.9,pnts_2,fn_2),6),0.807473) 
+    assert_equal(round(physics.up_and_down.aitken(0.9,pnts_2,fn_2,(4,0)),6),0.807473) 
