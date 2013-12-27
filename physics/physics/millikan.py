@@ -10,3 +10,14 @@ e = u[1][n+1]
 dq = u[0][n+1]-u[1][n+1]*sum/(n+1)
 print "Fundamental charge: " + str(e)
 print "Estimated error: " + str(dq)   
+c1,c2,c3,c4 = 0, 0, 0, 0
+for i in range(len(dat)):
+    c1 += x_in[i]
+    c2 += x_in[i]**2
+    c3 += dat[i]
+    c4 += dat[i]*x_in[i]
+g = c1*c1-c2*(n+1)
+a0 = (c1*c4-c2*c3)/g
+a1 = (c1*c3-c4*(n+1))/g
+print "Fundamental charge: " + str(a1)
+print "Estimated error: " + str(a0)      
