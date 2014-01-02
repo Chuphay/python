@@ -1,4 +1,9 @@
 def method(x,points,data):
+    """This is the standard Aitken method from Tao Pang's computational physics.
+       Points should come in like [0.0, 0.5, 1.0, 1.5],
+       in which case data will be [f(0), f(0.5), f(1), f(1.5)],
+       and finally x is the value that gives f(x), 
+       which is what will be returned to you"""
     memo = {}
     place = (len(data)-1,0)
     def aitken(x,points,data,place):
@@ -14,6 +19,13 @@ def method(x,points,data):
     return aitken(x,points,data,place)    
         
 def upNdown(x,points,data): 
+    """This is the up and down method from Tao Pang's computational physics.
+       It's a little more convoluted than the straight forward method,
+       but may be better when you have many many data points close together. 
+       Points should come in like [0.0, 0.5, 1.0, 1.5],
+       in which case data will be [f(0), f(0.5), f(1), f(1.5)],
+       and finally x is the value that gives f(x), 
+       which is what will be returned to you"""
     memoUp = {} 
     memoDown = {}
     def up(x,points,data,place):

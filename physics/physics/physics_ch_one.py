@@ -1,4 +1,4 @@
-# motion of a particle in one -d under an elastic force
+# motion of a particle in one -d under an elastic force to first order approximation
 import Tkinter
 master = Tkinter.Tk()
 w = Canvas(master, width=500, height=200)
