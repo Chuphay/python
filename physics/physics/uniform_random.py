@@ -4,7 +4,9 @@ def ranf(*args):
     """Either pass a seed to this, or it will generate a seed for you.
     to get a new seed, try 
     x = ranf(old_seed)
-    new_seed = int(x*2147483647)     
+    new_seed = int(x*2147483647) 
+    please do not repeatedly call ranf() within the same second
+    it will give you the same number repeatedly    
     """
     if len(args) == 0:
         now = datetime.now()
