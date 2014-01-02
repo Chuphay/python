@@ -1,4 +1,11 @@
 def method(m,points,data):
+    """This is a direct copy from Tao Pang's book computational physics.
+    I'll be honest, I didn't even try to understand it.
+    I just transposed from his Java code into python.
+    m is the amount of approximation, the higher the m, the better the approximation.
+    points should come in as a list like [0.0,0.5,1.0]
+    in which case data should come in the form [f(0.0),f(0.5),f(1.0)]
+    """
     n = len(data)-1
     u,s,g,h = [],[],[],[]
     if m>n:
