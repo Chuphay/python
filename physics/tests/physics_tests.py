@@ -2,6 +2,7 @@ from nose.tools import *
 import physics.Aitken 
 import physics.aitken
 import physics.first_least_square as fls
+import physics.uniform_random as rdm
 pnts_1 = [0.0,0.5,1.0]
 fn_1 = [0.0,0.5,1.0]
 pnts_2 = [0.0,0.5,1.0,1.5,2.0]
@@ -26,5 +27,12 @@ def test_fls():
     e = u[1][n+1]
     dq = u[0][n+1]-u[1][n+1]*sum/(n+1)
     assert_equal(round(e,2),1.64)  
-    assert_equal(round(dq,2),0.03)    
+    assert_equal(round(dq,2),0.03)  
+def test_rdm():
+    assert_equal(int(rdm.ranf()),0)
+    seed = 1
+    for i in range(10000):
+        x = rdm.ranf(seed)
+        seed = int(x*2147483647)   
+    assert_equal(seed,1043618065)       
       
