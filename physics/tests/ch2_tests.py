@@ -30,9 +30,8 @@ def test_ls():
     assert_equal(round(dq,2),0.03)  
 def test_rdm():
     assert_equal(int(rdm.ranf()),0)
-    seed = 1
+    rdm.seed = 1
     for i in xrange(10000):
-        x = rdm.ranf(seed)
-        seed = int(x*2147483647)   
-    assert_equal(seed,1043618065)       
+        x = rdm.ranf(rdm.seed)   
+    assert_equal(rdm.seed,1043618065)       
       
