@@ -1,6 +1,6 @@
 #obviously this is the millikan oil drop experiment
 #check out Tao Pang's book for more explanation
-import first_least_square as fls
+import least_square as fls
 x_in = [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
 dat = [6.558,8.206,9.88,11.5,13.14,14.82,16.4,18.04,19.68,21.32,22.96,24.6,26.24,27.88,29.52]
 u = fls.method(21,x_in,dat)
