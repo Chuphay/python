@@ -1,3 +1,12 @@
-[(' ', 3455), ('e', 2007), ('t', 1436), ('o', 1297), ('a', 1266), ('n', 1080), ('r', 1065), ('s', 1059), ('i', 1048), ('h', 906), ('d', 646), ('l', 623), ('u', 531), ('c', 478), ('m', 392), ('w', 385), ('f', 346), ('y', 323), ('g', 303), ('p', 263)]
-[('the', 173), ('and', 127), ('of', 96), ('to', 91), ('a', 72), ('our', 67), ('we', 61), ('that', 58), ('is', 48), ('in', 34), ('i', 33), ('you', 32), ('-', 28), ('are', 27), ('but', 27), ('it', 26), ('this', 24), ('for', 23), ('have', 23), ('not', 21)]
+common = [' ','e','t','o','a','n','r', 's','i', 'h','d','l','u','c','m','w', 'f','y','g','p']
+english = ['the', 'and','of', 'to','a','our','we', 'that', 'is','in','i','you','are','but','it', 'this','for','have', 'not']
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n', 'o','p','q','r','s','t','u','v','w','x','y','z']
+from frequency import *
+cipher = 'estd td dzxp pilxawp epie ez oz l ntaspc zy'
+a = get_letter(cipher)
+b = get_word(cipher)
+c = get_top(a,4)
+d = get_top(b,4)
+print c 
+print d
 

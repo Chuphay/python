@@ -3,6 +3,7 @@ import ch2.Aitken
 import ch2.aitken
 import ch2.least_square as ls
 import ch2.uniform_random as rdm
+import ch2.gauss_elim as m
 pnts_1 = [0.0,0.5,1.0]
 fn_1 = [0.0,0.5,1.0]
 pnts_2 = [0.0,0.5,1.0,1.5,2.0]
@@ -33,5 +34,9 @@ def test_rdm():
     rdm.seed = 1
     for i in xrange(10000):
         x = rdm.ranf(rdm.seed)   
-    assert_equal(rdm.seed,1043618065)       
+    assert_equal(rdm.seed,1043618065) 
+def test_matrix():
+    A , B = [[3,-1,0,-1],[1,2,-2,0],[0,1,-3,2],[-2,0,-1,1]], [2,0,3,-1]
+    assert_equal(m.method(A,B),[1.4285714285714284, -0.14285714285714263,\
+     0.5714285714285716, 2.4285714285714284])          
       
