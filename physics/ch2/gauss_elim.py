@@ -22,7 +22,8 @@ def method(matrix,constants):
             c[i] = c[i]/norm
         except ZeroDivisionError:
             print """oops... it looks like one of the diagonal elements 
-                     became zero. Please try rearranging your matrix."""        
+                     became zero. Please try rearranging your matrix."""
+            break                 
         for j in range(len(m)):
             m[i][j] = m[i][j]/norm
         for j in range(i+1,len(m)):

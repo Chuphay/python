@@ -4,6 +4,7 @@ import ch2.aitken
 import ch2.least_square as ls
 import ch2.uniform_random as rdm
 import ch2.gauss_elim as m
+import ch2.spline as spline
 pnts_1 = [0.0,0.5,1.0]
 fn_1 = [0.0,0.5,1.0]
 pnts_2 = [0.0,0.5,1.0,1.5,2.0]
@@ -38,5 +39,14 @@ def test_rdm():
 def test_matrix():
     A , B = [[3,-1,0,-1],[1,2,-2,0],[0,1,-3,2],[-2,0,-1,1]], [2,0,3,-1]
     assert_equal(m.method(A,B),[1.4285714285714284, -0.14285714285714263,\
-     0.5714285714285716, 2.4285714285714284])          
+     0.5714285714285716, 2.4285714285714284]) 
+def test_spline():
+    lemon = spline.Spline([-1.0,0.0,1.0,2.0],[2.0,1.0,2.0,5.0])
+    apple = spline.Spline([-1.0,0.0,1.0],[1.0,2.0,-1.0])
+    assert_equal(apple.get_out(),[[-1.0, -3.0, -1.0, 2.0], [1.0, -3.0, -1.0, 2.0]])
+    assert_equal(lemon.get_out(),[[0.4, 1.2, -0.2, 1.0], [0.0, 1.2, -0.2, 1.0],\
+     [-0.4, 2.4, -1.4, 1.4]])
+
+
+              
       
