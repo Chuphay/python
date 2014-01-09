@@ -1,0 +1,17 @@
+
+Welcome to crack.py
+ 
+Type q to quit at anytime 
+Numbers will track how long it takes you to crack a code
+If you need help, type help
+
+Which file do you want cracked?
+[1] err... Couldn't open that file. 
+Which file do you want cracked?
+[2] Okay. Let's get crackin' on test.txt
+here is a sentence
+
+[3] Didn't understand that. Please try again
+or type 'help' for help, or 'q' to quit
+[4] So sorry. Help system has not been implemented.
+[5] 

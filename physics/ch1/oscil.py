@@ -1,7 +1,7 @@
 # motion of a particle in one -d under an elastic force to first order approximation
 import Tkinter
 master = Tkinter.Tk()
-w = Canvas(master, width=500, height=200)
+w = Tkinter.Canvas(master, width=500, height=200)
 w.pack()
 def get_x(old_x,velocity,time):
     return float(old_x + velocity*time)
@@ -20,4 +20,4 @@ for i in range(200):
     w.create_line( i*2,x_old*10+100,(i+1)*2,x*10+100)
     w.create_line(i*2,v_old*10+100,(i+1)*2,v*10+100,fill="red", dash=(4, 4))
 
-
+Tkinter.mainloop()

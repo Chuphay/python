@@ -20,6 +20,7 @@ for i in range(2000):
     v = get_velocity(old_v,acc,step)
     w.create_line (old_p[0]+250,old_p[1]+250,p[0]+250,p[1]+250)
     
+mainloop()    
     
 
             
