@@ -56,7 +56,7 @@ def get_string(s,length):
             dict[string]  = 1
     return dict  
 zee = letters(text)
-#print top(zee,10)
+#print top10(zee)
 library = {}
 library['letters'] = [('e', 11.58), ('t', 8.22), ('o', 7.36), ('a', 7.12), ('n', 6.16), ('s', 6.09), ('r', 5.9), ('i', 5.62), ('h', 4.95), ('d', 3.59)]
 #print library['letters']
