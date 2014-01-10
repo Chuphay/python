@@ -9,9 +9,8 @@ def letters(s):
             dict[i]  = 100.0/len(s)        
     return dict 
 
-def get_word(s):
+def words(s):
     s = s.replace("\n" , "")
-    s= s.lower()
     s = s.split(" ")
     dict = {}
     for i in s:
@@ -22,10 +21,10 @@ def get_word(s):
     return dict 
 
 
-def top(dictionary, number = 5):
+def top10(dictionary):
     output = []
     dict = dictionary.copy()
-    for i in range(number):
+    for i in range(10):
         temp = ("",0)
         for key in dict:
             if dict[key]>temp[1]:

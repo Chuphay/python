@@ -25,8 +25,8 @@ You have 3 default options (obviously you can make more).
 1b) 'show foo bar' : this assumes that you have made a module called tools
         In tools, the show function will call foo(bar(text))
         So for example, if you copied the top and letters definitions I supllied
-        You can type 'show top letters' 
-        and this will call 'tools.top(tools.letters(text))'
+        You can type 'show top10 letters' 
+        and this will call 'tools.top10(tools.letters(text))'
 1c) 'show library letters' : similar to the above, 
         If you made a global dictionary called library, 
         this'll call values from it
