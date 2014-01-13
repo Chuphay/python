@@ -261,3 +261,98 @@ Next, she looks for the row starting with "A", which is number 01 in the list. T
 
    QSV MOS LKRTX SIQA
 Simple frequency analysis cannot crack a Vigenere cipher, and the number of possible keys is so great that finding the right key by trial-and-error is effectively impossible.
+
+
+http://www.math.cornell.edu/~mec/2003-2004/cryptography/diffiehellman/diffiehellman.html
+
+Alice and Bob agree, publicly, on a prime number P, and a base number N. Eve will know these two numbers, and it won't matter!
+
+Alice chooses a number A, which we'll call her "secret exponent." She keeps A secret from everyone, including Bob. Bob, likewise, chooses his "secret exponent" B, which he keeps secret from everyone, including Alice (for subtle reasons, both A and B should be relatively prime to N; that is, A should have no common factors with N, and neither should B).
+
+Then, Alice computes the number
+J = NA (mod P)
+
+and sends J to Bob. Similarly, Bob computes the number
+
+K = NB (mod P)
+
+and sends K to Alice. Note that Eve now has both J and K in her possession.
+
+The final mathematical trick is that Alice now takes K, the number she got from Bob, and computes
+KA(mod P).
+Bob does the same step in his own way, computing
+
+JB (mod P).
+The number they get is the same! Why is this so? Well, remember that K = NB (mod P) and Alice computed KA (mod P) = (NB)A (mod P) = NBA (mod P). Also, Bob used J = NA (mod P), and computed JB (mod P) = (NA)B (mod P) = NAB (mod P).
+
+Thus, without ever knowing Bob's secret exponent, B, Alice was able to compute NAB (mod P). With this number as a key, Alice and Bob can now start communicating privately using some other cipher.
+
+
+Why Diffie-Hellman Works
+
+At this point, you may be asking, "Why can't Eve break this?" This is indeed, a good question. Eve knows N, P, J, and K. Why can't she find A, B, or, most importantly, NAB(mod P)? Isn't there some sort of inverse process by which Eve can recover A from NA(mod P)?
+
+Well, the thing Eve would most like to do, that is, take the logarithm (base N) of J, to get A, is confounded by the fact that Alice and Bob have done all of their math modulo P. The problem of finding A, given N, P, and NA (mod P) is called the discrete logarithm problem. As of now, there is no fast way known to do this, especially as P gets really large. One way for Eve to solve this is to make a table of all of the powers of N modulo P. However, Eve's table will have (P-1) entries in it. Thus, if P is enormous (say 100 digits long), the table Eve would have to make would have more entries in it than the number of atoms in the universe! Simply storing that table would be impossible, not to mention searching through it to find a particular number. Thus, if P is sufficiently large, Eve doesn't have a good way to recover Alice and Bob's secret.
+
+"That's fine," you counter, "but if P is so huge, how in the world are Alice and Bob going to compute powers of numbers that big?" This is, again, a valid question. Certainly, raising a 100-digit-long number to the power 138239, for example, will produce a ridiculously large number. This is true, but since Alice and Bob are working modulo P, there is a shortcut called the repeated squaring method.
+
+To illustrate the method, we'll use small numbers (it works the same for larger numbers, but it requires more paper to print!). Say we want to compute 729 (mod 17). It's actually possible to do this on a simple four-function calculator. Certainly, 729 is too large for the calculator to handle by itself, so we need to break the problem down into more manageable chunks. First, break the exponent (29) into a sum of powers of two. That is,
+
+29 = 16 + 8 + 4 + 1 = 24 + 23 + 22 + 20
+(all we're doing here is writing 29 in binary: 11101). Now, make a list of the repeated squares of the base (7) modulo 17:
+
+71 (mod 17) = 7
+72 (mod 17) = 49 (mod 17) = 15
+74 (mod 17) = 72 * 72 (mod 17) = 15 * 15 (mod 17) = 4
+78 (mod 17) = 74 * 74 (mod 17) = 4*4 (mod 17) = 16
+716 (mod 17) = 78 * 78 (mod 17) = 16*16 (mod 17) = 1
+
+Then, 729 (mod 17) = 716 * 78 * 74 * 71 (mod 17) = 1 * 16 * 4 * 7 (mod 17) = 448 (mod 17) = 6.
+
+The neat thing is that the numbers in this whole process never got bigger than 162 = 256 (except for the last step; if those numbers get too big, you can reduce mod 17 again before multiplying). Thus, even though P may be huge, Alice's and Bob's computers don't need to deal with numbers bigger than (P-1)2 at any point.
+
+Key Exchange Worksheet
+
+Here's a worksheet to try this whole process out on. It may help to work with a few friends!
+
+http://math.uchicago.edu/~mann/encryption.pdf
+
+Note something odd. It is easy to multiply primes together. But there is no easy way to take
+the product and reduce it back to its original primes. In crypto jargon, this is a \trapdoor": a
+function that lets you go one way easily, but not the other. Such one-way functions, of which
+this is perhaps the simplest example, are at the bottom of all public-key encryption. They make
+asymmetric ciphers possible.
+
+back to the original website:
+http://www.vectorsite.net/ttcode_09.html
+
+The next issue is the length of the mask sequence, which should be very long. The brute-force way would be to make the wheels as large as possible, but even wheels with hundreds of positions wouldn't be long enough. Hitt came up with a better approach. Suppose we have one wheel with five positions that generates the following binary sequence:
+
+   W1:  10010
+-- and a second wheel with seven positions that generates another binary sequence:
+
+   W2:  1100101
+These are unrealistically small wheels, but they are convenient as examples. Now suppose the two wheels are rotating in parallel. Then the sequence defined by the two wheels won't repeat until after 5 * 7 = 35 rotations. The following example illustrates, with the bit sequences broken up in groups of five bits with spaces to make it easier to read:
+
+   W1:  10010 10010 10010 10010 10010 10010 10010  10010 10010 ...
+   W2:  11001 01110 01011 10010 11100 10111 00101  11001 01110 ...
+By extension, if there are five wheels, each with a different prime number of positions, then the sequence won't repeat until after a number of rotations equal to the product of all five of those prime numbers multiplied together. So if the number of positions on the five wheels were 5, 7, 13, 17, and 23, then the length of the sequence would be:
+
+   5 * 7 * 13 * 17 * 23 = 177,906
+This is still much too short. Of course, wheels with larger primes, such as 43 or 51 could be used, but Hitt extended the concept to greatly multiply the length of the sequence. He used two wheels connected in series for each bit:
+
+multiplying streams by chaining wheels 
+This scheme effectively XORed the two sequences together, and if they were different prime values, the length of the two sequences would the multiple of the prime values. Using the five-position and seven-position wheels described above but operating in series, not parallel, gives:
+
+        10010 10010 10010 10010 10010 10010 10010  10010 10010 ...
+        11001 01110 01011 10010 11100 10111 00101  11001 01110 ...
+        ______________________________________________________
+
+        01011 11100 11001 00000 01110 00101 10111  01011 11100 ...
+This meant that the length of the sequence was not only equal to the product of the number of positions on all ten wheels, but also lengthened the sequence for each of the five bits, making the sequence harder to predict. Incidentally, the number of positions on the wheels doesn't actually have to be a prime number: the only important requirement is that they have as few common factors as possible. So, we could imagine a possible random-sequence generator featuring ten wheels with values marked as below:
+
+
+
+
+
+
