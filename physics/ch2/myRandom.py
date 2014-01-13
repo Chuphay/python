@@ -4,7 +4,7 @@ now = datetime.now()
 seed = now.year + 70*(now.month + 12*(now.day + 31*(now.hour + 23*(now.minute +59*now.second))))
 
 def ranf(*args):
-    """This generates a uniform random variable between 0 and 1.
+    """This generates a linear congruential uniform random variable between 0 and 1.
 We are claiming a global variable called seed in this module.
 seed is a number based on some algorithm that has to do with the time
 you can either use the seed provided, or provide your own.
