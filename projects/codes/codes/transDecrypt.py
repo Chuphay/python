@@ -1,30 +1,30 @@
-import math
-def badDecrypt(text, key):
-    """this doesn't even work :("""
-    output = ""
+def badDecrypt(text,key):
+    out = []
     cols = len(text)/key
-    if cols%key !=1:
-        cols +=1
+    if len(text)%key !=0:
+        cols +=1  
     matrix = [[0 for i in range(cols)] for j in range(key)]
     empty = cols*key - len(text)
     for i in range(empty):
-        matrix[key-1-i][cols-1] = ""
+        matrix[key-1-i][cols-1] = "#"
     for i in range(key):
         for j in range(cols):
-            if matrix[i][j] == "":
+            if matrix[i][j] == "#":
                 continue
-            else:  
+            else:
                 matrix[i][j] = text[0]
                 text = text[1:]
     for i in range(cols):
         for j in range(key):
-            output += matrix[j][i]
-    return output
+            if matrix[j][i] != "#":
+                out.append(matrix[j][i])            
+    return "".join(out)                
+                
 def decryptMessage(message, key):
     #from http://inventwithpython.com/hackingciphers.pdf 
     numOfColumns = len(message)/key
     if len(message)%key != 0:
-        numOfColumns +=1 
+        numOfColumns +=1   
     numOfRows = key  
     numOfShadedBoxes = (numOfColumns * numOfRows) - len(message)
     plaintext = ['']*numOfColumns 
@@ -40,29 +40,27 @@ numOfRows - numOfShadedBoxes):
             col = 0 
             row += 1 
     return ''.join(plaintext)
+
 def decrypt(text, key):
+    """note, we use the # symbol internally,
+so if the cipher has hash symbols, please use a differnt decryption scheme"""
     output = ""
     cols = len(text)/key
     if len(text)%key != 0 :
         cols += 1
     l = len(text)
     for i in range(cols*key - l):
-        text = text[:l+1-i*cols] + "#" +text[l+1-i*cols:]
+        text = text[:l-i*(cols-1)] + "#" +text[l-i*(cols-1):]      
     for i in range(cols):
         for j in range(len(text)):
             if (j+i)%(cols) == i:
-                try: 
-                    output += text[j+i]
-                    print i, j, text[j+i]
-                except IndexError:
-                    pass
+                output += text[j+i]
     return output.replace("#", "")
  
          
 def main():    
-    text = "abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    text ="apples and oranges are good for you, isn't that very true?"
     key = 23
-    print text
     print badDecrypt(text,key)
     print decrypt(text,key)
     print decryptMessage(text,key)    

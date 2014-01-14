@@ -3,7 +3,9 @@ import random
 import codes.caesar_cipher as csr
 import codes.frequency as f
 import codes.trans as trans
-import codes.transDecrypt as td 
+import codes.transDecrypt as td
+import codes.crackMath
+import codes.affineCipher 
 
 
 
@@ -37,19 +39,35 @@ def test_trans():
         message = list(message) 
         random.shuffle(message)
         message = ''.join(message) 
-
         for key in range(1,len(message)):
-            c = trans.badEncrypt(message,key)
-            v = trans.encryptMessage(message,key)
+            #c = trans.badEncrypt(message,key)
+            #v = trans.encryptMessage(message,key)
             en = trans.encrypt(message, key)
-            assert_equal(v,c) 
-            assert_equal(v,en)
-            decrypted = td.decryptMessage(en, key)
+            #assert_equal(v,c) 
+            #assert_equal(v,en)
+            #decrypted = td.decryptMessage(en, key)
             de = td.decrypt(en, key)
-            dee = td.badDecrypt(en, key)
-            assert_equal(dee,decrypted)
-            
-            
+            #dee = td.badDecrypt(en, key)
+            assert_equal(de,message)
+          
+def test_affine():
+    random.seed(42)
+    for i in range(20):  
+        message = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' * random.randint(4, 10) 
+        message = list(message) 
+        random.shuffle(message)
+        message = ''.join(message)
+        key = 0
+        while True: 
+            key = random.randint(2, 1024) 
+            if codes.crackMath.gcd(key, 26) == 1:
+                break
+        key_B =  random.randint(2, 1024)
+        encrypt = codes.affineCipher.encrypt(message,key,key_B)
+        decrypt = codes.affineCipher.decrypt(encrypt, key, key_B)
+        assert_equal(message.lower(), decrypt)        
+
+           
 
    
     

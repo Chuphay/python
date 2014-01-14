@@ -38,8 +38,8 @@ def encrypt(text,key):
                     pass    
     return output       
 def main():
-    text = "common sense is not so common."
-    key = 8
+    text = "common sense is not so common"
+    key = 5
     print badEncrypt(text,key)  + "|"  
     print encryptMessage(text,key)  + "|" 
     print encrypt(text,key) + "|" 
