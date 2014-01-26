@@ -27,7 +27,12 @@ class API(object):
             print "Correct syntax is 'kill a' or 'kill ae'."
             return True
         except KeyError:
-            print "err... remember, kill lower case things you've already made."       
+            print "err... remember, kill lower case things you've already made." 
+    def kill_all(self):
+        for i in self.dict:
+            self.text = self.text.replace(i,self.dict[i])
+        self.dict = {}
+        return True              
     def show(self, x = 0):
         if x == 0:
             print self.text 
