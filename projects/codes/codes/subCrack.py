@@ -32,7 +32,7 @@ def checkForEnglish(text, number, percent):
     """text is the text we are checking, number is the number of words already transformed.
     percent is the percent that is desired to be english. 
     note that if 70% is the percent, 
-    it will not fail until 30% + 20% = 50% fails.
+    it will fail whenever the first n = number of words are only 70% english
     Basically this is the UI for this program,
     If it fails, it will return True
     If it is english, it'll ask, 
@@ -51,12 +51,11 @@ def checkForEnglish(text, number, percent):
         
     #next we check for fail
 
-    failCheck = isEnglish.method(sentence)
-    failPercent = 100 - percent + 20
-    if failCheck<failPercent:
-        print text, number, failCheck
-        print sentence
-        print "fail"
+    failCheck = isEnglish.method(sentence)  
+    failPercent = 100 - percent
+    print failCheck, sentence
+    if failCheck< 80:
+        print "yo", text
         return True
     #next we check to see if it is English
     check = isEnglish.method(text)
@@ -73,7 +72,7 @@ def checkForEnglish(text, number, percent):
     return False            
                 
 
-def method(text, percent = 65, recursion = 0):
+def machine(text, percent = 65, recursion = 0):
     """Starting over again for the fourth time
     This method will return a cracked version of a simple substitution cipher if it finds it.
     It operates on an ecrypted text.
@@ -101,17 +100,20 @@ def method(text, percent = 65, recursion = 0):
     else:
         #then we find the possibilities
         possibilities = possible(words[recursion])
+        
         #we will loop over all possibilities, calling them the seed
         for seed in possibilities:
-            #first we transform our text into a new text
-            new_text = transform(words[recursion],seed,text)
-            #we send a recursive call on the next set of words
-            #recursion +=1
-            rest = method(new_text,percent,recursion+1)
-            #I think before sending a recursive call, let's check for english
-            if checkForEnglish(new_text, recursion, percent):
-                print "failed on " , seed
-                continue
+            
+            if seed.islower():    
+                #first we transform our text into a new text
+                new_text = transform(words[recursion],seed,text)
+                #we send a recursive call on the next set of words
+                #recursion +=1
+                machine(new_text,percent,recursion+1)
+                #I think before sending a recursive call, let's check for english
+                if checkForEnglish(new_text, recursion, percent):
+                    print "failed on" , seed, recursion
+                    continue
                 
       
     pass
@@ -130,11 +132,11 @@ def main():
     test4 = 'ESTD TD DZXP PILXAWP EPIE EZ OZ L NTASPC ZY'
     #print "abs gjkf".islower()
 
-    print method(test4)
+    print machine(text)
     #print transform('FSIGJ', 'table', test)
     #print checkForEnglish(test2, 2, 60)
     #print checkForEnglish(test3, 2 ,60)
-    print isEnglish.method("into to omit tIoiAWt itIi im am o NtAntC mY")
+    #print isEnglish.method("into to omit tIoiAWt itIi im am o NtAntC mY")
 
 #print globals()
     
