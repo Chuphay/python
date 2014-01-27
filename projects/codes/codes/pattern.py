@@ -28,7 +28,7 @@ def match(word):
     if pattern in patterns:
         return patterns[pattern]
     else:
-        print "no match for ", word 
+        #print "no match for ", word 
         return None   
     
 

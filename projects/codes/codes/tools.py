@@ -4,12 +4,14 @@ class API(object):
     """This is the default command line API"""
     def __init__(self,text):
         self.text = text
+        self.original_text = text
         self.dict = {}
     def make(self, x = 0):
         try:
             for i, e in enumerate(x[0]):
                 if x[2][i] in self.dict:
-                    print "You've already made",self.dict[x[2][i]], "=", x[2][i]
+                    if self.dict[x[2][i]] != e:
+                        print "You've already made",self.dict[x[2][i]], "=", x[2][i]
                 else:    
                     self.dict[x[2][i]] = e
                     self.text = self.text.replace(e,x[2][i])
@@ -32,6 +34,7 @@ class API(object):
         for i in self.dict:
             self.text = self.text.replace(i,self.dict[i])
         self.dict = {}
+        self.text = self.original_text
         return True              
     def show(self, x = 0):
         if x == 0:
