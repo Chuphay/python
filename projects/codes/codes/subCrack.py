@@ -16,6 +16,7 @@ def possible(word):
                             copy.remove(j)
                         except ValueError:
                             pass             
+    
         return copy
     except TypeError:
         #print "TypeError"
@@ -53,9 +54,8 @@ def checkForEnglish(text, number, percent):
 
     failCheck = isEnglish.method(sentence)  
     failPercent = 100 - percent
-    print failCheck, sentence
-    if failCheck< 80:
-        print "yo", text
+    print round(failCheck), text[:60]
+    if failCheck< 50:
         return True
     #next we check to see if it is English
     check = isEnglish.method(text)
@@ -94,35 +94,58 @@ def machine(text, percent = 65, recursion = 0):
     #we put in a base case
     #my feeling is that we wont be getting here too often, but let's see how it goes
     if len(words) == recursion:
-        print "length of words equal to recursion"
-        print text
+        pass
         #print possible(text)
     else:
         #then we find the possibilities
         possibilities = possible(words[recursion])
-        
-        #we will loop over all possibilities, calling them the seed
-        for seed in possibilities:
-            
-            if seed.islower():    
-                #first we transform our text into a new text
-                new_text = transform(words[recursion],seed,text)
-                #we send a recursive call on the next set of words
-                #recursion +=1
-                machine(new_text,percent,recursion+1)
-                #I think before sending a recursive call, let's check for english
-                if checkForEnglish(new_text, recursion, percent):
-                    print "failed on" , seed, recursion
-                    continue
-                
-      
+        if possibilities == []:
+            machine(text,percent,recursion+1)
+        else:    
+            #we will loop over all possibilities, calling them the seed
+            for seed in possibilities:
+                if seed.islower():
+                            
+                    #first we transform our text into a new text
+                    new_text = transform(words[recursion],seed,text)
+                    #we send a recursive call on the next set of words
+                    #recursion +=1
+                    machine(new_text,percent,recursion+1)
+                    #I think before sending a recursive call, let's check for english
+                    if checkForEnglish(new_text, recursion, percent):
+                        continue
+                else:
+                    machine(text,percent,recursion+1)         
+
     pass
+
+def method(text,percent=65):
+    """here's are main method. basically
+    it'll just be calling the machine function, but in case
+    the machine returns None, then it will shift the first word, to the end of the text file"""
+    answer = machine(text,percent)
+    if answer == None:
+        print "hmm... try without the first word?"
+        print text
+        answer = raw_input("y/n: ")
+        if answer == "n":
+            exit()
+        else:
+            
+            temp = [i for i in text if i in ALPHA]
+            temp = "".join(temp)
+            words = temp.split(" ")
+            sentence = " ".join(words[1:]) 
+            method(sentence,percent)
+             
 
     
 
 
 def main():
-    text = """XHDQW... BKW FTRDN FUARBTWU. BKWXW DUW BKW YAIDMWX AF BKW XBDUXKTH WRBWUHUTXW. TBX QARBTRETRM PTXXTAR: BA WOHNAUW XBUDRMW RWL LAUNZX, BA XWWS AEB RWL NTFW DRZ RWL QTYTNTVDBTARX, BA CANZNI MA LKWUW RA ARW KDX MARW CWFAUW."""
+    text = """sHDQW... BKW FTRDN FUARBTWU. BKWXW DUW BKW YAIDMWX AF BKW XBDUXKTH WRBWUHUTXW. TBX QARBTRETRM PTXXTAR: BA WOHNAUW XBUDRMW RWL LAUNZX, BA XWWS AEB RWL NTFW DRZ RWL QTYTNTVDBTARX, BA CANZNI MA LKWUW RA ARW KDX MARW CWFAUW."""
+    text2 = """XHDQW... BKW FTRDN FUARBTWU. BKeXe aUe BKe""" 
+
     #print pattern.match("HGAAU")
     #zee =  possible("ADSFEBCGGHII")
     #print zee
@@ -132,7 +155,7 @@ def main():
     test4 = 'ESTD TD DZXP PILXAWP EPIE EZ OZ L NTASPC ZY'
     #print "abs gjkf".islower()
 
-    print machine(text)
+    print method(text)
     #print transform('FSIGJ', 'table', test)
     #print checkForEnglish(test2, 2, 60)
     #print checkForEnglish(test3, 2 ,60)

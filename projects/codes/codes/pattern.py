@@ -36,8 +36,10 @@ def main():
     word = "classification"            
     print method(word)
     print match("HGHHU")
+    print match("A")
     
 if __name__ == "__main__":
+
     main()       
         
     
