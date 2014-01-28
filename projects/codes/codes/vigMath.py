@@ -2,7 +2,60 @@ import inversions, frequency
 import caesar_cipher as caesar
 
 alpha = "abcdefghijklmnopqrstuvwxyz"
-jedi = open("/home/chuphay/python/projects/codes/text/jedi.txt").read()
-print jedi
-print caesar.encrypt(alpha,1)
-english = {'e':	12.702, 't': 9.056, 'a': 8.167, 'o': 7.507, 'i': 6.966, 'n': 6.749, 's': 6.327, 'h': 6.094, 'r': 5.987, 'd': 4.253, 'l': 4.025, 'c': 2.782, 'u': 2.758, 'm': 2.406, 'w': 2.360, 'f': 2.228, 'g': 2.015, 'y': 1.974, 'p': 1.929, 'b': 1.492, 'v': 0.978, 'k': 0.772, 'j': 0.153, 'x': 0.150, 'q': 0.095, 'z': 0.074}
+
+english = ['e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l', 'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k', 'j', 'x', 'q', 'z']
+
+def countInversions(l):
+    """so we have to count inversions against the standard etaoin...
+    so, if it comes in as etaoin... it should return 0
+    but teaoin... should return 1.
+    so first, we will have to convert etaoin into numbers. 
+    I guess for this list, we just assume that the list is in English
+    """
+    numbers = [english.index(letter) for letter in l]
+    return inversions.method(numbers)
+
+def prepare(text):
+    """this will take a text as input, and put the letters in order of most frequent 
+    """
+    text = text.lower()
+    text = [i for i in text if i in alpha]
+    text = "".join(text)
+    out = [i[0] for i in frequency.top(frequency.letters(text))]
+    return out
+
+def method(text):
+    """here's the main method for this module.
+    it'll take some text, clean it up, see how far away it is from regular english
+    and print the text that is closest to english, and return the key
+    """
+    letters = prepare(text)
+    key = []
+    for i in range(26):
+        attempt = []
+        for letter in letters:
+            j = (alpha.index(letter)+i)%len(alpha)
+            attempt.append(alpha[j])
+        key.append((countInversions(attempt),i))
+    output = (325,26)
+    for i in key:
+        if i[0]<output[0]:
+            output = (i[0],i[1])
+    print caesar.encrypt(text,output[1])  
+    return output[1]       
+                    
+
+def main():
+    jedi = open("/home/chuphay/python/projects/codes/text/jedi.txt").read()
+    #print jedi
+    zee = prepare(jedi)
+    ciph = caesar.encrypt(jedi,1)
+    ciff = prepare(ciph)
+    #print ciph
+    #print countInversions(zee)
+    #print countInversions(ciff)
+    print method(ciph)
+    print 13*25
+
+if __name__ == "__main__":
+    main()        
