@@ -38,8 +38,8 @@ def encrypt(text,key):
                     pass    
     return output       
 def main():
-    text = "common sense is not so common"
-    key = 5
+    text = """Space... the Final Frontier. These are the voyages of the starship Enterprise. Its continuing mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before."""
+    key = 3
     print badEncrypt(text,key)  + "|"  
     print encryptMessage(text,key)  + "|" 
     print encrypt(text,key) + "|" 

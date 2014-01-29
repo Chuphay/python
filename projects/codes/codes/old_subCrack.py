@@ -54,7 +54,7 @@ def checkForEnglish(text, number, percent):
 
     failCheck = isEnglish.method(sentence)  
     failPercent = 100 - percent
-    #print round(failCheck), text[:60]
+    print round(failCheck), text[:60]
     if failCheck< 50:
         return True
     #next we check to see if it is English
@@ -72,7 +72,7 @@ def checkForEnglish(text, number, percent):
     return False            
                 
 
-def machine(percent = 65, recursion = 0):
+def machine(text, percent = 65, recursion = 0):
     """Starting over again for the fourth time
     This method will return a cracked version of a simple substitution cipher if it finds it.
     It operates on an ecrypted text.
@@ -87,96 +87,67 @@ def machine(percent = 65, recursion = 0):
     scratch that, that should be user implemented
     """ 
     #obviously first we make our word list 
-    #print code.text, "start", recursion
-    temp = [i for i in code.text if i in ALPHA]
+    
+    temp = [i for i in text if i in ALPHA]
     temp = "".join(temp)
     words = temp.split(" ")
     #we put in a base case
     #my feeling is that we wont be getting here too often, but let's see how it goes
     if len(words) == recursion:
-        #print "recursion limit equal to length of words"
-        #print code.text
+        print "recursion limit reached", text
         pass
         #print possible(text)
     else:
         #then we find the possibilities
-        #print words[recursion], possible(words[recursion])
         possibilities = possible(words[recursion])
         if possibilities == []:
-            #print "empty fail", recursion, code.text
-            machine(percent,recursion+1)
+            print "empty fail", recursion
+            machine(text,percent,recursion+1)
         else:    
-            #print possibilities
             #we will loop over all possibilities, calling them the seed
             for seed in possibilities:
-                #print seed
                 if seed.islower():
-                    #we make a thing to transform
-                    transform = ("","")
-                    for i,letter in enumerate(seed):
-                        if (letter != words[recursion][i] and letter not in transform[1]):
-                            if letter in code.dict:
-                                #print letter, "ok..." 
-                                transform = ("","")
-                                break
-                            else:
-                                transform = (transform[0]+words[recursion][i],transform[1]+letter)           
+                            
                     #first we transform our text into a new text
-                    #print words[recursion] , seed, transform ,"this"
-                    code.make([transform[0],"=",transform[1]])
-                    print code.text[:50], recursion, words[recursion], seed
-                    #print "checking", code.dict
-                    #code.text = transform(words[recursion],seed,code.text)
+                    new_text = transform(words[recursion],seed,text)
                     #we send a recursive call on the next set of words
                     #recursion +=1
-                    machine(percent,recursion+1)
+                    machine(new_text,percent,recursion+1)
                     #I think before sending a recursive call, let's check for english
-                    if checkForEnglish(code.text, recursion, percent):
-                        code.kill([transform[1]])
-                        continue  
-                    code.kill([transform[1]])
+                    if checkForEnglish(new_text, recursion, percent):
+                        continue
                 else:
                     print "fail"
-                    machine(percent,recursion+1)         
-    
-    if checkForEnglish(code.text, recursion, percent):
-        #print "weird"    
-        pass
-    """
-    print "big fail", recursion , code.text
-    print "hmm... we went through one loop?"
-    print code.text
-    answer = raw_input("y/n: ")
-    if answer == "n":
-            exit()
-    """
-def method(percent=65):
+                    machine(text,percent,recursion+1)         
+
+    print "big fail", recursion 
+    pass
+
+def method(text,percent=65):
     """here's are main method. basically
     it'll just be calling the machine function, but in case
     the machine returns None, then it will shift the first word, to the end of the text file"""
-    
-    print code.text , "method"   
-    answer = machine(percent)
+    answer = machine(text,percent)
     if answer == None:
         print "hmm... try without the first word?"
-        print code.text
+        print text
         answer = raw_input("y/n: ")
         if answer == "n":
             exit()
-        else: 
-            temp = [i for i in code.text if i in ALPHA]
+        else:
+            
+            temp = [i for i in text if i in ALPHA]
             temp = "".join(temp)
             words = temp.split(" ")
-            sentence = " ".join(words[1:])
-            code.text = sentence 
-            method(percent)
-        
+            sentence = " ".join(words[1:]) 
+            method(sentence,percent)
+             
 
     
 
-from tools import *
+
 def main():
-    
+    from tools import *
     print "working...."
     text = """spDQW... BKW FTRDN FUARBTWU. BKWXW DUW BKW YAIDMWX AF BKW XBDUXKTH WRBWUHUTXW. TBX QARBTRETRM PTXXTAR: BA WOHNAUW XBUDRMW RWL LAUNZX, BA XWWS AEB RWL NTFW DRZ RWL QTYTNTVDBTARX, BA CANZNI MA LKWUW RA ARW KDX MARW CWFAUW."""
     text2 = """XHDQW... BKW FTRDN FUARBTWU. BKeXe aUe BKe""" 
@@ -187,14 +158,10 @@ def main():
     test =  "ADSFEBCGGH FSIGJ"
     test2 = "ADSFEBCGGH taIGJ"
     test3 = 'this is some example text to do a cipher on'
-    test4 = 'ESTD TD DZXP PILXAWP EPIE. EZ OZ L NTASPC ZY'
+    test4 = 'ESTD TD DZXP PILXAWP EPIE EZ OZ L NTASPC ZY'
     #print "abs gjkf".islower()
-    global code
-    
-    code = API(test4)
-    code.make(['E','=','t'])
-    #print possible('tSTD')
-    print method()
+
+    print method(test)
     #print transform('FSIGJ', 'table', test)
     #print checkForEnglish(test2, 2, 60)
     #print checkForEnglish(test3, 2 ,60)
@@ -204,4 +171,4 @@ def main():
     
     
 if __name__ == "__main__":
-    main()    
+    main()  

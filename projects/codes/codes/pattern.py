@@ -1,5 +1,5 @@
 def method(word):
-    word = word.lower()
+    #word = word.lower()
     poss = "0123456789ABCDEFGHIJKL"
     position = 0
     out = []
