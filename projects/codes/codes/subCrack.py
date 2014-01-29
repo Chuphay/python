@@ -94,12 +94,14 @@ def machine(text, percent = 65, recursion = 0):
     #we put in a base case
     #my feeling is that we wont be getting here too often, but let's see how it goes
     if len(words) == recursion:
+        print "recursion limit reached", text
         pass
         #print possible(text)
     else:
         #then we find the possibilities
         possibilities = possible(words[recursion])
         if possibilities == []:
+            print "empty fail", recursion
             machine(text,percent,recursion+1)
         else:    
             #we will loop over all possibilities, calling them the seed
@@ -115,8 +117,10 @@ def machine(text, percent = 65, recursion = 0):
                     if checkForEnglish(new_text, recursion, percent):
                         continue
                 else:
+                    print "fail"
                     machine(text,percent,recursion+1)         
 
+    print "big fail", recursion 
     pass
 
 def method(text,percent=65):
@@ -143,6 +147,7 @@ def method(text,percent=65):
 
 
 def main():
+    from tools import *
     print "working...."
     text = """spDQW... BKW FTRDN FUARBTWU. BKWXW DUW BKW YAIDMWX AF BKW XBDUXKTH WRBWUHUTXW. TBX QARBTRETRM PTXXTAR: BA WOHNAUW XBUDRMW RWL LAUNZX, BA XWWS AEB RWL NTFW DRZ RWL QTYTNTVDBTARX, BA CANZNI MA LKWUW RA ARW KDX MARW CWFAUW."""
     text2 = """XHDQW... BKW FTRDN FUARBTWU. BKeXe aUe BKe""" 
@@ -156,7 +161,7 @@ def main():
     test4 = 'ESTD TD DZXP PILXAWP EPIE EZ OZ L NTASPC ZY'
     #print "abs gjkf".islower()
 
-    print method(text)
+    print method(test)
     #print transform('FSIGJ', 'table', test)
     #print checkForEnglish(test2, 2, 60)
     #print checkForEnglish(test3, 2 ,60)

@@ -27,18 +27,9 @@ class HTML(object):
         indexLinks = self.getIndex("<a href=")
         out = []
         for i in indexLinks:
-            #have to check for both types of quotes: ' , "
-            #and then take the smaller of the two
-            end = self.html.find("'",i+9)
-            end_other = self.html.find('"',i+9)
-            if end == -1:
-                end = end_other
-            if end_other == -1:
-                end_other = end
-            if end>end_other:
-                end = end_other
+            end = self.html.find(self.html[i+8],i+9)
             out.append(self.html[i+9:end])            
-        return out   
+        return out    
                                
 def main():            
     test= HTML("http://chuphay.github.io")
