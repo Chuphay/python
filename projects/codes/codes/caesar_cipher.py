@@ -1,16 +1,17 @@
 alpha = "abcdefghijklmnopqrstuvwxyz"
-ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 craze = "OIVDCQZWFMKTGSNPRAHJUXBEYL"
 
 
 def encrypt(s,key):
+    alpha = "abcdefghijklmnopqrstuvwxyz"
     s = s.replace("\n", "")
     s = s.lower()
     output = ""
     for i in s:
         try:
             j = (alpha.index(i)+key)%len(alpha)
-            output += ALPHA[j]
+            output += alpha[j].upper()
         except ValueError:
             output += i 
     if key<0:
@@ -23,11 +24,12 @@ def main():
     space = """Space... the Final Frontier. These are the voyages of the starship Enterprise. Its continuing mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before."""
     print encrypt(space,3)
     import random        
-    message = list(ALPHA) 
+    message = list(alpha.upper()) 
     random.shuffle(message)
     message = ''.join(message)
-    #print message 
+    print message 
     
 if __name__ == "__main__":
-    main()           
+    space = """Space... the Final Frontier. These are the voyages of the starship Enterprise. Its continuing mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before."""
+    print encrypt(space,3)           
        
