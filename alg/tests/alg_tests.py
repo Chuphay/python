@@ -23,8 +23,17 @@ def test_sort():
     assert_equal(week1.my_sort.insert_sort(b),sorted(b))
     assert_equal(week1.my_sort.merge_sort(a),sorted(a))       
   
-def test_inversions():
+def test_inversions_simple():
     num1 = [1,3,5,2,4,6]
     num2 = [7,6,5,4,3,2,1]
     assert_equal(week1.inversions.method(num1),3)
-    assert_equal(week1.inversions.method(num2),21)    
+    assert_equal(week1.inversions.method(num2),21)
+
+def test_inversions_hard():
+    for i in range(20): 
+        l = [i for i in xrange(1000)]
+        a = [i for i in xrange(998)]
+        random.shuffle(a)
+        a = a[:100]
+        week1.inversions.invert_this(l,a)
+        assert_equal(week1.inversions.method(l),100)        

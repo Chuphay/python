@@ -20,10 +20,30 @@ def method(l):
     merge_sort(l)
     return i  
 
+def invert_this(l,places):
+    """invert two numbers in a list
+    if you input [1,2,3,4], [0]
+    then the list will be [2,1,3,4] modified in place
+    similarily, if  l = [1,2,3,4], places = [1,2]
+    then the list will be [1,3,4,2]
+    """
+    for i in range(len(places)):
+        l[places[i]],l[places[i]+1] = l[places[i]+1], l[places[i]]
+    return None
     
 if __name__ == "__main__":
-    num=[1,3,5,2,4,6]
-    num2 = [7,6,5,4,3,2,1]
-    print method(num)
-    print method(num2)   
+    from random import shuffle
+    l = [1,2,3,4]
+    invert_this(l,[2])
+    print l
+    l = [1,2,3,4]
+    invert_this(l,[1,2])
+    print l
+    l = [i for i in xrange(1000)]
+    a = [i for i in xrange(998)]
+    shuffle(a)
+    a = a[:100]
+    invert_this(l,a)
+    print method(l)
+  
 	
