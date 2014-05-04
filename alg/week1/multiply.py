@@ -43,17 +43,21 @@ def karatsuba(x,y):
     """only takes inputs that are of equal length
     and that have length a power of 2
     so 1234*5678 is fine
-    but 123*456 is not, nor is 2*12"""
+    but 123*456 is not, nor is 2*12.
+    As samos123 pointed out, my program is broken :(
+    please check his git repository for a working program:
+    https://github.com/samos123/randompythoncode/blob/master/multiplication.py
+    or, I have a copy of it in my repo as well
+    """
     
     X = [int(i) for i in str(x)]
     Y = [int(i) for i in str(y)] 
     def recurse(X,Y):
-
+        print X,Y
         l_X = len(X)
         l_Y = len(Y)
 
         if (l_X>1 or l_Y>1):
-            
 
             a = X[:l_X/2]
             b = X[l_X/2:]
@@ -70,14 +74,13 @@ def karatsuba(x,y):
 
             return (10**l_X)*m+(10**(l_X/2))*(o-m-n)+n
         else:
-
             return memory[int(X[0])][int(Y[0])]
 
     return recurse(X,Y)              
 
 if __name__ == "__main__":
 
-    print karatsuba(21,13) == 21*13
+    print karatsuba(21,19) == 21*19
 
 
     
