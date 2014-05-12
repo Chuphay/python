@@ -1,7 +1,7 @@
 from nose.tools import *
 import random
 import week1.multiply
-import week1.my_sort
+import week1.my_sort, week1.tp9
 import week1.inversions
 
 def test_grade_school_simple():
@@ -21,7 +21,12 @@ def test_sort():
     b = [i for i in xrange(900)]
     random.shuffle(b)
     assert_equal(week1.my_sort.insert_sort(b),sorted(b))
-    assert_equal(week1.my_sort.merge_sort(a),sorted(a))       
+    assert_equal(week1.my_sort.merge_sort(a),sorted(a))  
+    
+def test_tp9():
+    a = [i for i in xrange(100000)]
+    random.shuffle(a)
+    assert_equal(week1.tp9.merge_sort(a),sorted(a))          
   
 def test_inversions_simple():
     num1 = [1,3,5,2,4,6]

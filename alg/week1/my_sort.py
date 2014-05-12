@@ -17,6 +17,7 @@ def insert_sort(unsorted_list):
     return sorted_list  
     
 def merge_sort(l):
+
     n = len(l)
     if n>1:
         A, B = merge_sort(l[:n/2]), merge_sort(l[n/2:])
@@ -33,14 +34,14 @@ def merge_sort(l):
 
 if __name__ == '__main__':
     l = [2,1,4,3,7,10,4]
-    print insert_sort(l)
+    print merge_sort(l)
     print sorted(l)
     from random import shuffle
-    a = [i for i in xrange(1000000)]
+    a = [i for i in xrange(100000)]
     shuffle(a)
     b = [i for i in xrange(1000)]
     shuffle(b)
     print a[:10]
     print l
     print insert_sort(b) == sorted(b)
-    print merge_sort(a) == 2
+    print merge_sort(a) == sorted(a)

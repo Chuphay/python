@@ -20,15 +20,12 @@ def method(l):
     merge_sort(l)
     return i  
 
-def main():                     
+    
+if __name__ == "__main__":
     num=[1,3,5,2,4,6]
     num2 = [7,6,5,4,3,2,1]
     print method(num)
-
-    print method(num2)
-    
-if __name__ == "__main__":
-    main()     
+    print method(num2)   
 	
  
 	
