@@ -3,6 +3,7 @@ import random
 import week1.multiply
 import week1.my_sort, week1.tp9
 import week1.inversions
+import week1.merge_sort2
 
 def test_grade_school_simple():
     for i in range(10):
@@ -21,7 +22,12 @@ def test_sort():
     b = [i for i in xrange(900)]
     random.shuffle(b)
     assert_equal(week1.my_sort.insert_sort(b),sorted(b))
-    assert_equal(week1.my_sort.merge_sort(a),sorted(a))  
+    assert_equal(week1.my_sort.merge_sort(a),sorted(a)) 
+    
+def test_merge_sort2():
+    a = [i for i in xrange(100000)]
+    random.shuffle(a)
+    assert_equal(week1.merge_sort2.merge_sort(a),sorted(a))     
     
 def test_tp9():
     a = [i for i in xrange(100000)]
