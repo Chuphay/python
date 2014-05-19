@@ -221,7 +221,7 @@ for i in range(500):
 print foul_count
 print sum(foul_count)
 
-for times in range(100):
+for times in range(500):
 
     zee = []
     new_players = []
