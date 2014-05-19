@@ -152,11 +152,8 @@ class computer_player(object):
         
     def make_a_child(self):
 
-        return computer_player(self.theta + 0.01*np.random.randn(len(self.theta))) 
-    def have_a_child(self,parent2):
-        new_theta = (self.theta + parent2.theta)/2 
-
-        return computer_player(new_theta)     
+        return computer_player(self.theta + 0.01*np.random.randn(len(self.theta)))
+    
   
   
         
@@ -252,39 +249,14 @@ for times in range(100):
             
             new_players.append(players[i])
             new_players.append(players[i].make_a_child())
-            
             new_players.append(players[i].make_a_child())
             new_players.append(players[i].make_a_child())
             new_players.append(players[i].make_a_child())
             new_players.append(players[i].make_a_child())
-            try:
-                new_players.append(players[i].have_a_child(players[i+1]))
-            except IndexError:
-                pass  
-            try:
-                new_players.append(players[i].have_a_child(players[i+2]))
-            except IndexError:
-                pass 
-            try:
-                new_players.append(players[i].have_a_child(players[i+3]))
-            except IndexError:
-                pass  
-            try:
-                new_players.append(players[i].have_a_child(players[i+4]))
-            except IndexError:
-                pass  
-            try:
-                new_players.append(players[i].have_a_child(players[i+5]))
-            except IndexError:
-                pass 
-            try:
-                new_players.append(players[i].have_a_child(players[i+6]))
-    
-            except IndexError:
-                pass               
+            new_players.append(players[i].make_a_child())
         #new_players.append(players[i].make_a_child())
 
-    players = new_players[:501]
+    players = new_players[:500]
     for i in range(500):
         player = players[i]
         play_a_game(player)
