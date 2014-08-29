@@ -2,7 +2,8 @@
 
 import random
 import string
-import GraphWorld #import CircleLayout
+import GraphWorld 
+
 
 class Vertex(object):
     def __init__(self, label = ''):
@@ -81,21 +82,43 @@ class Graph(dict):
             for w in vertices:
                 if (w not in mem):
                     self.make_edge(v,w)
-    def add_regular_edges(self, degree):
+    def add_regular_edges(self, degree, tries = 30):
         vertices = self.vertices()
         n = len(vertices)
         if(n<degree+1):
             raise ValueError, '{0}<{1}+1'.format(n,degree)
         if(n*degree%2 != 0):
             raise ValueError, '{0}*{1}%2 != 0'.format(n,degree)
-        self.remove_all_edges()
-        print(random.choice(vertices))
+        for i in range(tries):
+            print 'try ' + str(i+1)
+            self.remove_all_edges()
+            
+            for j in range(degree):
+                for v in vertices:
+                    if(len(self.out_edges(v))<degree):
+                        while True:
+                            w = random.choice(vertices)
+                            if((v != w) and (len(self.out_edges(w))<degree)):
+                                break
+                        self.make_edge(v, w)
+                        
+            test_for_success = 0        
+            for v in vertices:
+                if(len(self.out_edges(v)) == degree):
+                    test_for_success += 1
+            if(test_for_success == n):
+                print 'success'
+                break
+            else:
+                self.remove_all_edges()
+        
         
  
 
 
 
 if __name__ == '__main__':
+    """
     u = Vertex('u')
     v = Vertex('v')
     w = Vertex('w')
@@ -107,18 +130,19 @@ if __name__ == '__main__':
     g.add_regular_edges(2)
     """
     labels = string.ascii_lowercase + string.ascii_uppercase
-    vs = [Vertex(c) for c in labels[:10]]
+    vs = [Vertex(c) for c in labels[:6]]
 
     # create a graph and a layout
     g = Graph(vs)
-    g.add_all_edges()
+    g.add_regular_edges(4)
+    
     layout = GraphWorld.CircleLayout(g)
 
     # draw the graph
     gw = GraphWorld.GraphWorld()
     gw.show_graph(g, layout)
     gw.mainloop()
-    """
+
 
 
   
