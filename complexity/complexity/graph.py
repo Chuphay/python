@@ -2,7 +2,7 @@
 
 import random
 import string
-import GraphWorld 
+ 
 
 
 class Vertex(object):
@@ -86,11 +86,11 @@ class Graph(dict):
         vertices = self.vertices()
         n = len(vertices)
         if(n<degree+1):
-            raise ValueError, '{0}<{1}+1'.format(n,degree)
+            raise ValueError('{0}<{1}+1'.format(n,degree))
         if(n*degree%2 != 0):
-            raise ValueError, '{0}*{1}%2 != 0'.format(n,degree)
+            raise ValueError('{0}*{1}%2 != 0'.format(n,degree))
         for i in range(tries):
-            print 'try ' + str(i+1)
+            print( 'try ' + str(i+1))
             self.remove_all_edges()
             
             for j in range(degree):
@@ -107,7 +107,7 @@ class Graph(dict):
                 if(len(self.out_edges(v)) == degree):
                     test_for_success += 1
             if(test_for_success == n):
-                print 'success'
+                print('success')
                 break
             else:
                 self.remove_all_edges()
@@ -136,12 +136,6 @@ if __name__ == '__main__':
     g = Graph(vs)
     g.add_regular_edges(4)
     
-    layout = GraphWorld.CircleLayout(g)
-
-    # draw the graph
-    gw = GraphWorld.GraphWorld()
-    gw.show_graph(g, layout)
-    gw.mainloop()
 
 
 
