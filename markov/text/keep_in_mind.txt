@@ -1,0 +1,358 @@
+* A more secure way to build a substitution cipher is to completely mix up the mappings between the plaintext and ciphertext alphabets. The number of possible ways to rearrange the 26 letters of the alphabet is:
+
+   26 * 25 * 24 * ... * 2 * 1  =  26!  =  4.03E26
+That is, there are 26 possibilities for the selection of the first letter, and for each of these 26 possibilities there are 25 possibilities for the second letter, then 24 possibilities for the third, and so on in an expanding tree of possibilities. If you're not familiar with a term of the form "26!", it just means 26 multiplied times all the integer numbers less than it down to one, and is called a "factorial".
+
+This gives the number of possible scramblings, but it also includes a large number of scramblings that are much too easy to read, such as those where only two letters are swapped, four letters are swapped, and so on. The number of substitution ciphers where no letter remains the same is much smaller. Suppose we select 13 letters from the alphabet and then swap them with the remaining 13, guaranteeing that no letter remains the same. The number of possible selections of 13 items from a set of 26 is:
+
+   26 * 25 * 24 * ... * 14  =  6.23E9
+The number of possible rearrangements of the 13 remaining letters to be paired with each set of 13 selected letters is 13!, which would suggest that the total ends up being the same as before -- but the total of the sets of pairings also include those where the pairings are the same, just rearranged in their order. There are 13! possible ways to arrange the same set of 13 letter pairs, so that factor cancels out. In addition, for every set of letter pairs, there is a mirror set of letter pairs -- for example, A with Z versus Z with A -- that ends up being the same set of substitutions, meaning the total number is cut in half, and so the actual number is 6.23E9 / 2 = 3.11E9. This is still a large number of possible monoalphabetic substitution cipher alphabets. That means that if such a "mixed cipher alphabet" is used, cracking it with a brute-force attack is laborious.
+
+One way to come up with a mixed cipher alphabet is for Alice to take a key phrase consisting of, say, a name, such as RICHARD MILHAUS NIXON, write it down while eliminating any redundant letters, and then complete the cipher by writing down the remaining letters of the alphabet in alphabetical order:
+
+   plaintext alphabet:  abcdefghijklmnopqrstuvwxyz
+   cipher alphabet:     RICHADMLUSNXOBEFGJKPQTVWYZ
+This is a simple cipher algorithm, but even if a codebreaker knows that this general scheme was used, the message still cannot be read without knowing the key, and a brute-force approach to cracking it is very difficult. This is a fundamental principle of cryptography, stated by a 19th-century Dutch linguist & cryptographer, Auguste Kerckhoffs von Niewenhof (1835:1903), and known as "Kerckhoffs' Principle": The security of a cipher should not depend on an enemy's ignorance of the enciphering algorithm, only the enemy's ignorance of the key. In fact, codebreaking is often focused on discovering keys, since the cipher scheme may be well understood.
+
+[1.3] SIMPLE TRANSPOSITIONS
+
+* For an example of a transposition, suppose Alice wants to send Bob the message:
+
+   meet me near the clock tower at twelve midnight tonite
+One way to transpose this message is for Alice to "write in" the words vertically in five rows without any spaces as follows:
+
+   m e e t m
+   e n e a r 
+   t h e c l 
+   o c k t o
+   w e r a t 
+   t w e l v 
+   e m i d n 
+   i g h t t 
+   o n i t e 
+-- and then "read off" each column, top to bottom, as follows:
+
+   metowteio  enhcewmgn  eeekreihi  tactaldtt  mrlotvnte
+   METOWTEIOENHCEWMGNEEEKREIHITACTALDTTMRLOTVNTE
+Bob then "writes in" the message in five parts:
+
+   M E T O W T E I O
+   E N H C E W M G N
+   E E E K R E I H I
+   T A C T A L D T T
+   M R L O T V N T E
+-- and then "reads off" the message from the columns:
+
+   MEETM ENEAR THECL OCKTO WERAT TWELV EMIDN IGHTT ONITE
+   MEETMENEARTHECLOCKTOWERATTWELVEMIDNIGHTTONITE
+   meet me near the clock tower at twelve midnight tonite
+The ancient Spartans used a form of transposition cipher, in which a strip of parchment was wound in a spiral around a wooden cylinder known as a "scytale", and a message was written down the length of the cylinder. The strip was unwound, sent to the recipient, and then wound around a scytale of the same diameter to be read.
+
+* A transposition of the form shown above is extremely easy to crack. Holmes just writes down the letters of the transposition in rows, increasing the length of the rows until he sees something that makes sense. For example, Holmes could take the transposition given above:
+
+   METOWTEIOENHCEWMGNEEEKREIHITACTALDTTMRLOTVNTE
+-- and chop it into rows that are, say, seven letters long:
+
+   M E T O W T E
+   I O E N H C E
+   W M G N E E E
+   K R E I H I T
+   A C T A L D T
+   T M R L O T V
+   N T E
+This doesn't make any sense, so he tries rows of eight letters instead:
+
+   M E T O W T E I
+   O E N H C E W M
+   G N E E E K R E
+   I H I T A C T A
+   L D T T M R L O
+   T V N T E
+This doesn't work either, though he does notice that by reading diagonally he can pick out words like "THE", which gives him a hint that he should try rows of nine letters:
+
+   M E T O W T E I O
+   E N H C E W M G N
+   E E E K R E I H I
+   T A C T A L D T T
+   M R L O T V N T E
+This is the same result as Bob gets, and Holmes can now read the message down by columns just as Bob does.
+
+There are ways to complicate the transposition. For example, Alice read off the transposition using top-to-bottom or "down" order. Reading it off in "up" order wouldn't complicate matters very much for Holmes, since he reads in different directions while he is trying to sort out a transposition and he would spot the same text, just written backwards.
+
+But Alice could give Holmes a bigger headache by reading off columns in an alternating "down" and "up" fashion, or by reading off the transposition in a "spiral" pattern -- "down" on the left side, "right" across the bottom, "up" on the right side, "left" across the top to the second-to-left column, "down" again, and so on until all letters were transposed. Even more sophisticated transpositions use a "checkerboard" pattern. One scheme is a "knight's tour", a grid of numbers that specify the sequence of movements of a chess knight across the grid:
+
+    1   4  53  18  55   6  43  20
+   52  17   2   5  38  19  56   7
+    3  64  15  54  31  42  21  44
+   16  51  28  39  34  37   8  57
+   63  14  35  32  41  30  45  22
+   50  27  40  29  36  33  58   9
+   13  62  25  48  11  60  23  46
+   26  49  12  61  24  47  10  59
+The letters of the message to be transposed are plugged into the checkerboard in numeric order of locations. Many different knight's tours can be devised, and other algorithms can be used to generate the checkerboard numeric sequence. Incidentally, transpositions that are performed by tracing a path or "route" through a geometric figure made of the plaintext are known as "route transposition ciphers" or just "route ciphers". The geometric figure is often a rectangle, but it may also be in the form of a triangle or some other figure.
+
+* A key can be used in transpositions. For example, Alice and Bob could agree on the keyword KANGAROO. To transpose her message, Alice would begin by searching "A", the first letter in the alphabet, for its position in KANGAROO, and mark that position with a "1":
+
+   K A N G A R O O
+     1
+Since there's a second "A" in the key, she marks the second "A" with a "2":
+
+   K A N G A R O O
+     1   2
+Next, she scans through for "B", "C", "D", and so on, until she hits "G", and marks that as "3":
+
+   K A N G A R O O
+     1   3 2
+Now she scans for "H", "I", and then "K", which she marks as "4"
+
+   K A N G A R O O
+   4 1   3 2      
+Alice continues the scan through the alphabet until she has marked all the letters as follows:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+Now let's suppose that Alice wants to use this key to transpose the following plaintext:
+
+   So long and thanks for all the fish!
+She writes out the plaintext beneath the key as follows, padding out with additional letters to ensure the grid comes out square:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+   _______________
+
+   s o l o n g a n
+   d t h a n k s f
+   o r a l l t h e
+   f i s h n u l l
+-- and "rotates" the grid of letters so that columns become rows:
+
+   K4:  sdof
+   A1:  otri
+   N5:  lhas
+   G3:  oalh
+   A2:  nnln
+   R8:  gktu
+   O6:  ashl
+   O7:  nfel
+Next, she rearranges the rows by numerical order:
+
+   A1:  otri
+   A2:  nnln
+   G3:  oalh
+   K4:  sdof
+   N5:  lhas
+   O6:  ashl
+   O7:  nfel
+   R8:  gktu
+-- and finally concatenates the rows to get the transposed text:
+
+   otri  nnln  oalh  sdof  lhas  ashl  nfel  gktu
+   OTRINNLNOALHSDOFLHASASHLNFELGKTU
+Decrypting this message is straightforward, with the procedure performed in reverse. Bob knows the keyword KANGAROO has eight letters and that the message is 32 letters long, so he breaks it into eight strings of four letters; places each string in a row; numbers the strings; associates the numbers with the proper letter of KANGAROO; shuffles the rows around into the proper keyword order; and then reads the message down by columns.
+
+* Alice could also perform a more devious form of transposition, by also using the key letter numbers to determine how many letters of the plaintext should be written. For example, using the same keyword:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+-- and plaintext:
+
+   So long and thanks for all the fish!
+-- as above, we begin by removing the spaces from the plaintext:
+
+   solongandthanksforallthefish
+To perform the transposition, we first find the letter marked "1" in the keyword KANGAROO, which is the first "A" in the keyword:
+
+   K A
+   4 1
+This gives two letters, so we write out the first two letters of the plaintext:
+
+   s o
+Next, we find the letter marked "2" in the keyword, which is the second "A":
+
+   K A N G A
+   4 1 5 3 2 
+This gives five letters, so we write out the next five letters of the plaintext:
+
+   l o n g a
+Now we find the letter marked "3" in the keyword, which is the "G":
+
+   K A N G
+   4 1 5 3
+This gives four letters, so we write out the next four letters of the plaintext:
+
+   n d t h
+This scheme is repeated for the entire keyword, or in summary:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+   _______________
+
+   s o                  <- write out to "A1".
+   l o n g a            <- write out to "A2".
+   n d t h              <- write out to "G3".
+   a                    <- write out to "K4".
+   n k s                <- write out to "N5".
+   f o r a l l t        <- write out to "O6".
+   t h e f i s h n      <- write out to "O7".
+   u l l p a d          <- write out to "R8".
+The letters are read down by column:
+
+    slnanftu  oodkohl  ntsrel  ghafp  alia  lsd  th  n
+    SLNANFTUOODKOHLNTSRELGHAFPALIALSDTHN
+This is harder for Bob to decrypt, but anyone who doesn't have the key will have a real headache. Transpositions and substitutions are often used together to provide additional security. Another way to improve the security of a transposition is to perform two consecutive transpositions on the same plaintext.
+
+The idea of such a "polyalphabetic substitution cipher" was refined for over a century, until a French diplomat named Blaise de Vigenere turned it into the simple and elegant cipher scheme that bears his name. A Vigenere cipher uses 26 substitution ciphers, organized using a "Vigenere square" as shown below, with some spacing added to make it legible:
+
+        a bcd efgh ijk lmno pqr stuv wyxz
+
+   01:  A BCD EFGH IJK LMNO PQR STUV WXYZ
+   02:  B CDE FGHI JKL MNOP QRS TUVW XYZA
+   03:  C DEF GHIJ KLM NOPQ RST UVWX YZAB
+   04:  D EFG HIJK LMN OPQR STU VWXY ZABC
+   05:  E FGH IJKL MNO PQRS TUV WXYZ ABCD
+   06:  F GHI JKLM NOP QRST UVW XYZA BCDE
+   07:  G HIJ KLMN OPQ RSTU VWX YZAB CDEF
+   08:  H IJK LMNO PQR STUV WXY ZABC DEFG
+   09:  I JKL MNOP QRS TUVW XYZ ABCD EFGH
+   10:  J KLM NOPQ RST UVWX YZA BCDE FGHI
+   11:  K LMN OPQR STU VWXY ZAB CDEF GHIJ
+   12:  L MNO PQRS TUV WXYZ ABC DEFG HIJK
+   13:  M NOP QRST UVW XYZA BCD EFGH IJKL
+   14:  N OPQ RSTU VWX YZAB CDE FGHI JKLM
+   15:  O PQR STUV WXY ZABC DEF GHIJ KLMN
+   16:  P QRS TUVW XYZ ABCD EFG HIJK LMNO
+   17:  Q RST UVWX YZA BCDE FGH IJKL MNOP
+   18:  R STU VWXY ZAB CDEF GHI JKLM NOPQ
+   19:  S TUV WXYZ ABC DEFG HIJ KLMN OPQR
+   20:  T UVW XYZA BCD EFGH IJK LMNO PQRS
+   21:  U VWX YZAB CDE FGHI JKL MNOP QRST
+   22:  V WXY ZABC DEF GHIJ KLM NOPQ RSTU
+   23:  W XYZ ABCD EFG HIJK LMN OPQR STUV
+   24:  X YZA BCDE FGH IJKL MNO PQRS TUVW
+   25:  Y ZAB CDEF GHI JKLM NOP QRST UVWX
+   26:  Z ABC DEFG HIJ KLMN OPQ RSTU VWXY
+
+        a bcd efgh ijk lmno pqr stuv wyxz
+This defines 26 different Caesar shift ciphers, each of which is weak in itself but which in combination result in a much more secure cipher. 26 different mixed instead of shifted cipher alphabets could also be used to improve security, but for simplicity we'll assume Caesar shift ciphers here.
+
+The idea in the Vigenere cipher is to use a cipher key to select different cipher alphabets in succession as letters are enciphered. Suppose Alice wants to encipher the phrase:
+
+   use the force luke
+-- with a Vigenere cipher, using the cipher keyword "WARTHOG". All she has to do is scan down the square defined above and look for the cipher alphabet starting with "W", which is be number 23 in the list. In this cipher alphabet, the letter "u" is enciphered as "Q".
+
+Next, she looks for the row starting with "A", which is number 01 in the list. This cipher alphabet is the same as the plaintext alphabet, so "s" remains "S". Enciphering the entire message in this way:
+
+   W: cipher alphabet 23 gives  u -> Q
+   A: cipher alphabet 01 gives  s -> S
+   R: cipher alphabet 18 gives  e -> V
+   T: cipher alphabet 20 gives  t -> M
+   H: cipher alphabet 08 gives  h -> O
+   O: cipher alphabet 15 gives  e -> S
+   G: cipher alphabet 07 gives  f -> L
+   W: cipher alphabet 23 gives  o -> K
+   A: cipher alphabet 01 gives  r -> R
+   R: cipher alphabet 18 gives  c -> T
+   T: cipher alphabet 20 gives  e -> X
+   H: cipher alphabet 08 gives  l -> S
+   O: cipher alphabet 15 gives  u -> I
+   G: cipher alphabet 07 gives  k -> Q
+   W: cipher alphabet 23 gives  e -> A
+-- gives:
+
+   QSV MOS LKRTX SIQA
+Simple frequency analysis cannot crack a Vigenere cipher, and the number of possible keys is so great that finding the right key by trial-and-error is effectively impossible.
+
+
+http://www.math.cornell.edu/~mec/2003-2004/cryptography/diffiehellman/diffiehellman.html
+
+Alice and Bob agree, publicly, on a prime number P, and a base number N. Eve will know these two numbers, and it won't matter!
+
+Alice chooses a number A, which we'll call her "secret exponent." She keeps A secret from everyone, including Bob. Bob, likewise, chooses his "secret exponent" B, which he keeps secret from everyone, including Alice (for subtle reasons, both A and B should be relatively prime to N; that is, A should have no common factors with N, and neither should B).
+
+Then, Alice computes the number
+J = NA (mod P)
+
+and sends J to Bob. Similarly, Bob computes the number
+
+K = NB (mod P)
+
+and sends K to Alice. Note that Eve now has both J and K in her possession.
+
+The final mathematical trick is that Alice now takes K, the number she got from Bob, and computes
+KA(mod P).
+Bob does the same step in his own way, computing
+
+JB (mod P).
+The number they get is the same! Why is this so? Well, remember that K = NB (mod P) and Alice computed KA (mod P) = (NB)A (mod P) = NBA (mod P). Also, Bob used J = NA (mod P), and computed JB (mod P) = (NA)B (mod P) = NAB (mod P).
+
+Thus, without ever knowing Bob's secret exponent, B, Alice was able to compute NAB (mod P). With this number as a key, Alice and Bob can now start communicating privately using some other cipher.
+
+
+Why Diffie-Hellman Works
+
+At this point, you may be asking, "Why can't Eve break this?" This is indeed, a good question. Eve knows N, P, J, and K. Why can't she find A, B, or, most importantly, NAB(mod P)? Isn't there some sort of inverse process by which Eve can recover A from NA(mod P)?
+
+Well, the thing Eve would most like to do, that is, take the logarithm (base N) of J, to get A, is confounded by the fact that Alice and Bob have done all of their math modulo P. The problem of finding A, given N, P, and NA (mod P) is called the discrete logarithm problem. As of now, there is no fast way known to do this, especially as P gets really large. One way for Eve to solve this is to make a table of all of the powers of N modulo P. However, Eve's table will have (P-1) entries in it. Thus, if P is enormous (say 100 digits long), the table Eve would have to make would have more entries in it than the number of atoms in the universe! Simply storing that table would be impossible, not to mention searching through it to find a particular number. Thus, if P is sufficiently large, Eve doesn't have a good way to recover Alice and Bob's secret.
+
+"That's fine," you counter, "but if P is so huge, how in the world are Alice and Bob going to compute powers of numbers that big?" This is, again, a valid question. Certainly, raising a 100-digit-long number to the power 138239, for example, will produce a ridiculously large number. This is true, but since Alice and Bob are working modulo P, there is a shortcut called the repeated squaring method.
+
+To illustrate the method, we'll use small numbers (it works the same for larger numbers, but it requires more paper to print!). Say we want to compute 729 (mod 17). It's actually possible to do this on a simple four-function calculator. Certainly, 729 is too large for the calculator to handle by itself, so we need to break the problem down into more manageable chunks. First, break the exponent (29) into a sum of powers of two. That is,
+
+29 = 16 + 8 + 4 + 1 = 24 + 23 + 22 + 20
+(all we're doing here is writing 29 in binary: 11101). Now, make a list of the repeated squares of the base (7) modulo 17:
+
+71 (mod 17) = 7
+72 (mod 17) = 49 (mod 17) = 15
+74 (mod 17) = 72 * 72 (mod 17) = 15 * 15 (mod 17) = 4
+78 (mod 17) = 74 * 74 (mod 17) = 4*4 (mod 17) = 16
+716 (mod 17) = 78 * 78 (mod 17) = 16*16 (mod 17) = 1
+
+Then, 729 (mod 17) = 716 * 78 * 74 * 71 (mod 17) = 1 * 16 * 4 * 7 (mod 17) = 448 (mod 17) = 6.
+
+The neat thing is that the numbers in this whole process never got bigger than 162 = 256 (except for the last step; if those numbers get too big, you can reduce mod 17 again before multiplying). Thus, even though P may be huge, Alice's and Bob's computers don't need to deal with numbers bigger than (P-1)2 at any point.
+
+Key Exchange Worksheet
+
+Here's a worksheet to try this whole process out on. It may help to work with a few friends!
+
+http://math.uchicago.edu/~mann/encryption.pdf
+
+Note something odd. It is easy to multiply primes together. But there is no easy way to take
+the product and reduce it back to its original primes. In crypto jargon, this is a \trapdoor": a
+function that lets you go one way easily, but not the other. Such one-way functions, of which
+this is perhaps the simplest example, are at the bottom of all public-key encryption. They make
+asymmetric ciphers possible.
+
+back to the original website:
+http://www.vectorsite.net/ttcode_09.html
+
+The next issue is the length of the mask sequence, which should be very long. The brute-force way would be to make the wheels as large as possible, but even wheels with hundreds of positions wouldn't be long enough. Hitt came up with a better approach. Suppose we have one wheel with five positions that generates the following binary sequence:
+
+   W1:  10010
+-- and a second wheel with seven positions that generates another binary sequence:
+
+   W2:  1100101
+These are unrealistically small wheels, but they are convenient as examples. Now suppose the two wheels are rotating in parallel. Then the sequence defined by the two wheels won't repeat until after 5 * 7 = 35 rotations. The following example illustrates, with the bit sequences broken up in groups of five bits with spaces to make it easier to read:
+
+   W1:  10010 10010 10010 10010 10010 10010 10010  10010 10010 ...
+   W2:  11001 01110 01011 10010 11100 10111 00101  11001 01110 ...
+By extension, if there are five wheels, each with a different prime number of positions, then the sequence won't repeat until after a number of rotations equal to the product of all five of those prime numbers multiplied together. So if the number of positions on the five wheels were 5, 7, 13, 17, and 23, then the length of the sequence would be:
+
+   5 * 7 * 13 * 17 * 23 = 177,906
+This is still much too short. Of course, wheels with larger primes, such as 43 or 51 could be used, but Hitt extended the concept to greatly multiply the length of the sequence. He used two wheels connected in series for each bit:
+
+multiplying streams by chaining wheels 
+This scheme effectively XORed the two sequences together, and if they were different prime values, the length of the two sequences would the multiple of the prime values. Using the five-position and seven-position wheels described above but operating in series, not parallel, gives:
+
+        10010 10010 10010 10010 10010 10010 10010  10010 10010 ...
+        11001 01110 01011 10010 11100 10111 00101  11001 01110 ...
+        ______________________________________________________
+
+        01011 11100 11001 00000 01110 00101 10111  01011 11100 ...
+This meant that the length of the sequence was not only equal to the product of the number of positions on all ten wheels, but also lengthened the sequence for each of the five bits, making the sequence harder to predict. Incidentally, the number of positions on the wheels doesn't actually have to be a prime number: the only important requirement is that they have as few common factors as possible. So, we could imagine a possible random-sequence generator featuring ten wheels with values marked as below:
+
+
+
+
+
+

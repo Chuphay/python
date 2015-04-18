@@ -1,0 +1,421 @@
+< PREV | NEXT > | INDEX | SITEMAP | GOOGLE | LINKS | UPDATES | BLOG | EMAIL | HOME
+[1.0] Introduction To Codes, Ciphers, & Codebreaking
+
+v2.3.1 / chapter 1 of 13 / 01 nov 12 / greg goebel / public domain 
+* This chapter outlines the basic concepts, elementary terminology, and origins of codes, ciphers, and codebreaking.
+
+[1.1] BASIC CONCEPTS
+[1.2] SIMPLE SUBSTITUTION CIPHERS
+[1.3] SIMPLE TRANSPOSITIONS
+[1.4] FREQUENCY ANALYSIS AGAINST CIPHERS
+[1.5] CRACKING CODES / CODES VERSUS CIPHERS
+[1.1] BASIC CONCEPTS
+
+* The oldest means of sending secret messages is to simply conceal them by one trick or another. The ancient Greek historian Herodotus wrote that when the Persian Emperor Xerxes moved to attack Greece in 480 BCE, the Greeks were warned by an Greek named Demaratus who was living in exile in Persia. In those days, wooden tablets covered with wax were used for writing. Demaratus wrote a message on the wooden tablet itself and then covered it with wax, allowing the vital information to be smuggled out of the country.
+
+The science of sending concealed messages is known as "steganography", Greek for "concealed writing". Other classical techniques for smuggling a message included tattooing it on the scalp of a messenger, letting his hair grow back, and then sending him on a journey. At the other end, the recipient shaved the messenger's hair off and read the message.
+
+Steganography has a long history, leading to inventions such as invisible ink and "microdots", or highly miniaturized microfilm images that could be hidden almost anywhere. Microdots are a common feature in old spy movies and TV shows. However, steganography is not very secure by itself. If someone finds the hidden message, all its secrets are revealed. That led to the idea of obscuring the message so that it could not be read even if it were intercepted, and the result was "cryptography", Greek for "hidden writing". The result was the development of "codes", or secret languages, and "ciphers", or scrambled messages.
+
+* The distinction between codes and ciphers is commonly misunderstood. A "code" is essentially a secret language invented to conceal the meaning of a message. The simplest form of a code is the "jargon code", in which a particular arbitrary phrase, for an arbitrary example:
+
+   The nightingale sings at dawn.
+-- corresponds to a particular predefined message that may not, in fact shouldn't have, anything to do with the jargon code phrase. The actual meaning of this might be:
+
+   The supply drop will take place at 0100 hours tomorrow.
+Jargon codes have been used for a long time, most significantly in World War II, when they were used to send commands over broadcast radio to resistance fighters. However, from a cryptographic point of view they're not very interesting. A proper code would run something like this:
+
+   BOXER SEVEN SEEK TIGER5 AT RED CORAL
+This uses "codewords" to report that a friendly military force codenamed BOXER SEVEN is now hunting an enemy force codenamed TIGER5 at a location codenamed RED CORAL. This particular code is weak in that the "SEEK" and "AT" words provide information to a codebreaker on the structure of the message. In practice, military codes are often defined as "codenumbers" rather than codewords, using a codebook that provides a dictionary of code numbers and their equivalent words. For example, this message might be coded as:
+
+   85772 24799 10090 59980 12487
+-- where "85772" maps to BOXER SEVEN, "12487" maps to "RED CORAL", and so on. Codewords and codenumbers are referred to collectively as "codegroups". The words they represent are referred to as "plaintext" or, more infrequently, "cleartext", "plaincode", or "placode".
+
+Codes are unsurprisingly defined by "codebooks", which are dictionaries of codegroups listed with their corresponding plaintext. Codes originally had the codegroups in the same order as their plaintext. For example, in a code based on codenumbers, a word starting with "a" would have a low-value codenumber, while one starting with "z" would have a high-value codenumber. This meant that the same codebook could be used to "encode" a plaintext message into a coded message or "codetext", and "decode" a codetext back into plaintext message.
+
+However, such "one-part" codes had a certain predictability that made it easier for outsiders to figure out the pattern and "crack" or "break" the message, revealing its secrets. In order to make life more difficult for codebreakers, codemakers then designed codes where there was no predictable relationship between the order of the codegroups and the order of the matching plaintext. This meant that two codebooks were required, one to look up plaintext to find codegroups for encoding, the other to look up codegroups to find plaintext for decoding. This was in much the same way that a student of a foreign language, say French, needs an English-French and a French-English dictionary to translate back and forth between the two languages. Such "two-part" codes required more effort to implement and use, but they were harder to break.
+
+* In contrast to a code, a "cipher" conceals a plaintext message by replacing or scrambling its letters. This process is known as "enciphering" and results in a "ciphertext" message. Converting a ciphertext message back to a plaintext message is known as "deciphering". Coded messages are often enciphered to improve their security, a process known as "superencipherment".
+
+There are two classes of ciphers. A "substitution cipher" changes the letters in a message to another set of letters, or "cipher alphabet", while a "transposition cipher" shuffles the letters around. In some usages, the term "cipher" always means "substitution cipher", while "transpositions" are not referred to as ciphers at all. In this document, the term "cipher" will mean both substitution ciphers and transposition ciphers. It is useful to refer to them together, since the two approaches are often combined in the same cipher scheme. However, transposition ciphers will be referred to in specific as "transpositions" for simplicity.
+
+"Encryption" covers both encoding and enciphering, while "decryption" covers both decoding and deciphering. This should also imply the term "cryptotext" to cover both codetext and ciphertext, but this term doesn't seem to be in use, although the term "encicode" is sometimes seen. The science of creating codes and ciphers is known, as mentioned, as "cryptography", while the science of breaking them is known as "cryptanalysis". Together, the two fields make up the science of "cryptology".
+
+Despite the fact that the term "code" is misleading, for the sake of readability this document will retain the use of general terms like "codebreaker", "code bureau", "code expert", and "army codes", instead of continually belaboring the distinction between codes and ciphers. As long as the distinction between "code" and "cipher" is clearly understood, this usage should cause no difficulty. By the way, in cryptographic examples, cryptographers like to use the fictional characters "Alice" and "Bob", with Alice writing encrypted messages and Bob decrypting them. This convention will be followed in this document, along with the less conventional use of "Holmes" as a fictional codebreaker.
+
+BACK_TO_TOP
+[1.2] SIMPLE SUBSTITUTION CIPHERS
+
+* A simple substitution cipher in which the same cipher letter is always exchanged for the same plaintext letter is known as a "monoalphabetic substitution cipher". For example, we could define a cipher alphabet as follows:
+
+   plaintext alphabet:   abcdefghijklmnopqrstuvwxyz
+   ciphertext alphabet:  TDNUCBZROHLGYVFPWIXSEKAMQJ
+Given the plaintext:
+
+   erase the tapes
+-- and the cipher alphabet above, we get:
+
+   CITXC SRC STPCX
+Note that in this example plaintext is printed in lowercase, while ciphertext is printed in uppercase. This convention will be followed in the rest of this document.
+
+Monoalphabetic substitution ciphers go back to at least the fourth century BCE. The Hindu text for the instruction of women known as the KAMA-SUTRA written at the time describes ciphers as one of the 64 arts that a woman should know, for arranging discreet meetings with a lover. Use of ciphers for military purposes goes back at least to Julius Caesar, who was skilled in their use. One of the simplest monoalphabetic substitution ciphers, known as a "Caesar shift", involves shifting letters by a number of positions, say three:
+
+   plaintext alphabet:  abcdefghijklmnopqrstuvwxyz
+   cipher alphabet:     XYZABCDEFGHIJKLMNOPQRSTUVW
+Using this cipher alphabet, Alice can convert the plaintext:
+
+   beware the ides of march
+-- into the ciphertext:
+
+   YBTXOB QEB FABP LC JXOZE
+This can be made even more cryptic by removing the spaces:
+
+   YBTXOBQEBFABPLCJXOZE
+-- and it still remains more or less readable when translated back to plaintext:
+
+   bewaretheidesofmarch
+With 26 letters in the English alphabet, there are of course 25 different possible Caesar shift cipher alphabets. All Bob needs to read the cipher is a number from 1 to 25 to define the shift. This number can be thought of as a "key" associated with the Caesar shift enciphering "algorithm".
+
+A Caesar shift cipher is ridiculously easy to crack. All Holmes has to do is try all 25 Caesar shift cipher alphabets until one works. Interestingly, however, it is still in use, in the form of the "rot13" scheme used on Internet forums. This is a simple 13-place Caesar-shift cipher implemented by the forum reader software, with the user performing encryption and decryption with the press of a button. Since anyone could crack a Caesar shift cipher, this scheme is not used for security. It is often used as a means of posting dirty jokes or similar materials that could cause offense, prefaced with a plaintext disclaimer stating that the contents may be offensive. It is also sometimes used to conceal punchlines and the answers to puzzles and riddles so the reader will not see the answer immediately.
+
+* A more secure way to build a substitution cipher is to completely mix up the mappings between the plaintext and ciphertext alphabets. The number of possible ways to rearrange the 26 letters of the alphabet is:
+
+   26 * 25 * 24 * ... * 2 * 1  =  26!  =  4.03E26
+That is, there are 26 possibilities for the selection of the first letter, and for each of these 26 possibilities there are 25 possibilities for the second letter, then 24 possibilities for the third, and so on in an expanding tree of possibilities. If you're not familiar with a term of the form "26!", it just means 26 multiplied times all the integer numbers less than it down to one, and is called a "factorial".
+
+This gives the number of possible scramblings, but it also includes a large number of scramblings that are much too easy to read, such as those where only two letters are swapped, four letters are swapped, and so on. The number of substitution ciphers where no letter remains the same is much smaller. Suppose we select 13 letters from the alphabet and then swap them with the remaining 13, guaranteeing that no letter remains the same. The number of possible selections of 13 items from a set of 26 is:
+
+   26 * 25 * 24 * ... * 14  =  6.23E9
+The number of possible rearrangements of the 13 remaining letters to be paired with each set of 13 selected letters is 13!, which would suggest that the total ends up being the same as before -- but the total of the sets of pairings also include those where the pairings are the same, just rearranged in their order. There are 13! possible ways to arrange the same set of 13 letter pairs, so that factor cancels out. In addition, for every set of letter pairs, there is a mirror set of letter pairs -- for example, A with Z versus Z with A -- that ends up being the same set of substitutions, meaning the total number is cut in half, and so the actual number is 6.23E9 / 2 = 3.11E9. This is still a large number of possible monoalphabetic substitution cipher alphabets. That means that if such a "mixed cipher alphabet" is used, cracking it with a brute-force attack is laborious.
+
+One way to come up with a mixed cipher alphabet is for Alice to take a key phrase consisting of, say, a name, such as RICHARD MILHAUS NIXON, write it down while eliminating any redundant letters, and then complete the cipher by writing down the remaining letters of the alphabet in alphabetical order:
+
+   plaintext alphabet:  abcdefghijklmnopqrstuvwxyz
+   cipher alphabet:     RICHADMLUSNXOBEFGJKPQTVWYZ
+This is a simple cipher algorithm, but even if a codebreaker knows that this general scheme was used, the message still cannot be read without knowing the key, and a brute-force approach to cracking it is very difficult. This is a fundamental principle of cryptography, stated by a 19th-century Dutch linguist & cryptographer, Auguste Kerckhoffs von Niewenhof (1835:1903), and known as "Kerckhoffs' Principle": The security of a cipher should not depend on an enemy's ignorance of the enciphering algorithm, only the enemy's ignorance of the key. In fact, codebreaking is often focused on discovering keys, since the cipher scheme may be well understood.
+
+BACK_TO_TOP
+[1.3] SIMPLE TRANSPOSITIONS
+
+* For an example of a transposition, suppose Alice wants to send Bob the message:
+
+   meet me near the clock tower at twelve midnight tonite
+One way to transpose this message is for Alice to "write in" the words vertically in five rows without any spaces as follows:
+
+   m e e t m
+   e n e a r 
+   t h e c l 
+   o c k t o
+   w e r a t 
+   t w e l v 
+   e m i d n 
+   i g h t t 
+   o n i t e 
+-- and then "read off" each column, top to bottom, as follows:
+
+   metowteio  enhcewmgn  eeekreihi  tactaldtt  mrlotvnte
+   METOWTEIOENHCEWMGNEEEKREIHITACTALDTTMRLOTVNTE
+Bob then "writes in" the message in five parts:
+
+   M E T O W T E I O
+   E N H C E W M G N
+   E E E K R E I H I
+   T A C T A L D T T
+   M R L O T V N T E
+-- and then "reads off" the message from the columns:
+
+   MEETM ENEAR THECL OCKTO WERAT TWELV EMIDN IGHTT ONITE
+   MEETMENEARTHECLOCKTOWERATTWELVEMIDNIGHTTONITE
+   meet me near the clock tower at twelve midnight tonite
+The ancient Spartans used a form of transposition cipher, in which a strip of parchment was wound in a spiral around a wooden cylinder known as a "scytale", and a message was written down the length of the cylinder. The strip was unwound, sent to the recipient, and then wound around a scytale of the same diameter to be read.
+
+* A transposition of the form shown above is extremely easy to crack. Holmes just writes down the letters of the transposition in rows, increasing the length of the rows until he sees something that makes sense. For example, Holmes could take the transposition given above:
+
+   METOWTEIOENHCEWMGNEEEKREIHITACTALDTTMRLOTVNTE
+-- and chop it into rows that are, say, seven letters long:
+
+   M E T O W T E
+   I O E N H C E
+   W M G N E E E
+   K R E I H I T
+   A C T A L D T
+   T M R L O T V
+   N T E
+This doesn't make any sense, so he tries rows of eight letters instead:
+
+   M E T O W T E I
+   O E N H C E W M
+   G N E E E K R E
+   I H I T A C T A
+   L D T T M R L O
+   T V N T E
+This doesn't work either, though he does notice that by reading diagonally he can pick out words like "THE", which gives him a hint that he should try rows of nine letters:
+
+   M E T O W T E I O
+   E N H C E W M G N
+   E E E K R E I H I
+   T A C T A L D T T
+   M R L O T V N T E
+This is the same result as Bob gets, and Holmes can now read the message down by columns just as Bob does.
+
+There are ways to complicate the transposition. For example, Alice read off the transposition using top-to-bottom or "down" order. Reading it off in "up" order wouldn't complicate matters very much for Holmes, since he reads in different directions while he is trying to sort out a transposition and he would spot the same text, just written backwards.
+
+But Alice could give Holmes a bigger headache by reading off columns in an alternating "down" and "up" fashion, or by reading off the transposition in a "spiral" pattern -- "down" on the left side, "right" across the bottom, "up" on the right side, "left" across the top to the second-to-left column, "down" again, and so on until all letters were transposed. Even more sophisticated transpositions use a "checkerboard" pattern. One scheme is a "knight's tour", a grid of numbers that specify the sequence of movements of a chess knight across the grid:
+
+    1   4  53  18  55   6  43  20
+   52  17   2   5  38  19  56   7
+    3  64  15  54  31  42  21  44
+   16  51  28  39  34  37   8  57
+   63  14  35  32  41  30  45  22
+   50  27  40  29  36  33  58   9
+   13  62  25  48  11  60  23  46
+   26  49  12  61  24  47  10  59
+The letters of the message to be transposed are plugged into the checkerboard in numeric order of locations. Many different knight's tours can be devised, and other algorithms can be used to generate the checkerboard numeric sequence. Incidentally, transpositions that are performed by tracing a path or "route" through a geometric figure made of the plaintext are known as "route transposition ciphers" or just "route ciphers". The geometric figure is often a rectangle, but it may also be in the form of a triangle or some other figure.
+
+* A key can be used in transpositions. For example, Alice and Bob could agree on the keyword KANGAROO. To transpose her message, Alice would begin by searching "A", the first letter in the alphabet, for its position in KANGAROO, and mark that position with a "1":
+
+   K A N G A R O O
+     1
+Since there's a second "A" in the key, she marks the second "A" with a "2":
+
+   K A N G A R O O
+     1   2
+Next, she scans through for "B", "C", "D", and so on, until she hits "G", and marks that as "3":
+
+   K A N G A R O O
+     1   3 2
+Now she scans for "H", "I", and then "K", which she marks as "4"
+
+   K A N G A R O O
+   4 1   3 2      
+Alice continues the scan through the alphabet until she has marked all the letters as follows:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+Now let's suppose that Alice wants to use this key to transpose the following plaintext:
+
+   So long and thanks for all the fish!
+She writes out the plaintext beneath the key as follows, padding out with additional letters to ensure the grid comes out square:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+   _______________
+
+   s o l o n g a n
+   d t h a n k s f
+   o r a l l t h e
+   f i s h n u l l
+-- and "rotates" the grid of letters so that columns become rows:
+
+   K4:  sdof
+   A1:  otri
+   N5:  lhas
+   G3:  oalh
+   A2:  nnln
+   R8:  gktu
+   O6:  ashl
+   O7:  nfel
+Next, she rearranges the rows by numerical order:
+
+   A1:  otri
+   A2:  nnln
+   G3:  oalh
+   K4:  sdof
+   N5:  lhas
+   O6:  ashl
+   O7:  nfel
+   R8:  gktu
+-- and finally concatenates the rows to get the transposed text:
+
+   otri  nnln  oalh  sdof  lhas  ashl  nfel  gktu
+   OTRINNLNOALHSDOFLHASASHLNFELGKTU
+Decrypting this message is straightforward, with the procedure performed in reverse. Bob knows the keyword KANGAROO has eight letters and that the message is 32 letters long, so he breaks it into eight strings of four letters; places each string in a row; numbers the strings; associates the numbers with the proper letter of KANGAROO; shuffles the rows around into the proper keyword order; and then reads the message down by columns.
+
+* Alice could also perform a more devious form of transposition, by also using the key letter numbers to determine how many letters of the plaintext should be written. For example, using the same keyword:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+-- and plaintext:
+
+   So long and thanks for all the fish!
+-- as above, we begin by removing the spaces from the plaintext:
+
+   solongandthanksforallthefish
+To perform the transposition, we first find the letter marked "1" in the keyword KANGAROO, which is the first "A" in the keyword:
+
+   K A
+   4 1
+This gives two letters, so we write out the first two letters of the plaintext:
+
+   s o
+Next, we find the letter marked "2" in the keyword, which is the second "A":
+
+   K A N G A
+   4 1 5 3 2 
+This gives five letters, so we write out the next five letters of the plaintext:
+
+   l o n g a
+Now we find the letter marked "3" in the keyword, which is the "G":
+
+   K A N G
+   4 1 5 3
+This gives four letters, so we write out the next four letters of the plaintext:
+
+   n d t h
+This scheme is repeated for the entire keyword, or in summary:
+
+   K A N G A R O O
+   4 1 5 3 2 8 6 7
+   _______________
+
+   s o                  <- write out to "A1".
+   l o n g a            <- write out to "A2".
+   n d t h              <- write out to "G3".
+   a                    <- write out to "K4".
+   n k s                <- write out to "N5".
+   f o r a l l t        <- write out to "O6".
+   t h e f i s h n      <- write out to "O7".
+   u l l p a d          <- write out to "R8".
+The letters are read down by column:
+
+    slnanftu  oodkohl  ntsrel  ghafp  alia  lsd  th  n
+    SLNANFTUOODKOHLNTSRELGHAFPALIALSDTHN
+This is harder for Bob to decrypt, but anyone who doesn't have the key will have a real headache. Transpositions and substitutions are often used together to provide additional security. Another way to improve the security of a transposition is to perform two consecutive transpositions on the same plaintext.
+
+BACK_TO_TOP
+[1.4] FREQUENCY ANALYSIS AGAINST CIPHERS
+
+* Given the large number of possible monoalphabetic substitution cipher alphabets, it might seem like a substitution cipher would be very hard to break. In reality, it's very easy if given a reasonably large ciphertext message to analyze, but it took over a thousand years to figure out how.
+
+The basic approach for cracking a monoalphabetic substitution cipher was invented by a multi-talented medieval Arabic scholar named al-Kindi, and is now known as "frequency analysis". His work was an outgrowth of efforts by Arabs to perform textual analyses of religious texts to see if they actually were written by the Prophet.
+
+Frequency analysis is a statistical method. In every language, some letters are used on the average more than others, and the percentages of letters in different languages tends to be constant. For example, the "frequencies" of the different letters of the alphabet in English are roughly as follows, arranged from "most frequent" to "least frequent" with their average percentage of use:
+
+   e: 12.7     
+   t:  9.1     
+   a:  8.2      
+   o:  7.5     
+   i:  7.0     
+   n:  6.9
+   s:  6.3   
+   h:  6.1
+   r:  6.0
+   d:  4.2
+   l:  4.0
+   c:  2.8
+   u:  2.8
+   m:  2.4
+   w:  2.4
+   f:  2.2
+   g:  2.0
+   y:  2.0
+   p:  1.9
+   b:  1.5
+   v:  1.0 
+   k:  0.8
+   j:  0.2
+   x:  0.2
+   q:  0.1
+   z:  0.1
+Different samplings of English text will give slight variations in the percentages, since this is just an average. Some text might even wildly deviate from the average. In 1969, a French author named George Perec published wrote a short novel named LA DISPARITION that did not contain the letter "e" in any of the text. This book was actually translated into English under the title A VOID by a British writer, Gilbert Adair, and still did not contain the letter "e". The text is quirky but still readable, as the following excerpt from A VOID shows:
+
+BEGIN QUOTE:
+
+Noon rings out. A wasp, making an ominous sound, a sound akin to a klaxon or a tocsin, flits about. Augustus, who has had a bad night, sits up blinking and purblind. Oh what was that word (is his thought) that ran through my brain all night, that idiotic word that, hard as I'd try to pun it down, was always just an inch or two out of my grasp ....
+
+END QUOTE
+
+This is of course a very extreme case. Different classes of correspondence will tend to have a slightly different set of averages. Military communications, for example, tend to be terse, dropping pronouns like "I" or "me", and also incorporating lots of acronyms, skewing the letter frequencies. In addition, the shorter the text, the more it tends to differ from the averages, as the sample size is small.
+
+Despite these conditions, the general pattern will remain the same for most English text, with "e" at the top of the frequency list, and "q" and "z" at the bottom. Incidentally, this pattern differs significantly from language to language; for example, in German the average frequency of "e" is 19%. Of course, similar average frequency tables can be built up for other languages.
+
+* Now suppose Holmes performs the same analysis on a ciphertext produced by a monoalphabetic substitution cipher, and determines that the cipher letters have a pattern of frequencies as follows:
+
+   O:  9.9     
+   G:  9.3     
+   B:  8.6      
+   I:  7.9     
+   C:  7.6     
+   Y:  7.2
+   W:  7.1
+   A:  6.7
+   V:  6.6   
+   F:  6.2
+   S:  4.3
+   U:  4.3
+   J:  3.3
+   D:  3.1
+   L:  2.5
+   M:  2.6
+   P:  2.2
+   Z:  2.1
+   K:  1.8
+   E:  1.4
+   X:  1.2
+   R:  1.0 
+   T:  0.7
+   H:  0.3
+   Q:  0.1
+   N:  0.1
+The frequency of the cipher letters is obviously the frequency of their plaintext equivalents, and so at first sight it would be logical to believe that the ciphertext "O" at the top of the list corresponds to plaintext "e", while the ciphertext "N" at the bottom of the list corresponds to plaintext "z".
+
+However, this is being simplistic. The average frequencies of letters are just that, averages, and the actual frequencies of letters in any one example of text will vary from that average. The most that can be said is that the most common letters will bubble to the top of the frequency list, while the least common will sink to the bottom. That means that ciphertext "O" might actually correspond to plaintext "e" or "t" or "a", while "N" might correspond to "x" or "q" or "z". Basically, Holmes can do no more with this analysis than obtain general groups of candidate substitutions.
+
+Fortunately, he has only scratched the surface of his bag of tricks of frequency analysis. The next thing he can do is obtain statistics of pairs of letters, or "digraphs", in the ciphertext, and compare them to a table of average frequencies of such digraphs.
+
+A full table of the average frequency distribution of digraphs in English would be too elaborate to include here, but the general idea is straightforward. Suppose Holmes finds that the digraph "OO" is common in his ciphertext. He has reason to believe that "O" might be "e" or "t" or "a", but he also knows that the digraphs "ee" and "tt" are common in English, while "aa" is not, and so "O" very likely is not a substitution for "a".
+
+There are other patterns, sometimes very specific patterns, that occur with digraphs. For example, in English, a "q" is almost always followed by a "u", so if Holmes determines that "H" in his ciphertext actually substitutes for "q", then if he runs across the digraph "HJ", it is likely that "J" substitutes for "u". This is an unusually strict rule for digraphs, but other patterns can be picked out. The digraph "ea" is the most common vowel pair, while "ae" is the least. The three high-frequency vowels "a", "i", and "o" tend to not pair up with each other. With an understanding of such rules, Holmes can gradually track down specific letters hidden in the ciphertext.
+
+He can also obtain statistics on triplets of letters, or "trigraphs", or identify entire words. The most common words in English are:
+
+   the   of   and   to   a   in   that   is   I   it   for   as   with
+* As Holmes expands his analysis of the ciphertext, he focuses less on the mechanical rules of frequency analysis and brings his broader knowledge into play. For example, if he were trying to crack a Nazi cipher, he might know from other messages that have been cracked in the past that it will likely start in plaintext with the salutation: "heil hitler". If the ciphertext began with: "GOSD GSBDOE", then he would immediately have the mappings:
+
+   G: h
+   O: e
+   S: i
+   D: l
+   B: t
+   E: r
+Such predictable phrases in plaintext are known as "cribs". Military correspondence tends to follow standard formats and is often loaded with cribs.
+
+Holmes can also use his knowledge to reconstruct a full word of plaintext if he knows just a few letters and the context of the message. For example, if Holmes has an incomplete word of the form "-u-m-ri-e" and the message was sent from a naval base, he might guess that the full word is "submarine". This is the same skill that is used to solve crossword puzzles, and is known to cryptologists as "anagramming". The usage of the word in cryptology is somewhat different from the popular usage, which refers to a scrambling of the letters of a word into a different word.
+
+* Incidentally, if the frequency analysis of the letters of a ciphertext gives results that don't match the average frequency distribution of letters in English, that may indicate that the plaintext is in some other language.
+
+As the average frequency distributions of letters in different languages is a fairly good "fingerprint" of that language, the frequency distribution of the letters from the ciphertext may be a good clue to what language it is written in. In any case, usually Holmes will have from context some idea of what possible languages the message might be written in -- possibly English, French, or Arabic, but not Dutch or Serbo-Croatian.
+
+If Holmes obtains the frequency distribution of the letters of a ciphertext and finds out it more or less basically maps to that of a normal plaintext message without any substitution, he may wonder why the ciphertext is unreadable, but not for long, since he will quickly realize that a transposition has been performed on the text. Similarly, if Holmes obtains the frequency distribution of the letters of a ciphertext that indicates a substitution cipher on English plaintext, but can't get the mappings to make sense and gets crazy results of frequency analysis of the digraphs from the message, then he will likely conclude that the plaintext has been put through both a substitution and a transposition.
+
+As discussed earlier, a simple transposition can be solved simply by trying various row sizes and arrangements. A knowledge of digraphs and other letter patterns can also be mined for hints. There is a particularly useful scheme known as "multiple anagramming", in which two ciphertexts of transposed text are deciphered in parallel, with each serving as a crosscheck for the other, until they both make sense. Multiple anagramming is described in more detail in a later chapter.
+
+* The invention of frequency analysis demonstrated a truth that would be shown again and again in the history of cryptology. While there are 4.03E26 possible monoalphabetic substitution alphabets, making a brute-force solution very difficult, frequency analysis quickly cracks monoalphabetic substitution ciphers. Cryptographers have often been lulled into a false sense of security by large numbers, only to have cryptanalysts find a short cut and prove that sense of security a delusion.
+
+BACK_TO_TOP
+[1.5] CRACKING CODES / CODES VERSUS CIPHERS
+
+* Solving a monoalphabetic substitution cipher is easy. Solving even a simple code is difficult. Decrypting a coded message is a little like trying to translate a document written in an alien language, with the task basically amounting to building up a "dictionary" of the codegroups and the plaintext words they represent.
+
+One fingerhold on a simple code is the fact, mentioned in the previous section, that some words are more common than others, such as "the" or "a" in English. In telegraphic messages, the codegroup for "STOP" (end of sentence) is usually very common. This helps define the structure of the message in terms of sentences, if not their meaning.
+
+Further progress can be made against a code by collecting many messages encrypted with the same code and then obtaining intelligence background on the messages, such as the location from where a message was sent; where it was being sent to; the time the message was sent; events occurring before and after the message was sent; and the normal habits of the people sending the coded messages. For example, a particular codegroup found almost exclusively in messages from a particular army and nowhere else might very well indicate the commander of that army. A codegroup that appears in messages preceding an attack on a particular location may very well stand for that location.
+
+Of course, cribs are an immediate giveaway to the definitions of codegroups. As codegroups are determined, they gradually build up a critical mass, with more and more codegroups revealed from context and educated guesswork. One-part codes are more vulnerable to such educated guesswork than two-part codes, since if the codenumber "26839" of a one-part code is determined to stand for "bulldozer", then the lower codenumber "17598" must stand for a plaintext word that starts with "a" or "b".
+
+Various tricks can be used by codebreakers to "plant" or "sow" information into coded text, for example by executing a raid at a particular time and location against an enemy, and then examining code messages in response to the raid. Coding errors are a particularly useful fingerhold into a code, and naturally people are bound to make errors, sometimes disastrous ones, sooner or later. Of course, planting information and exploiting errors works against ciphers as well.
+
+* The most obvious and, in principle at least, simplest way of cracking a code is to steal the codebook through bribery, burglary, or raiding parties -- procedures sometimes glorified by the phrase "practical cryptology" -- and this is the weakness of a code. While a good code may be harder to break than a cipher, the need to write and distribute codebooks is troublesome.
+
+Constructing a new code is like building a new language and writing a dictionary for it, which is a big job. If a code is compromised, the whole task has to be done all over again, and that means a lot of work for both cryptographers and the code users. In practice, when codes were in widespread use, they were usually changed on a periodic basis to frustrate codebreakers.
+
+Once codes have been created, their distribution is logistically clumsy, and the probability that the code will be compromised is high. There is a saying that two people can keep a secret if one of them is dead, and though that may be something ofq an exaggeration, a secret becomes harder to keep if it is shared among more people. Codes can be reasonably secure if they are only used between a few people, but if whole armies use the same code keeping them secure becomes that much more difficult.
+
+In contrast, the security of ciphers is, as mentioned earlier, generally dependent on protecting the cipher keys. Cipher keys can be stolen and people can betray them, but they are much easier to change and communicate.
+
+BACK_TO_TOP
+< PREV | NEXT > | INDEX | SITEMAP | GOOGLE | LINKS | UPDATES | BLOG | EMAIL | HOME
+
+
+
+
