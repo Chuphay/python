@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define MAX 4
+#define MAX 16
 
 //gcc make_data.c -lm -o make_data
 
@@ -91,16 +91,20 @@ int main(){
     }
   }
 
-  for(i=0;i<MAX*MAX; i++){
-    for(j =0; j<MAX*MAX; j++){
-      printf("%f ",AdjacencyMatrix[i][j]);
+
+  FILE *a_m = fopen("adjacencyMatrix.data" ,"w");
+
+  for(i = 0; i< MAX*MAX; i++){ 
+    for(j = 0; j< MAX*MAX; j++){
+      fprintf(a_m, "%f ",AdjacencyMatrix[i][j] );
     }
-    printf("\n");
+    fprintf(a_m,"\n");
   }
+  fclose(a_m);
 
-
-
-
+  FILE *coo = fopen("coordinates.data" ,"w");
+  for(i=0; i <2*MAX*MAX; i = i+2) fprintf(coo, "%f %f\n", coordinates[i], coordinates[i+1]);
+  fclose(coo);
 
 
   return 0;
