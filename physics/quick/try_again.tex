@@ -1,5 +1,6 @@
 \documentclass {article}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \begin{document}
 
 \title{How to Structure a LaTeX Document}
@@ -152,10 +153,371 @@ And as mentioned in the section Massive Atom, we have shown how we side-step the
 
 I believe that if you have made it through all of these assumptions, then the rest of the paper will be straight-forward mathematical applications and that I’ve already won if you have made it this far.
 
+
+\section{Section 1}
+
+Postulate 1: We assume that gravity is correctly described by Maxwell's Equations:
+
+$$\nabla \times \vec B  - \partial_t \vec E  = -4 \pi G \vec J ~~~~~~~~ \nabla \times \vec E + \partial_t \vec B = 0    ~~~~~~~~~~~ (1)$$
+
+$$\nabla \cdot \vec E = -4 \pi G \rho ~~~~~~~~~~ \nabla \cdot \vec B = 0   ~~~~~~~~~~~ (2)$$
+
+and, for completeness, the conservation of mass-charge:
+
+$$\nabla \cdot \vec J + \partial_t \rho = 0 ~~~~~~~~~~~ (3)$$
+
+Where we are in units where c = 1. The constant G differs in different systems of units. In SI units, it is equal to $6.674 \times 10^{-11} \frac {N \cdot m^2}{kg^2}$ .
+
+\subsection{Celestial Mechanics}
+
+Skipping this sub-section is totally okay, but for completeness and as a way to introduce some notation, let's actually go ahead and derive that the gravitational field follows the inverse square law. 
+
+For a static mass distribution, we have:
+
+$$\rho = m \delta^3_x  ~~~~~~~~~~~ (4)$$
+
+where I am purposefully being a little bit non-commital about the delta function. In this present paper, it doesn't matter so much, but I think it's best to leave it a little open for future work. With that said, we can still say that outside of some radius R, it looks like a pure delta function... i.e.,
+
+$$\delta^3_x = \delta(\vec x) ~~~ \textrm{if} ~~~ r > R ~~~~~~~~~~~ (5)$$
+
+Hopefully, it is not surprising, that we can then write the "static Gravitational field" like:
+
+$$\vec{E}_I(\vec x) = -G \int \rho(\vec x') \frac {\vec x - \vec x'}{|\vec x - \vec x'|^3} d^3x ~~~~~~~~~~~ (6)$$
+
+This immediately implies (see the text and equations around Jackson 1.14):
+
+$$\nabla \cdot \vec{E}_I = -4 \pi G \rho ~~~~~~~~~~ \nabla \times \vec{E}_I = 0 ~~~~~~~~~~~ (7)$$
+
+Following Berrara [link](http://iopscience.iop.org/article/10.1088/0143-0807/6/4/014/meta) we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
+
+$$\vec V (\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left[a_{lm}(r) \vec Y_{lm}(\theta, \phi) +b_{lm}(r) \hat r \times \vec X_{lm} (\theta, \phi) +c_{lm}(r) \vec X_{lm} (\theta, \phi) \right] ~~~~~~~~~~~ (8)$$
+
+$$g(\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} g_{lm}(r) Y_{lm}(\theta, \phi) ~~~~~~~~~~~ (9)$$
+
+where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm}$ is simply $\hat r Y_{lm}$  and $\vec X_{lm}$ is defined as,
+
+$$\vec X_{lm}(\theta, \phi) = \frac {-i}{\sqrt{l(l+1)}} \vec r \times \left( \nabla Y_{lm}(\theta, \phi) \right) ~~~~~~~~~~~ (10)$$
+
+Using these definitions and after some slightly painful algebra, we can write out the final solution:
+
+$$\vec E_I(\vec x) = \sum_{l,m} \left[ -\frac {4\pi i G }{2l+1} \frac {q_{lm}}{r^{l+2}} \sqrt {l(l+1)} \left(\hat r \times \vec X_{lm} \right)  - \frac {4 \pi G (l+1)}{2l+1} \frac {q_{lm}}{r^{l+2}} \vec Y_{lm} \right] ~~~~~~~~~~~ (11)$$
+
+where
+
+$$q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l \rho (\vec x ) d^3x = \int \rho_{lm} (r) r^{l+2}dr ~~~~~~~~~~~ (12)$$
+
+Clearly then, if
+
+$$\rho = m\delta(\vec x) ~~~~~~~~~~~ (13)$$
+
+We get
+
+$$\vec E_I(\vec x) = - \frac {mG} {r^2}  ~~~~~~~~~~~ \textrm{if} ~~~ r > R ~~~~~~~~~~~ (14)$$
+
+as expected.
+
+\subsection{Precession of the Perihelion of Mercury}
+
+For moving distributions, we need to take into account that a gravitational-magnetic field is introduced via
+
+$$\vec B = \vec \beta \times \vec E ~~~~~~~~~~~ (15)$$
+
+See the text around Jackson 11.150 for more information. 
+
+Using the small-velocity approximation 
+
+$$\vec B \approx \vec v \times \vec E ~~~~~~~~~~~ (16)$$
+
+we can find the same equations as Einstein used to describe the precession of the perihelion of Mercury's orbit. I have worked this out, but apparently I am not the first to do so, please see [link](https://www.researchgate.net/publication/226889193\_Gravitomagnetism\_A\_novel\_explanation\_of\_the\_precession\_of\_planets\_and\_binary\_pulsars) and/or [link](https://arxiv.org/pdf/gr-qc/0311030.pdf) . (I can certainly supply my own derivation of these results, but it might take me a week or two to go back over my own work and make it understandable.)
+
+To be precise, according to Sean M. Carroll's book "An Introduction to General Relativity: Spacetime and Geometry", we can write:
+
+$$\frac 1 2 \left( \frac {dr}{d\lambda} \right)^2 + V(r) = \mathcal{E} ~~~~~~~~ \textrm{(Carrol 5.65)} ~~~~~~~~~~~ (17)$$
+
+where
+
+$$V(r) = \frac 1 2 \epsilon - \epsilon \frac {GM} r + \frac {L^2}{2r^2} - \frac {GML^2}{r^3} ~~~~~~~~ \textrm{(Carrol 5.66)} ~~~~~~~~~~~ (18)$$
+
+According to Carroll: "A similar analysis of orbits in Newtonian gravity would have produced a similar result; the general equation (5.65) would have been the same, but the effective potential (5.66) would not have had the last term. (Note that this equation is not a power series in $1/r$, it is exact.)"
+
+However, in our present theory, not only can we derive the last term (the term proprtional to $1/r^3$), but we see that this is only the low-limit approximation. I am not an experimentalist, but I believe that this would be a ripe area to explore whether this theory can produce results more accurate than General Relativity.
+
+
+\subsection{Solenoidal and Irrotational Form of Maxwell's Equation}
+
+In the first draft of this paper, I didn't include this section because I thought it would be an extra step that was basically unnecessary. While this is true, and all of the results in the rest of the paper can still be derived, it actually tends to make the math a little cleaner to split the Maxwell equations into their Irrotational and Solenoidal forms.
+
+A vector $\vec V$ can be split into a solenoidal vector $\vec V_S$ and an irrotational vector $\vec V_I$:
+
+$$\vec V = \vec V_I + \vec V_S ~~~~~~~~~~~ (19)$$
+
+where
+
+$$\nabla \cdot \vec V_S = 0 ~~~~~ \nabla \times \vec V_I = 0 ~~~~~~~~~~~ (20)$$
+
+Using this notation we can rewrite the Maxwell equations into irrotational equations:
+
+$$\nabla \cdot \vec E_I = -4 \pi G  \rho ~~~~~~~~~~~ (21)$$
+
+$$\nabla \cdot \vec J_I + \partial_t \rho = 0 ~~~~~~~~~~~ (22)$$
+
+$$ \partial_t \vec E_I = 4 \pi G \vec J_I ~~~~~~~~~~~ (23)$$
+
+And solenoidal equations:
+
+$$\nabla \times \vec E_S + \partial_t \vec B_S = 0 ~~~~~~~~~~~ (24)$$
+
+$$\nabla \times \vec B_S - \partial_t \vec E_S =  - 4 \pi G \vec J_S ~~~~~~~~~~~ (25)$$
+
+The thing we really want to say, and I'm not sure if this is an assumption or is just totally obvious, is that, at least when we are in the rest frame of the mass (which is the frame of reference that we will be in for the rest of this paper), these equations de-couple. We have one set of equations that describe the forces due to the mass and another set of equations that describe radiation. We can make this explicit by defining a new current:
+
+$$\vec {J_S'} = - G \vec {J_S} ~~~~~~~~~~~ (26)$$
+
+which changes the inhomogenous Solenoidal equation into:
+
+$$\nabla \times \vec B_S - \partial_t \vec E_S =  4 \pi \vec {J_S'} ~~~~~~~~~~~ (27)$$
+
+but affects none of the other equations at all!
+
+Because this form of the equations is the same as that presented in books on radiation. I will get rid of the prime on the Solenoidal current, and use the following equations as the solenoidal (radiation) Maxwell equations:
+
+$$\nabla \times \vec B_S - \partial_t \vec E_S =  4 \pi \vec J_S ~~~~~~~~~~~ (28)$$
+
+$$\nabla \times \vec E_S + \partial_t \vec B_S = 0 ~~~~~~~~~~~ (29)$$
+
+When this difference in constant impacts the equations that follow, I will note the difference, so please don't think I am trying to pull a fast one here.
+
+\section{Section 2}
+
+This section concerns the two classical test of General Relativity concerning the bending of light around a massive object and the blue-shift of light as it falls down towards a massive object.
+
+Postulate 2: Empty space is filled with a randomly-fluctuating zero-point energy and a massive object absorbs some of this energy, thereby preventing collapse of the mass. I therefore postulate that a massive object induces a “field” (or maybe a momentum-flow is a better way to say it?) in the surrounding space and when a photon travels through this “field,” the momentum of the photon is shifted in an additive and linear manner – in accordance with the following equation: 
+
+$$\Delta \vec p = \int_{path} \vec P ~ dl ~~~~~~~~~~~ (30)$$
+
+where we integrate along the path of the photon and $\vec P$ is defined as
+
+$$\vec P = - \hat r \frac {Gm\hbar}{r^2} ~~~~~~~~~~~ (31)$$
+
+\subsection{Bending of light}
+
+We imagine a photon that emanates from a distant source, passes close by a massive object, then continues beyond the object to an observer. The closest point while passing, i.e., the impact parameter, is at a distance of $b$ from the center of the object. For ease of calculation, we will say that both the point of emanation and the observer are infinitely far from the massive object.
+
 \begin{center}
-\includegraphics[scale=0.5]{light-bending.png}
+	\includegraphics[scale=0.4]{light-bending.png}
 \end{center}
 
-yo!
+
+We assume that to a first-order approximation the trajectory of the photon is a straight line. To calculate its change in momentum, we integrate along the straight-line path of the photon:
+
+$$\Delta \vec p = \int_{path} \vec P ~ dl = \int_{-\infty}^{\infty} - \frac {Gm\hbar}{r^3} \vec r ~ wdz ~~~~~~~~~~~ (32)$$
+
+We divide the problem into two parts: the momentum change in the direction parallel to the direction of travel of the photon and the momentum change perpendicular to the direction of travel. In calculating the momentum change in the direction parallel to the direction of travel, we note that as the photon approaches and then recedes from the massive object, the change in momentum cancels out to leave zero net change in the parallel direction. We can easily calculate the change in momentum in the direction perpendicular to the direction of travel:
+
+$$\Delta p_y = \int_{-\infty}^{\infty}  \frac {Gm\hbar}{(z^2 + b^2)^{3/2}} b ~ wdz ~~~~~~~~~~~ (33)$$
+
+This yields:
+
+$$\Delta p_y = \hbar w \frac {2Gm} b ~~~~~~~~~~~ (34)$$
+
+We therefore get:
+
+$$\theta \approx \sin \theta = \frac {\Delta p_y}{p_z} = \frac {2Gm} b ~~~~~~~~~~~ (35)$$
+
+Which yields the deflection angle:
+
+$$\alpha = \frac {4Gm} b ~~~~~~~~~~~ (36)$$
+
+This is the same result as in the theory of General Relativity.
+
+\subsection{Blue-shift of light }
+
+Using the same postulate, we can calculate the blue-shift of light. As a photon falls into a gravity well, the momentum and hence the energy of the photon are shifted. Because the energy of a photon is generally expressed as a frequency, we say that the frequency of the photon observed at infinity is changed compared to when it is observed in a gravitational field at a distance R from the center of the massive object. We use the following equation to express this change:
+
+$$\hbar w' = \hbar w + \Delta p ~~~~~~~~~~~ (37)$$
+
+To calculate the change in momentum, we again integrate along the path of the photon:
+
+$$\Delta p = \int_{\infty}^R \hat r \cdot \vec P w dr= \int_{\infty}^R - \frac {Gm\hbar}{r^2} w dr = \hbar w \frac {Gm}R ~~~~~~~~~~~ (38)$$
+
+This yields:
+
+$$\hbar w' = \hbar w \left( 1 + \frac {Gm}R \right) ~~~~~~~~~~~ (39)$$
+
+In the theory of General Relativity the equation is given as: 
+
+$$\hbar w ' = \hbar w (1 - 2Gm/R)^{-1/2} ~~~~~~~~~~~ (40)$$
+
+As Gm/R approaches zero, my equation and the equation from General Relativity converge.  As Gm/R approaches one, however, the equations diverge.  This could be another testable difference between my theory and Einstein's.
+
+\subsection{Backwards derivation of my postulate}
+
+The only equation necessary from this analysis, is the one that is boxed, near the end of this section. Otherwise this section can be skipped, but I think it is worth talking a bit more about my postulate, on a mathematical level. 
+
+Since we are talking about radiation, we use the Solenoidal Maxwell equations and write the general solution in free-space as:
+
+$$\vec E_{S}(\vec x, w,l,m) = \frac i {k} a_E M_1(w,l,m) \nabla \times \left(f_l(kr) \vec X_{lm} \right) + a_M M_2(w,l,m) f_l(kr) \vec X_{lm} ~~~~~~~~~~~ (41)$$
+
+$$\vec B_{S}(\vec x, w,l,m) =  a_E M_1(w,l,m) f_l(kr) \vec X_{lm} - \frac i {k} a_M M_2(w,l,m) \nabla \times \left(f_l(kr) \vec X_{lm} \right) ~~~~~~~~~~~ (42)$$
+
+See Jackson 9.122 for details.
+
+Where we have introduced $M_{\lambda}(w,l,m)$ to indicate that the radiation is stochastic, where:
+\begin{equation}
+\left< M_{\lambda}(w,l,m) \right> = 0 ~~~~~~~~~~~ (43)
+\end{equation}
+
+$$\left< M_{\lambda}(w,l,m)M_{\lambda'}^*(w',l',m') \right> = \delta_{\lambda \lambda'} \delta_{ll'}\delta_{mm'}\delta(w - w') ~~~~~~~~~~~ (44)$$ 
+
+Philosophically, this makes a lot of sense to me. However, if we are willing to take the time-average of the physical quantities of interest, we do not need these Stochastic terms at all. 
+
+Using either a time-average (and a temporary integration over angles) or using this Stochastic method gives:
+
+\begin{multline}
+$$\left< \vec E_S \times \vec B_S^* \right> = \sum_{l,m} \int dw ~ \frac i k \left[ |a_E|^2\left( \nabla \times \left( f_l(kr) \vec X_{lm} \right)\right) \times \left(f^*_l(kr) \vec X_{lm}^* \right) \right.
+\\ \left.- |a_M|^2 \left( f^*_l(kr) \vec X_{lm}^*\right) \times \left( \nabla \times \left( f_l(kr) \vec X_{lm}\right)\right)\right] ~~~~~~~~~~~ (45)$$
+\end{multline}
+
+
+Because we are looking for answers that are electromagnetically neutral, we require that $|a_E|^2 = |a_M|^2$. Using the Wronskian, see Jackson 9.91, and assuming incoming waves, leaves:
+
+$$\left< \vec E_S \times \vec B_S^* \right> =  - 2 \sum_{l,m} \int dw \frac {|a_E|^2}{k^2 r^2} | \vec X_{lm} |^2 \hat r ~~~~~~~~~~~ (46)$$
+
+In the electromagnetic units that we are working in, momentum is defined as:
+
+$$\vec P = \frac 1 {8 \pi} \int d^3x \left< \vec E_S \times \vec B_S^* \right> ~~~~~~~~~~~ (47)$$
+
+Therefore,
+
+$$\vec P = - \frac {\hat r} {4 \pi} \int d^3x \int dw \frac 1 {k^2 r^2} \sum |a_E|^2 |\vec X|^2 ~~~~~~~~~~~ (48)$$
+
+To me, my postulate at the beginning of this section is the same as taking 
+
+$$\sum |a_E|^2 |\vec X|^2 = \frac 2 {\pi} Gm \hbar k^4 ~~~~~~~~~~~ (49)$$
+
+This yields:
+
+$$\boxed{~~  \vec P = \frac 1 {(2 \pi)^3} \int d^3x \int d^3k \left(- \hat r \frac {Gm \hbar} {r^2}\right) ~~ } ~~~~~~~~~~~ (50)$$
+
+If we had instead worked in Gravitational units, we would have had
+
+$$\vec P = - \frac 1 {8 \pi G} \int d^3x \left< \vec E_S \times \vec B_S^* \right> ~~~~~~~~~~~ (51)$$
+
+which would have changed the postulate of $|a_E|^2$, and would have required outgoing waves instead ... 
+
+\section{Section 3}
+
+In this section we will derive an equation that is very reminiscent of the Dirac equation.
+
+Postulate 3 Ohm's law:
+
+$$\vec J_S = \sigma \vec E_S  ~ \delta^3_x \delta^3_k ~~~~~~~~~~~ (52)$$
+
+where $\delta^3_x$ keeps the current on the surface of the mass, and $\delta^3_k$ relates the allowed frequencies to the radius of the mass. 
+
+As mentioned in section 1, I feel comfortable stating that outside of some radius R, the delta function in x reduces to the normal point delta function. However, the delta function over k is given here with a quite abnormal normalization. I require that
+
+$$\frac 1 {(2 \pi)^3} \int \delta^3_k d^3k = 1 ~~~~~~~~~~~ (53)$$
+
+... I know that this is weird. Let me try to motivate it a little. If we take the combination of the two, we get:
+
+$$\frac 1 {(2 \pi)^3} \int d^3x \int d^3k ~ \delta^3_k \delta^3_x = 1 ~~~~~~~~~~~ (54)$$
+
+Looking back at the boxed equation above, what I am basically suggesting is that many of the equations of interest generally exist under this type of double integration, and we essentially take this "density" as the quantity of interest. Essentially, this is a way for us to keep the quantities of interest "On Shell".
+
+In the end, I believe I am allowed to take my postulates how I see fit and in the following calculation, we will not really need to be any more specific about these delta functions. 
+
+\subsection{Calculate $\sigma$ By Saying That a Mass Doesn't Implodes}
+
+To calculate $\sigma$, we use Equation (6.114) from Jackson:
+
+$$\int \left[ \rho \vec E_I +  \frac 1 2 \vec J_S \times \vec B_S^* \right]d^3x = 0 ~~~~~~~~~~~ (55)$$
+
+Taking into account that the radiation has random fluctuations (or, similarly, we can take the time-average), we have:
+
+$$\int \left[ \rho \vec E_I +  \frac 1 2 \left< \vec J_S \times \vec B_S^* \right> \right]d^3x = 0 ~~~~~~~~~~~ (56)$$
+
+This is the equation that we need to ensure that the zero-point energy is supplying enough energy so that the mass does not implode.
+
+Let's deal with the two terms seperately:
+
+$$\int \rho \vec E_I d^3x = -\hat r \int \frac {Gm^2}{r^2} \delta^3_x d^3x ~~~~~~~~~~~ (57)$$
+
+Using our postulate that 
+
+$$\frac 1 {(2 \pi)^3} \int \delta^3_k d^3k = 1 ~~~~~~~~~~~ (58)$$
+
+we can write the above as
+
+$$\int \rho \vec E_I d^3x = -\frac {\hat r}{(2 \pi)^3} \int \frac {Gm^2}{r^2} \delta^3_x  \delta^3_k d^3x d^3k ~~~~~~~~~~~ (59)$$
+
+Turning our attention to the second term:
+
+$$\int d^3x \frac 1 2 \left< \vec J_S \times \vec B_S^* \right>  = \sigma \int d^3x \delta^3_x \delta^3_k \frac 1 2 \left< \vec E_S \times \vec B_S^* \right>  ~~~~~~~~~~~ (60)$$
+
+Using the boxed equation from section 2, we have
+
+$$\int d^3x \frac 1 2 \left< \vec J_S \times \vec B_S^* \right> = -\hat{r} \frac 1 {(2 \pi)^3} \int d^3x \int d^3k \frac {4\pi G m\hbar}{r^2} \sigma ~~~~~~~~~~~ (61)$$
+
+therefore, in order for these two terms to equal out, we require:
+
+$$\sigma = - \frac m {4 \pi \hbar} ~~~~~~~~~~~ (62)$$
+
+If instead of using the usual electromagnetic radiation constants, we had used the Gravitational constants, we would have found:
+
+$$\sigma =  \frac m {4\pi G \hbar} ~~~~~~~~~~~ (63)$$
+
+\subsection{Deriving the Dirac Equation}
+
+Either using the electromagnetic radiation constants or the Gravational constants allows us to rewrite Maxwell's  current equation as:
+
+$$\nabla \times \vec B_S  - \partial_t \vec E_S  = - \frac m {\hbar} \vec E_S ~~ \delta^3_x \delta^3_k ~~~~~~~~~~~ (64)$$
+
+If we promise to only work "On shell", we can therefore write this as
+
+$$\nabla \times \vec B_S  - \partial_t \vec E_S  = - \frac m {\hbar} \vec E_S ~~~~~~~~~~~ (65)$$
+
+Using the dual transform, see Jackson 6.150, we can re-write the two Solenoidal equations:
+
+$$-\partial_t \vec E_S + \nabla \times \vec B_S   +\frac m {\hbar} \vec E_S = 0 ~~~~~~~~~~~ (66)$$ 
+
+$$ -\partial_t \vec B_S - \nabla \times \vec E_S   +\frac m {\hbar} \vec B_S = 0 ~~~~~~~~~~~ (67)$$ 
+
+We also note that we can write:
+
+$$\nabla \times \vec V = g_i \partial_i \vec V ~~~~~~~~~~~ (68)$$
+
+where the $g_i$s are defined:
+
+$$g_1 = \left(\begin{matrix}  0 && 0 && 0 \\ 0 && 0 && -1 \\ 0 && 1 && 0 \end{matrix}\right) ~~~~~~~~~~~ (69)$$
+
+$$g_2 = \left(\begin{matrix}  0 && 0 && 1 \\ 0 && 0 && 0 \\ -1 && 0 && 0 \end{matrix}\right) ~~~~~~~~~~~ (70)$$
+
+$$g_3 = \left(\begin{matrix}  0 && -1 && 0 \\ 1 && 0 && 0 \\ 0 && 0 && 0 \end{matrix}\right) ~~~~~~~~~~~ (71)$$
+
+we therefore re-write Maxwell's equations as 
+
+$$-\partial_t \vec E_S + g_i \partial_i \vec B_S   +\frac m {\hbar} \vec E_S = 0 ~~~~~~~~~~~ (72)$$ 
+
+$$ -\partial_t \vec B_S - g_i \partial_i \vec E_S   +\frac m {\hbar} \vec B_S = 0 ~~~~~~~~~~~ (73)$$ 
+
+if we the define 
+
+$$\psi = \left(\begin{matrix}  \vec E_S \\ \vec B_S \end{matrix}\right) ~~~~~~~~~~~ (74)$$
+
+and 
+
+$$\gamma^0 = \left(\begin{matrix}  -1 && 0 \\ 0 && -1 \end{matrix}\right) ~~~~~~~~~~~ (75)$$
+
+$$\gamma^i = \left(\begin{matrix}  0 && g_i \\ -g_i && 0 \end{matrix}\right) ~~~~~~~~~~~ (76)$$
+
+We can again re-write Maxwell's equations as
+
+$$\left(\gamma^{\mu} \partial_{\mu} + \frac m {\hbar} \right) \psi = 0 ~~~~~~~~~~~ (77)$$
+
+which can be compared with, for example, Sakurai's book "Advanced Quantum Mechanics" equation 3.31.
+
+As I mentioned in the email. This is not the Dirac Equation because these gamma matrices do not transform correctly.
+
 
 \end{document}
