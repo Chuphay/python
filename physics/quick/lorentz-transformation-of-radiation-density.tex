@@ -1,0 +1,51 @@
+\documentclass {article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\begin{document}
+	
+	https://web.archive.org/web/20200210082411/https://physics.stackexchange.com/questions/530233/lorentz-transformation-of-radiation-density
+
+
+Say in the lab frame $K$ we have a spherical shell radiating energy inwards radially, and the energy density in radiation is $u_{rad}$. A particle is moving radially outwards (say in the $\hat{x}$ direction) with ultra relativistic speed $\beta c$, $\gamma \gg 1$. I want to find the energy density, $u'_{rad}$, in radiation in the reference frame of the particle, $K'$.
+
+In general, we have that $u_{rad} = \frac{1}{c}\int\int I_\nu d\Omega d\nu$, where $I_\nu$ is the specific intensity in radiation. I am instructed to use this to find the radiation energy density in the reference frame.
+
+So, 
+
+$$ u'_{rad} = \frac{1}{c}\iint I'_{\nu'}d\Omega'd\nu' $$ 
+
+The trick (I guess) is to move all variables and the specific intensity to the lab frame. From Rybicki and Lightman eq. 4.110 (page 146) we know that $\frac{I_\nu}{\nu^3}$ is a relativistic invariant. Also, from Doppler's effect, we know that $\nu' = \gamma\nu\left(1-\beta\cos\theta\right)$, so we get 
+
+$$ u'_{rad} = \frac{1}{c}\iint {\nu'}^3\frac{I'_{\nu'}}{{\nu'}^3}d\Omega'd\nu' = \frac{\gamma^4}{c}\iint \frac{I_\nu}{\nu^3}\nu^3\left(1-\beta\cos\theta\right)^4d\nu d\Omega' $$ 
+
+$$ = \frac{\gamma^4}{c}\iint I_\nu\left(1-\beta\cos\theta\right)^4d\nu d\Omega' $$ 
+
+So we are left to transfering $d\Omega'$. We know from the aberration formulas that
+
+ $$ \cos\theta' = \frac{\cos\theta-\beta}{1-\beta\cos\theta} \Rightarrow d\cos\theta' = \frac{1-\beta^2}{\left(1-\beta\cos\theta\right)^2}d\cos\theta $$ 
+ 
+ so we get that 
+ 
+ $$ d\Omega' = d\cos\theta'd\phi' = \frac{1-\beta^2}{\left(1-\beta\cos\theta\right)^2}d\cos\theta d\phi = \frac{1-\beta^2}{(1-\beta\cos\theta)^2}d\Omega $$
+ 
+  since $\phi$ remains the same (Rybicki and Lightman p. 110). We finally get that
+  
+   $$ u'_{rad} = \frac{1-\beta^2}{c}\iint I_\nu\left(1-\beta\cos\theta\right)^2d\nu d\Omega $$ 
+   
+   The integral now is in the lab frame, where $I_\nu$ is isotropic. So we need to evaluate the angular integral only: 
+   
+   $$ \int\limits_{-1}^{1}\left(1-\beta u\right)^2du = \frac{2}{3}\left(\beta^2+3\right) $$ 
+   
+   So we end up with 
+   
+   $$ u'_{rad} = \gamma^4\frac{2\pi}{c}(1-\beta^2)\frac{2}{3}\left(\beta^2+3\right)\int I_\nu d\nu $$
+   
+    Since $1-\beta^2 = \gamma^{-2}$, we get 
+    
+    $$ u'_{rad} = \gamma^2\frac{4\pi}{c}\int I_\nu d\nu\left(\frac{\beta^2}{3}+1\right) = \gamma^2\left(\frac{\beta^2}{3}+1\right)u_{rad} $$ 
+    
+    Unfortunately, my official answer says that the result is $\gamma^2\left(\frac{\beta^2}{3}+\pmb{\beta}+1\right)u_{rad}$
+
+What did I miss?
+
+\end{document}
