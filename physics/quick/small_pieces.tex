@@ -140,7 +140,7 @@ $$ \int \vec X_{lm} \cdot \vec X_{l' m'}^* ~ d \Omega  = \int \vec Y_{lm} \cdot 
 $$\int \vec Y_{lm} \cdot \vec X_{l' m'}^* ~ d \Omega = \int \vec Y_{lm} \cdot ( \hat r \times \vec X_{l' m'}^* ) ~ d \Omega  =  \int \vec X_{lm} \cdot ( \hat r \times \vec X_{l' m'}^* ) ~ d \Omega   = 0 $$
 
 \newpage
-\subsection{Newton's gravity}
+\subsection{Newton's gravity (Irrotational part of the Maxwell Equations)}
 
 Skipping this sub-section is totally okay, but for completeness and as a way to introduce some notation, let's actually go ahead and derive that the gravitational field follows the inverse square law. 
 
@@ -160,29 +160,43 @@ and using the spherical vector harmonics we developed elsewhere (actually the se
 
 $$\vec E_I =  \sum_{l,m} \left[a_{lm}\vec Y_{lm} +b_{lm} (\hat r \times \vec X_{lm}) +c_{lm}\vec X_{lm} \right] $$
 
-We re-write the the curl equation (there's a better way to say this)
+We rewrite the curl equation (there's a better way to say this, but it's slipping my mind)
 
-$$ 0 = \nabla \times \vec E_I $$
+$$ 0 = \nabla \times \vec E_I  = \sum_{l, m} \left[ \left( - \frac 1 r \frac d {dr} (r b_{lm}) - i \sqrt {l ( l +1)}  \frac {a_{lm} } r \right) \vec X_{lm} + \frac {i \sqrt {l(l+1)} } r c_{lm} \vec Y_{lm} + \frac 1 r \frac d {dr} (r c_{lm}) (\hat r \times \vec X_{lm}) \right] $$
 
+Thus,
 
+$$ c_{lm} = 0 $$
 
-Following Berrara [link](http://iopscience.iop.org/article/10.1088/0143-0807/6/4/014/meta) we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
+and,
 
-$$\vec V (\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \left[a_{lm}(r) \vec Y_{lm}(\theta, \phi) +b_{lm}(r) \hat r \times \vec X_{lm} (\theta, \phi) +c_{lm}(r) \vec X_{lm} (\theta, \phi) \right] $$
+$$a_{lm} = - \frac i {\sqrt{l(l+1)} }\frac d {dr} (r b_{lm}) $$
 
-$$g(\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} g_{lm}(r) Y_{lm}(\theta, \phi)$$
+The divergence of $\vec E_I$ gives,
 
-where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm}$ is simply $\hat r Y_{lm}$  and $\vec X_{lm}$ is defined as,
+$$ 4 \pi G \sum_{l, m} \rho_{lm} Y_{lm} = \sum_{l, m} \left[ \frac 1 {r^2} \frac d {dr} (r^2 a_{lm} ) - i \sqrt{l(l+1)} \frac {b_{lm}} r  \right] ~ Y_{lm} $$
 
-$$\vec X_{lm}(\theta, \phi) = \frac {-i}{\sqrt{l(l+1)}} \vec r \times \left( \nabla Y_{lm}(\theta, \phi) \right) $$
+Using this equation with our solution for $a_{lm}$ and setting 
 
-Using these definitions and after some slightly painful algebra, we can write out the final solution:
+$$B_{lm} = i \frac {r ~ b_{lm}} {\sqrt {l (l+1)}} $$
+
+We have
+
+$$\frac 1 {r^2} \frac d {dr} \left( r^2 \frac d {dr} B_{lm} \right) - \frac {l(l+1)} {r^2} B_{lm} = 4 \pi G \rho_{lm}$$
+
+The solution to this is well-known (see Jackson). We define,
+
+$$q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l  \rho (\vec x) ~ d^3x = \int \rho_{lm} (r) r^{l+2} ~ dr $$
+
+Then 
+
+$$ B_{lm} = - \frac {4 \pi G \rho_{lm}} {(2l +1) r^{l+1}} $$ 
+ 
+
+And we can write out the final solution:
 
 $$\vec E_I(\vec x) = \sum_{l,m} \left[ -\frac {4\pi i G }{2l+1} \frac {q_{lm}}{r^{l+2}} \sqrt {l(l+1)} \left(\hat r \times \vec X_{lm} \right)  - \frac {4 \pi G (l+1)}{2l+1} \frac {q_{lm}}{r^{l+2}} \vec Y_{lm} \right] $$
 
-where
-
-$$q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l \rho (\vec x ) d^3x = \int \rho_{lm} (r) r^{l+2}dr$$
 
 Clearly then, if
 
@@ -194,7 +208,7 @@ $$\vec E_I(\vec x) = - \frac {mG} {r^2}  ~~~~~~~~~~~ \textrm{if} ~~~ r > R$$
 
 as expected.
 \newpage
-\subsection{Radiation}
+\subsection{Radiation (Solenoidal part of the Maxwell Equations)}
 The constant will be discovered (don't know the right word for this) in subsection: Collapse and Stability
 \newpage
 
@@ -204,6 +218,10 @@ The constant will be discovered (don't know the right word for this) in subsecti
 
 \section{Massive Particle}
 \subsection{model}
+The following long quote is from Rohrlich because I don't know how to say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
+
+We wish to construct a model of a massive particle. "
+
 \newpage
 \subsection{Collapse and stability}
 \newpage
@@ -211,29 +229,81 @@ The constant will be discovered (don't know the right word for this) in subsecti
 
 \section{Three classical Experiments}
 \subsection{Precession of the perehilion of Mercury}
-For moving distributions, we need to take into account that a gravitational-magnetic field is introduced via
 
-$$\vec B = \vec \beta \times \vec E ~~~~~~~~~~~ (15)$$
 
-See the text around Jackson 11.150 for more information. 
+Coulomb's law is only true for static fields. For moving masses, we must perform a Lorentz boost. If we perform a  Lorentz boost from the frame of a charged particle to a different frame moving at a velocity $\vec v$, we get the transformed fields:
 
-Using the small-velocity approximation 
+$$\vec E' = \gamma \vec E - \frac {\gamma^2} {\gamma + 1} \vec v (\vec v \cdot \vec E) $$
 
-$$\vec B \approx \vec v \times \vec E ~~~~~~~~~~~ (16)$$
+$$ \vec B' = - \gamma \vec v \times \vec E$$
 
-we can find the same equations as Einstein used to describe the precession of the perihelion of Mercury's orbit. 
+where 
 
-To be precise, according to Sean M. Carroll's book "An Introduction to General Relativity: Spacetime and Geometry", we can write:
+$$ \gamma = \frac 1 {\sqrt{1 - \vec v^ 2} } $$ 
 
-$$\frac 1 2 \left( \frac {dr}{d\lambda} \right)^2 + V(r) = \mathcal{E} ~~~~~~~~ \textrm{(Carrol 5.65)} $$
+We therefore see that the reason that electrostatics works under a Lorentz transformation is that we introduce a new field into the equations called the "magnetic" field.
 
-where
+In our everyday experiences, it seems clear that there is no "gravitational magnetic" field. However, just as we have learned from special relativity, our observations are limited because we do not travel at speeds where the Lorentz transformation becomes noticeable. Similarly, we live on the Earth and to our observations it does not move. Therefore we have become accustomed to only thinking about "stationary" gravity, i.e., gravity from a large mass that is considered to be unmoving in that frame of reference. With this in mind, let us assume that there is a "gravitational magnetic" field and see what effect it would have.
 
-$$V(r) = \frac 1 2 \epsilon - \epsilon \frac {GM} r + \frac {L^2}{2r^2} - \frac {GML^2}{r^3} ~~~~~~~~ \textrm{(Carrol 5.66)} $$
+We define the gravitational field $\vec E_g $ as
+
+$$ \vec E_g = \vec F / m $$
+
+where $F$ is the gravitational force, and $m$ is a test mass. Thus we define the gravitational field of a massive object at the origin acting on a sall test-body at a distance $r$ away from the origin ag
+
+$$\vec E_g = - \frac {Gm} {r^3} \vec r $$
+
+We then perform a Lorentz-transformation to a new frame moving at some velocity $\vec v$. By assumption, we use the same Lorentz transformaation as before:
+
+$$\vec E_g' = \gamma \vec E_g - \frac {\gamma^2} {\gamma + 1} \vec v (\vec v \cdot \vec E_g) $$
+
+$$ \vec B_g' = - \gamma \vec v \times \vec E_g$$
+
+Thus, if the Lorentz transformation is to apply to Newtonian gravity, we must introduce this "gravitational magnetic" field. Is this magnetic field observable? The answer is yes.
+
+We wish to examine what is known as  Kepler's problem. When two objects are in orbit around each other, see the figure below, we expect from classical Newtonian mechanics:
+
+$$ U_{\text{Newt}} = \frac m 2 (\frac {dr} {dt})^2 - \frac {GMm} r + \frac {l^2} {2mr^2}$$
+
+where $l^2 = m^2 (\vec r \times \vec v)^2$
+
+\begin{center}
+	\includegraphics[scale=0.1]{autodraw.png}
+\end{center}
+
+Now, it is well known that when an electron moves it induces a magnetic moment, defined as:
+
+$$\vec m_{moment} \equiv \frac 1 {2} e (\vec r \times vec v)$$
+
+So, using our assumption that we simply transform electric charge to mass, we will simply replace $e$ with $m$, and assume that when a mass moves, there is a corresponding "gravitational magnetic moment":
+
+$$\vec m_{gravitational moment} \equiv \frac 1 {2} m (\vec r \times vec v)$$
+
+Adding in the magnetic interaction is straightforward in the low velocity limie, i.e., wehen $v << 1$. Our transformed fields will then be
+
+$$\vec E_g' = \vec E_g$$
+
+$$ \vec B_g' = - \vec v \times \vec E_g$$
+
+Thus in the low velocity limit:
+
+$$\vec B_g = - \vec v \times \vec r \frac {GM} {r^3} $$ 
+
+The potential energy $U$ of a magnetic moment in an external field is given by:
+
+$$U = - \vec m \cdot \vec B = \frac 1 2 m (\vec r \times \vec v)\left(\vec v \times \vec r \frac {GM} {r^3} \right) = - \frac {GMm} 2 (\vec r \times \vec v)^2$$
+
+A similar contribution is given to the potential energy of the system when viewed from the other mass, thus doubling the above. 
+
+Thus, with the addition of the gravitational magnetic field , the solution to Kepler's problem is modified by this additonal term:
+
+$$ U_{\text{Einstein}} = \frac m 2 (\frac {dr} {dt})^2 - \frac {GMm} r + \frac {l^2} {2mr^2} - \frac {GMl^2}{mr^3}$$
+
+This is the same equation that one can achieve with General Relativity. 
 
 According to Carroll: "A similar analysis of orbits in Newtonian gravity would have produced a similar result; the general equation (5.65) would have been the same, but the effective potential (5.66) would not have had the last term. (Note that this equation is not a power series in $1/r$, it is exact.)"
 
-However, in our present theory, not only can we derive the last term (the term proprtional to $1/r^3$), but we see that this is only the low-limit approximation. I am not an experimentalist, but I believe that this would be a ripe area to explore whether this theory can produce results more accurate than General Relativity.
+The important point to note, is that in this current theory presented in this paper. This is not exact, but is only the first order approximation. Further mathematical sophistication should lead to range of tests that could be performed to see which is the true theory of nature.
 
 
 \newpage
