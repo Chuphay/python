@@ -214,13 +214,66 @@ The constant will be discovered (don't know the right word for this) in subsecti
 
 \section{Stochastic Electrodynamics}
 \subsection{Stochastic Electrodynamics}
+I feel like there are probably a few good ways to introduce this topic. However, I think motivating it with pure observed fact is probably good.
+
+Recently, maybe 20 years ago now, it was discovered that the universe is bathed in thermal radiation. This radiation is called the Cosmic Microwave Background Radiation. 
+
+This thermal bath displays the black-body radiation distribution
+
+$$\rho(w, T) = \frac {w^2} {\hbar^2} \left( \frac{ \hbar w}{e^{\hbar w / k_B T} - 1} + \frac 1 2 \hbar w    \right)$$
+
+For our discussions, the most important this to consider is when $T \rightarrow 0$ and we are left with only the "zero-point" term $\hbar w / 2$. In quantum mechanics, this term is usually seen as a curious blemish that is generally removed across the board. Classically, this term has been studied by T.H. Boyer, with continued research by several others.
+
+Researchers using the classical approach developed by T.H. Boyer, which I will briefly outline below, have found a remarkable number of exact agreements with quantum mechanics including "the retarded van der Waals force, ground state distribution of harmonic oscillators, Landau diamagnetism, Planck spectrum of blackbody radiation, and Debye specific-heat law for solids. Recently, it was further shown that parametric interaction can give rise to discrete SED excitation spectra that are in excellent agreement with QM predictions" - Huand and BAtelaan. 
+
+The basic idea of Stochastic Electrodynamics (SED) is that the universe is bathed in a random thermal bath with a particular energy density. The random characteristics of this thermal bath are most easily understood by adding in a Gaussian noise term $W$ with the following properties:
+
+$$<W> = 0$$
+$$<W_i (\vec k) W_j (\vec k') > = \delta_{ij} \delta^3(\vec k - \vec k')$$
+
+In Cartesian free space, we have:
+
+$$\vec E (\vec x ,  t) = \text {Re} \sum_{\lambda = 1}^2  \int d^3k ~ \hat \epsilon(\vec k, \lambda) \sqrt {\frac {\hbar w} {2 \pi^2}} W_{\lambda}(\vec k) \exp(iwt - i\vec k \cdot \vec x)$$
+
+$$\vec B (\vec x ,  t) = \text {Re} \sum_{\lambda = 1}^2  \int d^3k ~ \frac {\vec k \times \hat \epsilon(\vec k, \lambda)} k \sqrt {\frac {\hbar w} {2 \pi^2}} W_{\lambda}(\vec k) \exp(iwt - i\vec k \cdot \vec x)$$
+
+
+Boyer has shown that these equations lead to the correct spectral energy density for blackbody radiation as well as being Lorentz invariant.
+
+
+
+
 \newpage
 
 \section{Massive Particle}
 \subsection{model}
 The following long quote is from Rohrlich because I don't know how to say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
 
-We wish to construct a model of a massive particle. "
+We wish to construct a model of a massive particle. "The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
+
+"Consider a sphere of radius $a$ and spherically symmetric mass density $\rho (\vec x)$. Its total mass is
+
+$$ m = \int_V \rho(\vec x) d^3x$$
+
+"The integral extending over the volume of the sphere. Since $m \neq 0$ by assumption, there must exist attractive gravitational forces between 'parts' of the total mass. Symmetry would therefore require that this massive sphere contract and continue to do so to arbitrarily small radius a." Thus with no other forces present, the particle will necessaruly collapse.
+
+In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
+
+$$U = m = \frac 1 2 \int \frac {Gm \rho(\vec x)} {r^2} d^3x$$
+
+To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $a$, in whic case
+
+$$m = \frac {Gm^2} { 2a} ~~~~~ or  ~~~~ a = \frac {Gm} 2 $$
+
+If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $a$ will always be of the order $Gm$. Therefore, I have chosen $a = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
+
+It is useful to compare the mathematical radius with the radius of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{ac^2}$
+
+$$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{ac^2}$$
+$$\text{Black hole:  } ~~~ \Phi = 1$$
+$$\text{Sun:  } ~~~ \Phi = 2 \times 10^{-6}$$
+$$\text{Earth:  } ~~~ \Phi = 7 \times 10^{-10}$$
+$$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
 \newpage
 \subsection{Collapse and stability}
