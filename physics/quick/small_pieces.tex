@@ -1,14 +1,18 @@
 \documentclass {article}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\renewcommand\vec{\mathbf}
+\let\OldS\nabla
+\renewcommand{\nabla}{\boldsymbol{\OldS}}
 
+\let\OldHat\hat
+\renewcommand{\hat}[1]{\OldHat{\mathbf{#1}}}
 
 
 \begin{document}
 
 
 \section{Meta Theory}
-
 
 Who, What, Where, When, Why, How?
 \\[0.15in]
@@ -51,6 +55,8 @@ What would be nice to have?
 
 \section{Maxwell Equations}
 \subsection{From Electromagnetism to Gravity-magnetism}
+
+
 
 We assume that gravity is correctly described by Maxwell's Equations:
 
@@ -209,7 +215,64 @@ $$\vec E_I(\vec x) = - \frac {mG} {r^2}  ~~~~~~~~~~~ \textrm{if} ~~~ r > R$$
 as expected.
 \newpage
 \subsection{Radiation (Solenoidal part of the Maxwell Equations)}
-The constant will be discovered (don't know the right word for this) in subsection: Collapse and Stability
+
+In the previous section we looked at the Irrotational part of the Maxwell Equations when there was no current.
+
+Now we will look at the solenoidal part of the Maxwell Equations:
+
+$$\nabla \times \vec E_S + \partial_t \vec B_S = 0 $$
+
+$$\nabla \times \vec B_S - \partial_t \vec E_S =  - 4 \pi G \vec J_S$$
+
+In a region of empty space, i.e., everywhere outside of the radius $a$ of our model of a massive particle (please see the section on the model of a Massive particle). We are left with 
+
+$$\nabla \times \vec E_S + \partial_t \vec B_S = 0 $$
+
+$$\nabla \times \vec B_S - \partial_t \vec E_S =  0$$
+
+These will set-up the well-known wave equations. Assuming a time dependence $e^{-iwt}$, in spherical coordinates, the general solution is
+
+$$\vec B_S (\vec x) = \sum_{l, m} \left[ a_E(l,m)f_l(kr) \vec X_{lm}(\theta , \phi) - \frac i k a_M (l, m) \nabla \times \left(  g_l (kr) \vec X_{lm} (\theta , \phi) \right) \right]$$
+
+$$ \vec E_S (\vec x) = \sum_{l, m} \left[ \frac i k a_E(l,m) \nabla \times  \left( f_l (kr) \vec X_{lm}(\theta, \phi)\right) + a_M(l,m) g_l (kr) \vec X_{lm}(\theta, \phi) \right]$$
+
+The functions $f_l$ and $g_l$ are linear superpositions of the radial Hankel functions,
+
+$$h_l^{(1)}(x) = -i (-x)^l \left(\frac 1 x \frac d {dx} \right)^l \left(\frac {e^{ix}} x \right)$$
+
+$$h_l^{(2)}(x) = \left( h_l^{(1)}(x) \right)^*$$
+
+\noindent $a_E$ and $a_M$ as well as the particular dependence of $f_l$ and $g_l$ on $h_l^{(1)}(x) $ and $h_l^{(2)}(x) $ depend on the boundary conditions.
+
+In our case, we are looking at a massive particle that sinks radiation, we therefore need to only include incoming waves.
+
+The total instantaneous power radiated (perhaps we should say sunk) is defined as.
+
+$$P \equiv \int_V d^3x ~ \nabla \cdot \left( \frac 1 {8 \pi} \vec E \times \vec B^*\right) = \oint_{\partial V} \hat r \cdot \vec S ~ da = R^2 \int d\Omega ~ \hat r \cdot \vec S \bigg|_{r = R}$$
+
+Using the relationships in the introduction on Vector Spherical harmonics, we find that we are left with only two non-vanishing terms,
+
+$$P = \frac {R^2}{8 \pi} \sum_{l, m} \left[  \frac {-i} k |a_E|^2 h_l^{(2)} \frac 1 r \frac d {dr} \left( rh_l^{(1)} \right) + \frac i k |a_M|^2 h_l^{(1)} \frac 1 r \frac d {dr} \left( rh_l^{(2)}\right) \right]_{r=R}$$
+
+Since, by assumption (I realize I never spelled this out elsewhere) the massive particle is electromagnetically neutral on average, we need neither the Transverse Magnetic nor the Transverse Electric modes to dominate. Thus, the two proportionality terms must obey $|a_E|^2 = |a_M|^2$. Use of the Wronskian leaves a particularly simple form for the power radiated,
+
+$$P = \sum_{l,m} \frac {|a_E|^2} { 4 \pi k^2}$$
+
+It also may be useful to derive the energy in this field. We can use the lowest order approximation, where we keep only terms of order $1/r$. In this approximation, the radiation fields behave like
+
+$$\vec B (\vec x) \approx \sum_{l,m} \left[ a_E (l,m) f_l (kr) \vec X_{lm} (\theta, \phi) + a_M (l, m) g_l (kr) \left( \hat r \times \vec X_{lm} (\theta, \phi)  \right) \right]$$
+
+$$ \vec E \approx - \hat r \times \vec B(\vec x) $$
+
+We expect, after averaging over the noise (see the section on S.E.D.), 
+
+$$|f_l|^2 = |g_l|^2 =  \frac 1 {k^2 r^2}$$
+
+The energy in a spherical shell at $r =R$ is then (reading this now ... so many years later ... I think there's a different way of saying this... see Jackson 9.135)
+
+$$\frac {dU} {dr} \bigg|_{r=R} = \frac 1 {16 \pi} \int \left( |\vec E  |^2 + |\vec B |^2 \right)~ d\Omega  \bigg|_{r=R} = \sum_{l, m} \frac 1 {8 \pi} \frac {|a_E|^2}{k^2}$$
+
+All that is left is to use the boundary conditions to determine $|a_E|^2$. This will be done in the subsection: Collapse and Stability
 \newpage
 
 \section{Stochastic Electrodynamics}
