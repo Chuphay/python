@@ -46,8 +46,10 @@ What would be nice to have?
 
 \vspace{10pt}
 
+Einstein asked Marcel Grossmann for help -- It's a big theory
+\\[2in]
 
-
+Structure: Lots of pre-amble to remind us: Maxwell's eqns, Solutions to Maxwell's eqns., including a stochastic version of it. The theory then begins in Massive particle, three results, and then the wow!
 
 
 \newpage
@@ -60,13 +62,13 @@ What would be nice to have?
 
 We assume that gravity is correctly described by Maxwell's Equations:
 
-$$\nabla \times \vec B  - \partial_t \vec E  = -4 \pi G \vec J ~~~~~~~~ \nabla \times \vec E + \partial_t \vec B = 0    ~~~~~~~~~~~ (1)$$
+$$\nabla \times \vec B  - \partial_t \vec E  = -4 \pi G \vec J ~~~~~~~~ \nabla \times \vec E + \partial_t \vec B = 0    $$
 
-$$\nabla \cdot \vec E = -4 \pi G \rho ~~~~~~~~~~ \nabla \cdot \vec B = 0   ~~~~~~~~~~~ (2)$$
+$$\nabla \cdot \vec E = -4 \pi G \rho ~~~~~~~~~~ \nabla \cdot \vec B = 0   $$
 
 and, for completeness, the conservation of mass-charge:
 
-$$\nabla \cdot \vec J + \partial_t \rho = 0 ~~~~~~~~~~~ (3)$$
+$$\nabla \cdot \vec J + \partial_t \rho = 0 $$
 
 Where we are in units where c = 1. The constant G differs in different systems of units. In SI units, it is equal to $6.674 \times 10^{-11} \frac {N \cdot m^2}{kg^2}$ 
 
@@ -270,9 +272,17 @@ $$|f_l|^2 = |g_l|^2 =  \frac 1 {k^2 r^2}$$
 
 The energy in a spherical shell at $r =R$ is then (reading this now ... so many years later ... I think there's a different way of saying this... see Jackson 9.135)
 
-$$\frac {dU} {dr} \bigg|_{r=R} = \frac 1 {16 \pi} \int \left( |\vec E  |^2 + |\vec B |^2 \right)~ d\Omega  \bigg|_{r=R} = \sum_{l, m} \frac 1 {8 \pi} \frac {|a_E|^2}{k^2}$$
+$$\frac {dU} {dr} \bigg|_{r=R} = \frac 1 {16 \pi} \int \left( |\vec E  |^2 + |\vec B |^2 \right) r^2 ~ d\Omega  \bigg|_{r=R} = \sum_{l, m} \frac 1 {8 \pi} \frac {|a_E|^2}{k^2}$$
+
+The momentum of the field in the volume $V$ is
+
+$$\vec P_{\text{field}} = \frac 1 {8 \pi} \int_V \vec E \times \vec B^* ~ d^3x$$ 
+
+$$\vec P_{\text{field}} = - \hat r \sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x $$
 
 All that is left is to use the boundary conditions to determine $|a_E|^2$. This will be done in the subsection: Collapse and Stability
+
+
 \newpage
 
 \section{Stochastic Electrodynamics}
@@ -312,36 +322,77 @@ Boyer has shown that these equations lead to the correct spectral energy density
 \subsection{model}
 The following long quote is from Rohrlich because I don't know how to say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
 
-We wish to construct a model of a massive particle. "The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
+We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
 
-"Consider a sphere of radius $a$ and spherically symmetric mass density $\rho (\vec x)$. Its total mass is
+``Consider a sphere of radius $R$ and spherically symmetric mass density $\rho (\vec x)$. Its total mass is
 
 $$ m = \int_V \rho(\vec x) d^3x$$
 
-"The integral extending over the volume of the sphere. Since $m \neq 0$ by assumption, there must exist attractive gravitational forces between 'parts' of the total mass. Symmetry would therefore require that this massive sphere contract and continue to do so to arbitrarily small radius a." Thus with no other forces present, the particle will necessaruly collapse.
+``The integral extending over the volume of the sphere. Since $m \neq 0$ by assumption, there must exist attractive gravitational forces between 'parts' of the total mass. Symmetry would therefore require that this massive sphere contract and continue to do so to arbitrarily small radius $R$." Thus with no other forces present, the particle will necessaruly collapse.
 
 In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
 
 $$U = m = \frac 1 2 \int \frac {Gm \rho(\vec x)} {r^2} d^3x$$
 
-To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $a$, in whic case
+To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $R$, in which case
 
-$$m = \frac {Gm^2} { 2a} ~~~~~ or  ~~~~ a = \frac {Gm} 2 $$
+$$m = \frac {Gm^2} { 2R} ~~~~~ or  ~~~~ R = \frac {Gm} 2 $$
 
-If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $a$ will always be of the order $Gm$. Therefore, I have chosen $a = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
+If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $R$ will always be of the order $Gm$. Therefore, I have chosen $R = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
 
-It is useful to compare the mathematical radius with the radius of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{ac^2}$
+It is useful to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{Rc^2}$
 
-$$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{ac^2}$$
+$$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{Rc^2}$$
 $$\text{Black hole:  } ~~~ \Phi = 1$$
 $$\text{Sun:  } ~~~ \Phi = 2 \times 10^{-6}$$
 $$\text{Earth:  } ~~~ \Phi = 7 \times 10^{-10}$$
 $$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
+We also must talk about the temperature of the mass, it should be a perfect absorber at this basic level of the theory. And it absorbs all frequencies of radiation up to a cutoff.  Hopefully future researchers can dig into this and higher order approximations.
+
 \newpage
 \subsection{Collapse and stability}
+
+Here, we need to integrate over all frequencies
+
+I think the final thing I need to show here is that
+
+$$\vec E_S \times \vec B_S = - \hat r \frac {Gm \hbar} {r^2}$$
+
+Possibly with some factors of $\pi$
+
 \newpage
 
+\subsection {Conservation of Momentum and Ohm's Law}
+
+Here and in everything that follows, as per usual when talking about radiation, it's easier to stay in k-space.
+
+Conservation of momentum requires
+
+$$\int_V \left(  \rho \vec E_I  + \vec J_S \times \vec B_S \right) ~ d^3x  = 0 $$
+
+(See Jackson 6.114)
+\\
+\\
+
+Ohm's law states that the current is proportional to the electric field:
+
+$$\vec J_S = \sigma \vec E_S$$ 
+
+Assuming harmonic time dependency $e^{-iwt}$ we have
+
+$$- \hat r \int_V \left(  m \delta (\vec x) \frac {Gm}{r^2}  - \sigma \frac {Gm \hbar} {r^2} \right) ~ d^3x  = 0 $$
+
+Therefore,
+
+$$\sigma = \frac m \hbar \delta (\vec x) $$
+
+Note, there may be a factor of $4 \pi $ missing (clean up will happen at some other time):
+
+$$\sigma = \frac m {4 \pi \hbar} \delta (\vec x) $$
+
+
+\newpage
 
 \section{Three classical Experiments}
 \subsection{Precession of the perehilion of Mercury}
@@ -482,10 +533,94 @@ At lowest order approximation, this is the same as that found in General Relativ
 
 \newpage
 
-\section{Dirac Equation}
+\section{The Wow!}
 \subsection{Dual transform}
+
+The dual transform is carefully explained in Jackson in section 6.11: On the question of Magnetic Monopoles.
+
+For now, we drop the subscript of Irrotational and Solenoidal, because it will be easier to work with. Here's Jackson:
+
+``Let us suppose that there exist magnetic charge and current densities, $\rho_m$ and $\vec J_m$, in addition  to the electric densities, $\rho_e$ and $\vec J_e$, The Maxwell equations would then be
+
+$$\nabla \times \vec B  - \partial_t \vec E  = \vec J_e  ~~~~~~~~ \nabla \times \vec E + \partial_t \vec B =  - \vec J_m   $$
+
+$$\nabla \cdot \vec E = \rho_e ~~~~~~~~~~ \nabla \cdot \vec B =  \rho_m $$
+
+``The magnetic densities are assumed to satisfy the same form of the continuity equation as the electric densities. It appears from these equations that the existence of magnetic charge and current would have observable electromagnetic consequences. Consider, however, the following \textit{duality trnsformation}:
+
+$$\vec E = \vec E' \text{cos } \xi + \vec B'  \text{sin } \xi$$
+
+$$\vec B = \vec B' \text{cos } \xi - \vec E'  \text{sin } \xi$$
+
+$$\rho_e = \rho_e'  \text{cos } \xi  + \rho_m'  \text{sin} \xi  ~~~~~~~~~~ \rho_m = \rho_m'  \text{cos } \xi  - \rho_e'  \text{sin} \xi $$
+
+$$\vec J_e = \vec J_e' \text{cos } \xi + \vec J_m' \text{sin } \xi ~~~~~~~~~ \vec J_m = \vec J_m' \text{cos } \xi  - \vec J_e' \text{sin } \xi $$
+
+\noindent then it is straightforward algebra to show that the generalized Maxwell equations are invariant.
+
+``The invariance of the equations of electrodynamics under duality transformations shows that it is a matter of convention to speak of a particle possessing an electric charge, but not a magnetic charge. The only meaningful question is whether \textit{all} particles have the same ratio of magnetic to electric charge. If they do, then we can make a duality transformation, choosing the angle $\xi$ so that $\rho_m = 0, ~ \vec J_m = 0$. We then have the Maxwell equations as they are usually known.
+
 \newpage
+
 \subsection{Spinor Transformation}
+
+We note that we can write:
+
+$$\nabla \times \vec V = g_i \partial_i \vec V $$
+
+where the $g_i$s are defined:
+
+$$g_1 = \left(\begin{matrix}  0 && 0 && 0 \\ 0 && 0 && -1 \\ 0 && 1 && 0 \end{matrix}\right) $$
+
+$$g_2 = \left(\begin{matrix}  0 && 0 && 1 \\ 0 && 0 && 0 \\ -1 && 0 && 0 \end{matrix}\right) $$
+
+$$g_3 = \left(\begin{matrix}  0 && -1 && 0 \\ 1 && 0 && 0 \\ 0 && 0 && 0 \end{matrix}\right) $$
+
+
+We  define 
+
+$$\gamma^0 = \left(\begin{matrix}  -1 && 0 \\ 0 && -1 \end{matrix}\right)$$
+
+$$\gamma^i = \left(\begin{matrix}  0 && g_i \\ -g_i && 0 \end{matrix}\right)$$
+
+There's actually some literature on spinors, and transforming from different representational spaces, but I'm not sure how useful it is. If it turns out useful, I know a book that goes over it carefully. 
+
+\newpage
+
+\subsection{Dirac Equation}
+
+Using the equations we got for the current in the section on conservation of momentum, we can re-write the Maxwell equation dealing with current:
+
+$$\nabla \times \vec B_S  - \partial_t \vec E_S  = - \frac m {\hbar} \vec E_S ~~ \delta^3_x$$
+
+If we promise to only work "On shell", i.e., where we are on the shell of the mass, see the section concerning our model, we can therefore write this as
+
+$$\nabla \times \vec B_S  - \partial_t \vec E_S  = - \frac m {\hbar} \vec E_S $$
+
+Using the dual transform, see the section up above, we can re-write the two Solenoidal equations:
+
+$$-\partial_t \vec E_S + \nabla \times \vec B_S   +\frac m {\hbar} \vec E_S = 0 $$ 
+
+$$ -\partial_t \vec B_S - \nabla \times \vec E_S   +\frac m {\hbar} \vec B_S = 0$$ 
+
+
+Using the transformation in the spinor section, we  re-write Maxwell's equations as 
+
+$$-\partial_t \vec E_S + g_i \partial_i \vec B_S   +\frac m {\hbar} \vec E_S = 0 $$ 
+
+$$ -\partial_t \vec B_S - g_i \partial_i \vec E_S   +\frac m {\hbar} \vec B_S = 0 $$ 
+
+
+if we the define 
+
+$$\psi = \left(\begin{matrix}  \vec E_S \\ \vec B_S \end{matrix}\right) $$
+
+and use the other spinors we wrote in the previous section, we can again re-write Maxwell's equations as
+
+$$\left(\gamma^{\mu} \partial_{\mu} + \frac m {\hbar} \right) \psi = 0 $$
+
+which can be compared with, for example, Sakurai's book "Advanced Quantum Mechanics" equation 3.31.
+
 \newpage
 
 \end{document}
