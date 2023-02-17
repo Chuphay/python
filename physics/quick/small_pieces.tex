@@ -21,10 +21,8 @@ what?    A new theory of  gravity
 why?   100 years quantumgravity = GR + QM . Other proposals
 \\[1in]
 
-Moving Goal Posts
-\\
 
-MVP
+MVP - Beta Testing - Not ready for prime time
 \\
 
 What is a theory?
@@ -50,6 +48,10 @@ Einstein asked Marcel Grossmann for help -- It's a big theory
 \\[2in]
 
 Structure: Lots of pre-amble to remind us: Maxwell's eqns, Solutions to Maxwell's eqns., including a stochastic version of it. The theory then begins in Massive particle, three results, and then the wow!
+
+pet peeve:
+
+scientific method and choice of hypothesis
 
 
 \newpage
@@ -319,7 +321,48 @@ Boyer has shown that these equations lead to the correct spectral energy density
 \newpage
 
 \section{Massive Particle}
-\subsection{model}
+\subsection{Main Hypothesis}
+
+We also must talk about the temperature of the mass, it should be a perfect absorber at this basic level of the theory. And it absorbs all frequencies of radiation up to a cutoff.  Hopefully future researchers can dig into this and higher order approximations.
+
+From the section on Radiation, we have:
+
+$$\vec P_{\text{field}} = \frac 1 {8 \pi} \int_V \vec E \times \vec B^* ~ d^3x$$ 
+
+$$\vec P_{\text{field}} = - \hat r \sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x $$
+
+
+Taking the constants together, we rewrite this as 
+
+$$\vec P  = - \hat r  \frac {\alpha}{r^2} $$
+
+We will that the constant that satisfies the boundary conditions (conservation of energy, as shown in the next section), leads us to 
+
+$$\vec p = - \hat r \frac {Gm \hbar} {r^2} $$
+
+
+Which leads us to our main hypothesis:  Mass sinks radiation, with the following formula :
+
+$$\boxed{ \vec p = - \hat r \frac {Gm \hbar} {r^2} } $$
+
+This is our hypothesis, so for the remainder of the paper we can assume that this is true?
+
+a little philosophy aside. Is this a force? Well, not really, because $F = m \cdot a$, and light doesn't have a mass, nor can it be accelerated. So what mechanism is causing this? Is it, in the quantum mechanical realm, caused by an interaction between the graviton and photons? I hope future researchers will look into this, but for this paper, I believe I can set a hypothesis, and then we just follow the math, and see what comes out of it.
+
+\vspace{10pt}
+
+There is a furhter step that we must take. Just as we assume a smallest radius for the mass (see the next section on the model of a massive particle), we must also assume a highest frequency that the mass is able to sink (this should be testable). Using the same arguments above, based on energy considerations, I will state that the maximum frequency supported by a mass follows from the same energy equation:
+
+$$U = m = \hbar w = \hbar \int_0^w ~dw'$$
+
+\noindent and therefore, the maximum $w$ is simply $m / \hbar$
+
+I should probably make a table similar to the one in the next section dealing with radii and various real sources, but I think for now it suffices to say that $m / \hbar $ is generally a very, very big number.
+
+
+
+\newpage
+\subsection{Model}
 The following long quote is from Rohrlich because I don't know how to say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
 
 We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
@@ -332,7 +375,11 @@ $$ m = \int_V \rho(\vec x) d^3x$$
 
 In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
 
-$$U = m = \frac 1 2 \int \frac {Gm \rho(\vec x)} {r^2} d^3x$$
+$$U = m = - \frac 1 2 \int \frac {Gm \rho(\vec x)} {r} d^3x$$
+
+We also must notice the negative energy, and in fact take 
+
+$$U^2 = m^2$$
 
 To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $R$, in which case
 
@@ -348,20 +395,55 @@ $$\text{Sun:  } ~~~ \Phi = 2 \times 10^{-6}$$
 $$\text{Earth:  } ~~~ \Phi = 7 \times 10^{-10}$$
 $$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
-We also must talk about the temperature of the mass, it should be a perfect absorber at this basic level of the theory. And it absorbs all frequencies of radiation up to a cutoff.  Hopefully future researchers can dig into this and higher order approximations.
 
 \newpage
-\subsection{Collapse and stability}
+\subsection{Conservation of Energy - Collapse and Stability}
 
-Here, we need to integrate over all frequencies
+$$U = \frac 1 {16 \pi} \int \left( |\vec E  |^2 + |\vec B |^2 \right) ~ d^3x $$
 
-I think the final thing I need to show here is that
+The energy of the field in the volume $V$ is
 
-$$\vec E_S \times \vec B_S = - \hat r \frac {Gm \hbar} {r^2}$$
 
-Possibly with some factors of $\pi$
+$$U  =\sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x $$
+
+The energy density can thus be defined as
+
+$$u  = \sum_{l, m}   \frac 1 {4\pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} $$
+
+Taking the constants together, we rewrite this as 
+
+$$u  =  \frac {\alpha}{r^2} $$
+
+
+Mysteriously, we now take the integral over $w$ with the cutoff at $m/ \hbar$
+
+$$u = \int_0^{m/ \hbar}  \frac {\alpha}{r^2} ~dw = \frac {\alpha m}{\hbar r^2}$$
+
+Our goal is to now find $alpha$
+
+
+We will show that there is conservation of energy, and therefor the massive particle introduced in the last section will not collapse (One could have also done this purely from a pressure standpoint, but Energy conservation seems cooler)
+
+$$U = \int_V u ~ d^3x = \int_V \left( - \frac 1 G |\vec E_I |^2  +  |\vec E_S |^2  +  |\vec B_S |^2 \right) ~ d^3x$$
+
+$$U = - \frac {Gm^2} R + \frac {4 \pi \alpha m R} \hbar$$
+
+If this is a constant, then energy is conserved. More to the point, if we say these two energies cancel each other out, then we are left with zero energy, thus we can write
+
+$$\alpha = \frac 1 {4 \pi R^2} Gm \hbar$$
+
+and thus 
+
+$$u  = \sum_{l, m}   \frac 1 {4\pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2}  =  \frac 1 {4 \pi R^2} \frac {Gm \hbar} {r^2} $$
+
+A similar treatment for pressure would have left us with 
+
+$$p = - \hat r \frac 1 {4 \pi R^2} \frac {Gm \hbar} {r^2} $$
+
+Possibly with some factors of $2 \pi$
 
 \newpage
+
 
 \subsection {Conservation of Momentum and Ohm's Law}
 
