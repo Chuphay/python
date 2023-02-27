@@ -442,6 +442,26 @@ $$p = - \hat r \frac 1 {4 \pi R^2} \frac {Gm \hbar} {r^2} $$
 
 Possibly with some factors of $2 \pi$
 
+Now we come to the crazy bug in the theory. What we want to do is use something we have learned from Fourier transforms:
+
+$$\psi (x) = \int \psi(k)e^{-ikx} ~ dk $$
+
+$$\psi ( k ) = \frac 1 {2 \pi} \int \psi(x) e ^{ikx} ~ dx $$
+
+Which we combine to write
+
+$$\psi(x) = \frac 1 {2 \pi} \int \int \psi (x') e^{ik(x' - x)} ~dk ~dx'$$
+
+
+And here is our bug, if we set $k$ = $1/R$ (which is totally not plausible), then, besides for some factors of  $\pi$, we have
+
+$$U =\frac 1 {8 \pi^3} \int \int \frac {Gm\hbar}{r^2} ~d^3x ~ d^3k$$
+
+and 
+
+$$\vec P = -\frac {\hat r} {8 \pi^3} \int \int \frac {Gm\hbar}{r^2} ~d^3x ~ d^3k$$
+ 
+
 \newpage
 
 
@@ -671,6 +691,8 @@ There's actually some literature on spinors, and transforming from different rep
 
 \subsection{Dirac Equation}
 
+
+
 Using the equations we got for the current in the section on conservation of momentum, we can re-write the Maxwell equation dealing with current:
 
 $$\nabla \times \vec B_S  - \partial_t \vec E_S  = - \frac m {\hbar} \vec E_S ~~ \delta^3_x$$
@@ -704,5 +726,12 @@ $$\left(\gamma^{\mu} \partial_{\mu} + \frac m {\hbar} \right) \psi = 0 $$
 which can be compared with, for example, Sakurai's book "Advanced Quantum Mechanics" equation 3.31.
 
 \newpage
+
+\section{Meta Theory 2}
+In conclusion, we didn't set out to make quantum gravity ... but what we got was a set of equations that unified gravity, electromagnetism and quantum mechanics.
+
+From Zwiebach: "Over the course of time, the development of physics has been marked by unifications: events when different phenomena were recognized to be related..."
+\newpage
+
 
 \end{document}
