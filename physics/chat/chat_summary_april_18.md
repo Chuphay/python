@@ -1,5 +1,5 @@
 Title (TBD)
-A Classical Field Theory of Gravity Based on Radiation Momentum Flow
+Mass as a Sink of Zero-Point Radiation: A Classical Alternative to General Relativity
 
 Abstract
 (One-paragraph summary of the motivation, hypothesis, method, and main results.)
@@ -41,18 +41,40 @@ Main equations and assumptions
 
 Why ZPF is relevant to gravitational interaction
 
-5. Massive Particles and the Main Hypothesis
-Model of a massive particle as a radiation sink
+5. The new Physics
 
-Cutoff frequency derived from energy
+5. Model of a massive particle as a radiation sink
 
-Directional momentum flow derivation
+Imagine a warm iron ball. slightly red from the oven.
 
-Field energy and stability
+Now imagine it as we go to zero temperature kelvin.
 
-Gravitational “Ohm’s law” and conservation of momentum
+Our hypothesis is that this zero temperature mass will sink the radiation from the zpr.
 
-6. Classical Tests of Gravity
+5. 2 cutoffs
+ -- radius calculation
+ -- Cutoff frequency in counterpose to the radius cutoff
+
+ -- leads to Directional momentum flow derivation
+
+
+
+6.  Energy and momentum (This is like a completely different section)
+
+ -- Field energy and stability if and only if our hypothesis
+
+ -- Gravitational “Ohm’s law” and conservation of momentum
+
+
+ 
+
+
+
+
+
+
+
+7. Classical Tests of Gravity
 6.1 Perihelion Precession of Mercury
 
 Gravito-magnetic correction

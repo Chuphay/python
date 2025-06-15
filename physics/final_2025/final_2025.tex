@@ -49,23 +49,21 @@ This paper proposes a radically different approach. Rather than quantizing gravi
 
 The theory is formulated in terms of modified Maxwell-like equations, inspired by Heaviside’s gravitoelectromagnetism and enriched by the stochastic background field ideas of Boyer and the stochastic electrodynamics (SED) community. Throughout the paper, we maintain a classical framework: no quantization, no operator formalism, no probabilistic interpretation — yet key features of quantum and gravitational behavior emerge as natural consequences of the dynamics.
 
-We offer an outline of the remaining paper: 
+\subsection{Roadmap}
 
-2. A Physical Picture: Radiation Sink Intuition
+This paper is structured to follow the logic of the scientific method: we begin with a hypothesis, outline the physical assumptions that support it, explore its mathematical consequences, compare its predictions to experiment, and finally examine whether it offers a deeper conceptual shift.
 
-3. Maxwell-Style Equations for Gravity
+In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. This idea is presented intuitively, offering a physical picture that anchors the theory.
 
-4. Stochastic Electrodynamics
+In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature—perhaps unconventional, but not invented for this theory. Section 3 adopts a Maxwell-style framework for gravity, building on gravitoelectromagnetism. Section 4 introduces the stochastic radiation field—drawn from stochastic electrodynamics—as the physical medium from which mass absorbs momentum.
 
-5. Coupling Mass to the Field: Dual Cutoffs
+\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, that regulate the mass–field interaction and ensure physical consistency. We then analyze whether the inflow of radiation can provide a stabilizing mechanism for mass, counteracting gravitational self-energy.
 
-6. Field Energy and Momentum Balance: A Mechanism for Stability
+In \textbf{Section 7}, we test the theory against observation. We demonstrate that it reproduces the classical predictions of general relativity—perihelion precession, gravitational lensing, and redshift—to leading order, all within a flat-spacetime, classical framework.
 
-7. Classical Tests of Gravity
+Finally, in \textbf{Section 8}, we turn to the most surprising result: the field equations, when transformed through a mathematical duality, yield the Dirac equation. A single classical theory thus encompasses gravity, electromagnetism, and quantum behavior, without invoking quantization.
 
-8. Duality and the Dirac Equation
-
-9. Discussion and Outlook
+\textbf{Section 9} concludes with a discussion of open questions, potential avenues for further investigation, and the broader implications of the framework proposed here.
 
 \section{A Physical Picture: Radiation Sink Intuition}
 
@@ -88,12 +86,9 @@ This image above anchors the theory:
 
 if mass always interacts with the zero-point field, then this interaction must have physical consequences. We propose it manifests as an inward-pointing momentum density:
 
-\[
-\boxed{
-	\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}
-}
-\]
-
+\begin{equation}
+\boxed{\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
+\end{equation}
 
 This is not yet derived—it is proposed. But it prompts key questions: Can such a flow obey energy and momentum conservation? Can it stabilize mass against collapse? Can it account for gravitational phenomena?
 
@@ -106,14 +101,14 @@ In the following section, we begin quantifying the limits: How small can mass be
 
 Our gravitational field theory begins with a structural analogy: just as electromagnetism is governed by Maxwell's equations, we propose that gravity obeys a similar set of vector field equations.  These equations follow the form of Maxwell's equations in electromagnetism, but with mass and mass current acting as sources rather than charge and electric current. In natural units (\( c = 1 \)):
 
-\[
-\nabla \times \vec{B} - \partial_t \vec{E} = -4 \pi G \vec{J}, \quad 
-\nabla \times \vec{E} + \partial_t \vec{B} = 0
-\]
-\[
-\nabla \cdot \vec{E} = -4 \pi G \rho, \quad 
-\nabla \cdot \vec{B} = 0
-\]
+\begin{equation}
+\begin{aligned}
+\nabla \times \vec{B} - \partial_t \vec{E} &= -4 \pi G \vec{J}, \quad 
+&\nabla \times \vec{E} + \partial_t \vec{B} &= 0 \\
+\nabla \cdot \vec{E} &= -4 \pi G \rho, \quad 
+&\nabla \cdot \vec{B} &= 0
+\end{aligned}
+\end{equation}
 
 
 These equations describe a vector field sourced by mass density \( \rho \) and mass current \( \vec{J} \), with \( G \) playing the role of the coupling constant. Crucially, this is a **classical** theory: there is no operator formalism or quantum interpretation. Fields are continuous, real, and obey Lorentz invariance.
@@ -122,27 +117,30 @@ These equations describe a vector field sourced by mass density \( \rho \) and m
 
 Any vector field can be split into irrotational (curl-free) and solenoidal (divergence-free) components:
 
-\[
+\begin{equation}
 \vec{V} = \vec{V}_I + \vec{V}_S, \quad 
 \nabla \cdot \vec{V}_S = 0, \quad 
 \nabla \times \vec{V}_I = 0
-\]
+\end{equation}
 
 Applying this to our gravitational fields yields two decoupled subsystems:
 
 \vspace{0.5em}
 \noindent\textbf{Static Fields (Irrotational):}
-\[
+
+\begin{equation}
 \nabla \cdot \vec{E}_I = -4 \pi G \rho, \quad 
 \partial_t \vec{E}_I = 4 \pi G \vec{J}_I, \quad 
 \nabla \cdot \vec{J}_I + \partial_t \rho = 0
-\]
+\end{equation}
 
 \noindent\textbf{Radiation Fields (Solenoidal):}
-\[
+
+
+\begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = 4 \pi G \vec{J}_S, \quad 
 \nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
-\]
+\end{equation}
 
 This decomposition is not just convenient—it is physically meaningful. This decomposition is more than formal. It physically separates the **static gravitational attraction**—which reduces to Newton’s law in the appropriate limit—from the **propagating radiation** field, which transfers energy and momentum.
 
@@ -152,15 +150,16 @@ Because these sectors are decoupled (in the rest frame of the mass), we can anal
 
 In the case of a static point mass \( m \) located at the origin, we set:
 
-\[
+\begin{equation}
 \rho(\vec{x}) = m \delta^3(\vec{x}), \quad \vec{J} = 0
-\]
+\end{equation}
 
 From the irrotational equation \( \nabla \cdot \vec{E}_I = -4 \pi G \rho \), the solution is the familiar inverse-square law:
 
-\[
+\begin{equation}
 \vec{E}_I(\vec{x}) = - \frac{G m}{r^2} \hat{r}
-\]
+\end{equation}
+
 
 This recovers Newtonian gravity exactly in the weak-field limit. No spacetime curvature is required—only field lines and momentum flow.
 
@@ -172,65 +171,64 @@ Some may be surprised by the presence of \( \vec{B} \), a magnetic-like field. B
 
 Outside the mass, the solenoidal field equations in vacuum are:
 
-\[
+\begin{equation}
 \nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0, \quad 
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = 0
-\]
+\end{equation}
 
 Assuming time dependence \( e^{-i \omega t} \), the general solution is expanded in vector spherical harmonics:
 
-\[
-\vec{B}_S = \sum_{l,m} \left[
+\begin{equation}
+\begin{aligned}
+\vec{B}_S &= \sum_{l,m} \left[
 a_E(l,m) f_l(kr) \vec{X}_{lm}
 - \frac{i}{k} a_M(l,m) \nabla \times \left( g_l(kr) \vec{X}_{lm} \right)
-\right]
-\]
-
-\[
-\vec{E}_S = \sum_{l,m} \left[
+\right] \\
+\vec{E}_S &= \sum_{l,m} \left[
 \frac{i}{k} a_E(l,m) \nabla \times \left( f_l(kr) \vec{X}_{lm} \right)
 + a_M(l,m) g_l(kr) \vec{X}_{lm}
 \right]
-\]
+\end{aligned}
+\end{equation}
 
 Here, \( f_l \) and \( g_l \) are spherical Hankel functions. Since we model mass as a **sink** for radiation, we include only incoming waves.
 
 The energy flux into the particle is computed via the Poynting vector:
 
-\[
+\begin{equation}
 P = \int \nabla \cdot \left( \frac{1}{8\pi} \vec{E} \times \vec{B}^* \right) \, d^3x 
 = R^2 \int \hat{r} \cdot \vec{S} \, d\Omega \Big|_{r=R}
-\]
+\end{equation}
 
 Using mode orthogonality and assuming \( |a_E|^2 = |a_M|^2 \), the total absorbed power becomes:
 
-\[
+\begin{equation}
 P = \sum_{l,m} \frac{|a_E|^2}{4 \pi k^2}
-\]
+\end{equation}
 
 The associated energy and momentum densities in the radiation zone also follow cleanly. The total field momentum is directed radially inward:
 
-\[
+\begin{equation}
 \vec{P}_{\text{field}} = -\hat{r} \sum_{l,m} \int_V \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2} \, d^3x
-\]
+\end{equation}
 
 
 
 The total field momentum:
 
-\[
+\begin{equation}
 \vec{P}_{\text{field}} = \frac{1}{8\pi} \int_V \vec{E} \times \vec{B}^* \, d^3x
 = -\hat{r} \sum_{l,m} \int_V \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2} \, d^3x
-\]
+\end{equation}
 
 The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in the section on collapse and stability. But, since we've already speeled out the hypothesis then we know we will eventually get to
 :
 
-\[
+\begin{equation}
 \boxed{
 	\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}
 }
-\]
+\end{equation}
 
 This is not a free assumption. In later sections, we will show how this momentum field arises from boundary conditions at the mass’s surface, and how the coefficient (including \( \hbar \)) follows from coupling to the zero-point background up to a frequency cutoff \( \omega_{\text{max}} = m / \hbar \).
 
@@ -248,34 +246,33 @@ To complete our framework, we now introduce the physical source of the radiation
 
 In SED, the vacuum is not silent. It carries a random, omnipresent electromagnetic field with spectral energy density:
 
-\[
+\begin{equation}
 \rho(\omega) = \frac{1}{2} \hbar \omega
-\]
+\end{equation}
 
 This spectrum is Lorentz-invariant and corresponds to the ground state energy per mode, in analogy to the quantum harmonic oscillator. But unlike quantum theory, which treats this as an abstract baseline, SED models it as a real classical field.
 
 The field is stochastic and Gaussian, defined by:
 
-\[
+\begin{equation}
 \langle W \rangle = 0, \qquad 
 \langle W_i(\vec{k}) W_j^*(\vec{k}') \rangle = \delta_{ij} \delta^3(\vec{k} - \vec{k}')
-\]
+\end{equation}
 
 The electric and magnetic fields are then:
 
-\[
-\vec{E}(\vec{x}, t) = \text{Re} \sum_{\lambda=1}^2 \int d^3k \, 
+\begin{equation}
+\begin{aligned}
+\vec{E}(\vec{x}, t) &= \text{Re} \sum_{\lambda=1}^2 \int d^3k \, 
 \hat{\epsilon}(\vec{k}, \lambda) 
 \sqrt{\frac{\hbar \omega}{2\pi^2}} 
-W_\lambda(\vec{k}) e^{i(\omega t - \vec{k} \cdot \vec{x})}
-\]
-
-\[
-\vec{B}(\vec{x}, t) = \text{Re} \sum_{\lambda=1}^2 \int d^3k \, 
+W_\lambda(\vec{k}) e^{i(\omega t - \vec{k} \cdot \vec{x})} \\
+\vec{B}(\vec{x}, t) &= \text{Re} \sum_{\lambda=1}^2 \int d^3k \, 
 \frac{\vec{k} \times \hat{\epsilon}(\vec{k}, \lambda)}{k}
 \sqrt{\frac{\hbar \omega}{2\pi^2}} 
 W_\lambda(\vec{k}) e^{i(\omega t - \vec{k} \cdot \vec{x})}
-\]
+\end{aligned}
+\end{equation}
 
 This background field is homogeneous, isotropic, and defined over all frequencies up to some high-frequency cutoff. We assume that each mode contributes an energy \( \tfrac{1}{2} \hbar \omega \), and that the full ensemble of modes is statistically stationary and invariant under Lorentz transformations.
 
@@ -307,45 +304,61 @@ A central feature of this theory is that mass interacts with the zero-point fiel
 \subsection*{Interaction Hypothesis}
 
 We propose that a mass \( m \) couples to the zero-point field up to a maximum frequency 
-\[
-\boxed{\omega_{\text{max}} = \frac{m}{\hbar}}
-\]
+
+\begin{equation}
+\omega_{\text{max}} = \frac{m}{\hbar}
+\end{equation}
+
+
 and within a radial domain extending at least to 
-\[
-\boxed{r \gtrsim Gm}
-\]
+
+\begin{equation}
+r \gtrsim Gm
+\end{equation}
 
 This assumption is not yet derived, but it will prove physically consistent. In later sections, we show how this interaction yields a radial inward momentum density:
-\[
+
+
+\begin{equation}
 \boxed{\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
-\]
+\end{equation}
+
+
 and how the constant in this expression emerges from the field equations and boundary conditions.
 
 \subsubsection*{Lower Bound: Minimum Radius via Gravitational Self-Energy}
 
 From classical considerations, any spherically symmetric mass distribution has a gravitational self-energy:
-\[
+
+
+\begin{equation}
 U = -\frac{1}{2} \int \frac{G m \rho(\vec{x})}{r} \, d^3x
-\]
+\end{equation}
 
 For a spherical shell of radius \( R \), this yields:
-\[
+
+
+\begin{equation}
 R = \frac{G m}{2}
-\]
+\end{equation}
 
 Other geometries differ only by numerical prefactors. In general, we require:
-\[
+
+\begin{equation}
 R \gtrsim G m
-\]
+\end{equation}
 
 We interpret this as a \textbf{minimum radius} for any stable mass. Unlike the Schwarzschild radius (which assumes collapse), this lower bound emerges as a stability criterion under constant zero-point radiation pressure.
 
 \subsubsection*{Upper Bound: Cutoff Frequency via Energy Matching}
 
 Conversely, mass cannot absorb arbitrarily high-frequency radiation. A natural upper limit arises from energy conservation:
-\[
+
+
+\begin{equation}
 U = m = \hbar \omega_{\text{max}} \quad \Rightarrow \quad \omega_{\text{max}} = \frac{m}{\hbar}
-\]
+\end{equation}
+
 
 This sets the upper bound for momentum transfer and defines the domain of coupling between mass and field. While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals.
 
@@ -362,49 +375,52 @@ We now evaluate whether the inward radiation flow, hypothesized in Section 2, ca
 
 The total field energy is given by:
 
-\[
+\begin{equation}
 U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
-\]
+\end{equation}
 
 From earlier results, the energy density near a massive particle absorbing zero-point radiation falls off as \(1/r^2\). Including the cutoff frequency \(\omega_{\text{max}} = m/\hbar\), we have:
 
-\[
+\begin{equation}
 u(r) = \int_0^{m/\hbar} \frac{\alpha}{r^2} \, d\omega = \frac{\alpha m}{\hbar r^2}
-\]
+\end{equation}
+
 
 Integrating over all space, assuming spherical symmetry:
 
-\[
+\begin{equation}
 U_{\text{rad}} = \int_0^\infty u(r) \cdot 4\pi r^2 \, dr = \int_0^\infty \frac{4\pi \alpha m}{\hbar} \, dr
-\]
+\end{equation}
+
+
 
 This diverges unless we impose a lower bound, namely the minimum radius of the particle \(R = Gm\). Truncating the integral from \(R\) to \(\infty\), we obtain:
 
-\[
+\begin{equation}
 U_{\text{rad}} = \frac{4\pi \alpha m}{\hbar} \int_R^\infty dr = \infty
-\]
+\end{equation}
 
 To regularize this, we instead take the volume integral up to some finite domain or assume that most of the energy is absorbed near \(R\). The key is not the total energy, but the **balance** between the field energy and the self-gravitational energy of the particle:
 
-\[
+\begin{equation}
 U_{\text{grav}} = -\frac{G m^2}{R}
-\]
+\end{equation}
 
-\[
+\begin{equation}
 U_{\text{rad}} = \frac{4\pi \alpha m R}{\hbar}
-\]
+\end{equation}
 
 Balancing these energies (assuming \(U_{\text{total}} = 0\)) gives:
 
-\[
+\begin{equation}
 -\frac{G m^2}{R} + \frac{4\pi \alpha m R}{\hbar} = 0 \quad \Rightarrow \quad \alpha = \frac{G m \hbar}{4 \pi R^2}
-\]
+\end{equation}
 
 Substituting back, we find the energy density is:
 
-\[
+\begin{equation}
 u(r) = \frac{G m \hbar}{4\pi R^2 r^2}
-\]
+\end{equation}
 
 This shows that the particle's own radiation environment acts to resist collapse, provided the momentum flow structure is accepted. The directionality of \(\vec{p} \propto -\hat{r}\) also implies an inward pressure that balances gravitational pull.
 
@@ -412,35 +428,35 @@ This shows that the particle's own radiation environment acts to resist collapse
 
 We now turn to momentum conservation. The total momentum exchange in the system should obey:
 
-\[
+\begin{equation}
 \int_V \left( \rho \vec{E}_I + \vec{J}_S \times \vec{B}_S \right) \, d^3x = 0
-\]
+\end{equation}
 
 This relation balances the impulse from the irrotational field (associated with gravitational mass) against the magnetic impulse from the solenoidal radiation field.
 
 Assuming the solenoidal current obeys a linear response:
 
-\[
+\begin{equation}
 \vec{J}_S = \sigma \vec{E}_S
-\]
+\end{equation}
 
 and harmonic time dependence \(e^{-i \omega t}\), the field momentum becomes:
 
-\[
+\begin{equation}
 -\hat{r} \int \left( m \delta(\vec{x}) \cdot \frac{G m}{r^2} - \sigma \cdot \frac{G m \hbar}{r^2} \right) \, d^3x = 0
-\]
+\end{equation}
 
 Solving gives:
 
-\[
+\begin{equation}
 \sigma = \frac{m}{\hbar} \delta(\vec{x})
-\]
+\end{equation}
 
 This expression defines a delta-function conductivity concentrated at the origin — an effective Ohm's law in which the mass acts as a point-like, perfect absorber for incoming radiation. Including conventional normalization gives:
 
-\[
+\begin{equation}
 \sigma = \frac{m}{4\pi \hbar} \delta(\vec{x})
-\]
+\end{equation}
 
 This result is not imposed, but emerges from requiring consistency with the momentum flux model.
 
@@ -457,60 +473,60 @@ This section demonstrates that the present theory reproduces three key experimen
 
 In electrodynamics, a static Coulomb field transforms under Lorentz boosts into a configuration with both electric and magnetic components. Specifically, the fields of a charge moving at velocity \( \vec{v} \) are:
 
-\[
+\begin{equation}
 \vec{E}' = \gamma \vec{E} - \frac{\gamma^2}{\gamma + 1} \vec{v} (\vec{v} \cdot \vec{E}), \quad
 \vec{B}' = - \gamma \vec{v} \times \vec{E}
-\]
+\end{equation}
 
 where \( \gamma = 1 / \sqrt{1 - v^2} \).
 
 By analogy, we assume the same Lorentz transformation laws apply to gravity. We define the gravitational field:
 
-\[
+\begin{equation}
 \vec{E}_g = \vec{F} / m = - \frac{G M}{r^3} \vec{r}
-\]
+\end{equation}
 
 Then, under a Lorentz boost:
 
-\[
+\begin{equation}
 \vec{E}_g' = \gamma \vec{E}_g - \frac{\gamma^2}{\gamma + 1} \vec{v} (\vec{v} \cdot \vec{E}_g), \quad
 \vec{B}_g' = -\gamma \vec{v} \times \vec{E}_g
-\]
+\end{equation}
 
 In the low-velocity limit \( v \ll 1 \), we find:
 
-\[
+\begin{equation}
 \vec{B}_g = - \vec{v} \times \vec{r} \cdot \frac{GM}{r^3}
-\]
+\end{equation}
 
 This introduces a "gravitomagnetic" interaction analogous to magnetism in electrodynamics.
 
 We now consider Kepler’s problem. The Newtonian effective potential is:
 
-\[
+\begin{equation}
 U_{\text{Newt}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{r} + \frac{l^2}{2 m r^2}
-\]
+\end{equation}
 
 where \( l = m |\vec{r} \times \vec{v}| \) is the orbital angular momentum.
 
 A moving charge induces a magnetic moment \( \vec{m} = \frac{1}{2} e (\vec{r} \times \vec{v}) \). Replacing \( e \rightarrow m \), we define a gravitational magnetic moment:
 
-\[
+\begin{equation}
 \vec{m}_g = \frac{1}{2} m (\vec{r} \times \vec{v})
-\]
+\end{equation}
 
 The potential energy of this moment in a magnetic field is:
 
-\[
+\begin{equation}
 U = -\vec{m}_g \cdot \vec{B}_g = -\frac{GM m}{2} |\vec{r} \times \vec{v}|^2 / r^3
-\]
+\end{equation}
 
 This adds a correction to the potential energy. Including the reciprocal effect (from the motion of the central mass), we double this term and find the corrected potential:
 
-\[
+\begin{equation}
 U_{\text{Einstein}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{r}
 + \frac{l^2}{2 m r^2} - \frac{GM l^2}{m r^3}
-\]
+\end{equation}
 
 This is the same correction obtained in general relativity to first order. As Carroll notes, general relativity produces this result exactly; in our theory, it emerges as a first-order approximation. Higher-order terms may offer a route to testing deviations.
 
@@ -518,33 +534,33 @@ This is the same correction obtained in general relativity to first order. As Ca
 
 We now consider the bending of light near a massive object. Our central hypothesis is that mass creates a momentum-transfer field:
 
-\[
+\begin{equation}
 \vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
-\]
+\end{equation}
 
 A photon traveling through this field receives a cumulative momentum shift:
 
-\[
+\begin{equation}
 \Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
-\]
+\end{equation}
 
 Assuming a straight-line path passing at minimum distance \( b \), we integrate:
 
-\[
+\begin{equation}
 \Delta \vec{p} = \int_{-\infty}^{\infty} - \frac{G m \hbar}{r^3} \vec{r} \, w \, dz
-\]
+\end{equation}
 
 The parallel momentum shifts cancel symmetrically. The transverse component yields:
 
-\[
+\begin{equation}
 \Delta p_y = \hbar w \cdot \frac{2 G m}{b}
-\]
+\end{equation}
 
 The angle of deflection is then:
 
-\[
+\begin{equation}
 \theta \approx \frac{\Delta p_y}{p_z} = \frac{2 G m}{b} \quad \Rightarrow \quad \alpha = \frac{4 G m}{b}
-\]
+\end{equation}
 
 This matches the deflection angle predicted by general relativity.
 
@@ -554,15 +570,15 @@ Finally, we consider the redshift of light climbing out of a gravitational well.
 
 Using:
 
-\[
+\begin{equation}
 \Delta p = \int_{\infty}^{R} \vec{P} \cdot \hat{r} \cdot w \, dr = \int_{\infty}^{R} - \frac{G m \hbar}{r^2} w \, dr = \hbar w \cdot \frac{G m}{R}
-\]
+\end{equation}
 
 The resulting frequency shift is:
 
-\[
+\begin{equation}
 \hbar w' = \hbar w + \Delta p = \hbar w \left( 1 + \frac{G m}{R} \right)
-\]
+\end{equation}
 
 which, to first order, matches the prediction of general relativity for gravitational redshift.
 
@@ -573,34 +589,31 @@ which, to first order, matches the prediction of general relativity for gravitat
 
 As discussed in Jackson (Section 6.11), the Maxwell equations can be extended to include both electric and magnetic charges:
 
-\[
-\nabla \times \vec{B} - \partial_t \vec{E} = \vec{J}_e, \quad
-\nabla \times \vec{E} + \partial_t \vec{B} = -\vec{J}_m
-\]
+\begin{equation}
+\begin{aligned}
+\nabla \times \vec{B} - \partial_t \vec{E} &= \vec{J}_e, \quad
+&\nabla \times \vec{E} + \partial_t \vec{B} &= -\vec{J}_m \\
+\nabla \cdot \vec{E} &= \rho_e, \quad
+&\nabla \cdot \vec{B} &= \rho_m
+\end{aligned}
+\end{equation}
 
-\[
-\nabla \cdot \vec{E} = \rho_e, \quad
-\nabla \cdot \vec{B} = \rho_m
-\]
 
 The magnetic densities are assumed to obey the same continuity equation as their electric counterparts.
 
 Now consider the following duality transformation:
 
-\[
-\vec{E} = \vec{E}' \cos \xi + \vec{B}' \sin \xi, \quad
-\vec{B} = \vec{B}' \cos \xi - \vec{E}' \sin \xi
-\]
+\begin{equation}
+\begin{aligned}
+\vec{E} &= \vec{E}' \cos \xi + \vec{B}' \sin \xi, \quad
+&\vec{B} &= \vec{B}' \cos \xi - \vec{E}' \sin \xi \\
+\rho_e &= \rho_e' \cos \xi + \rho_m' \sin \xi, \quad
+&\rho_m &= \rho_m' \cos \xi - \rho_e' \sin \xi \\
+\vec{J}_e &= \vec{J}_e' \cos \xi + \vec{J}_m' \sin \xi, \quad
+&\vec{J}_m &= \vec{J}_m' \cos \xi - \vec{J}_e' \sin \xi
+\end{aligned}
+\end{equation}
 
-\[
-\rho_e = \rho_e' \cos \xi + \rho_m' \sin \xi, \quad
-\rho_m = \rho_m' \cos \xi - \rho_e' \sin \xi
-\]
-
-\[
-\vec{J}_e = \vec{J}_e' \cos \xi + \vec{J}_m' \sin \xi, \quad
-\vec{J}_m = \vec{J}_m' \cos \xi - \vec{J}_e' \sin \xi
-\]
 
 This transformation leaves the generalized Maxwell equations invariant. As Jackson notes, the distinction between electric and magnetic charge is, in this framework, a matter of convention. If all particles share the same magnetic-to-electric charge ratio, a duality rotation can eliminate magnetic charges entirely. This perspective opens the door for deeper reinterpretations of classical field theory.
 
@@ -610,13 +623,13 @@ We now examine a way to recast Maxwell’s equations using spinor-like objects.
 
 Define the vector curl as a matrix operator:
 
-\[
+\begin{equation}
 \nabla \times \vec{V} = g_i \partial_i \vec{V}
-\]
+\end{equation}
 
 with:
 
-\[
+\begin{equation}
 g_1 = \begin{pmatrix}
 0 & 0 & 0 \\
 0 & 0 & -1 \\
@@ -632,11 +645,11 @@ g_3 = \begin{pmatrix}
 1 & 0 & 0 \\
 0 & 0 & 0
 \end{pmatrix}
-\]
+\end{equation}
 
 Define the gamma matrices as (These matrices satisfy the algebra of infinitesimal rotations and generate the curl operator in 3D”):
 
-\[
+\begin{equation}
 \gamma^0 = \begin{pmatrix}
 -1 & 0 \\
 0 & -1
@@ -645,7 +658,7 @@ Define the gamma matrices as (These matrices satisfy the algebra of infinitesima
 0 & g_i \\
 -g_i & 0
 \end{pmatrix}
-\]
+\end{equation}
 
 These matrices are not the standard Dirac representation, but they serve to connect the structure of the field equations to the spinor formalism in a suggestive way. This could be further explored with tools from representation theory and Clifford algebras.
 
@@ -653,50 +666,49 @@ These matrices are not the standard Dirac representation, but they serve to conn
 
 Recall from the section on momentum conservation that:
 
-\[
+\begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
-\]
+\end{equation}
 
 Restricting attention to the surface of the particle (i.e., “on-shell”), we drop the delta function and write:
 
-\[
+\begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S
-\]
+\end{equation}
 
 Now, apply the duality transformation and write the solenoidal Maxwell equations in this form:
 
-\[
--\partial_t \vec{E}_S + \nabla \times \vec{B}_S + \frac{m}{\hbar} \vec{E}_S = 0
-\]
-
-\[
--\partial_t \vec{B}_S - \nabla \times \vec{E}_S + \frac{m}{\hbar} \vec{B}_S = 0
-\]
+\begin{equation}
+\begin{aligned}
+-\partial_t \vec{E}_S + \nabla \times \vec{B}_S + \frac{m}{\hbar} \vec{E}_S &= 0 \\
+-\partial_t \vec{B}_S - \nabla \times \vec{E}_S + \frac{m}{\hbar} \vec{B}_S &= 0
+\end{aligned}
+\end{equation}
 
 Using the spinor curl definition:
 
-\[
--\partial_t \vec{E}_S + g_i \partial_i \vec{B}_S + \frac{m}{\hbar} \vec{E}_S = 0
-\]
+\begin{equation}
+\begin{aligned}
+-\partial_t \vec{E}_S + g_i \partial_i \vec{B}_S + \frac{m}{\hbar} \vec{E}_S &= 0 \\
+-\partial_t \vec{B}_S - g_i \partial_i \vec{E}_S + \frac{m}{\hbar} \vec{B}_S &= 0
+\end{aligned}
+\end{equation}
 
-\[
--\partial_t \vec{B}_S - g_i \partial_i \vec{E}_S + \frac{m}{\hbar} \vec{B}_S = 0
-\]
 
 Now define a six-component field:
 
-\[
+\begin{equation}
 \psi = \begin{pmatrix}
 \vec{E}_S \\
 \vec{B}_S
 \end{pmatrix}
-\]
+\end{equation}
 
 We can combine the two equations above into a compact form:
 
-\[
+\begin{equation}
 \left( \gamma^\mu \partial_\mu + \frac{m}{\hbar} \right) \psi = 0
-\]
+\end{equation}
 
 This has the exact form of the Dirac equation, as given in Sakurai’s Advanced Quantum Mechanics, Eq. 3.31.
 
@@ -743,6 +755,13 @@ This paper is a prototype. It closes no doors and makes no sweeping claims. Its 
 This is offered not as a conclusion, but as a beginning. Collaborators welcome.
 
 
+\section*{Acknowledgments}
+
+This paper would not exist without the support of a few key people. First and foremost, I thank my wife, who has stood beside me for over two decades as I pursued this idea. Her patience, steadiness, and quiet encouragement through all the ups and downs have been unwavering.
+
+I am also deeply grateful to my friend Michael Seidel, who—despite not having a background in physics—listened to me explain these ideas again and again over the years. His willingness to engage, ask questions, and simply be present helped me find clarity when I needed it most.
+
+To both of them: thank you.
 
 
 \end{document}
