@@ -28,34 +28,34 @@
 
 
 \begin{center}\strut
-May 5th, 2025
+June 16th, 2025
 \end{center}
 \vfill
 
 	
 \newpage
 \begin{abstract}
-	This paper introduces a classical field theory of gravity built on modified Maxwell equations and a central physical hypothesis: that mass absorbs zero-point radiation, inducing a net inward momentum flow. Drawing from stochastic electrodynamics (SED), we postulate a Lorentz-invariant radiation field present throughout space, and hypothesize that mass acts as a sink for this field up to a frequency cutoff \( \omega_{\text{max}} = m / \hbar \).  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and derive an emergent Dirac equation via a spinor transformation. Classical tests of general relativity—Mercury's precession, gravitational lensing, and gravitational redshift—are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to quantum gravity and general relativity, and lays a foundation for further exploration.
+	This paper introduces a classical field theory of gravity built on the Maxwell equations and a central physical hypothesis: that mass absorbs zero-point radiation, inducing a net inward momentum flow. Drawing from stochastic electrodynamics (SED), we postulate a Lorentz-invariant radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and derive an emergent Dirac equation via a spinor transformation. Classical tests of general relativity—Mercury's precession, gravitational lensing, and gravitational redshift—are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to quantum gravity and general relativity, and lays a foundation for further exploration.
 \end{abstract}
 \newpage
 
 \section{Introduction}
 
-Physics today stands at an impasse. The Standard Model and general relativity have provided extraordinary y insight into the workings of the universe, but their domains remain disjoint: quantum mechanics governs the small, general relativity the large. Despite nearly a century of effort, these two frameworks remain fundamentally incompatible.
+Modern physics is built on two towering achievements: quantum mechanics, which explains the behavior of atoms and particles, and general relativity, which describes gravity and the large-scale structure of the universe. Each theory works astonishingly well in its own realm.
 
-Efforts to unify them—most notably string theory—have produced elegant mathematics but no testable predictions. The field of fundamental physics, as argued by Lee Smolin and others, has stagnated, dominated by a narrow set of ideas and institutional inertia. We are still without a coherent, testable theory of gravity that naturally connects to quantum phenomena.
+But they don’t fit together. When applied simultaneously, the equations break down—producing infinities. Despite nearly a century of effort, no unifying framework has emerged. Proposals like string theory offer elegant mathematics, but no concrete predictions we can test. The field has grown stagnant, dominated by a few entrenched ideas. A fresh approach is warranted.
 
-This paper proposes a radically different approach. Rather than quantizing gravity or geometrizing quantum mechanics, we hypothesize a classical field-theoretic mechanism by which gravitational behavior emerges from radiation momentum transfer. The core idea is that mass acts as a \emph{sink} for zero-point radiation, inducing a directional flow of momentum in the surrounding field. 
-
-The theory is formulated in terms of modified Maxwell-like equations, inspired by Heaviside’s gravitoelectromagnetism and enriched by the stochastic background field ideas of Boyer and the stochastic electrodynamics (SED) community. Throughout the paper, we maintain a classical framework: no quantization, no operator formalism, no probabilistic interpretation — yet key features of quantum and gravitational behavior emerge as natural consequences of the dynamics.
+This paper proposes that fresh approach. Rather than quantizing gravity or geometrizing quantum mechanics, we propose that mass acts as a \emph{sink} for zero-point radiation, inducing a directional flow of momentum in the surrounding field. 
 
 \subsection{Roadmap}
 
 This paper is structured to follow the logic of the scientific method: we begin with a hypothesis, outline the physical assumptions that support it, explore its mathematical consequences, compare its predictions to experiment, and finally examine whether it offers a deeper conceptual shift.
 
-In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. This idea is presented intuitively, offering a physical picture that anchors the theory.
+Every theory begins with a hypothesis. If it yields interesting physics and does not contradict experiment, it deserves to be taken seriously. The history of science is full of ideas that sounded outlandish at first but reshaped our understanding. The burden is not on the hypothesis to sound reasonable—it’s on the results to be meaningful.
 
-In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature—perhaps unconventional, but not invented for this theory. Section 3 adopts a Maxwell-style framework for gravity, building on gravitoelectromagnetism. Section 4 introduces the stochastic radiation field—drawn from stochastic electrodynamics—as the physical medium from which mass absorbs momentum.
+In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
+
+In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature—perhaps unconventional, but not novel to this work. \textbf{Section 3} adopts a Maxwell-style framework for gravity, building on gravitoelectromagnetism. \textbf{Section 4} introduces the stochastic radiation field—drawn from stochastic electrodynamics—as the physical medium from which mass absorbs momentum.
 
 \textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, that regulate the mass–field interaction and ensure physical consistency. We then analyze whether the inflow of radiation can provide a stabilizing mechanism for mass, counteracting gravitational self-energy.
 
@@ -69,46 +69,40 @@ Finally, in \textbf{Section 8}, we turn to the most surprising result: the field
 
 \subsection{A Physical Picture: Radiation Sink Intuition }
 
-Before diving into equations, we begin with an image. Picture a warm iron ball, fresh from a furnace, glowing red as it radiates heat. Assume it is electromagnetically neutral and a perfect conductor.
+Before diving into equations, we begin with an image to help our intuition. Picture a warm iron ball, fresh from a furnace, glowing red as it radiates heat. Assume it is electromagnetically neutral and a perfect conductor.
 
-Now place this ball in the vacuum of deep space. As it cools, it emits infrared photons, gradually losing energy to its surroundings. The glow fades, and the ball approaches absolute zero.
+Now place this ball in the vacuum of deep space. As it cools, it emits infrared photons, gradually losing energy to its surroundings. The glow fades as the ball approaches absolute zero.
 
-But even at zero Kelvin, the universe is not truly empty. Both classical and quantum considerations point to a persistent electromagnetic background: the zero-point field (ZPF). A fuller treatment of this will be offered in the section Stochastic Electrodynamics. For now, imagine a faint hiss of zero-point radiation filling even the coldest vacuum. The iron ball, though no longer glowing, continues to absorb from this ambient field.
+But even at zero Kelvin, the universe is not truly empty. Both classical and quantum considerations point to a persistent electromagnetic background: the zero-point radiation field “Zero-point” refers to zero temperature; “radiation” in this context means light. A fuller treatment of this will be offered in \textbf{Section 4}. For now, imagine a faint hiss of zero-point radiation filling even the coldest vacuum. The iron ball absorbs radiation from this ambient field.
 
-Our proposal is this: even at absolute zero, mass interacts with the ZPF. The iron ball draws in energy—not passively, but by creating an inward flow of momentum from the field. This absorption forms a radial momentum flux toward the mass. The cold ball doesn't just sit inert—it sinks radiation from the ZPF.
+Our proposal is this: even at absolute zero, mass interacts with the zero-point radiation field. The iron ball draws in energy, creating an inward flow of momentum from the zero-point radiation field. This absorption forms a radial momentum flux toward the mass. 
 
-
-This is the metaphorical heart of the theory. Just as electric charges source field lines, and magnetic poles source curls, we propose that mass acts as a sink in the momentum field of zero-point radiation. The rest of the paper builds from this intuition.
+This is the metaphorical heart of the theory. Just as electric charges source field lines, and magnetic poles source curls, we propose that mass acts as a sink in the momentum field of zero-point radiation. The rest of the paper builds from this intuition. (Note to future editions: it might be worth mentioning that in the Feynman lectures, this was totally assumed)
 
 \subsection{Core Hypothesis: The Math}
 
+The image above anchors the theory.
 
-This image above anchors the theory: 
-
-
-if mass always interacts with the zero-point field, then this interaction must have physical consequences. We propose it manifests as an inward-pointing momentum density:
+If mass always interacts with the zero-point field, then this interaction must have physical consequences. We propose it manifests as an inward-pointing momentum density:
 
 \begin{equation}
 \boxed{\vec{P}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
 \end{equation}
 
-This is the hypothesis that we have chosen and we will see it in action in the section on predicitons where we will use it like so:
 
-A photon traveling through this field receives a cumulative momentum shift:
+A photon traveling through this field experiences a cumulative momentum shift:
 
 \begin{equation}
 \Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
 \end{equation}
 
+This is our core hypothesis, and its implications will be tested in \textbf{Section 7}.
 
-And again this is the hypothesis of the paper that mass creates a momentum flucx that can act on radiation.
+This is a proposed hypothesis: mass creates a momentum flux capable of acting on radiation. We are permitted to propose a hypothesis—every theory begins with one.
 
-This is not yet derived—it is proposed. But it prompts key questions: Can such a flow obey energy and momentum conservation? Can it stabilize mass against collapse? Can it account for gravitational phenomena?
+We do not derive this expression; we posit it. But it prompts key questions: Can such a flow obey conservation of energy and momentum? Can it stabilize mass against collapse? Can it account for known gravitational phenomena?
 
-Here, we also simply state the hypothesis and show its consequences, we hope in future drafts of this paper or in subsequent work that we will instead make this hypothesis simply a result of the 2 assumptions we will make in the next two sections and alluded to earlier..
-
-In the following section, we begin quantifying the limits: How small can mass become before gravitational collapse takes over? Up to what frequency does it couple to the ZPF?
-
+Here, we simply state the hypothesis and explore its consequences. In future drafts or subsequent work, we hope to derive this form directly from the two assumptions laid out in the next sections.
 
 \section{Maxwell-Like Equations for Gravity}
 
@@ -514,13 +508,24 @@ In the low-velocity limit \( v \ll 1 \), we find:
 
 This introduces a "gravitomagnetic" interaction analogous to magnetism in electrodynamics.
 
+\begin{figure}[t]
+	\centering
+	\fbox{\includegraphics[width=0.6\textwidth]{autodraw.png}}
+	\caption{Two masses in mutual orbit}
+	\label{fig:two-masses}
+\end{figure}
+
 We now consider Kepler’s problem. The Newtonian effective potential is:
+
+
+
 
 \begin{equation}
 U_{\text{Newt}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{r} + \frac{l^2}{2 m r^2}
 \end{equation}
 
-where \( l = m |\vec{r} \times \vec{v}| \) is the orbital angular momentum.
+where \( l = m |\vec{r} \times \vec{v}| \) is the orbital angular momentum (see  \ref{fig:two-masses}).
+
 
 A moving charge induces a magnetic moment \( \vec{m} = \frac{1}{2} e (\vec{r} \times \vec{v}) \). Replacing \( e \rightarrow m \), we define a gravitational magnetic moment:
 
@@ -545,11 +550,20 @@ This is the same correction obtained in general relativity to first order. As Ca
 
 \subsection{Deflection of Light}
 
+
+
 We now consider the bending of light near a massive object. Our central hypothesis is that mass creates a momentum-transfer field:
 
 \begin{equation}
 \vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
 \end{equation}
+
+\begin{figure}[h]
+	\centering
+	\fbox{\includegraphics[width=0.6\textwidth]{light-bending.png}}
+	\caption{Deflection of light}
+	\label{fig:deflection}
+\end{figure}
 
 A photon traveling through this field receives a cumulative momentum shift:
 
