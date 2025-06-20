@@ -68,15 +68,15 @@ Finally, in \textbf{Section 8}, we turn to the most surprising result: the field
 \subsection{A Physical Picture: Radiation Sink Intuition }
 \label{subsec:intuition}
 
-Before diving into equations, we begin with an image to help our intuition. Picture a warm iron ball, fresh from a furnace, glowing red as it radiates heat. Assume it is electromagnetically neutral and a perfect conductor.
+Before introducing equations, we present a simple physical picture to guide intuition. Consider a neutral, perfectly conducting iron sphere, heated until it glows red. When placed in the vacuum of space, it emits infrared radiation and cools down, eventually approaching absolute zero.
 
-Now, imagine we place this ball in the vacuum of deep space. As it cools, it emits infrared photons, gradually losing energy to its surroundings. The glow fades as the ball approaches absolute zero.
+But even at zero Kelvin, space is not truly empty. Both classical and quantum theories suggest the presence of a background electromagnetic field—commonly called the zero-point radiation field. "Zero-point" refers to zero-temperature; "radiation" in this context means light. A fuller treatment of this will be offered in \textbf{Section 4}. For now, it is enough to imagine a low-level radiation noise present even in the coldest vacuum. The mass absorbs radiation from this ambient field.
 
-But even at zero Kelvin, the universe is not truly empty. Both classical and quantum considerations point to a persistent electromagnetic background: the zero-point radiation field. “Zero-point” refers to zero temperature; “radiation” in this context means light. A fuller treatment of this will be offered in \textbf{Section 4}. For now, imagine a faint hiss of zero-point radiation filling even the coldest vacuum. The iron ball absorbs radiation from this ambient field.
+The hypothesis proposed here is that mass absorbs energy from the zero-point field even at absolute zero. This interaction produces a net inward flow of momentum toward the mass.
 
-Our proposal is this: even at absolute zero, mass interacts with the zero-point radiation field. The iron ball draws in energy, creating an inward flow of momentum from the zero-point radiation field. This absorption forms a radial momentum flux toward the mass. 
+The remainder of the paper builds from this intuition and develops the consequences of this idea.
 
-This is the metaphorical heart of the theory. Just as electric charges source field lines, and magnetic poles source curls, we propose that mass acts as a sink in the momentum field of zero-point radiation. The rest of the paper builds from this intuition. (Note to future editions: it might be worth mentioning that in the Feynman lectures, this was totally assumed)
+% (Optional note: The assumption that such a background field exists is implicit in the Feynman Lectures.)
 
 \subsection{Core Hypothesis: The Math}
 
@@ -180,6 +180,8 @@ Since this form matches the standard presentation in textbooks on electromagneti
 
 \subsection{Spherical Vector Harmonics}
 
+The following sections derive the explicit solutions to the Maxwell equations used in this theory.
+
 Due to the symmetric radial symmetry of the problem, we will benefit from using Vector Spherical Harmonics. 
 
 Following Berrara (http://iopscience.iop.org/article/10.1088/0143-0807/6/4/014/meta) we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
@@ -209,7 +211,7 @@ where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm
 
 \subsection{Recovery of Newtonian Gravity (Irrotational Solutions)}
 
-
+We now calculate Newtonian gravity as a solution to the Irrotational parts of the Maxwell equations.
 
 In the case of a static point mass \( m \) located at the origin, we set:
 
@@ -256,6 +258,8 @@ as expected.
 
 
 \subsection{Radiation from the Solenoidal Field (Solenoidal Solutions)}
+
+Several results from the solutions of the solenoidal Maxwell equations will be needed later; we now solve the corresponding equations.
 
 Outside the mass, the solenoidal field equations in vacuum are:
 
@@ -329,6 +333,14 @@ The total field momentum:
 \begin{equation}
 \vec{P}_{\text{field}} = \frac{1}{8\pi} \int_V \vec{E} \times \vec{B}^* \, d^3x
 = -\hat{r} \sum_{l,m} \int_V \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2} \, d^3x
+\label{eq:mom}
+\end{equation}
+
+The total field energy:
+
+\begin{equation}
+U  =\sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x 
+\label{eq:energy}
 \end{equation}
 
 The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in the section on collapse and stability. But, since we've already spelled out the hypothesis then we know we will eventually get to
@@ -340,13 +352,28 @@ The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in 
 }
 \end{equation}
 
-This is not a free assumption. In later sections, we will show how this momentum field arises from boundary conditions at the mass’s surface, and how the coefficient (including \( \hbar \)) follows from coupling to the zero-point background radiation.
+This result follows from boundary conditions at the mass’s surface. In later sections, we will derive it explicitly, including the dependence on \( \hbar \).
 
 \section{Stochastic Electrodynamics (SED)}
 
 To complete our framework, we now introduce the physical source of the radiation field: the zero-point background. Rather than assuming empty space, we posit—following the ideas of stochastic electrodynamics (SED)—that the vacuum is filled with a classical, Lorentz-invariant radiation field even at absolute zero. This field supplies the fluctuations from which mass sinks momentum.
 
-\subsection{The Zero-Point Field}
+In SED, zero-point radiation explains how classical systems can remain stable, even while radiating energy. It has been shown to reproduce:
+
+- The Planck blackbody spectrum (Boyer, 1969)
+- Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \)
+- Casimir and van der Waals forces
+- Some features of the hydrogen atom ground state
+- The Unruh effect
+
+(Note to self: get some actual references here)
+
+Each of these suggests that the vacuum is not passive. It is a sea of fluctuating modes that constantly jostle matter—even at \( T = 0 \). 
+
+It is important to repeat or say for the first time, that in SED there is no need to quantize. The results are all derived by classical analysis.
+
+
+\subsection{The Zero-Point Radiation Field}
 
 In SED, the vacuum is not silent. It carries a random, omnipresent electromagnetic field with spectral energy density:
 
@@ -378,39 +405,24 @@ W_\lambda(\vec{k}) e^{i(\omega t - \vec{k} \cdot \vec{x})}
 \end{aligned}
 \end{equation}
 
-This background field is homogeneous, isotropic, and defined over all frequencies up to some high-frequency cutoff. We assume that each mode contributes an energy \( \tfrac{1}{2} \hbar \omega \), and that the full ensemble of modes is statistically stationary and invariant under Lorentz transformations.
-
-\subsection{Why This Matters}
-
-This field is not added as an afterthought—it is the heartbeat of the theory. Without it, mass would generate fields but receive nothing in return. With it, a dynamic equilibrium becomes possible. Mass interacts with the zero-point field, selectively absorbing momentum from it. This interaction, we propose, is the **source of gravity**.
-
-In SED, zero-point radiation explains how classical systems can remain stable, even while radiating energy. It has been shown to reproduce:
-
-- The Planck blackbody spectrum (Boyer, 1969)
-- Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \)
-- Casimir and van der Waals forces
-- Some features of the hydrogen atom ground state
-- The Unruh effect
-
-Each of these suggests that the vacuum is not passive. It is a sea of fluctuating modes that constantly jostle matter—even at \( T = 0 \).
+This background field is homogeneous, isotropic, and defined over all frequencies up to some high-frequency cutoff (see \textbf{Section 5}). Each mode contributes an energy \( \tfrac{1}{2} \hbar \omega \), and that the full ensemble of modes is statistically stationary and invariant under Lorentz transformations.
 
 
-\subsection*{Transition}
+The zero-point radiation field plays a central role in the framework. Mass interacts with this field by absorbing momentum from it. This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it.
 
-Now that the preliminaries are in place—namely, Maxwell’s equations (as adapted by Heaviside) and Stochastic Electrodynamics (as introduced by Boyer)—we can turn to the mathematics that is novel in this theory.
 
-These two ingredients are not original to this work, but together they set the stage. What follows is where the new structure begins to emerge.
+
 
 \section{Coupling Mass to the Field: Dual Cutoffs / Dual Infinities}
 
-A central feature of this theory is that mass interacts with the zero-point field only over a limited domain, defined by two natural cutoffs: one in space, and one in frequency. These cutoffs are not imposed arbitrarily, but emerge from physical consistency. The spatial cutoff prevents gravitational collapse, while the frequency cutoff ensures that absorption from the zero-point field remains finite.
+A central feature of this theory is that mass interacts with the zero-point field only over a limited domain, defined by two natural cutoffs: one in space, and one in frequency. These cutoffs are not imposed arbitrarily, but emerge from physical consistency. The spatial cutoff prevents gravitational collapse, while the frequency cutoff ensures that absorption from the zero-point radiation field remains finite.
 
 \subsection*{Interaction Hypothesis}
 
 We propose that a mass \( m \) couples to the zero-point field up to a maximum frequency 
 
 \begin{equation}
-\omega_{\text{max}} = \frac{m}{\hbar}
+\omega \lesssim \frac{m}{\hbar}
 \end{equation}
 
 
@@ -460,14 +472,15 @@ Conversely, mass cannot absorb arbitrarily high-frequency radiation. A natural u
 
 
 \begin{equation}
-U = m = \hbar \omega_{\text{max}} \quad \Rightarrow \quad \omega_{\text{max}} = \frac{m}{\hbar}
+U = m = \hbar \omega_{\text{max}} \quad \Rightarrow \quad \omega \lesssim \frac{m}{\hbar}
 \end{equation}
 
 
-This sets the upper bound for momentum transfer and defines the domain of coupling between mass and field. While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals.
+This sets the upper bound for momentum transfer and defines the domain of coupling between mass and field. While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals. 
 
 \vspace{0.5em}
-Together, these dual cutoffs—one in radius, one in frequency—define a resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward quantum or nonlinear extensions of the theory.
+Together, these dual cutoffs—one in radius, one in frequency—define a resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward extensions of the theory. This is also possibly a testable prediction.
+
 
 
 
@@ -475,7 +488,7 @@ Together, these dual cutoffs—one in radius, one in frequency—define a resolu
 
 \subsection{Stability from Field Energy}
 
-We now evaluate whether the inward radiation flow, hypothesized in Section 2, can provide a stabilizing mechanism for a massive particle. Specifically, we ask: can the absorbed energy from the zero-point field counteract the gravitational self-energy that would otherwise lead to collapse?
+We now evaluate whether the inward radiation flow, hypothesized in \textbf{Section 2}, can provide a stabilizing mechanism for a massive particle. Specifically, we ask: can the absorbed energy from the zero-point field counteract the gravitational self-energy that would otherwise lead to collapse?
 
 The total field energy is given by:
 
@@ -483,11 +496,59 @@ The total field energy is given by:
 U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
 \end{equation}
 
-From earlier results, the energy density near a massive particle absorbing zero-point radiation falls off as \(1/r^2\). Including the cutoff frequency \(\omega_{\text{max}} = m/\hbar\), we have:
+From equation~\eqref{eq:energy}, we have 
 
 \begin{equation}
-u(r) = \int_0^{m/\hbar} \frac{\alpha}{r^2} \, d\omega = \frac{\alpha m}{\hbar r^2}
+U_{\text{rad}}  =\sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x 
 \end{equation}
+
+
+
+The energy density can thus be defined as
+
+\begin{equation}
+u_{\text{rad}}   = \sum_{l, m}   \frac 1 {4\pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2}
+\end{equation}
+
+Taking the constants together, we rewrite this as 
+
+\begin{equation}
+u_{\text{rad}}  =  \frac {\alpha}{r^2}
+\end{equation}
+
+
+
+The energy density near a massive particle absorbing zero-point radiation falls off as \(1/r^2\). Including the cutoff frequency \(\omega_{\text{max}} = m/\hbar\), we have:
+
+\begin{equation}
+u_{\text{rad}} (r) = \int_0^{m/\hbar} \frac{\alpha}{r^2} \, d\omega = \frac{\alpha m}{\hbar r^2}
+\end{equation}
+
+Our goal is to now find $alpha$ such that energy is conserved.
+
+We will show that there is conservation of energy, and therefor the massive particle introduced in the last section will not collapse (One could have also done this purely from a pressure standpoint, but Energy conservation seems cooler)
+
+\begin{equation}
+U_{\text{tot}}  = \int_V u ~ d^3x = \int_V \left( - \frac 1 {4 \pi G} |\vec E_I |^2  +  |\vec E_S |^2  +  |\vec B_S |^2 \right) ~ d^3x
+\end{equation}
+
+\begin{equation}
+U_{\text{tot}}  =\int_V \left[ - \frac {Gm^2} {4 \pi r^4} + \frac {\alpha m } {\hbar r^2} \right] ~ d^3x
+\end{equation}
+
+And thus 
+
+\begin{equation}
+u_{\text{tot}}  = \left[ - \frac {Gm^2} {4 \pi r^4} + \frac {\alpha m } {\hbar r^2} \right] 
+\end{equation}
+
+If this is a constant at \(r = R\), then energy is conserved. More to the point, if we say these two energies cancel each other out, then we are left with zero energy, thus we can write
+
+$$\alpha = \frac 1 {4 \pi R^2} Gm \hbar$$
+
+and thus 
+
+$$u  = \sum_{l, m}   \frac 1 {4\pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2}  =  \frac 1 {4 \pi R^2} \frac {Gm \hbar} {r^2} $$
 
 
 Integrating over all space, assuming spherical symmetry:
