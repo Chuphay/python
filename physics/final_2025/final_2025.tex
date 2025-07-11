@@ -9,6 +9,8 @@
 \let\OldHat\hat
 \renewcommand{\hat}[1]{\OldHat{\mathbf{#1}}}
 
+\newcommand{\comment}[1]{}
+
 
 \begin{document}
 \thispagestyle{empty}% empty header/footer
@@ -16,6 +18,7 @@
 \begin{center}\strut
 	\bfseries\Huge
 	What if  Mass Eats the Vacuum? 
+	\comment{Does Mass Eat the Vacuum? (Seems like less words)}
 \end{center}
 
 
@@ -23,34 +26,40 @@
 
 
 \begin{center}\strut
-June 23rd, 2025
+July 11th, 2025
 \end{center}
 \vfill
 
 	
 \newpage
 \begin{abstract}
-	This paper introduces a classical field theory of gravity built on the Maxwell equations and a central physical hypothesis: that mass absorbs zero-point radiation, inducing a net inward momentum flow. Drawing from stochastic electrodynamics (SED), we postulate a Lorentz-invariant radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and derive an emergent Dirac equation via a spinor transformation. Classical tests of general relativity, inlcuding Mercury's precession, gravitational lensing, and gravitational redshift, are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to quantum gravity and general relativity, and lays a foundation for further exploration.
+	This paper introduces a classical field theory of gravity built on the Maxwell equations and a central physical hypothesis: that mass absorbs zero-point radiation, inducing a net inward momentum flow. Drawing from stochastic electrodynamics (SED), we assume a Lorentz-invariant radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that classical tests of general relativity, inlcuding Mercury's precession, gravitational lensing, and gravitational redshift, are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
 \end{abstract}
 \newpage
 
 \section{Introduction}
 
-Modern physics is built on two towering achievements: quantum mechanics, which explains the behavior of atoms and particles, and general relativity, which describes gravity and the large-scale structure of the universe. Each theory works astonishingly well in its own realm.
+ Modern physics rests on two towering achievements: the Standard Model, underpinned by the Dirac equation, and general relativity, based on Einstein’s field equations. One governs the small, the other the large. Each is remarkably successful in its domain.
 
-But they don’t fit together. When applied simultaneously, the equations break down and yield infinities. Despite nearly a century of effort, no unifying framework has emerged. Proposals like string theory offer elegant mathematics, but no concrete predictions we can test. The field has grown stagnant, dominated by a few entrenched ideas. A fresh approach is warranted.
+But they don’t fit together. When applied simultaneously, the equations break down and yield infinities.  Proposals like string theory offer elegant mathematics but few concrete predictions. Despite nearly a century of effort, no unifying framework has emerged. A fresh approach is warranted.
 
-This paper proposes that fresh approach. Rather than quantizing gravity or geometrizing quantum mechanics, we propose that mass acts as a \emph{sink} for zero-point radiation, inducing a directional flow of momentum in the surrounding field. 
+This paper proposes that fresh approach. Rather than quantizing Einstein’s field equations or geometrizing the Dirac equation, we suggest something simpler and stranger: what if mass eats the vacuum?
+
+More precisely, we hypothesize that mass acts as a \emph{sink} for zero-point radiation, a background field believed to pervade all of space.
+
+\comment{TODO: Add a note here or later that the current model uses a heuristic (a “bug”) to regulate the mass–field interaction.}
 
 \subsection{Roadmap}
 
 This paper is structured to follow the logic of the scientific method: we begin with a hypothesis, outline the physical assumptions that support it, explore its mathematical consequences, compare its predictions to experiment, and finally examine whether it offers a deeper conceptual shift.
 
-Every theory begins with a hypothesis. If it yields interesting physics and does not contradict experiment, it deserves to be taken seriously. The history of science is full of ideas that sounded outlandish at first but reshaped our understanding. The burden is not on the hypothesis to sound reasonable—it’s on the results to be meaningful. In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
+Every theory begins with a hypothesis. If it yields interesting physics and does not contradict experiment, it deserves to be taken seriously. The history of science is full of ideas that sounded outlandish at first but reshaped our understanding. The burden is not on the hypothesis to sound reasonable; it’s on the results to be meaningful. In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
 
-In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature—perhaps unconventional, but not novel to this work. \textbf{Section 3} adopts a Maxwell-style framework for gravity, building on gravitoelectromagnetism. \textbf{Section 4} introduces the stochastic radiation field—drawn from stochastic electrodynamics—as the physical medium from which mass absorbs momentum.
+In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work.\textbf{Section 3} adopts a Maxwell-style framework for gravity. \textbf{Section 4} introduces the zero-point radiation field as the physical manifestation of the vacuum.
 
-\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, that regulate the mass–field interaction and ensure physical consistency. We then analyze whether the inflow of radiation can provide a stabilizing mechanism for mass, counteracting gravitational self-energy.
+\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, that regulate the mass–field interaction and ensure physical consistency. 
+
+\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, to regulate the mass–field interaction and ensure physical consistency. A heuristic inspired by Fourier analysis is used to estimate key observables. We then examine whether the inflow of radiation can stabilize mass against gravitational self-energy, and demonstrate conservation of energy and momentum.
 
 In \textbf{Section 7}, we test the theory against observation. We demonstrate that it reproduces the classical predictions of general relativity to leading order: perihelion precession, gravitational lensing, and redshift.
 
