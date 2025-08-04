@@ -45,9 +45,11 @@ But they don’t fit together. When applied simultaneously, the equations break 
 
 This paper proposes that fresh approach. Rather than quantizing Einstein’s field equations or geometrizing the Dirac equation, we suggest something simpler and stranger: what if mass eats the vacuum?
 
-More precisely, we hypothesize that mass acts as a \emph{sink} for zero-point radiation, a background field believed to pervade all of space.
+More precisely, we hypothesize that mass acts as a \emph{sink} for zero-point radiation, a background field that is assumed to pervade all of space.
 
 \comment{TODO: Add a note here or later that the current model uses a heuristic (a “bug”) to regulate the mass–field interaction.}
+
+\comment{TODO: Should we explicitly spell out what we mean between an assumption and a hypothesis. (Nevermind I see it in the Roadmap)}
 
 \subsection{Roadmap}
 
@@ -55,7 +57,7 @@ This paper is structured to follow the logic of the scientific method: we begin 
 
 Every theory begins with a hypothesis. If it yields interesting physics and does not contradict experiment, it deserves to be taken seriously. The history of science is full of ideas that sounded outlandish at first but reshaped our understanding. The burden is not on the hypothesis to sound reasonable; it’s on the results to be meaningful. In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
 
-In \textbf{Sections 3 and 4}, we lay out the core physical assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work.\textbf{Section 3} adopts a Maxwell-style framework for gravity. \textbf{Section 4} introduces the zero-point radiation field as the physical manifestation of the vacuum.
+In \textbf{Sections 3 and 4}, we lay out the two core assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work.\textbf{Section 3} adopts a Maxwell-style framework for gravity. \textbf{Section 4} introduces the zero-point radiation field as the physical manifestation of the vacuum.
 
 \textbf{Sections 5 and 6} contain the technical core of the paper. We introduce two natural cutoffs, in space and frequency, that regulate the mass–field interaction and ensure physical consistency. 
 
@@ -90,6 +92,7 @@ If mass always interacts with the zero-point field, then this interaction must h
 
 \begin{equation}
 \boxed{\vec{P}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
+\label{eq:hypothesis}
 \end{equation}
 
 
@@ -324,15 +327,7 @@ Since, by assumption (See Section~\ref{subsec:intuition}) the massive particle i
 P = \sum_{l,m} \frac {|a_E|^2} { 4 \pi k^2}
 \end{equation}
 
-The associated energy and momentum densities in the radiation zone also follow cleanly. The total field momentum is directed radially inward:
-
-\begin{equation}
-\vec{P}_{\text{field}} = -\hat{r} \sum_{l,m} \int_V \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2} \, d^3x
-\end{equation}
-
-
-
-The total field momentum:
+The associated momentum density also follow cleanly. The total field momentum is directed radially inward:
 
 \begin{equation}
 \vec{P}_{\text{field}} = \frac{1}{8\pi} \int_V \vec{E} \times \vec{B}^* \, d^3x
@@ -340,41 +335,65 @@ The total field momentum:
 \label{eq:mom}
 \end{equation}
 
-The total field energy:
+
+The above was calculated exactly. However, the total field energy is more difficult to calculate. In the present work we only calculte the energy in the radiation zone: $k^2 r^2  >> 1$. We discuss aspects of this further in ~\ref{subsec:heuristic}. In the radiation zone, we can use the approximation:
+
+
+\begin{equation}
+\begin{aligned}
+\vec{B}_S &= \frac {e^{-ikr}} {kr}  \sum_{l,m}  (-i)^{l+1}    \left[
+a_E(l,m) \vec{X}_{lm}
++ a_M(l,m) \hat{r} \times  \vec{X}_{lm} 
+\right] \\
+\vec{E}_S &= \frac {e^{-ikr}} {kr} \sum_{l,m}  (-i)^{l+1}   \left[
+a_M(l,m) \vec{X}_{lm}
+- a_E(l,m) \hat{r} \times  \vec{X}_{lm} 
+\right] 
+\end{aligned}
+\end{equation}
+
+From this it follows straightforwardly that 
+
 
 \begin{equation}
 U  =\sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x 
 \label{eq:energy}
 \end{equation}
 
-The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in the section on collapse and stability. But, since we've already spelled out the hypothesis then we know we will eventually get to
+The expansion of this outside of the radiation zone leads to intriguing math but we must save it for future research .
+
+The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in the section ~\ref{sec:stability} on collapse and stability. But, since we've already spelled out the hypothesis several times now, then we know that we will eventually land on
 :
 
 \begin{equation}
 \boxed{
 	\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}
 }
+\tag{\ref{eq:hypothesis}}
 \end{equation}
 
-This result follows from boundary conditions at the mass’s surface. In later sections, we will derive it explicitly, including the dependence on \( \hbar \).
+This result follows from boundary conditions at the mass’s surface.
+
+\comment{We probably need better writing here ... maybe say something about a heuristic ... or something}
 
 \section{Stochastic Electrodynamics (SED)}
 
-To complete our framework, we now introduce the physical source of the radiation field: the zero-point background. Rather than assuming empty space, we posit—following the ideas of stochastic electrodynamics (SED)—that the vacuum is filled with a classical, Lorentz-invariant radiation field even at absolute zero. This field supplies the fluctuations from which mass sinks momentum.
+To complete our framework, we now introduce the textbf{zero-point radiation field}. Following the ideas of stochastic electrodynamics (SED), we assume that the vacuum is filled with a classical, Lorentz-invariant electromagnetic radiation field even at absolute zero. 
 
-In SED, zero-point radiation explains how classical systems can remain stable, even while radiating energy. It has been shown to reproduce:
+Historically, the Michelson–Morley experiment aimed to detect the luminiferous aether, the medium through which light was thought to propagate. The null result helped solidify the notion of a truly empty vacuum. In contrast, SED treats the vacuum as filled with fluctuating electromagnetic fields, even at absolute zero.
 
-- The Planck blackbody spectrum (Boyer, 1969)
-- Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \)
-- Casimir and van der Waals forces
-- Some features of the hydrogen atom ground state
-- The Unruh effect
+In SED, zero-point radiation explains how classical systems can remain stable even while radiating energy. It has been shown to reproduce:
+\begin{itemize}
+	\item The Planck blackbody spectrum (Boyer, 1969) \cite{boyer1969}
+	\item Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \) \cite{cole2003}
+	\item Casimir and van der Waals forces \cite{boyer1975}
+	\item Certain features of the hydrogen atom’s ground state \cite{puthoff1987}
+	\item The Unruh effect \cite{boyer1980}
+\end{itemize}
 
-(Note to self: get some actual references here)
+Taken together, these results support the view, held by Boyer and others, that the vacuum is in fact an active medium, filled with fluctuating modes that persist even at \( T = 0 \).
 
-Each of these suggests that the vacuum is not passive. It is a sea of fluctuating modes that constantly jostle matter—even at \( T = 0 \). 
-
-It is important to repeat or say for the first time, that in SED there is no need to quantize. The results are all derived by classical analysis.
+Importantly, SED achieves the above results  \emph{without quantization}. All results are derived using classical analysis.
 
 
 \subsection{The Zero-Point Radiation Field}
@@ -488,6 +507,7 @@ This sets the upper bound for momentum transfer and defines the domain of coupli
 Together, these dual cutoffs—one in radius, one in frequency—define a resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward extensions of the theory. This is also possibly a testable prediction.
 
 \subsection{A Recurring Structure: Observables as Double Integrals}
+\label{subsec:heuristic}
 
 Throughout this work, a recurring mathematical structure appears in expressions for physical quantities—particularly energy and momentum. These quantities often resist closed-form evaluation, yet they share a distinctive form.
 
@@ -534,6 +554,8 @@ Whether this reflects true resonance, dimensional filtering, or something deeper
 
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
+\label{sec:stability}
+
 
 \subsection{Stability from Field Energy}
 
@@ -966,6 +988,8 @@ But something unexpected happened. When we re-expressed the field equations in a
 
 Several directions remain open:
 
+- \textbf{Expansion of the energy outside of the radiation zone} As mentioned in the text, surrounding equation \ref{eq:energy}, it would be interesting to expand this energy equation to ouside of the radiation zone.
+
 - \textbf{Nonlinear and many-body behavior}: How do multiple masses interact through the vacuum field? Can this reproduce the Einstein field equations—or deviate from them in testable ways?
 
 - \textbf{Thermodynamic and statistical structure}: Could this approach connect with entropic gravity or inform black hole thermodynamics?
@@ -991,5 +1015,23 @@ I am also deeply grateful to my friend Michael Seidel, who—despite not having 
 
 To both of them: thank you.
 
+\begin{thebibliography}{99}
+	
+	\bibitem{boyer1969}
+	T. H. Boyer, “Derivation of the Blackbody Radiation Spectrum without Quantum Assumptions,” \textit{Phys. Rev.}, vol. 182, no. 5, pp. 1374–1383, 1969.
+	
+	\bibitem{cole2003}
+	D. C. Cole and Y. Zou, “Quantum mechanical ground state of hydrogen obtained from classical electrodynamics,” \textit{Physics Letters A}, vol. 317, no. 1-2, pp. 14–20, 2003.
+	
+	\bibitem{boyer1975}
+	T. H. Boyer, “Random electrodynamics: The theory of classical electrodynamics with classical electromagnetic zero-point radiation,” \textit{Phys. Rev. D}, vol. 11, no. 4, pp. 790–808, 1975.
+	
+	\bibitem{puthoff1987}
+	H. E. Puthoff, “Ground state of hydrogen as a zero-point-fluctuation-determined state,” \textit{Phys. Rev. D}, vol. 35, no. 10, pp. 3266–3269, 1987.
+	
+	\bibitem{boyer1980}
+	T. H. Boyer, “Thermal effects of acceleration through random classical radiation,” \textit{Phys. Rev. D}, vol. 21, no. 8, pp. 2137–2142, 1980.
+	
+\end{thebibliography}
 
 \end{document}
