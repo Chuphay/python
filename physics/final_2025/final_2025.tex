@@ -2,6 +2,9 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{xcolor}
+
+
 \renewcommand\vec{\mathbf}
 \let\OldS\nabla
 \renewcommand{\nabla}{\boldsymbol{\OldS}}
@@ -9,7 +12,9 @@
 \let\OldHat\hat
 \renewcommand{\hat}[1]{\OldHat{\mathbf{#1}}}
 
-\newcommand{\comment}[1]{}
+% \newcommand{\comment}[1]{}
+
+\newcommand{\comment}[1]{\textcolor{gray}{\small\textit{Comment: #1}}}
 
 
 \begin{document}
@@ -18,9 +23,10 @@
 \begin{center}\strut
 	\bfseries\Huge
 	What if  Mass Eats the Vacuum? 
-	\comment{Does Mass Eat the Vacuum? (Seems like less words)}
+
 \end{center}
 
+	\comment{Does Mass Eat the Vacuum? (Seems like less words)}
 
 \centerline{David Plotz}
 
@@ -49,7 +55,7 @@ More precisely, we hypothesize that mass acts as a \emph{sink} for zero-point ra
 
 \comment{TODO: Add a note here or later that the current model uses a heuristic (a “bug”) to regulate the mass–field interaction.}
 
-\comment{TODO: Should we explicitly spell out what we mean between an assumption and a hypothesis. (Nevermind I see it in the Roadmap)}
+
 
 \subsection{Roadmap}
 
@@ -73,6 +79,7 @@ Finally, in \textbf{Section 8}, we turn to the most surprising result: the field
 
 In this section, we introduce our core hypothesis. We want to take a brief moment here to discuss the difference between what I mean by hypothesis and assumption. 
 
+\comment{I don't like the word "core" here ... but not sure what to replace it with}
 
 Every theory begins with a hypothesis. If it yields interesting physics and does not contradict experiment, it deserves to be taken seriously. The history of science is full of ideas that sounded outlandish at first but reshaped our understanding. The burden is not on the hypothesis to sound reasonable; it’s on the results to be meaningful. In \textbf{Section 2}, we introduce the core hypothesis: that mass acts as a sink for momentum from a pervasive background radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
 
@@ -88,7 +95,9 @@ The hypothesis proposed here is that mass absorbs energy from the zero-point fie
 
 The remainder of the paper builds from this intuition and develops the consequences of this idea.
 
-% (Optional note: The assumption that such a background field exists is implicit in the Feynman Lectures.)
+ \comment{From a later section, but perhaps we should add it here: This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it.}
+
+\comment{Optional note: The assumption that mass sinks radiation is implicit in the Feynman Lectures. ... but we are making it our "core" hypothesis?}
 
 \subsection{Core Hypothesis: The Math}
 
@@ -106,6 +115,7 @@ A photon traveling through this field experiences a cumulative momentum shift:
 
 \begin{equation}
 \Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
+\label{eq:hypothesis2}
 \end{equation}
 
 This is our core hypothesis, and its implications will be tested in \textbf{Section 7}.
@@ -412,7 +422,7 @@ In SED, the vacuum is not silent. It carries a random, omnipresent electromagnet
 \rho(\omega) = \frac{1}{2} \hbar \omega
 \end{equation}
 
-This spectrum is Lorentz-invariant and corresponds to the ground state energy per mode, in analogy to the quantum harmonic oscillator. But unlike quantum theory, which treats this as an abstract baseline, SED models it as a real classical field.
+This spectrum is Lorentz-invariant and corresponds to the ground state energy per mode, in analogy to the quantum harmonic oscillator. But unlike quantum theory, which treats this as an abstract baseline, that is generally thrown away or at least ignored, SED models it as a real classical field.
 
 The field is stochastic and Gaussian, defined by:
 
@@ -436,52 +446,30 @@ W_\lambda(\vec{k}) e^{i(\omega t - \vec{k} \cdot \vec{x})}
 \end{aligned}
 \end{equation}
 
-This background field is homogeneous, isotropic, and defined over all frequencies up to some high-frequency cutoff (see \textbf{Section 5}). Each mode contributes an energy \( \tfrac{1}{2} \hbar \omega \), and that the full ensemble of modes is statistically stationary and invariant under Lorentz transformations.
+This background field is homogeneous and isotropic. Each mode contributes an energy \( \tfrac{1}{2} \hbar \omega \), and the full ensemble of modes is statistically stationary and invariant under Lorentz transformations.
 
 
 The zero-point radiation field plays a central role in the framework. Mass interacts with this field by absorbing momentum from it. This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it.
+
+\comment{Perhaps we should also state "This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it" earlier as well ... because it will help with the visualization?  ... I'm putting it into a comment now}
 
 
 
 
 \section{Natural Limits of Mass–Field Interaction}
 
-A central feature of this theory is that mass interacts with the zero-point field only over a constrained domain, bounded by two physically motivated limits: one in space, and one in frequency. These limits are not introduced arbitrarily or for convenience. Rather, they emerge from consistency conditions: the spatial limit prevents runaway collapse, while the frequency limit ensures finite absorption from the radiation field.
+A central feature of this theory is that mass interacts with the zero-point radiation field only over a constrained domain, bounded by two physically motivated limits: one in space, and one in frequency. These limits are not introduced arbitrarily or for convenience. Rather, they emerge from consistency conditions: the spatial limit prevents runaway collapse, while the frequency limit ensures finite absorption from the radiation field.
 
 Together, they define the natural resolution scale of gravitational interaction. In this section, we outline the arguments for each limit and explore how they might be connected.
 
-\subsection{Interaction Hypothesis}
 
-We propose that a mass \( m \) couples to the zero-point field up to a maximum frequency 
-
-\begin{equation}
-\omega \lesssim \frac{m}{\hbar}
-\end{equation}
-
-
-and within a radial domain extending at least to 
-
-\begin{equation}
-r \gtrsim Gm
-\end{equation}
-
-This assumption is not yet derived, but it will prove physically consistent. In later sections, we show how this interaction yields a radial inward momentum density:
-
-
-\begin{equation}
-\boxed{\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
-\end{equation}
-
-
-and how the constant in this expression emerges from the field equations and boundary conditions.
-
-\subsubsection{Lower Bound: Minimum Radius via Gravitational Self-Energy}
+\subsection{Lower Bound: Minimum Radius via Gravitational Self-Energy}
 
 From classical considerations, any spherically symmetric mass distribution has a gravitational self-energy:
 
 
 \begin{equation}
-U = -\frac{1}{2} \int \frac{G m \rho(\vec{x})}{r} \, d^3x
+U = -\frac{1}{2} \int \frac{G m \rho(\vec{x})}{r} \, d^3x = E_{\text{nergy}} = m
 \end{equation}
 
 For a spherical shell of radius \( R \), this yields:
@@ -491,17 +479,22 @@ For a spherical shell of radius \( R \), this yields:
 R = \frac{G m}{2}
 \end{equation}
 
-Other geometries differ only by numerical prefactors. In general, we require:
+Other geometries differ only by numerical prefactors. 
+
+\comment{This is slightly important, because we will be coming back to this in later sections (I will refer to the following equation). The reason it's important is because we are making a model, and the model itself is kind of  ill-definied and fuzzy ... i.e., slightly  different models have different numerical pre-factors ... and the best we can do in tis paper is work with the general magnitude.}
+
+In general, we require:
 
 \begin{equation}
 R \gtrsim G m
 \end{equation}
+\label{radius}
 
-We interpret this as a \textbf{minimum radius} for any stable mass. Unlike the Schwarzschild radius (which assumes collapse), this lower bound emerges as a stability criterion under constant zero-point radiation pressure.
+We interpret this as a \textbf{minimum radius} for a stable mass. 
 
-\subsubsection{Upper Bound: Cutoff Frequency via Energy Matching}
+\subsection{Upper Bound: Cutoff Frequency via Energy Matching}
 
-Conversely, mass cannot absorb arbitrarily high-frequency radiation. A natural upper limit arises from energy conservation:
+Conversely, we find that we must also impose an upper bound on the frequency components.  A natural upper limit arises from energy conservation:
 
 
 \begin{equation}
@@ -509,15 +502,15 @@ U = m = \hbar \omega_{\text{max}} \quad \Rightarrow \quad \omega \lesssim \frac{
 \end{equation}
 
 
-This sets the upper bound for momentum transfer and defines the domain of coupling between mass and field. While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals. 
+While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals. 
 
 \vspace{0.5em}
-Together, these dual cutoffs—one in radius, one in frequency—define a resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward extensions of the theory. This is also possibly a testable prediction.
+Taken together, the cutoffs in radius and frequency define a characteristic resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward extensions of the theory. This is also possibly a testable prediction.
 
 \subsection{A Recurring Structure: Observables as Double Integrals}
 \label{subsec:heuristic}
 
-Throughout this work, a recurring mathematical structure appears in expressions for physical quantities—particularly energy and momentum. These quantities often resist closed-form evaluation, yet they share a distinctive form.
+Throughout this work, a recurring mathematical structure appears in expressions for physical quantities. These quantities often resist closed-form evaluation, yet they share a distinctive form.
 
 For example, energy and momentum commonly appear as:
 
@@ -533,7 +526,7 @@ These integrals are rarely evaluated directly. Instead, their structure invites 
 
 \begin{equation}
 \psi(x) = \int \psi(k) e^{-ikx} \, dk, \quad
-\psi(k) = \frac{1}{2\pi} \int \psi(x) e^{ikx} \, dx
+\psi(k) = \frac{1}{2\pi} \int \psi(x') e^{ikx'} \, dx'
 \end{equation}
 
 Combining these yields:
@@ -542,7 +535,7 @@ Combining these yields:
 \psi(x) = \frac{1}{2\pi} \int \int \psi(x') e^{ik(x' - x)} \, dk \, dx'
 \end{equation}
 
-In such cases, the oscillatory kernel often collapses the integral—through delta-function behavior or dominant phase cancellation—without requiring explicit evaluation. The structure itself simplifies the expression.
+In such cases, the oscillatory kernel often collapses the integral via delta-function behavior or dominant phase cancellation, without requiring explicit evaluation. The structure itself simplifies the expression.
 
 
 Similarly, in our case, integrals like those for \(U\) and \(\vec{P}\) often take forms that suggest dominance by a characteristic mode. This leads us to write, heuristically:
@@ -553,9 +546,11 @@ U \sim \frac{Gm\hbar}{r^2}, \quad
 \vec{P}  \sim -\hat{r} \frac{Gm\hbar}{r^2}
 \end{equation}
 
-This is not a rigorous result. It is a structural analogy—a shortcut that mirrors the logic of Fourier reasoning. In effect, we treat the observable as if it is shaped by the dominant contribution from modes satisfying \(k \sim 1/R\), even when we cannot explicitly resolve the integrals.
+This step is admittedly heuristic, reflecting a structural analogy inspired by Fourier reasoning. While the math is loose, I believe this single approximation shouldn’t discredit the broader theory. In effect, we treat the observable as if it is shaped by the dominant contribution from modes satisfying \(k^2 r^2 \sim 1\), even when we cannot explicitly resolve the integrals.
 
-Whether this reflects true resonance, dimensional filtering, or something deeper remains open. A more formal approach would examine the mode structure directly, likely involving quantization in a bounded domain. For now, we emphasize the recurring form and the intuition it offers.
+\comment{Please see the approximation around Jackson (9.128) and later, I refer back to this in an equation as well ... So while this is a ... well this math is super fishy, it is my belief that just this one piece of fishy math shouldn't kill the entire theory}
+
+Whether this reflects true resonance, dimensional filtering, or something deeper remains open.  For now, we emphasize the recurring form and the intuition it offers.
 
 
 
@@ -564,6 +559,9 @@ Whether this reflects true resonance, dimensional filtering, or something deeper
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
 \label{sec:stability}
 
+
+
+In this section, we examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. If the energy absorbed from the vacuum field offsets the divergent self-energy of the particle’s own field, a natural mechanism for stability emerges. We first analyze the energy density and total energy of the system, incorporating a high-frequency cutoff introduced earlier. We then explore whether this energy balance leads to a self-consistent equilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. Together, these results show that the hypothesized momentum inflow can provide a classical mechanism of stability rooted in the structure of the zero-point field itself.
 
 \subsection{Stability from Field Energy}
 
@@ -574,104 +572,57 @@ The total field energy is given by:
 U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
 \end{equation}
 
-From equation~\eqref{eq:energy}, we have:
-\begin{equation}
-U_{\text{rad}} = \sum_{l, m} \int_V \frac{1}{4\pi} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{k^2 r^2} \, d^3x
-\end{equation}
-
-The corresponding energy density is:
-\begin{equation}
-u_{\text{rad}} = \sum_{l, m} \frac{1}{4\pi} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{k^2 r^2}
-\end{equation}
-
-Collecting constants, we simplify this as:
-\begin{equation}
-u_{\text{rad}} = \frac{\alpha}{r^2}
-\end{equation}
-
-Thus, the energy density near a massive particle absorbing zero-point radiation falls off as \(1/r^2\). Including the high-frequency cutoff at \(\omega_{\text{max}} = m/\hbar\) that we introduced in \textbf{Section 5}, we integrate over frequency to find:
+If we pause and look at just the irrotational part of hese equations. we have
 
 \begin{equation}
-u_{\text{rad}}(r) = \int_0^{m/\hbar} \frac{\alpha}{r^2} \, d\omega = \frac{\alpha m}{\hbar r^2}
+U_I = \frac{1}{16\pi} \int \left( |\vec{E_I}|^2  \right) \, d^3x
 \end{equation}
 
-Our goal is to determine \(\alpha\) such that total energy is conserved. If conservation holds, the particle described in the previous section will not collapse. (One could also approach this through pressure balance, but energy conservation offers a more direct route.)
+This leads to 
+
+\begin{equation}
+U_I\sim \int \left(\frac { Gm^2} {r^4} \right) \, d^3x
+\end{equation}
+
+Which is clearly divergent and therefore a mass would collapse under its own weight without some kind of counter balance force thing.
+
+\comment{Yeah ... I totally used my memory for the above equation, so we should double check it in the next pass}
+
+Unsurprisingly, the hypothesis of this paper is that we should include the radiation contribution, and thus we have:
 
 The total energy, combining both irrotational and solenoidal contributions, is:
 \begin{equation}
 U_{\text{tot}} = \int_V u \, d^3x = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
 \end{equation}
 
-This can be expressed in terms of the radial distance \(r\):
+
+
+From equation~\eqref{eq:energy}, we have:
 \begin{equation}
-U_{\text{tot}} = \int_V \left[ -\frac{Gm^2}{4\pi r^4} + \frac{\alpha m}{\hbar r^2} \right] \, d^3x
+U_{\text{rad}} = \sum_{l, m} \int_V \frac{1}{4\pi} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{k^2 r^2} \, d^3x
 \end{equation}
 
-Leading to the local energy density:
+And naturally using our hypothesis and the arguments in section  ~\ref{subsec:heuristic} (above about ... getting tired) we then have
+
 \begin{equation}
-u_{\text{tot}} = -\frac{Gm^2}{4\pi r^4} + \frac{\alpha m}{\hbar r^2}
+U_{\text{rad}} =  \frac{1}{8\pi^3} \int \int \frac{Gm \hbar}{r^2} \, d^3x \, d^3k
 \end{equation}
 
-If this expression is constant at \(r = R\), energy is conserved. More specifically, if the two contributions cancel at that radius, the total energy density vanishes and the configuration becomes stable. Solving for \(\alpha\), we find:
+Integrating over \(k\) and combining, gives the following total energy:
 
 \begin{equation}
-\alpha = \frac{Gm\hbar}{4\pi R^2}
-\end{equation}
-
-Substituting this back into the radiation energy density yields:
-\begin{equation}
-u_{\text{rad}} = \sum_{l, m} \frac{1}{4\pi} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{k^2 r^2} = \frac{Gm\hbar}{4\pi R^2 r^2}
+U_{\text{tot}} = \int \left[ \frac{Gm \hbar}{r^2}k^3  - \frac {Gm^2} {r^4}\right] \, d^3x 
 \end{equation}
 
 
-This shows that a mass immersed in the zero-point radiation field resists gravitational collapse. The stability arises from a precise cancellation between gravitational self-energy and absorbed radiation energy—provided that the energy density scales appropriately with radius.
-
-\subsection{Attempt at Deriving the Hypothesis}
-
-Let us now step back and examine the form of this result. From our earlier analysis, we obtained:
+Using the heuristics we developed in subsection ~\ref{subsec:heuristic}, that were admittedly slightly fishy but we had decided were not fatal to the theory, namely that
 
 \begin{equation}
-u_{\text{rad}} = \frac{Gm\hbar}{4\pi R^2 r^2}
+k_{\text{max} }= \frac m {\hbar} ~~~~~~~ and ~~~~ r^2k^2 = 1 
 \end{equation}
 
-This expression emerged from integrating a frequency-independent term over a bounded domain in \(\omega\). Rewriting this with the integral made explicit:
 
-\begin{equation}
-u_{\text{rad}}(r) = \int_0^{m/\hbar} \frac{\alpha}{r^2} \, d\omega
-\end{equation}
-
-Substituting \(\alpha = \frac{Gm\hbar}{4\pi R^2}\), we can write the total energy as:
-
-\begin{equation}
-U = \int_V u(r) \, d^3x = \int_0^{m/\hbar} \int_V \frac{Gm\hbar}{4\pi R^2 r^2} \, d^3x \, d\omega
-\end{equation}
-
-At this point, we recall the structural pattern discussed in \textbf{Section~5.2}, where energy and momentum frequently appear as double integrals over space and wavevector. There, we argued that such integrals often behave as though they are dominated by a characteristic mode \(k \sim 1/R\). Making this substitution, and using \(d^3k \sim k^2 d\omega\), we write:
-
-\begin{equation}
-U = \int \int_V \frac{Gm\hbar}{4\pi r^2} \, d^3x \, k^2 d\omega
-\end{equation}
-
-This collapses naturally to the form:
-
-\begin{equation}
-U = \frac{1}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
-\end{equation}
-
-Similarly, the momentum becomes:
-
-\begin{equation}
-\vec{P} = -\frac{\hat{r}}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
-\end{equation}
-
-From this, we are led to the central hypothesis of the theory:
-
-\begin{equation}
-\boxed{\vec{P}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
-\end{equation}
-
-As discussed in \textbf{Section~5.2}, these types of double integrals recur throughout the theory. They are not rigorously evaluated, but they consistently yield effective expressions of this form. If we could derive this result cleanly from first principles, the hypothesis would no longer be needed. For now, it remains a well-motivated proposal—suggested by structure, reinforced by energy arguments, but still awaiting formal proof.
-
+ we then see that the energy is at most a constant and therefor is conseved 
 
 
 \subsection{Momentum Conservation and “Ohm’s Law”}
@@ -704,7 +655,7 @@ Solving gives:
 This expression defines a delta-function conductivity concentrated at the origin — an effective Ohm's law in which the mass acts as a point-like, perfect absorber for incoming radiation.  We can re-write the relevant Maxwell equation in light of this:
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x}
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
 \label{eq:ohm}
 \end{equation}
 
@@ -716,6 +667,8 @@ Together, the field energy and momentum conservation arguments demonstrate that 
 \section{Classical Tests of Gravity}
 
 This section demonstrates that the present theory reproduces three key experimental predictions of general relativity: the precession of Mercury's perihelion, the deflection of light near a massive object, and gravitational redshift. 
+
+\comment{These are the three classic tests of general relativity ... like pretty sure that Einstein himself propsed these ... or at minimum ... like they're really famous ... we should double check this, and then also mention this up above in the intro and the conclusion} 
 
 \subsection{Precession of the Perihelion of Mercury}
 
@@ -765,7 +718,7 @@ We now consider Kepler’s problem. The Newtonian effective potential is:
 U_{\text{Newt}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{r} + \frac{l^2}{2 m r^2}
 \end{equation}
 
-where \( l = m |\vec{r} \times \vec{v}| \) is the orbital angular momentum (see  \ref{fig:two-masses}).
+where \( l = m |\vec{r} \times \vec{v}| \) is the orbital angular momentum (see Figure \ref{fig:two-masses}).
 
 
 A moving charge induces a magnetic moment \( \vec{m} = \frac{1}{2} e (\vec{r} \times \vec{v}) \). Replacing \( e \rightarrow m \), we define a gravitational magnetic moment:
@@ -793,11 +746,13 @@ This is the same correction obtained in general relativity to first order. As Ca
 
 
 
-We now consider the bending of light near a massive object. Our central hypothesis is that mass creates a momentum-transfer field:
+We now consider the deflection of light near a massive object. Our central hypothesis is that mass creates a momentum-transfer field:
 
 \begin{equation}
 \vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
+\tag{\ref{eq:hypothesis}}
 \end{equation}
+
 
 \begin{figure}[h]
 	\centering
@@ -810,6 +765,7 @@ A photon traveling through this field receives a cumulative momentum shift:
 
 \begin{equation}
 \Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
+\tag{\ref{eq:hypothesis2}}
 \end{equation}
 
 Assuming a straight-line path passing at minimum distance \( b \) (see figure \(\ref{fig:deflection}\)), we integrate:
@@ -830,7 +786,7 @@ The angle of deflection is then:
 \theta \approx \frac{\Delta p_y}{p_z} = \frac{2 G m}{b} \quad \Rightarrow \quad \alpha = \frac{4 G m}{b}
 \end{equation}
 
-This matches the deflection angle predicted by general relativity.
+This matches, to first-order, the deflection angle predicted by general relativity.
 
 \subsection{Gravitational Redshift}
 
@@ -852,6 +808,8 @@ which, to first order, matches the prediction of general relativity for gravitat
 
 		
 \section{Duality and the Dirac Equation}
+
+Throughout this paper, we’ve stayed grounded in classical physics. We built a theory of gravity using field equations, conservation laws, and an underlying sea of vacuum radiation: no quantum assumptions, no curved spacetime. In this section, something surprising appears. When the field equations are rewritten in a new form, a familiar structure emerges: the Dirac equation, the cornerstone of quantum mechanics.
 
 \subsection{Duality Transformations}
 
@@ -936,6 +894,7 @@ Recall from the section on momentum conservation that we have quation~\eqref{eq:
 
 \begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
+\tag{\ref{eq:ohm}}
 \end{equation}
 
 Restricting attention to the surface of the particle (i.e., “on-shell”), we drop the delta function and write:
@@ -998,13 +957,10 @@ Several directions remain open:
 
 - \textbf{Expansion of the energy outside of the radiation zone} As mentioned in the text, surrounding equation \ref{eq:energy}, it would be interesting to expand this energy equation to ouside of the radiation zone.
 
-- \textbf{Nonlinear and many-body behavior}: How do multiple masses interact through the vacuum field? Can this reproduce the Einstein field equations—or deviate from them in testable ways?
+- \textbf{Fourier Transform Heuristic}: One derivation in this paper relied on a heuristic (see equation blah). This must be replaced, or justified.
 
-- \textbf{Thermodynamic and statistical structure}: Could this approach connect with entropic gravity or inform black hole thermodynamics?
+- \textbf{Expansion of the precession of the perihelion Calculation} If we went to higher order in this calculation, we could have a simple test to test the difference ... This was probably explained in the text.
 
-- \textbf{Quantization and quantum emergence}: Is this framework compatible with quantization? Or does it suggest a deeper pre-quantum substrate?
-
-- \textbf{Mathematical rigor}: Many derivations in this paper relied on structural shortcuts and heuristics. These must be replaced—or justified—with proper field-theoretic analysis.
 
 \subsection{Final Thought}
 
@@ -1023,7 +979,12 @@ I am also deeply grateful to my friend Michael Seidel, who—despite not having 
 
 To both of them: thank you.
 
+
+\comment{Assumption is that the bibliography is all hallucinated}
+
 \begin{thebibliography}{99}
+	
+
 	
 	\bibitem{boyer1969}
 	T. H. Boyer, “Derivation of the Blackbody Radiation Spectrum without Quantum Assumptions,” \textit{Phys. Rev.}, vol. 182, no. 5, pp. 1374–1383, 1969.
