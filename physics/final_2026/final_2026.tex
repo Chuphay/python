@@ -741,7 +741,7 @@ $$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
 \subsection{Frequency Stuff for our model}
 
-It should be clear that any real model of a massive object that absorbs radiation will absorb radiation over a non-singular domain. However, for ease of .... stuff, to gain traction. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency that is absorbed by our massive particle to be
+It should be clear that any real model of a massive object that absorbs radiation will absorb radiation over a non-singular domain. However, for ease of .... stuff, to gain traction. We should mention that boyer has quite a lot to say about a dipole oscillator picking up energy from the Z.P.R. and because Boyer is amazing, he doesn't use this simplified model, but it ends up that he finds that it only picks up frequency from a vary narrow range, so narrow that he might have well as picked the dirac delta that we will introduce. He did the math exactly. We will suffice with the toy model to gain traction. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency that is absorbed by our massive particle to be
 
 
 \begin{equation}
@@ -791,16 +791,64 @@ This yields
 
 therefore if  \(R > Gm\) then \(\alpha < 1\) and we draw less energy from the Z.P.R. than is available.
 
+\subsection{Putting everything together for our model}
+Before moving on, we should mention this "on-shell". So when we deal with the actual equations, we will often be interested in 
+
+\begin{equation}
+R = G m
+\end{equation}
+
+and 
+
+\begin{equation}
+k_o = \frac m {\hbar}
+\end{equation}
+
+together with the hypothesis at \(r = R\)
+
+\begin{equation}
+p = \frac{Gm \hbar} {R^2}
+\end{equation}
+
+We can put these all together:
+
+\begin{equation}
+\frac{Gm \hbar} {R^2} = \hbar k_o  = m
+\end{equation}
+
+multiplying by \(R/\hbar\) yields
+
+\begin{equation}
+\frac{Gm } {R} = k_o R   = \frac {m R} {\hbar}
+\end{equation}
+
+which yields 
+
+\begin{equation}
+k_o R   = 1
+\end{equation}
+
+and probably more to the point
+
+\begin{equation}
+k^2_o R^2   = 1
+\label{eq:kr}
+\end{equation}
+
+... In some ways, we shoudn't be too surprised by this result, as we arre exactly interested in neither the far limit nor the near limit ... however, it's still pretty cool. And we will call these type of results as being "on the shell"
+
+
+
+
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
 \label{sec:stability}
 
 
 
-In this section, we examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. If the energy absorbed from the vacuum field offsets the divergent self-energy of the particle’s own field, a natural mechanism for stability emerges. We first analyze the energy density and total energy of the system, incorporating a high-frequency cutoff introduced earlier. We then explore whether this energy balance leads to a self-consistent equilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. Together, these results show that the hypothesized momentum inflow can provide a classical mechanism of stability rooted in the structure of the zero-point field itself. 
+In this section, we examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. If the energy absorbed from the vacuum field offsets the divergent self-energy of the particle’s own field, a natural mechanism for stability emerges. We first analyze the energy density and total energy of the system. We then explore whether this energy balance leads to a self-consistent equilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. Together, these results show that the hypothesized momentum inflow can provide a classical mechanism of stability rooted in the structure of the zero-point field itself. 
 
 As noted in the previous section \textbf{Section 5} we need to use a toy model. And we will choose the spherical shell. So that, if we ever say "on shell" it will be clear.
 
-\comment{We should mention that we will be using the "toy" model from the previous section and threfore restricting our attention to eht surface of the particle or being "on the shell"}
 
 \subsection{Stability from Field Energy}
 
@@ -857,9 +905,9 @@ U_{\text{tot}} = \int \left[ \frac{Gm \hbar}{r^2}k^3  - \frac {Gm^2} {r^4}\right
 \end{equation}
 
 
-\comment{Using the heuristics we developed in subsection ~\ref{subsec:heuristic}, that were admittedly slightly fishy but we had decided were not fatal to the theory, namely that}
 
-This is no longer anything. This is a super straightforward algebra problem, assuming we are on shell, so that \(k = m / \hbar\) and with \(r = R\)
+
+This is no longer anything. This is a super straightforward algebra problem, assuming we are on shell, so that \(k = m / \hbar\) and with \(r = R\) Using the equation ~\ref{eq:kr}
 
 \begin{equation}
 k_{\text{max} }= \frac m {\hbar} ~~~~~~~ and ~~~~ r^2k^2 = 1 
@@ -868,7 +916,15 @@ k_{\text{max} }= \frac m {\hbar} ~~~~~~~ and ~~~~ r^2k^2 = 1
 \noindent And of course just as we had "numerical prefactors" in section about mass r = R, here we do suppress numerical prefactors and absorb them into the definition of the model.
 
 
- we then see that the energy is at most a constant and therefor is conseved 
+and therefore 
+
+
+\begin{equation}
+U_{\text{tot}} = \int \left[ 0\right] \, d^3x 
+\end{equation}
+
+
+ we then see that the energy is at most a constant and therefore is conseved.
 
 
 \subsection{Momentum Conservation and “Ohm’s Law”}
