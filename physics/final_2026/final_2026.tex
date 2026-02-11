@@ -686,139 +686,110 @@ This result follows from boundary conditions at the mass’s surface.
 
 \comment{I think we will have to print out this version to see what we messed up ... because things are in crazy places ... hope I didn't erase anything important.}
 
+\comment { Shoot and the git history was no good. So I need to rely on the paper version if I erased anything important ... I don't think I did though.}
 
 
 \section{A Toy Model}
 
-\comment{This whole section needs to be re-written with the assumption of  the new stuff. We need to talk about including a model of a massive object here as well ... so there's a lot going on}
+In this section we introduce a module of a massive particle. To gain traction on the problem, we must make  several simplifying assumptions .
 
-A central feature of this theory is that mass interacts with the zero-point radiation field only over a constrained domain, bounded by two physically motivated limits: one in space, and one in frequency. These limits are not introduced arbitrarily or for convenience. Rather, they emerge from consistency conditions: the spatial limit prevents runaway collapse, while the frequency limit ensures finite absorption from the radiation field.
+First, in talking about the space domain, we will quote from Rohrlich at length to find a lower bound for the radius. We will therefore restrict our attention to \(R \geq r \) and assume a shell ... mainly because we will promise ourselves to never even consider radii smaller than the limit found in the next section. 
 
-Together, they define the natural resolution scale of gravitational interaction. In this section, we outline the arguments for each limit and explore how they might be connected.
+After tha, we will move to the frequency domain, and we will speak about the frequency of radiation absorbed by the massive particle (via our hypothesis) and show that for a simple model that only absorbs one frequncy spectra, that we are guaranteed that the massive particle absorbs less energy than is available in the stochastic zero-point radiation field.
 
+\subsection{Lower Bound 3: Minimum Radius via Gravitational Self-Energy}
 
-\subsection{Lower Bound 2: Minimum Radius via Gravitational Self-Energy}
+The following long quote is from Rohrlich because I can't say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
 
-We seek to establish a natural length scale for a massive particle by considering its gravitational self-energy. Consider a spherically symmetric mass distribution with total mass $m$ and density $\rho(\vec{x})$. The gravitational self-energy is:
+We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
 
+``Consider a sphere of radius $R$ and spherically symmetric mass density $\rho (\vec x)$. Its total mass is
 \begin{equation}
-U = -\frac{1}{2} \int \frac{G m \rho(\vec{x})}{r} \, d^3x
+m = \int_V \rho(\vec x) d^3x
 \end{equation}
 
-If we assume the particle is purely gravitational in origin—that its rest mass arises entirely from gravitational binding energy—then this self-energy must equal the rest mass energy:
+``The integral extending over the volume of the sphere. Since $m \neq 0$ by assumption, there must exist attractive gravitational forces between 'parts' of the total mass. Symmetry would therefore require that this massive sphere contract and continue to do so to arbitrarily small radius $R$." Thus with no other forces present, the particle will necessaruly collapse.
+
+In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
 
 \begin{equation}
-U = m
+U = m = - \frac 1 2 \int \frac {Gm \rho(\vec x)} {r} d^3x
 \end{equation}
 
-We note that the more fundamental relativistic expression is $U^2 = m^2$ (or equivalently, $p_\mu p^\mu = m^2$ in four-vector notation), which we may utilize in subsequent analysis.
-
-For a uniform spherical shell of radius $R$, direct integration yields:
+We note that the more fundamental relativistic expression is $U^2 = m^2$ (or equivalently, $p_\mu p^\mu = m^2$ in four-vector notation), which we utilize and take
 
 \begin{equation}
-R = \frac{G m}{2}
+U^2 = m^2
 \end{equation}
 
-Other mass distributions (uniform sphere, Gaussian profile, etc.) yield different numerical prefactors, but all give the same order of magnitude. In general, we require:
+To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $R$, in which case
 
 \begin{equation}
-R \gtrsim G m
-\end{equation}
-\label{radius}
-
-We interpret this as a \textbf{minimum radius} for a stable gravitational mass distribution. This scale is analogous to the classical electron radius, where electromagnetic self-energy becomes comparable to rest mass.
-
-\comment{The numerical prefactor depends on the specific geometry assumed. Since we are constructing a model rather than deriving from first principles, different reasonable choices yield factors differing by $\mathcal{O}(1)$. We work with the general magnitude $R \sim Gm$ throughout this paper.}
-
-\subsection{Lower Bound: Minimum Radius via Gravitational Self-Energy}
-
-From classical considerations, any spherically symmetric mass distribution has a gravitational self-energy:
-
-
-\begin{equation}
-U = -\frac{1}{2} \int \frac{G m \rho(\vec{x})}{r} \, d^3x = E_{\text{nergy}} = m
+m = \frac {Gm^2} { 2R} ~~~~~ or  ~~~~ R = \frac {Gm} 2 
 \end{equation}
 
-For a spherical shell of radius \( R \), this yields:
+If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $R$ will always be of the order $Gm$. Therefore, I have chosen $R = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
+
+It is useful to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{Rc^2}$
+
+$$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{Rc^2}$$
+$$\text{Black hole:  } ~~~ \Phi = 1$$
+$$\text{Sun:  } ~~~ \Phi = 2 \times 10^{-6}$$
+$$\text{Earth:  } ~~~ \Phi = 7 \times 10^{-10}$$
+$$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
 
-\begin{equation}
-R = \frac{G m}{2}
-\end{equation}
+\subsection{Frequency Stuff for our model}
 
-Other geometries differ only by numerical prefactors. 
-
-\comment{This is slightly important, because we will be coming back to this in later sections (I will refer to the following equation). The reason it's important is because we are making a model, and the model itself is kind of  ill-definied and fuzzy ... i.e., slightly  different models have different numerical pre-factors ... and the best we can do in tis paper is work with the general magnitude.}
-
-In general, we require:
-
-\begin{equation}
-R \gtrsim G m
-\end{equation}
-\label{radius}
-
-We interpret this as a \textbf{minimum radius} for a stable mass. 
-
-We also note that $U^2 = m^2$ is a more natural expression, and we will be using that in the future (maybe).
-
-\subsection{Upper Bound: Cutoff Frequency via Energy Matching}
-
-Conversely, we find that we must also impose an upper bound on the frequency components.  A natural upper limit arises from energy conservation:
+It should be clear that any real model of a massive object that absorbs radiation will absorb radiation over a non-singular domain. However, for ease of .... stuff, to gain traction. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency that is absorbed by our massive particle to be
 
 
 \begin{equation}
-U = m = \hbar \omega_{\text{max}} \quad \Rightarrow \quad \omega \lesssim \frac{m}{\hbar}
+	\omega = \frac m {\hbar}
 \end{equation}
 
-
-While this frequency is extraordinarily high for macroscopic objects, it plays a crucial theoretical role in regularizing energy and momentum integrals. 
-
-\vspace{0.5em}
-Taken together, the cutoffs in radius and frequency define a characteristic resolution scale for gravity. They constrain how mass interacts with the field and suggest a breakdown of classical behavior beyond these limits, potentially pointing toward extensions of the theory. This is also possibly a testable prediction.
-
-\subsection{A Recurring Structure: Observables as Double Integrals}
-\label{subsec:heuristic}
-
-Throughout this work, a recurring mathematical structure appears in expressions for physical quantities. These quantities often resist closed-form evaluation, yet they share a distinctive form.
-
-For example, energy and momentum commonly appear as:
+Or, re-writing this as a delta function, in spherical coordinates gives:
 
 \begin{equation}
-U = \frac{1}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
+\frac {\delta \left(\omega - \frac m {\hbar} \right)}{4 \pi \omega^2}
 \end{equation}
+
+
+We can then compute the energy that is absorbed from the field 
+
+\comment {(I'm assuming we have an equation that lines up with this in the stochastic section)}
 
 \begin{equation}
-\vec{P}  = - \frac{\hat{r}}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
+U = \int d\omega  ~~~~ \hbar \omega  \delta \left(\omega - \frac m {\hbar} \right)
 \end{equation}
 
-These integrals are rarely evaluated directly. Instead, their structure invites a heuristic move, one that echoes a familiar identity from Fourier analysis:
+Which yields 
 
 \begin{equation}
-\psi(x) = \int \psi(k) e^{-ikx} \, dk, \quad
-\psi(k) = \frac{1}{2\pi} \int \psi(x') e^{ikx'} \, dx'
+U =  m
 \end{equation}
 
-Combining these yields:
+To show that it draws less energy than is available, we will add a constant multiplicative factor \(\alpha\) and re-write the above analysis
 
 \begin{equation}
-\psi(x) = \frac{1}{2\pi} \int \int \psi(x') e^{ik(x' - x)} \, dk \, dx'
+U =  m = \frac {Gm^2} R
 \end{equation}
 
-In such cases, the oscillatory kernel often collapses the integral via delta-function behavior or dominant phase cancellation, without requiring explicit evaluation. The structure itself simplifies the expression.
+and
 
+\begin{equation}
+U = \alpha \int \hbar \omega  \delta \left(\omega - \frac m {\hbar} \right)  ~~~ d\omega  
+\end{equation}
 
-Similarly, in our case, integrals like those for \(U\) and \(\vec{P}\) often take forms that suggest dominance by a characteristic mode. This leads us to write, heuristically:
+This yields
 
 
 \begin{equation}
-U \sim \frac{Gm\hbar}{r^2}, \quad
-\vec{P}  \sim -\hat{r} \frac{Gm\hbar}{r^2}
+\alpha = \frac {Gm} R
 \end{equation}
 
-\comment{again, this whole section needs to be re-written on the next pass. With attention paid to setting up a toy model of a massive object}
 
-
-
+therefore if  \(R > Gm\) then \(\alpha < 1\) and we draw less energy from the Z.P.R. than is available.
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
 \label{sec:stability}
