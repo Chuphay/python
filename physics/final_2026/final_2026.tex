@@ -39,7 +39,7 @@
 	
 \newpage
 \begin{abstract}
-	This paper introduces a classical field theory of gravity built on the Maxwell equations and a central physical hypothesis: that mass absorbs radiation, inducing a net inward momentum flow. We assume a Lorentz-invariant stochastic zero-point radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity: Mercury's precession, gravitational lensing, and gravitational redshift are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
+	This paper introduces a classical field theory of gravity built on the Maxwell equations and a central hypothesis: that mass absorbs radiation, inducing a net inward momentum flow. We assume a Lorentz-invariant stochastic zero-point radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity: Mercury's precession, gravitational lensing, and gravitational redshift are reproduced to leading order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
 \end{abstract}
 \newpage
 
@@ -56,9 +56,9 @@ This paper proposes that fresh approach. Rather than quantizing Einstein’s fie
 
 This paper is structured to follow the logic of the scientific method: we begin with a hypothesis, outline the assumptions that support it, explore its mathematical consequences, compare its predictions to experiment, and finally examine whether it offers a deeper conceptual shift.
 
-In \textbf{Section 2}, we introduce the hypothesis: that mass acts as a sink for radiation and in particular from a pervasive stochastic zero-point radiation field. We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
+In \textbf{Section 2}, we introduce the hypothesis: that mass acts as a sink for radiation and, in particular, as a sink for a pervasive stochastic zero-point radiation field (Z.P.R.). We first present the idea intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
 
-In \textbf{Sections 3 and 4}, we lay out the two assumptions underlying the hypothesis. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work. \textbf{Section 3} introduces the stochastic zero-point radiation (Z.P.R.) field as the physical manifestation of the vacuum. \textbf{Section 4} adopts the Maxwell equations as the correct mathematical framework for describing gravity. 
+In \textbf{Sections 3 and 4}, we lay out the two assumptions underlying the theory. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work. \textbf{Section 3} introduces the stochastic zero-point radiation (Z.P.R.) field as the physical manifestation of the vacuum. \textbf{Section 4} adopts the Maxwell equations as the correct mathematical framework for describing gravity. 
 
 \textbf{Sections 5 and 6} contain the technical core of the paper. We introduce a toy model of a massive particle and discuss characteriscts of the toy model. We examine whether the inflow of radiation can stabilize mass against gravitational self-energy and show that the energy needed for stability of our toy model is less than that available in the Z.P.R.  We also demonstrate conservation of energy and momentum and several other key mathematical results.
 
@@ -71,10 +71,11 @@ In \textbf{Section 7}, we test the theory against observation. We demonstrate th
 
 In this section, we introduce the hypothesis of this paper. Before proceeding, I want to clarify the distinction between assumptions and hypothesis as used here:
 
-\begin{itemize}
-\item \textbf{Assumptions} are drawn from existing theoretical frameworks (even if unconventional)
-\item \textbf{Hypothesis} refers to the novel claim proposed in this work
-\end{itemize}
+
+\textbf{Assumptions} are drawn from existing theoretical frameworks (even if unconventional). In this paper we make no attempt to prove its claims 
+\comment{Claude ... that's not really true ...  In particular, we will be using Heaviside's assumption that we should using the Maxwell equtions ... and we will definitely be examing repurcussions of this assumption, in particular, in relation to the calculations involved in the precession of the perihelion of mercury ... however, with that said, I do want to say, like I'm not trying to defend the Z.P.R. assumptions here ...}
+
+\textbf{Hypothesis} refers to the novel claim proposed in this work
 
 \noindent Every theory begins with a hypothesis. If it yields interesting physics and remains consistent with experiment, it deserves serious consideration. 
 
@@ -86,7 +87,7 @@ Here we first present the hypothesis intuitively, anchoring the theory in a phys
 
 Before introducing equations, we present a simple physical picture to guide intuition. Consider a neutral, perfectly conducting iron sphere, heated until it glows red. When placed in the vacuum of space, it emits infrared radiation and cools down, eventually approaching absolute zero.
 
-But at zero Kelvin, both classical and quantum theories suggest the presence of a background electromagnetic field called the stochastic zero-point radiation (Z.P.R.) field. A fuller treatment of the Z.P.R. will be offered in \textbf{Section 3}, but for now, it is enough to imagine a low-level radiation noise present even in the coldest vacuum. The iron sphere, after it has come into equilibrium with the vacuum, then absorbs radiation from this ambient field.
+But at zero Kelvin, both classical and quantum theories suggest the presence of a background electromagnetic field called the stochastic zero-point radiation (Z.P.R.) field. A fuller treatment of the Z.P.R. will be offered in \textbf{Section 3}, but for now, it is enough to imagine a low-level radiation noise present even in the coldest vacuum. The iron sphere, after it has cooled down and come into equilibrium with the vacuum, then absorbs radiation from this ambient field.
 
 The hypothesis proposed here is that mass absorbs energy from the zero-point field even at absolute zero. This interaction produces a net inward flow of momentum toward the mass.
 
@@ -100,7 +101,7 @@ The image above anchors the theory.
 
 If mass always interacts with the zero-point field, then this interaction must have physical consequences. We propose it manifests as an inward-pointing momentum density:
 
-\comment{ Is density the right word here?}
+\comment{Claude, Is density the right word here?, see eqn \eqref{eq:momentum}}
 
 \begin{equation}
 \boxed{\vec{P}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
@@ -125,7 +126,7 @@ We now introduce our first assumption:  the \textbf{stochastic zero-point radiat
 
 Historically, the Michelson–Morley experiment aimed to detect the luminiferous aether, the medium through which light was thought to propagate. The null result helped solidify the notion of a truly empty vacuum. In contrast, the stochastic zero-point radiation field treats the vacuum as filled with fluctuating electromagnetic fields, even at absolute zero.
 
-This theory was first developed by Boyer last century but apparently has more researcher interest as of late. Stochastic zero-point radiation explains how classical systems can remain stable even while radiating energy. It has been shown to reproduce:
+This theory was first developed by T.H. Boyer last century but has more interest as of late under the term stochastic electrodynamics (S.E.D.). Stochastic zero-point radiation has been shown to reproduce:
 \begin{itemize}
 	\item The Planck blackbody spectrum (Boyer, 1969) \cite{boyer1969}
 	\item Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \) \cite{cole2003}
@@ -134,27 +135,23 @@ This theory was first developed by Boyer last century but apparently has more re
 	\item The Unruh effect \cite{boyer1980}
 \end{itemize}
 
-Taken together, these results support the view, held by Boyer and others, that the vacuum is in fact an active medium, filled with fluctuating modes that persist even at \( T = 0 \).  Importantly, the above results are achieved \emph{without quantization}. All results are derived using classical analysis.
+Taken together, these results support the view, held by Boyer and others, that the vacuum is in fact an active medium, filled with fluctuating modes that persist even at \( T = 0 \).  
 
 
-We therefore, assume that the vacuum is filled with a classical, Lorentz-invariant random electromagnetic radiation field even at absolute zero.  As pointed out earlier, here when we say "Assumption" we mean we posit that a seperate theory is useful to this theory, we do not try and prove its claims here, we only assume that it is correct.
-
-
-
-\subsection{The Stochastic Zero-Point Radiation Field}
-
-In the theory of Z.P.R., the vacuum is not silent. It carries a random, omnipresent electromagnetic field with spectral energy density:
+We therefore, assume that the vacuum is filled with a classical, Lorentz-invariant random electromagnetic radiation field even at absolute zero. The vacuum is not actually empty. It carries a random, omnipresent electromagnetic field with spectral energy density:
 
 \begin{equation}
 \rho(\omega) = \frac{1}{2} \hbar \omega
 \end{equation}
 
-
 The zero-point radiation field plays a central role in the framework. The core hypothesis of the theory is that mass interacts with this Z.P.R. field by absorbing momentum from it. 
 
-\subsubsection{Mathematical Definition}
 
-The field is stochastic and Gaussian. The electric and magnetic fields are defined as:
+
+\subsection{Mathematical Definitions of the Z.P.R.}
+
+
+The Z.P.R. field is stochastic and Gaussian. The electric and magnetic fields are defined as:
 
 \begin{equation}
 \begin{aligned}
@@ -169,14 +166,15 @@ W_\lambda(\vec{k}) e^{i(\vec{k} \cdot \vec{x} - \omega t)} + \text{c.c.}
 \end{aligned}
 \end{equation}
 
-where $\hat{\epsilon}(\vec{k}, \lambda)$ are polarization vectors satisfying: 
+\noindent where $\hat{\epsilon}(\vec{k}, \lambda)$ are polarization vectors satisfying: 
+
 \begin{equation}
 \hat{\epsilon} \cdot \vec{k} = 0, \quad
 \hat{\epsilon}_1\cdot\hat{\epsilon}_2 = 0, \quad
 |\hat{\epsilon}_\lambda| = 1
 \end{equation}
 
-and $W_\lambda(\vec{k})$ are complex Gaussian random variables with correlation properties:
+\noindent and $W_\lambda(\vec{k})$ are complex Gaussian random variables with correlation properties:
 
 \begin{equation}
 \begin{aligned}
@@ -187,22 +185,9 @@ and $W_\lambda(\vec{k})$ are complex Gaussian random variables with correlation 
 \label{eq:stochastic}
 \end{equation}
 
-where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
+\noindent where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
 
-\subsubsection{Note on Averaging Conventions}
-
-Before proceeding, we clarify an important distinction between classical Jackson electrodynamics and SED:
-
-\begin{itemize}
-	\item \textbf{Jackson (time-averaging):} Fields are assumed to have time dependence $e^{-i\omega t}$, and physical quantities like the Poynting vector are obtained by time-averaging. For fields $\vec{E} = \vec{E}_0 e^{-i\omega t}$ and $\vec{B} = \vec{B}_0 e^{-i\omega t}$, the time-averaged Poynting vector is $\langle \vec{S} \rangle_{\text{time}} = \frac{c}{8\pi} \text{Re}(\vec{E} \times \vec{B}^*)$, where the complex conjugate arises from the time-averaging procedure.
-	
-	\item \textbf{SED (stochastic averaging):} Fields contain stochastic variables $W_{l,m}(\omega)$ and we average over the ensemble of random field realizations. We write $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ where $\vec{E}_+$ contains $W$ and $\vec{E}_+^*$ contains $W^*$. The stochastic average $\langle \vec{E} \times \vec{B} \rangle$ involves terms like $\langle \vec{E}_+ \times \vec{B}_+^* \rangle$, where the correlation function $\langle W_{l,m}(\omega) W_{l',m'}^*(\omega') \rangle = \delta_{ll'}\delta_{mm'}\delta(\omega-\omega')$ determines which terms survive.
-\end{itemize}
-
-Also, Boyer talks about this a lot and points to a paper by Einstein and Hopf.
-
-
-\subsubsection{Derivation of Energy per Mode}
+\subsection{Derivation of Energy Spectrum}
 
 We now verify that this field definition gives the correct energy spectrum. We need to evaluate $\langle \vec{E}^2 \rangle$ and $\langle \vec{B}^2 \rangle$. Let us focus on $\langle \vec{E}^2 \rangle$ as the calculation for the magnetic field is identical.
 
@@ -212,7 +197,7 @@ Write $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ where $\vec{E}_+$ is the positive-freq
 \vec{E}^2 = (\vec{E}_+ + \vec{E}_+^*)^2 = \vec{E}_+^2 + 2\vec{E}_+ \cdot \vec{E}_+^* + (\vec{E}_+^*)^2
 \end{equation}
 
-Taking the stochastic average:
+\noindent Taking the stochastic average:
 
 \begin{equation}
 \langle \vec{E}^2 \rangle = 2\langle \vec{E}_+ \cdot \vec{E}_+^* \rangle
@@ -229,7 +214,7 @@ The $\vec{E}_+^2$ and $(\vec{E}_+^*)^2$ terms vanish because $\langle WW \rangle
 e^{i(\vec{k} \cdot \vec{x} - \omega t)} e^{-i(\vec{k}' \cdot \vec{x} - \omega' t)}
 \end{equation}
 
-Using the correlation function $\langle W_\lambda(\vec{k}) W_{\lambda'}^*(\vec{k}') \rangle = \delta_{\lambda\lambda'} \delta^3(\vec{k} - \vec{k}')$:
+\noindent Using the correlation function $\langle W_\lambda(\vec{k}) W_{\lambda'}^*(\vec{k}') \rangle = \delta_{\lambda\lambda'} \delta^3(\vec{k} - \vec{k}')$:
 
 \begin{equation}
 \langle \vec{E}_+ \cdot \vec{E}_+^* \rangle = 
@@ -238,25 +223,25 @@ Using the correlation function $\langle W_\lambda(\vec{k}) W_{\lambda'}^*(\vec{k
 \frac{\hbar\omega}{8\pi^2}
 \end{equation}
 
-Since $\sum_{\lambda=1}^2 |\hat{\epsilon}_\lambda|^2 = 2$ (two orthogonal unit polarization vectors):
+\noindent Since $\sum_{\lambda=1}^2 |\hat{\epsilon}_\lambda|^2 = 2$ (two orthogonal unit polarization vectors):
 
 \begin{equation}
 \langle \vec{E}_+ \cdot \vec{E}_+^* \rangle = \int d^3k \, \frac{\hbar\omega}{4 \pi^2}
 \end{equation}
 
-Therefore:
+\noindent Therefore:
 
 \begin{equation}
 \langle \vec{E}^2 \rangle = 2 \int d^3k \, \frac{\hbar\omega}{4 \pi^2}
 \end{equation}
 
-By identical calculation:
+\noindent By identical calculation:
 
 \begin{equation}
 \langle \vec{B}^2 \rangle = 2 \int d^3k \, \frac{\hbar\omega}{4 \pi^2}
 \end{equation}
 
-The total energy density is:
+\noindent The total energy density is:
 
 \begin{equation}
 \langle u \rangle = \frac{1}{8\pi}(\langle \vec{E}^2 \rangle + \langle \vec{B}^2 \rangle)
@@ -278,11 +263,13 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 \end{equation}
 
 \comment{I have a note here, that like basically maybe I can delete the above two equations ... but will decide on the next editing job.}
+\comment {Claude ... I have no idea why it says "[energy per mode]" ... I think maybe deleting the above two simplifies?}
+\comment{I haven't actually verified any of these equations in the last chunk of time ... so we really need to do them by pen soon}
 
 
 \section{Maxwell Equations for Gravity}
 
-In this section we introduce the second of our two assumptions. We call this an assumption because Heaviside first proposed this a long time ago (Clearly need some reference here and help writing that sentence better). We assume that gravity obeys the same set of  equations as that that governs electromagntism, up to a numeric factor in the coupling constant. While the Maxwell equations were originally written for charge and charge currents, we replace these with mass and  mass currents acting as sources.  In natural units (\( c = 1 \)):
+In this section we introduce the second of our two assumptions. We call this an assumption because Heaviside first proposed this a long time ago \comment{Claude, Clearly need some reference here and help writing that sentence better}. Following Heaviside, we assume that gravity obeys the same set of  equations as those that govern electromagntism. , up to a numeric factor in the coupling constant. While the Maxwell equations were originally written for charge and charge currents, we replace these with mass and  mass currents acting as sources.  In natural units (\( c = 1 \)):
 
 
 \begin{equation}
@@ -297,9 +284,15 @@ In this section we introduce the second of our two assumptions. We call this an 
 
 These equations describe a vector field sourced by mass density \( \rho \) and mass current \( \vec{J} \), with \( G \) the gravitational coupling constant, 6.67 something (Next edit fix this). 
 
+Although derivable from the above, the continuity equation is a useful equation to include here when talking about the Maxwell equations:
+
+\begin{equation}
+\nabla \cdot \vec{J}+ \partial_t \rho = 0
+\end{equation}
+
 Some may be surprised by the presence of \( \vec{B} \), a magnetic-like field. But this emerges naturally: just as a moving charge generates a magnetic field, a moving mass generates a “gravitomagnetic” field. While static masses generate only \( \vec{E}\), moving masses induce \( \vec{B} \); however, the effect is negligible unless the mass is both extremely large and rapidly moving. \textbf{Section 7} discusses a physical manifestation of this effect and explores its potential testability.
 
-Much of what follows is well-known but is necessary mathematical  tools and techniques to discuss gravity and radiation in subsequent sections. (Awkward writing, Claude, please help.)
+Much of what follows is well-known but are necessary mathematical  tools and techniques that we will use in subsequent sections. 
 
 \subsection{Irrotational and Solenoidal Decomposition}
 
@@ -330,7 +323,7 @@ Applying this to our gravitational fields yields two decoupled subsystems:
 \nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
 \end{equation}
 
-This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. Though derivable from the Maxwell equations, we list the continuity equation separately as it plays a direct role in what follows.
+This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. The continuity equation in the irrotational subsystem plays a direct role in what follows.
 
 In the rest frame of the mass, these sectors decouple. One set of equations governs the gravitational field sourced by the mass, while another describes the radiation field. This separation enables a detailed analysis of radiation without affecting the static component. ("Affecting" is the wrong word here?)
 
@@ -341,7 +334,7 @@ We can make this explicit by defining a new current:
 \vec {J_S'} = - G \vec {J_S}
 \end{equation}
 
-This transforms the inhomogeneous solenoidal equation into:
+\noindent This transforms the inhomogeneous solenoidal equation into:
 
 \begin{equation}
 \nabla \times \vec B_S - \partial_t \vec E_S =  4 \pi \vec {J_S'}
@@ -359,8 +352,6 @@ Since this form matches the standard presentation in textbooks on electromagneti
 \end{equation}
 
 \subsection{Spherical Vector Harmonics}
-
-The following sections derive the explicit solutions to the Maxwell equations used in this theory.
 
 Due to the symmetric radial symmetry of the problem, we will benefit from using Vector Spherical Harmonics. 
 
@@ -389,58 +380,55 @@ where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm
 \label{eq:xlm}
 \end{equation}
 
-\subsection{Recovery of Newtonian Gravity (Irrotational Solutions)}
+\subsection{Irrotational Solutions}
 
 We now calculate Newtonian gravity as a solution to the Irrotational parts of the Maxwell equations.
 
-In the case of a static point mass \( m \) located at the origin, (We will have much more to discuss about this in  possibly eqn 52 or 34 ... but they've probably changed R = Gm equation and sigma = m / h delta ) ( we have question marks over here??? ) we set:
+In the case of a static point mass \( m \) located at the origin, (We will have much more to discuss about this in  possibly eqn 52 or 34 ... but they've probably changed R = Gm equation and sigma = m / h delta ) ( we have question marks over here??? ) \comment{we'll fix this up on the next edit} we set:
 
 \begin{equation}
 \rho(\vec{x}) = m \delta^3(\vec{x}), \quad \vec{J} = 0
 \end{equation}
 
 
-Using the irrotational part of the Maxwell equations:
+\noindent Using the irrotational part of the Maxwell equations:
 
 
 \begin{equation}
 \nabla \cdot \vec{E}_I = -4 \pi G \rho ~~~~~~~~~~ \nabla \times \vec{E}_I = 0
 \end{equation}
 
-and using the spherical vector harmonics we developed earlier,  we find:
+\noindent and using the spherical vector harmonics we developed earlier,  we find:
 
 
 \begin{equation}
 \vec E_I(\vec x) = \sum_{l,m} \left[ -\frac {4\pi i G }{2l+1} \frac {q_{lm}}{r^{l+2}} \sqrt {l(l+1)} \left(\hat r \times \vec X_{lm} \right)  - \frac {4 \pi G (l+1)}{2l+1} \frac {q_{lm}}{r^{l+2}} \vec Y_{lm} \right] 
 \end{equation}
 
-Where,
+\noindent Where,
 
 \begin{equation}
 q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l  \rho (\vec x) ~ d^3x = \int \rho_{lm} (r) r^{l+2} ~ dr 
 \end{equation}
 
-Clearly then, if
+\noindent Clearly then, if
 
 \begin{equation}
 \rho(\vec{x}) = m \delta^3(\vec{x})
 \end{equation}
 
 
-We get
+\noindent We get
 
 \begin{equation}
 \vec E_I(\vec x) = - \hat{r}\frac {mG} {r^2}
 \end{equation}
 
-as expected.
+\noindent as expected.
 
 
-\subsection{Field Momentum in SED}
-
-
-\subsection{Radiation from the Solenoidal Field (Solenoidal Solutions)}
-
+\subsection{Solenoidal Solutions}
+In the last subsection, we derived Newtonian gravity from the irrotational equations, in this subsection we will derive the equations of radiation from teh solenoidal solutions.
 Several results from the solutions of the solenoidal Maxwell equations will be needed later; we now solve the corresponding equations.
 
 Outside the mass, the solenoidal field equations in vacuum are:
@@ -450,74 +438,6 @@ Outside the mass, the solenoidal field equations in vacuum are:
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = 0
 \end{equation}
 
-Assuming time dependence \( e^{-i \omega t} \), the general solution is expanded in vector spherical harmonics:
-
-\begin{equation}
-\begin{aligned}
-\vec{B}_S &= \sum_{l,m} \left[
-a_E(l,m) f_l(kr) \vec{X}_{lm}
-- \frac{i}{k} a_M(l,m) \nabla \times \left( g_l(kr) \vec{X}_{lm} \right)
-\right] \\
-\vec{E}_S &= \sum_{l,m} \left[
-\frac{i}{k} a_E(l,m) \nabla \times \left( f_l(kr) \vec{X}_{lm} \right)
-+ a_M(l,m) g_l(kr) \vec{X}_{lm}
-\right]
-\end{aligned}
-\end{equation}
-
-where \(\vec{X}_{lm}\) was defined in~\eqref{eq:xlm}.
-
-
-
-The functions $f_l$ and $g_l$ are linear superpositions of the radial Hankel functions,
-
-\begin{equation}
-h_l^{(1)}(x) = -i (-x)^l \left(\frac 1 x \frac d {dx} \right)^l \left(\frac {e^{ix}} x \right)
-\end{equation}
-
-\begin{equation}
-h_l^{(2)}(x) = \left( h_l^{(1)}(x) \right)^*
-\end{equation}
-
-\noindent $a_E$ and $a_M$ as well as the particular dependence of $f_l$ and $g_l$ on $h_l^{(1)}(x) $ and $h_l^{(2)}(x) $ depend on the boundary conditions.
-
-In our case, we are looking at a massive particle that sinks radiation, we therefore need to only include incoming waves.
-
-The total instantaneous power absorbed is defined as.
-
-\begin{equation}
-P \equiv \int_V d^3x ~ \nabla \cdot \left( \frac 1 {8 \pi} \vec E \times \vec B^*\right) = \oint_{\partial V} \hat r \cdot \vec S ~ da = R^2 \int d\Omega ~ \hat r \cdot \vec S \bigg|_{r = R}
-\end{equation}
-
-Using the relationships in the introduction on Vector Spherical harmonics, we find that we are left with only two non-vanishing terms,
-
-\begin{equation}
-P = \frac {R^2}{8 \pi} \sum_{l, m} \left[  \frac {-i} k |a_E|^2 h_l^{(2)} \frac 1 r \frac d {dr} \left( rh_l^{(1)} \right) + \frac i k |a_M|^2 h_l^{(1)} \frac 1 r \frac d {dr} \left( rh_l^{(2)}\right) \right]_{r=R}
-\end{equation}
-
-Since, by assumption (See Section~\ref{subsec:intuition}) the massive particle is electromagnetically neutral on average, we need neither the Transverse Magnetic nor the Transverse Electric modes to dominate. Thus, the two proportionality terms must obey $|a_E|^2 = |a_M|^2$. Use of the Wronskian leaves a particularly simple form for the power radiated,
-
-
-\begin{equation}
-P = \sum_{l,m} \frac {|a_E|^2} { 4 \pi k^2}
-\end{equation}
-
-The associated momentum density also follow cleanly. The total field momentum is directed radially inward:
-
-\begin{equation}
-\vec{P}_{\text{field}} = \frac{1}{8\pi} \int_V \vec{E} \times \vec{B}^* \, d^3x
-= -\hat{r} \sum_{l,m} \int_V \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2} \, d^3x
-\label{eq:mom}
-\end{equation}
-
-
-As mentioned in subsection earlier,  Both approaches lead to $\vec{E} \times \vec{B}^*$ appearing in the final expressions, but for different physical reasons.
-
-\comment{obviously, find the subsection earlier (when we introduce ZPR)}
-
-\subsection{hopefully the editing flowed}
-
-\subsubsection{Full Field Expansion with Stochastic Coefficients}
 
 We write the complete multipole expansion including both electric and magnetic type modes:
 
@@ -577,6 +497,7 @@ The above can be simplified by use of the Wronskian, leaving:
 \boxed{
 	\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \int dr \int d\omega \sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2}
 }
+\label{eq:momentum}
 \end{equation}
 
 
@@ -640,64 +561,18 @@ The total field energy is therefore:
 \label{eq:energy}
 \end{equation}
 
-The expansion of this calculation outside the radiation zone involves more intricate mathematics due to the full radial dependence of the Hankel functions and non-vanishing cross terms between multipoles. We defer this more general treatment to future work.
+The expansion of this calculation outside the radiation zone involves more intricate mathematics. We defer this more general treatment to future work.
 
 
-\subsection{Confused about where we are}
-
-
-The above was calculated exactly. However, the total field energy is more difficult to calculate. In the present work we only calculte the energy in the radiation zone: $k^2 r^2  >> 1$. We discuss aspects of this further in ~\ref{subsec:heuristic}. In the radiation zone, we can use the approximation:
-
-
-\begin{equation}
-\begin{aligned}
-\vec{B}_S &= \frac {e^{-ikr}} {kr}  \sum_{l,m}  (-i)^{l+1}    \left[
-a_E(l,m) \vec{X}_{lm}
-+ a_M(l,m) \hat{r} \times  \vec{X}_{lm} 
-\right] \\
-\vec{E}_S &= \frac {e^{-ikr}} {kr} \sum_{l,m}  (-i)^{l+1}   \left[
-a_M(l,m) \vec{X}_{lm}
-- a_E(l,m) \hat{r} \times  \vec{X}_{lm} 
-\right] 
-\end{aligned}
-\end{equation}
-
-From this it follows straightforwardly that 
-
-
-\begin{equation}
-U  =\sum_{l, m}   \int_V \frac 1 {4 \pi}  \frac {|a_E|^2 |\vec X_{lm} |^2}{k^2 r^2} ~ d^3x 
-\label{eq:energy}
-\end{equation}
-
-The expansion of this outside of the radiation zone leads to intriguing math but we must save it for future research .
-
-The specific coefficients \( |a_E|^2 \) will be fixed by boundary conditions in the section ~\ref{sec:stability} on collapse and stability. But, since we've already spelled out the hypothesis several times now, then we know that we will eventually land on
-:
-
-\begin{equation}
-\boxed{
-	\vec{p}(r) = -\hat{r} \frac{G m \hbar}{r^2}
-}
-\tag{\ref{eq:hypothesis}}
-\end{equation}
-
-This result follows from boundary conditions at the mass’s surface.
-
-\comment{I think we will have to print out this version to see what we messed up ... because things are in crazy places ... hope I didn't erase anything important.}
-
-\comment { Shoot and the git history was no good. So I need to rely on the paper version if I erased anything important ... I don't think I did though.}
 
 
 \section{A Toy Model}
 
-In this section we introduce a module of a massive particle. To gain traction on the problem, we must make  several simplifying assumptions .
+In sections three and four, we discussed the assumptions. Up to this point, everything was ground that has been covered by previous researchers. From here on, we rely on new physics. In this section we introduce a module of a massive particle. To gain traction on the problem, we must make  several simplifying assumptions. We hope in future work to study less idealized models.
 
-First, in talking about the space domain, we will quote from Rohrlich at length to find a lower bound for the radius. We will therefore restrict our attention to \(R \geq r \) and assume a shell ... mainly because we will promise ourselves to never even consider radii smaller than the limit found in the next section. 
+First, in talking about the space domain, we will quote from Rohrlich at length to find a lower bound for the radius. After, we will move to the frequency domain, and we will speak about the frequency of radiation absorbed by the massive particle (via our hypothesis) and show that for a simple model that only absorbs one frequncy spectra, that we are guaranteed that the massive particle absorbs less energy than is available from the stochastic zero-point radiation field.
 
-After tha, we will move to the frequency domain, and we will speak about the frequency of radiation absorbed by the massive particle (via our hypothesis) and show that for a simple model that only absorbs one frequncy spectra, that we are guaranteed that the massive particle absorbs less energy than is available in the stochastic zero-point radiation field.
-
-\subsection{Lower Bound 3: Minimum Radius via Gravitational Self-Energy}
+\subsection{Lower Bound: Minimum Radius via Gravitational Self-Energy}
 
 The following long quote is from Rohrlich because I can't say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
 
@@ -709,6 +584,20 @@ m = \int_V \rho(\vec x) d^3x
 \end{equation}
 
 ``The integral extending over the volume of the sphere. Since $m \neq 0$ by assumption, there must exist attractive gravitational forces between 'parts' of the total mass. Symmetry would therefore require that this massive sphere contract and continue to do so to arbitrarily small radius $R$." Thus with no other forces present, the particle will necessaruly collapse.
+
+Here, it may be prudent to speak about the delta function that we will be uisng. So, if we want to be super technical, the mass distribution would look like:
+
+\begin{equation}
+\rho(\vec x) = \frac m {4 \pi r^2} \delta (r - R)
+\end{equation}
+
+\noindent But to keep things tidy, we will generally be considering equations where we are "on" the mass shell, so will simply write
+
+\begin{equation}
+\rho(\vec x) =  m ~ \delta_{\text{shell}} (\vec x)
+\end{equation}
+
+
 
 In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
 
@@ -722,15 +611,21 @@ We note that the more fundamental relativistic expression is $U^2 = m^2$ (or equ
 U^2 = m^2
 \end{equation}
 
-To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, the simplest is a uniform spherical shell at the radius $R$, in which case
+To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, following Rohrlich, the simplest is a uniform spherical shell at the radius $R$, in which case
 
 \begin{equation}
 m = \frac {Gm^2} { 2R} ~~~~~ or  ~~~~ R = \frac {Gm} 2 
 \end{equation}
 
+\comment{Probably flipping the above two equations and be more careful and talk a little about the negative sign}
+
 If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $R$ will always be of the order $Gm$. Therefore, I have chosen $R = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
 
-It is useful to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{Rc^2}$
+\subsubsection{Macroscopic Objects Aside}
+
+\comment{claude, we need a better title for this subsection }
+
+It is illuminating to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{Rc^2}$
 
 $$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{Rc^2}$$
 $$\text{Black hole:  } ~~~ \Phi = 1$$
@@ -740,12 +635,16 @@ $$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
 
 
 \subsection{Frequency Stuff for our model}
+\comment{claude, we need a better title for this subsection }
 
-It should be clear that any real model of a massive object that absorbs radiation will absorb radiation over a non-singular domain. However, for ease of .... stuff, to gain traction. We should mention that boyer has quite a lot to say about a dipole oscillator picking up energy from the Z.P.R. and because Boyer is amazing, he doesn't use this simplified model, but it ends up that he finds that it only picks up frequency from a vary narrow range, so narrow that he might have well as picked the dirac delta that we will introduce. He did the math exactly. We will suffice with the toy model to gain traction. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency that is absorbed by our massive particle to be
+\comment{Claude, We could mention that boyer has quite a lot to say about a dipole oscillator picking up energy from the Z.P.R. and because Boyer is amazing, he doesn't use this simplified model, but it ends up that he finds that it only picks up frequency from a vary narrow range, so narrow that he might have well as picked the dirac delta that we will introduce. He did the math exactly. But below at least gets to the point ...}
+
+It should be clear that any real model of a macroscopic massive object that absorbs radiation will absorb radiation over a non-singular domain. However, to gain traction, we will suffice with a toy model. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency of light that is absorbed by our massive particle to be
+
 
 
 \begin{equation}
-	\omega = \frac m {\hbar}
+	k_{\circ} = \omega_{\circ} = \frac m {\hbar}
 \end{equation}
 
 Or, re-writing this as a delta function, in spherical coordinates gives:
@@ -760,7 +659,7 @@ We can then compute the energy that is absorbed from the field
 \comment {(I'm assuming we have an equation that lines up with this in the stochastic section)}
 
 \begin{equation}
-U = \int d\omega  ~~~~ \hbar \omega  \delta \left(\omega - \frac m {\hbar} \right)
+U = \int d\omega  ~~ \hbar \omega  ~ \delta \left(\omega - \frac m {\hbar} \right)
 \end{equation}
 
 Which yields 
@@ -775,7 +674,7 @@ To show that it draws less energy than is available, we will add a constant mult
 U =  m = \frac {Gm^2} R
 \end{equation}
 
-and
+\noindent and
 
 \begin{equation}
 U = \alpha \int \hbar \omega  \delta \left(\omega - \frac m {\hbar} \right)  ~~~ d\omega  
@@ -789,22 +688,22 @@ This yields
 \end{equation}
 
 
-therefore if  \(R > Gm\) then \(\alpha < 1\) and we draw less energy from the Z.P.R. than is available.
+\noindent therefore if  \(R > Gm\), which to be clear is what we already showed in the previous section, then \(\alpha < 1\) and we draw less energy from the Z.P.R. than is available.
 
 \subsection{Putting everything together for our model}
-Before moving on, we should mention this "on-shell". So when we deal with the actual equations, we will often be interested in 
+Before moving on, we should mention this ``on-shell". So when we deal with the actual equations, we will often be interested in 
 
 \begin{equation}
 R = G m
 \end{equation}
 
-and 
+\noindent and 
 
 \begin{equation}
 k_o = \frac m {\hbar}
 \end{equation}
 
-together with the hypothesis at \(r = R\)
+\noindent together with the hypothesis at \(r = R\)
 
 \begin{equation}
 p = \frac{Gm \hbar} {R^2}
@@ -816,38 +715,59 @@ We can put these all together:
 \frac{Gm \hbar} {R^2} = \hbar k_o  = m
 \end{equation}
 
-multiplying by \(R/\hbar\) yields
+\noindent multiplying by \(R/\hbar\) yields
 
 \begin{equation}
-\frac{Gm } {R} = k_o R   = \frac {m R} {\hbar}
+\frac{Gm } {R} = k_{\circ} R   = \frac {m R} {\hbar}
 \end{equation}
 
-which yields 
+\noindent which yields 
 
 \begin{equation}
-k_o R   = 1
+k_{\circ} R   = 1
 \end{equation}
 
-and probably more to the point
+\noindent and probably more to the point
 
 \begin{equation}
-k^2_o R^2   = 1
+k^2_{\circ} R^2   = 1
 \label{eq:kr}
 \end{equation}
 
-... In some ways, we shoudn't be too surprised by this result, as we arre exactly interested in neither the far limit nor the near limit ... however, it's still pretty cool. And we will call these type of results as being "on the shell"
+... In some ways, we shoudn't be too surprised by this result, as we are exactly interested in neither the far limit nor the near limit ... however, it's still pretty cool. And we will call these type of results as being ``on the shell". Finally, as was stated earlier in this section we will use 
 
+\begin{equation}
+\delta^{(3)}_{\text{shell}} (\vec x)
+\label{eq:dirac_shell}
+\end{equation}
 
+\noindent as a simple placeholder to mean ... I mean, really, it means that we will never go in closer than \(R\).
 
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
 \label{sec:stability}
 
+Now that we have laid out \comment{Claude, what's a better way to say "laid out", I think there's something like exposited  ... } our model of a masive particle in the previous section, namely with a shell
+
+\begin{equation}
+G m = R
+\end{equation}
+
+\begin{equation}
+\hbar k_{\circ} = m
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+k_{\circ} R = 1,
+\end{equation}
 
 
-In this section, we examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. If the energy absorbed from the vacuum field offsets the divergent self-energy of the particle’s own field, a natural mechanism for stability emerges. We first analyze the energy density and total energy of the system. We then explore whether this energy balance leads to a self-consistent equilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. Together, these results show that the hypothesized momentum inflow can provide a classical mechanism of stability rooted in the structure of the zero-point field itself. 
 
-As noted in the previous section \textbf{Section 5} we need to use a toy model. And we will choose the spherical shell. So that, if we ever say "on shell" it will be clear.
+\noindent we are ready to examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. 
+
+Following the ideas of Rohrlich (see the previous section) if the energy absorbed from the vacuum field can offset the divergence in the self-energy of the particle’s own field then we can say that the massive particle is stable against gravitational collapse. We first analyze the energy density and total energy of the system. We then explore whether this energy balance leads to anequilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. 
 
 
 \subsection{Stability from Field Energy}
@@ -859,13 +779,15 @@ The total field energy is given by:
 U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
 \end{equation}
 
-If we pause and look at just the irrotational part of hese equations. we have
+If we pause and look at just the irrotational part of hese equations, we have
+
+\comment{Well clearly that above sentence was written by a human ... lol}
 
 \begin{equation}
 U_I = \frac{1}{16\pi} \int \left( |\vec{E_I}|^2  \right) \, d^3x
 \end{equation}
 
-This leads to 
+\noindent This leads to 
 
 \begin{equation}
 U_I\sim \int \left(\frac { Gm^2} {r^4} \right) \, d^3x
@@ -882,41 +804,30 @@ The total energy, combining both irrotational and solenoidal contributions, is:
 U_{\text{tot}} = \int_V u \, d^3x = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
 \end{equation}
 
-Here of course we are "on shell".
+\noindent Here of course we are "on shell".
 
 
 From equation~\eqref{eq:energy}, we have:
+
 \begin{equation}
-U_{\text{rad}} = \sum_{l, m} \int_V \frac{1}{4\pi} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{k^2 r^2} \, d^3x
+	\langle U \rangle = \int_V d^3x \int d\omega \sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2}
 \end{equation}
 
-The above is of course us being very careful about averaging over the stochastic noise as presented previously (hopefully have an equation to point to)
+\comment{This isn't a new equation so shouldn't get it's own number}
 
-And naturally using our hypothesis and the arguments in section  ~\ref{subsec:heuristic} (above about ... getting tired) we then have
+Naturally using our hypothesis, we simply write this as  
 
 \begin{equation}
 U_{\text{rad}} =  \frac{1}{8\pi^3} \int \int \frac{Gm \hbar}{r^2} \, d^3x \, d^3k
 \end{equation}
 
-Integrating over \(k\) and combining, gives the following total energy:
+Integrating over \(k\) and combining, and of course just as we had "numerical prefactors" in section about mass r = R, here we do suppress numerical prefactors and absorb them into the definition of the model. gives the following total energy:
 
 \begin{equation}
 U_{\text{tot}} = \int \left[ \frac{Gm \hbar}{r^2}k^3  - \frac {Gm^2} {r^4}\right] \, d^3x 
 \end{equation}
 
-
-
-
-This is no longer anything. This is a super straightforward algebra problem, assuming we are on shell, so that \(k = m / \hbar\) and with \(r = R\) Using the equation ~\ref{eq:kr}
-
-\begin{equation}
-k_{\text{max} }= \frac m {\hbar} ~~~~~~~ and ~~~~ r^2k^2 = 1 
-\end{equation}
-
-\noindent And of course just as we had "numerical prefactors" in section about mass r = R, here we do suppress numerical prefactors and absorb them into the definition of the model.
-
-
-and therefore 
+Using straightforward algebra with the assumption that we are "on shell", so that \(k = m / \hbar\) and with \(r = R\).  And therefore 
 
 
 \begin{equation}
@@ -924,7 +835,7 @@ U_{\text{tot}} = \int \left[ 0\right] \, d^3x
 \end{equation}
 
 
- we then see that the energy is at most a constant and therefore is conseved.
+\noindent we then see that the energy is at most a constant and therefore is conseved.
 
 
 \subsection{Momentum Conservation and “Ohm’s Law”}
@@ -942,15 +853,13 @@ Assuming the solenoidal current obeys a linear response:
 \vec{J}_S = \sigma \vec{E}_S
 \end{equation}
 
-And assuming that we use our model, such that 
+And assuming that we use our model, such that (see \eqref{eq:dirac_shell})
 
 \begin{equation}
 \rho= m \delta^3 ( \vec{x})
 \end{equation}
 
-is actually a call to use our model and be "on shell", such that we do not actually try to integrate over spheres smaller than the smallest radius that was outlind ine \textbf{Section ?}
-
-and harmonic time dependence \(e^{-i \omega t}\), and then averaging over the stochastic noise the field momentum becomes:
+Averaging over the stochastic noise the field momentum becomes:
 
 \begin{equation}
 -\hat{r} \int \left( m \delta^3(\vec{x}) \cdot \frac{G m}{r^2} - \sigma \cdot \frac{G m \hbar}{r^2} \right) \, d^3x = 0
@@ -962,7 +871,7 @@ Solving gives:
 \sigma = \frac{m}{\hbar} \delta^3(\vec{x})
 \end{equation}
 
-This expression defines a delta-function conductivity concentrated at the origin, but knowing we actually mean the shell. Thus this is an effective Ohm's law in which the mass acts as a point-like, perfect absorber for incoming radiation as long as we are outside of the radius  in \textbf{Section ?}.  We can re-write the relevant Maxwell equation in light of this:
+This expression defines a delta-function conductivity concentrated at the origin, but knowing we actually mean the shell. Thus this is an effective Ohm's law in which the mass acts as a point-like, perfect absorber for incoming radiation as long as we are outside of the radius \(R\).  We can re-write the relevant Maxwell equation in light of this:
 
 \begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
@@ -971,7 +880,7 @@ This expression defines a delta-function conductivity concentrated at the origin
 
 
 
-Together, the field energy and momentum conservation arguments demonstrate that the hypothesized momentum inflow can act as a self-consistent stabilizing structure. A massive particle that sinks zero-point radiation does not collapse because of the interaction with the vacuum field itself.
+Together, the field energy and momentum conservation arguments presented in this section demonstrate that the core hypothesis of momentum inflow can stabilize a massive particle. A massive particle that sinks zero-point radiation does not collapse becauseit can pull energy from the vacuum field itself.
 
 	
 \section{Classical Tests of Gravity}
@@ -1207,8 +1116,9 @@ Recall from the section on momentum conservation that we have quation~\eqref{eq:
 \tag{\ref{eq:ohm}}
 \end{equation}
 
-Restricting attention to the surface of the particle (i.e., “on-shell”).
-To understand the "on-shell" approximation, we must clarify our model of the massive particle. Rather than treating mass as a point source, we model it as a thin spherical shell of radius $R \sim Gm $, consistent with the spatial cutoff discussed in Section 5. The mass density is thus $\rho = (m/4\pi R^2) \delta(r - R) )$ When we say we are working "on-shell," we mean restricting our attention to the surface $ r = R $ where the mass distribution actually exists. At this surface, the fields must satisfy the Maxwell equations with the mass source present, but we can also ask: what effective equations govern the field dynamics on the shell itself? By evaluating the field equations at the shell radius and integrating over the thin shell thickness, the delta function contributes a finite boundary term that modifies the effective equation. This yields the form presented below, where the mass term appears not as an external source, but as an intrinsic parameter in the dynamics of the fields on the shell surface. Therefore we drop the delta function and write:
+Restricting attention to the surface of the particle (i.e., “on-shell”) as explained several times in several places ... \comment{Sorry for getting kind of snarky here ... The first time I gave this paper to Claude, Claude was quite insistent on making this super explicit}
+
+Therefore we drop the delta function and write:
 
 \begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S
@@ -1250,18 +1160,23 @@ We can combine the two equations above into a compact form:
 
 This has the exact form of the Dirac equation, as given in Sakurai’s Advanced Quantum Mechanics, Eq. 3.31.
 
-The matrices $g_i$ defined here are the standard generators of SO(3) rotations—the antisymmetric 3x3 matrices representing infinitesimal rotations in three-dimensional space. The representation $\nabla \times \vec{V} = g_i \partial_i \vec{V}$ can be verified by direct computation: the curl operation naturally emerges from the commutation relations of these generators. While this is not the standard Dirac representation (which operates on four-component spinors in Minkowski space), it serves to express the Maxwell curl operations in a form that makes the structural similarity to the Dirac equation manifest. The resulting six-component field  $ \psi = (\vec{E}_S, \vec{B}_S)^T $ is not a quantum spinor but a classical field object—yet the mathematical parallelism is suggestive of deeper connections between classical electromagnetism and relativistic quantum mechanics that merit further investigation.
+The matrices $g_i$ defined here are the standard generators of SO(3) rotations—the antisymmetric 3x3 matrices representing infinitesimal rotations in three-dimensional space. The representation $\nabla \times \vec{V} = g_i \partial_i \vec{V}$ can be verified by direct computation: the curl operation naturally emerges from the commutation relations of these generators. While this is not the standard Dirac representation (which operates on four-component spinors in Minkowski space), it serves to express the Maxwell curl operations in a form that makes the structural similarity to the Dirac equation manifest. The resulting six-component field  $ \psi = (\vec{E}_S, \vec{B}_S)^T $ is not a quantum spinor but a classical field object.
 
 This is a remarkable result: starting from classical field equations and a single added hypothesis, we arrive at a spinor field satisfying the Dirac equation. This is of course done without quantization or any reference to spin. 
 
 
 \section{Conclusion}
 
+
+\comment{The next three paragraphs, ChatGPT helped me write ... they sound like ChatGPT wrote them ... Hopefully, we can make this sound more human in a new draft}
+
 Can gravity emerge from classical physics, without invoking curved spacetime or quantum gravity? That was the question we asked. Faced with two powerful but incompatible theories, quantum mechanics and general relativity, we chose a different path: to treat mass as a source of momentum flow, drawing from a pervasive background field. The result is a framework that is simple, classical, and deeply physical.
 
 To test the idea, we built the theory step by step. We formulated equations for how mass interacts with the vacuum field. We introduced cutoffs to make the interaction finite and consistent. We checked for conservation of energy and momentum. Then we asked: does this theory match observation? And the answer, to leading order, is yes. It reproduces the familiar predictions of general relativity: the bending of light, gravitational redshift, and the precession of Mercury.
 
 But something unexpected happened. When we re-expressed the field equations in a different form, they gave rise to the Dirac equation, the same equation that governs quantum particles like electrons. This wasn’t assumed; it emerged. That a single classical field framework can describe gravity, electromagnetism, and quantum behavior is remarkable. It suggests these aren’t separate layers of physics, but different faces of the same underlying structure. One set of equations that does it all.
+
+\comment{The below line I like a lot}
 
  This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it
 
@@ -1280,6 +1195,8 @@ Several directions remain open:
 - \textbf{Expansion of the precession of the perihelion Calculation} If we went to higher order in this calculation, we could have a simple test to test the difference ... This was probably explained in the text.
 
 - \textbf{Removal of the Hypothesis} As mentioned in the text \textbf{Section ?}, it is the belief of this author that we can actually derive the hypothesis from the assumptions.  Then this theory wouldn't even need an hypothesis.
+
+- \textbf{RLess Idealized Models}  Currently our model of a massive particle is as simple as possible. It would be interesting to study less idealized models.
 
 
 \subsection{Final Thought}
