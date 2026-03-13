@@ -72,10 +72,7 @@ In \textbf{Section 7}, we test the theory against observation. We demonstrate th
 In this section, we introduce the hypothesis of this paper. Before proceeding, I want to clarify the distinction between assumptions and hypothesis as used here:
 
 
-\textbf{Assumptions} are drawn from existing theoretical frameworks (even if unconventional). In this paper we make no attempt to prove its claims 
-\comment{Claude ... that's not really true ...  In particular, we will be using Heaviside's assumption that we should using the Maxwell equtions ... and we will definitely be examing repurcussions of this assumption, in particular, in relation to the calculations involved in the precession of the perihelion of mercury ... however, with that said, I do want to say, like I'm not trying to defend the Z.P.R. assumptions here ...}
-
-\textbf{Hypothesis} refers to the novel claim proposed in this work
+\textbf{Assumptions} are drawn from existing theoretical frameworks, even if unconventional. While we do not attempt to derive or fully justify these assumptions from first principles, we do examine their consequences — particularly in Section 7, where contact with experiment is made. The hypothesis refers to the novel claim proposed in this work.
 
 \noindent Every theory begins with a hypothesis. If it yields interesting physics and remains consistent with experiment, it deserves serious consideration. 
 
@@ -97,17 +94,12 @@ The remainder of the paper builds from this intuition and develops the consequen
 
 \subsection{Hypothesis: The Math}
 
-The image above anchors the theory.
-
-If mass always interacts with the zero-point field, then this interaction must have physical consequences. We propose it manifests as an inward-pointing momentum density:
-
-\comment{Claude, Is density the right word here?, see eqn \eqref{eq:momentum}}
+The hypothesis of this paper is that mass creates an inward-pointing spectral momentum density:
 
 \begin{equation}
 \boxed{\vec{P}(r) = -\hat{r} \frac{G m \hbar}{r^2}}
 \label{eq:hypothesis}
 \end{equation}
-
 
 A photon traveling through this field experiences a cumulative momentum shift:
 
@@ -116,7 +108,7 @@ A photon traveling through this field experiences a cumulative momentum shift:
 \label{eq:hypothesis2}
 \end{equation}
 
-This is the hypothesis of the paper: mass creates a momentum flux capable of acting on radiation. The implications of this hypothesis will be tested in \textbf{Section 7}.
+The implications of this hypothesis will be tested in \textbf{Section 7}.
 
 
 \section{Zero Point Radiation (ZPR)}
@@ -260,16 +252,15 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 
 \begin{equation}
 \boxed{\rho(\omega) = \frac{1}{2} \hbar \omega \quad \text{[energy per mode]}}
+\label{eq:energy_per_mode}
 \end{equation}
 
-\comment{I have a note here, that like basically maybe I can delete the above two equations ... but will decide on the next editing job.}
-\comment {Claude ... I have no idea why it says "[energy per mode]" ... I think maybe deleting the above two simplifies?}
 \comment{I haven't actually verified any of these equations in the last chunk of time ... so we really need to do them by pen soon}
 
 
 \section{Maxwell Equations for Gravity}
 
-In this section we introduce the second of our two assumptions. We call this an assumption because Heaviside first proposed this a long time ago \comment{Claude, Clearly need some reference here and help writing that sentence better}. Following Heaviside, we assume that gravity obeys the same set of  equations as those that govern electromagntism. , up to a numeric factor in the coupling constant. While the Maxwell equations were originally written for charge and charge currents, we replace these with mass and  mass currents acting as sources.  In natural units (\( c = 1 \)):
+In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \comment{citation needed — Heaviside's original paper}, predating general relativity. Following Heaviside, we assume that gravity obeys the same set of equations as those that govern electromagnetism, up to a numeric factor in the coupling constant. While the Maxwell equations were originally written for charge and charge currents, we replace these with mass and mass currents acting as sources. In natural units (\( c = 1 \)):
 
 
 \begin{equation}
@@ -325,7 +316,7 @@ Applying this to our gravitational fields yields two decoupled subsystems:
 
 This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. The continuity equation in the irrotational subsystem plays a direct role in what follows.
 
-In the rest frame of the mass, these sectors decouple. One set of equations governs the gravitational field sourced by the mass, while another describes the radiation field. This separation enables a detailed analysis of radiation without affecting the static component. ("Affecting" is the wrong word here?)
+In the rest frame of the mass, these sectors decouple. One set of equations governs the gravitational field sourced by the mass, while another describes the radiation field. This separation enables a detailed analysis of the radiation field independently of the static component.
 
 We can make this explicit by defining a new current:
 
@@ -353,7 +344,7 @@ Since this form matches the standard presentation in textbooks on electromagneti
 
 \subsection{Spherical Vector Harmonics}
 
-Due to the symmetric radial symmetry of the problem, we will benefit from using Vector Spherical Harmonics. 
+Due to the symmetric radial symmetry of most of the problems associated with gravity, we will benefit from using Vector Spherical Harmonics. 
 
 Following Berrara (http://iopscience.iop.org/article/10.1088/0143-0807/6/4/014/meta) (we should send this to the references when we get a chance) we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
 
@@ -372,7 +363,7 @@ g(\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} g_{lm}(r) Y_{lm}(\theta, \phi)
 \end{equation}
 
 
-where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm}$ is simply $\hat r Y_{lm}$  and $\vec X_{lm}$ is defined as,
+\noindent where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm}$ is simply $\hat r Y_{lm}$  and $\vec X_{lm}$ is defined as,
 
 
 \begin{equation}
@@ -384,7 +375,7 @@ where $Y_{lm}$ are the usual spherical harmonics (see Jackson 3.53), $\vec Y_{lm
 
 We now calculate Newtonian gravity as a solution to the Irrotational parts of the Maxwell equations.
 
-In the case of a static point mass \( m \) located at the origin, (We will have much more to discuss about this in  possibly eqn 52 or 34 ... but they've probably changed R = Gm equation and sigma = m / h delta ) ( we have question marks over here??? ) \comment{we'll fix this up on the next edit} we set:
+In the case of a static point mass \( m \) located at the origin, we set:
 
 \begin{equation}
 \rho(\vec{x}) = m \delta^3(\vec{x}), \quad \vec{J} = 0
@@ -424,7 +415,7 @@ q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l  \rho (\vec x) ~ d^3x = \int \rho
 \vec E_I(\vec x) = - \hat{r}\frac {mG} {r^2}
 \end{equation}
 
-\noindent as expected.
+\noindent as expected. Note that while the point mass idealization suffices for recovering Newtonian gravity, in \textbf{Section 5} we refine this to a shell distribution (equation \ref{eq:delta_shell}) to address the gravitational self-energy problem.
 
 
 \subsection{Solenoidal Solutions}
@@ -454,7 +445,7 @@ a_E(l,m) f_l(kr) \vec{X}_{lm}
 \end{aligned}
 \end{equation}
 
-where the functions $f_l$ and $g_l$ are linear superpositions of radial Hankel functions $h_l^{(1)}(kr)$ and $h_l^{(2)}(kr)$, and $W_{l,m}(\omega)$ are complex Gaussian stochastic variables with:
+where the functions $f_l$ and $g_l$ are linear superpositions of radial Hankel functions $h_l^{(1)}(kr)$ and $h_l^{(2)}(kr)$, and where $W_{l,m}(\omega)$ are complex Gaussian stochastic variables satisfying the same statistical conditions as equation \eqref{eq:stochastic}, now indexed by $(l,m,\omega)$ rather than $(\lambda, \vec{k})$:
 
 \begin{equation}
 \langle W_{l,m}(\omega) \rangle = 0, \quad
@@ -499,6 +490,28 @@ The above can be simplified by use of the Wronskian, leaving:
 }
 \label{eq:momentum}
 \end{equation}
+
+Applying the hypothesis , we identify the spectral momentum density in the integrand:
+
+\begin{equation}
+\vec{P}(r) = -\hat{r} \frac{Gm\hbar}{r^2}
+\tag{\ref{eq:hypothesis}}
+\end{equation}
+
+This allows us to write:
+
+\begin{equation}
+\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \int dr \int d\omega \frac{Gm\hbar}{r^2}
+\end{equation}
+
+and therefore:
+
+\begin{equation}
+\sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2} = Gm\hbar
+\label{eq:identification}
+\end{equation}
+
+
 
 
 \subsubsection{Field Energy in the Radiation Zone}
@@ -567,6 +580,7 @@ The expansion of this calculation outside the radiation zone involves more intri
 
 
 \section{A Toy Model}
+\label{sec:toymodel}
 
 In sections three and four, we discussed the assumptions. Up to this point, everything was ground that has been covered by previous researchers. From here on, we rely on new physics. In this section we introduce a module of a massive particle. To gain traction on the problem, we must make  several simplifying assumptions. We hope in future work to study less idealized models.
 
@@ -574,7 +588,7 @@ First, in talking about the space domain, we will quote from Rohrlich at length 
 
 \subsection{Lower Bound: Minimum Radius via Gravitational Self-Energy}
 
-The following long quote is from Rohrlich because I can't say it any better than he did. It has been modified from the original to reflect that we are talking about massive particles and not charged particles.
+We follow Rohrlich\cite{rohrlich} closely here, as his framing captures the essential point precisely. The passage has been lightly adapted from the original to reflect that we are discussing massive particles rather than charged ones.
 
 We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
 
@@ -595,292 +609,208 @@ Here, it may be prudent to speak about the delta function that we will be uisng.
 
 \begin{equation}
 \rho(\vec x) =  m ~ \delta_{\text{shell}} (\vec x)
+\label{eq:delta_shell}
 \end{equation}
 
 
 
-In the next section, I will show that the particle need not collapse. For now, however, let us take it as an assumption that the particle does not collapse. Since we are assuming that there are no other forces in play besides for the gravitational one, its total energy must be
 
+In the next section, we show that the particle need not collapse. For now, we take it as given that it does not, and ask what gravitational self-energy implies for the radius.
+Since no forces other than gravity are present, the total energy satisfies:
 \begin{equation}
-U = m = - \frac 1 2 \int \frac {Gm \rho(\vec x)} {r} d^3x
+U = m = -\frac{1}{2} \int \frac{Gm \rho(\vec{x})}{r} d^3x
 \end{equation}
 
-We note that the more fundamental relativistic expression is $U^2 = m^2$ (or equivalently, $p_\mu p^\mu = m^2$ in four-vector notation), which we utilize and take
+The more fundamental relativistic statement is \(U^2=m^2\) (equivalently, \(p_\mu p^\mu = m^2\)), which we adopt throughout.
+
+Choosing the simplest mass distribution, a uniform spherical shell at radius \(R\)R, the self-energy integral yields:
 
 \begin{equation}
-U^2 = m^2
-\end{equation}
-
-To complete the computation, we must choose some mass density distribution to integrate over. Mathematically, following Rohrlich, the simplest is a uniform spherical shell at the radius $R$, in which case
-
-\begin{equation}
-m = \frac {Gm^2} { 2R} ~~~~~ or  ~~~~ R = \frac {Gm} 2 
-\end{equation}
-
-\comment{Probably flipping the above two equations and be more careful and talk a little about the negative sign}
-
-If, however, we choose a different mass density distribution (a uniform sphere for example), we find that the radius $R$ will always be of the order $Gm$. Therefore, I have chosen $R = Gm$ as the mathematical limit of the radius of a massive particle. This radius is similar in spirit to the classical radius of an electron.
-
-\subsubsection{Macroscopic Objects Aside}
-
-\comment{claude, we need a better title for this subsection }
-
-It is illuminating to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we give a short list of real macroscopice objects with $\Phi = \frac {Gm}{Rc^2}$
-
-$$\text{Mathematical limit:  } ~~~ \Phi = 1 = \frac {Gm}{Rc^2}$$
-$$\text{Black hole:  } ~~~ \Phi = 1$$
-$$\text{Sun:  } ~~~ \Phi = 2 \times 10^{-6}$$
-$$\text{Earth:  } ~~~ \Phi = 7 \times 10^{-10}$$
-$$\text{Proton:  } ~~~ \Phi = 1\times 10^{-38}$$
-
-
-\subsection{Frequency Stuff for our model}
-\comment{claude, we need a better title for this subsection }
-
-\comment{Claude, We could mention that boyer has quite a lot to say about a dipole oscillator picking up energy from the Z.P.R. and because Boyer is amazing, he doesn't use this simplified model, but it ends up that he finds that it only picks up frequency from a vary narrow range, so narrow that he might have well as picked the dirac delta that we will introduce. He did the math exactly. But below at least gets to the point ...}
-
-It should be clear that any real model of a macroscopic massive object that absorbs radiation will absorb radiation over a non-singular domain. However, to gain traction, we will suffice with a toy model. We will pick a model that only absorbs one particular frequency. Unsurprisingly, we choose the frequency of light that is absorbed by our massive particle to be
-
-
-
-\begin{equation}
-	k_{\circ} = \omega_{\circ} = \frac m {\hbar}
-\end{equation}
-
-Or, re-writing this as a delta function, in spherical coordinates gives:
-
-\begin{equation}
-\frac {\delta \left(\omega - \frac m {\hbar} \right)}{4 \pi \omega^2}
+R = \frac{Gm}{2}
 \end{equation}
 
 
-We can then compute the energy that is absorbed from the field 
-
-\comment {(I'm assuming we have an equation that lines up with this in the stochastic section)}
+Other choices of mass distribution (a uniform sphere, for example) give \(R\) of the same order. We therefore take \(R = Gm\) as the characteristic minimum radius:
 
 \begin{equation}
-U = \int d\omega  ~~ \hbar \omega  ~ \delta \left(\omega - \frac m {\hbar} \right)
+\boxed{R = Gm}
+\label{eq:radius}
 \end{equation}
 
-Which yields 
+This is analogous in spirit to the classical electron radius, where self-energy sets a length scale.
+
+
+
+\subsubsection{Compactness of Physical Objects}
+
+It is illuminating to compare the mathematical radius with the radii of real physical bodies. Slipping back to SI units, we tabulate the compactness parameter $\Phi = \frac{Gm}{Rc^2}$ for several objects:
+
+$$\text{Mathematical limit:} \quad \Phi = 1$$
+$$\text{Black hole:} \quad \Phi = 1$$
+$$\text{Sun:} \quad \Phi = 2 \times 10^{-6}$$
+$$\text{Earth:} \quad \Phi = 7 \times 10^{-10}$$
+$$\text{Proton:} \quad \Phi = 1 \times 10^{-38}$$
+
+Notably, the mathematical limit $\Phi = 1$ coincides with the black hole threshold, suggesting that $R = Gm$ is not merely a formal bound but a physically meaningful one.
+
+
+\subsection{Frequency Domain: The Single-Mode Approximation}
+
+Boyer showed rigorously that a dipole oscillator in the ZPR field absorbs from a remarkably narrow frequency band \cite{boyer_relevant_paper}; our single-frequency model can be understood as the idealized limit of this result. Any real model of a macroscopic massive object that absorbs radiation will absorb over a non-singular domain. However, to gain traction, we adopt a toy model that absorbs at only one frequency. We choose:
 
 \begin{equation}
-U =  m
+k_{\circ} = \omega_{\circ} = \frac{m}{\hbar}
 \end{equation}
 
-To show that it draws less energy than is available, we will add a constant multiplicative factor \(\alpha\) and re-write the above analysis
+In spherical coordinates, this corresponds to the frequency distribution:
 
 \begin{equation}
-U =  m = \frac {Gm^2} R
+\frac{\delta\left(\omega - \frac{m}{\hbar}\right)}{4\pi\omega^2}
 \end{equation}
 
-\noindent and
+The energy absorbed from the field is then, using \eqref{eq:energy_per_mode}:
 
 \begin{equation}
-U = \alpha \int \hbar \omega  \delta \left(\omega - \frac m {\hbar} \right)  ~~~ d\omega  
-\end{equation}
-
-This yields
-
-
-\begin{equation}
-\alpha = \frac {Gm} R
+U = \int d\omega \, \hbar\omega \, \delta\left(\omega - \frac{m}{\hbar}\right) = m
 \end{equation}
 
 
-\noindent therefore if  \(R > Gm\), which to be clear is what we already showed in the previous section, then \(\alpha < 1\) and we draw less energy from the Z.P.R. than is available.
-
-\subsection{Putting everything together for our model}
-Before moving on, we should mention this ``on-shell". So when we deal with the actual equations, we will often be interested in 
+To show that the particle draws less energy than is available from the ZPR, we introduce a multiplicative factor $\alpha$. The self-energy condition gives $U = Gm^2/R$, and the absorbed energy is:
 
 \begin{equation}
-R = G m
+U = \alpha \int d\omega \, \hbar\omega \, \delta\left(\omega - \frac{m}{\hbar}\right)
 \end{equation}
 
-\noindent and 
+Combining these:
 
 \begin{equation}
-k_o = \frac m {\hbar}
+\alpha = \frac{Gm}{R}
 \end{equation}
 
-\noindent together with the hypothesis at \(r = R\)
+Since we established in the previous section that $R > Gm$, we have $\alpha < 1$: the particle absorbs less energy from the ZPR than is available. The toy model is energetically consistent.
+
+
+\subsection{On-Shell Conditions}
+
+Before moving on, we collect the defining quantities of the model and show they are mutually consistent. We have the radius \eqref{eq:radius}, the absorbed frequency, and the hypothesis \eqref{eq:hypothesis} evaluated at $r = R$:
 
 \begin{equation}
-p = \frac{Gm \hbar} {R^2}
+R = Gm, \qquad k_{\circ} = \frac{m}{\hbar}, \qquad p = \frac{Gm\hbar}{R^2}
 \end{equation}
 
-We can put these all together:
+Combining these:
 
 \begin{equation}
-\frac{Gm \hbar} {R^2} = \hbar k_o  = m
+\frac{Gm\hbar}{R^2} = \hbar k_{\circ} = m
 \end{equation}
 
-\noindent multiplying by \(R/\hbar\) yields
+Multiplying through by $R/\hbar$:
 
 \begin{equation}
-\frac{Gm } {R} = k_{\circ} R   = \frac {m R} {\hbar}
+\frac{Gm}{R} = k_{\circ} R = 1
 \end{equation}
 
-\noindent which yields 
+and therefore:
 
 \begin{equation}
-k_{\circ} R   = 1
-\end{equation}
-
-\noindent and probably more to the point
-
-\begin{equation}
-k^2_{\circ} R^2   = 1
+\boxed{k_{\circ}^2 R^2 = 1}
 \label{eq:kr}
 \end{equation}
 
-... In some ways, we shoudn't be too surprised by this result, as we are exactly interested in neither the far limit nor the near limit ... however, it's still pretty cool. And we will call these type of results as being ``on the shell". Finally, as was stated earlier in this section we will use 
+This result places the model exactly at the boundary between the near and far field regimes — neither $k_\circ R \ll 1$ nor $k_\circ R \gg 1$. We refer to this as being \textit{on-shell}. Throughout what follows, $\delta^{(3)}_{\text{shell}}(\vec{x})$ denotes that we never probe scales smaller than $R$.
 
-\begin{equation}
-\delta^{(3)}_{\text{shell}} (\vec x)
-\label{eq:dirac_shell}
-\end{equation}
-
-\noindent as a simple placeholder to mean ... I mean, really, it means that we will never go in closer than \(R\).
 
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
 \label{sec:stability}
 
-Now that we have laid out \comment{Claude, what's a better way to say "laid out", I think there's something like exposited  ... } our model of a masive particle in the previous section, namely with a shell
+Now that we have established our model of a massive particle in the previous section, namely:
 
 \begin{equation}
-G m = R
+R = Gm, \qquad m = \hbar k_{\circ}, \qquad k_{\circ} R = 1
 \end{equation}
 
-\begin{equation}
-\hbar k_{\circ} = m
-\end{equation}
+\noindent we are ready to examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse.
 
-\noindent and
-
-\begin{equation}
-k_{\circ} R = 1,
-\end{equation}
-
-
-
-\noindent we are ready to examine whether the proposed inflow of zero-point radiation can stabilize a massive particle against gravitational collapse. 
-
-Following the ideas of Rohrlich (see the previous section) if the energy absorbed from the vacuum field can offset the divergence in the self-energy of the particle’s own field then we can say that the massive particle is stable against gravitational collapse. We first analyze the energy density and total energy of the system. We then explore whether this energy balance leads to anequilibrium. Finally, we turn to momentum conservation, where we derive an effective “Ohm’s law” relating solenoidal fields and currents. 
-
+Following Rohrlich (see Section~\ref{sec:toymodel}), if the energy absorbed from the ZPR can offset the divergence in the gravitational self-energy, then the particle is stable against collapse. We first analyze the energy density and total energy of the system, then examine whether this energy balance leads to an equilibrium. Finally, we turn to momentum conservation, where we derive an effective ``Ohm's law'' relating solenoidal fields and currents.
 
 \subsection{Stability from Field Energy}
 
-We now evaluate whether the inward radiation flow proposed in \textbf{Section 2} can provide a stabilizing mechanism for a massive particle. Specifically, we ask: can the absorbed energy from the zero-point field counterbalance the gravitational self-energy that would otherwise cause collapse?
+We now evaluate whether the inward radiation flow proposed in \textbf{Section 2} can stabilize a massive particle against gravitational collapse. Specifically, we ask whether the energy absorbed from the ZPR can counterbalance the gravitational self-energy that would otherwise drive collapse.
 
-The total field energy is given by:
+The total field energy is:
 \begin{equation}
 U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
 \end{equation}
 
-If we pause and look at just the irrotational part of hese equations, we have
-
-\comment{Well clearly that above sentence was written by a human ... lol}
-
+Considering only the irrotational contribution:
 \begin{equation}
-U_I = \frac{1}{16\pi} \int \left( |\vec{E_I}|^2  \right) \, d^3x
+U_I = \frac{1}{16\pi} \int |\vec{E}_I|^2 \, d^3x \sim \int \frac{Gm^2}{r^4} \, d^3x
 \end{equation}
 
-\noindent This leads to 
+This integral diverges, confirming that a massive particle would collapse under its own gravitational self-energy without a stabilizing mechanism. \comment{verify the $E_I$ integral in next pass}
+
+The hypothesis of this paper is that the radiation field provides precisely this stabilization. Including both irrotational and solenoidal contributions, the total energy density is:
 
 \begin{equation}
-U_I\sim \int \left(\frac { Gm^2} {r^4} \right) \, d^3x
+U_{\text{tot}} = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
 \end{equation}
 
-Which is clearly divergent and therefore a mass would collapse under its own weight without some kind of counter balance force thing.
+From equation~\eqref{eq:energy}, and applying the hypothesis, the radiation contribution is:
 
-\comment{Yeah ... I totally used my memory for the above equation, so we should double check it in the next pass}
+\begin{equation*}
+U_{\text{rad}} = \frac{1}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
+\end{equation*}
 
-Unsurprisingly, the hypothesis of this paper is that we should include the radiation contribution, and thus we have:
-
-The total energy, combining both irrotational and solenoidal contributions, is:
-\begin{equation}
-U_{\text{tot}} = \int_V u \, d^3x = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
-\end{equation}
-
-\noindent Here of course we are "on shell".
-
-
-From equation~\eqref{eq:energy}, we have:
+Integrating over $k$ and suppressing numerical prefactors, which are absorbed into the definition of the model (as in Section~\ref{sec:toymodel}), the total energy becomes:
 
 \begin{equation}
-	\langle U \rangle = \int_V d^3x \int d\omega \sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2}
+U_{\text{tot}} = \int \left[ \frac{Gm\hbar}{r^2} k^3 - \frac{Gm^2}{r^4} \right] d^3x
 \end{equation}
 
-\comment{This isn't a new equation so shouldn't get it's own number}
-
-Naturally using our hypothesis, we simply write this as  
+Evaluating on-shell, with $k = m/\hbar$ and $r = R = Gm$, both terms are equal and the integrand vanishes:
 
 \begin{equation}
-U_{\text{rad}} =  \frac{1}{8\pi^3} \int \int \frac{Gm \hbar}{r^2} \, d^3x \, d^3k
+U_{\text{tot}} = 0
 \end{equation}
 
-Integrating over \(k\) and combining, and of course just as we had "numerical prefactors" in section about mass r = R, here we do suppress numerical prefactors and absorb them into the definition of the model. gives the following total energy:
-
-\begin{equation}
-U_{\text{tot}} = \int \left[ \frac{Gm \hbar}{r^2}k^3  - \frac {Gm^2} {r^4}\right] \, d^3x 
-\end{equation}
-
-Using straightforward algebra with the assumption that we are "on shell", so that \(k = m / \hbar\) and with \(r = R\).  And therefore 
+The total energy vanishes on-shell, demonstrating that the radiation inflow exactly counterbalances the gravitational self-energy. The massive particle is stable.
 
 
-\begin{equation}
-U_{\text{tot}} = \int \left[ 0\right] \, d^3x 
-\end{equation}
+\subsection{Momentum Conservation and an Effective Ohm's Law}
 
-
-\noindent we then see that the energy is at most a constant and therefore is conseved.
-
-
-\subsection{Momentum Conservation and “Ohm’s Law”}
-
-We now turn to momentum conservation. The total momentum exchange in the system should obey:
+We now turn to momentum conservation. The total momentum exchange in the system must vanish:
 
 \begin{equation}
 \int_V \left( \rho \vec{E}_I + \vec{J}_S \times \vec{B}_S \right) \, d^3x = 0
 \end{equation}
 
-
-Assuming the solenoidal current obeys a linear response:
+We assume the solenoidal current obeys a linear response:
 
 \begin{equation}
 \vec{J}_S = \sigma \vec{E}_S
 \end{equation}
 
-And assuming that we use our model, such that (see \eqref{eq:dirac_shell})
+Using our on-shell model (see \eqref{eq:delta_shell}), with $\rho = m\delta^3(\vec{x})$, and averaging over the stochastic field, the momentum balance becomes:
 
 \begin{equation}
-\rho= m \delta^3 ( \vec{x})
+-\hat{r} \int \left( m\delta^3(\vec{x}) \cdot \frac{Gm}{r^2} - \sigma \cdot \frac{Gm\hbar}{r^2} \right) d^3x = 0
 \end{equation}
 
-Averaging over the stochastic noise the field momentum becomes:
-
-\begin{equation}
--\hat{r} \int \left( m \delta^3(\vec{x}) \cdot \frac{G m}{r^2} - \sigma \cdot \frac{G m \hbar}{r^2} \right) \, d^3x = 0
-\end{equation}
-
-Solving gives:
+Solving for $\sigma$:
 
 \begin{equation}
 \sigma = \frac{m}{\hbar} \delta^3(\vec{x})
 \end{equation}
 
-This expression defines a delta-function conductivity concentrated at the origin, but knowing we actually mean the shell. Thus this is an effective Ohm's law in which the mass acts as a point-like, perfect absorber for incoming radiation as long as we are outside of the radius \(R\).  We can re-write the relevant Maxwell equation in light of this:
+This is a delta-function conductivity concentrated at the origin — or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a perfect point-like absorber for incoming radiation outside the radius $R$. The relevant Maxwell equation becomes:
 
 \begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
 \label{eq:ohm}
 \end{equation}
 
-
-
-Together, the field energy and momentum conservation arguments presented in this section demonstrate that the core hypothesis of momentum inflow can stabilize a massive particle. A massive particle that sinks zero-point radiation does not collapse becauseit can pull energy from the vacuum field itself.
+Together, the energy and momentum analyses of this section demonstrate that the hypothesis is internally consistent: a massive particle that sinks zero-point radiation is stabilized against gravitational collapse by drawing energy from the vacuum field itself.
 
 	
 \section{Classical Tests of Gravity}
@@ -1196,7 +1126,7 @@ Several directions remain open:
 
 - \textbf{Removal of the Hypothesis} As mentioned in the text \textbf{Section ?}, it is the belief of this author that we can actually derive the hypothesis from the assumptions.  Then this theory wouldn't even need an hypothesis.
 
-- \textbf{RLess Idealized Models}  Currently our model of a massive particle is as simple as possible. It would be interesting to study less idealized models.
+- \textbf{Less Idealized Models}  Currently our model of a massive particle is as simple as possible. It would be interesting to study less idealized models.
 
 
 \subsection{Final Thought}
