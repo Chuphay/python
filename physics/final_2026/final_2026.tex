@@ -109,7 +109,8 @@ A photon traveling through this field experiences a cumulative momentum shift:
 \label{eq:hypothesis2}
 \end{equation}
 
-We do not specify the microscopic mechanism by which mass couples to the ZPR field. The implications of this hypothesis are tested in \textbf{Section 7}.
+
+The intuition underlying this hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. We do not specify the microscopic mechanism by which mass couples to the ZPR field. The implications of this hypothesis are tested in \textbf{Section 7}.
 
 
 \section{Zero Point Radiation (ZPR)}
@@ -258,7 +259,7 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 
 \section{Maxwell Equations for Gravity}
 
-In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \comment{citation needed}, predating general relativity. This is a stronger assumption than it may appear: general relativity is one of the most precisely tested theories in physics. We adopt this framework nonetheless, because it reproduces the key predictions of general relativity to leading order, as shown in \textbf{Section 7}. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
+In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \cite{heaviside}, predating general relativity. This is a stronger assumption than it may appear: general relativity is one of the most precisely tested theories in physics. We adopt this framework nonetheless, because it reproduces the key predictions of general relativity to leading order, as shown in \textbf{Section 7}. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
 
 
 \begin{equation}
@@ -284,6 +285,7 @@ The presence of \( \vec{B} \), a gravitomagnetic field, may be unexpected. It em
 The remainder of this section develops mathematical tools that will be used throughout the paper.
 
 \subsection{Irrotational and Solenoidal Decomposition}
+\label{subsec:decomp}
 
 Since any vector field can be split into irrotational (curl-free) and solenoidal (divergence-free) components,
 
@@ -312,7 +314,9 @@ We may apply this to our gravitational fields yielding two decoupled subsystems:
 \nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
 \end{equation}
 
-This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. The continuity equation in the irrotational subsystem plays a direct role in what follows.
+
+
+This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. Importantly, the energy stored in the irrotational field carries a factor of $1/G$ reflecting the gravitational coupling, whereas the solenoidal radiation field carries energy in the standard electromagnetic sense. This asymmetry will play a role in the energy balance of Section~\ref{sec:stability}.
 
 In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
 
@@ -735,21 +739,18 @@ Following Rohrlich, if the energy absorbed from the ZPR can offset the divergenc
 
 \subsection{Stability from Field Energy}
 
-We now evaluate whether the inward radiation flow proposed in \textbf{Section 2} can stabilize a massive particle against gravitational collapse. Specifically, we ask whether the energy absorbed from the ZPR can counterbalance the gravitational self-energy that would otherwise drive collapse.
 
-The total field energy is:
+We now evaluate whether the inward radiation flow proposed in \textbf{Section~\ref{subsec:intuition}} can stabilize a massive particle against gravitational collapse. Specifically, we ask whether the energy absorbed from the ZPR can counterbalance the gravitational self-energy that would otherwise drive collapse.
+
+As established in \textbf{Section~\ref{subsec:decomp}}, the irrotational and solenoidal fields carry energy differently. The irrotational contribution is:
+
 \begin{equation}
-U = \frac{1}{16\pi} \int \left( |\vec{E}|^2 + |\vec{B}|^2 \right) \, d^3x
+U_I = \frac{1}{4\pi G} \int |\vec{E}_I|^2 \, d^3x \sim \int \frac{Gm^2}{r^4} \, d^3x
 \end{equation}
 
-Considering only the irrotational contribution:
-\begin{equation}
-U_I = \frac{1}{4 \pi G} \int |\vec{E}_I|^2 \, d^3x \sim \int \frac{Gm^2}{r^4} \, d^3x
-\end{equation}
+\comment{verify the $E_I$ integral in next pass}
 
-This integral diverges, confirming that a massive particle would collapse under its own gravitational self-energy without a stabilizing mechanism. \comment{verify the $E_I$ integral in next pass}
-
-The hypothesis of this paper is that the radiation field provides precisely this stabilization. Including both irrotational and solenoidal contributions, the total energy density is:
+This integral diverges, confirming that a massive particle would collapse under its own gravitational self-energy without a stabilizing mechanism. The radiation field provides precisely this stabilization. Including both contributions, the total energy is:
 
 \begin{equation}
 U_{\text{tot}} = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
@@ -761,7 +762,7 @@ From equation~\eqref{eq:energy}, and applying the hypothesis, the radiation cont
 U_{\text{rad}} = \frac{1}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
 \end{equation*}
 
-Integrating over $k$ and suppressing numerical prefactors, which are absorbed into the definition of the model (as in Section~\ref{sec:toymodel}), the total energy becomes:
+Integrating over $k$ and suppressing numerical prefactors, which are absorbed into the definition of the model (as in \textbf{Section~\ref{sec:toymodel}}), the total energy becomes:
 
 \begin{equation}
 U_{\text{tot}} = \int \left[ \frac{Gm\hbar}{r^2} k^3 - \frac{Gm^2}{r^4} \right] d^3x
@@ -802,7 +803,7 @@ Solving for $\sigma$:
 \sigma = \frac{m}{\hbar} \delta^3(\vec{x})
 \end{equation}
 
-This is a delta-function conductivity concentrated at the origin — or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a perfect point-like absorber for incoming radiation outside the radius $R$. The relevant Maxwell equation becomes:
+This is a delta-function conductivity concentrated at the origin, or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a perfect point-like absorber for incoming radiation outside the radius $R$. The relevant Maxwell equation becomes:
 
 \begin{equation}
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
@@ -1106,6 +1107,8 @@ But something unexpected happened. When we re-expressed the field equations in a
 Here we simply state the hypothesis and explore its consequences. Several directions remain open for future work:
 
 \textbf{Derivation of the hypothesis.} The idea that mass sinks radiation appears explicitly in Feynman's lectures on gravity \comment{verify exact quote and citation}. What is novel here is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
+
+\textbf{Derivation of the hypothesis.} The intuition underlying the hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. What is novel is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
 
 \textbf{Energy expansion outside the radiation zone.} The energy calculation in Section~\ref{sec:stability} was carried out only in the radiation zone. Extending this to the full domain involves richer mathematics and, we suspect, richer physics.
 
