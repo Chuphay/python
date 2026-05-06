@@ -95,6 +95,181 @@ hypothesis: Massive objects sink radiation
 
 \newpage
 
+\section{Solenoidal Solutions}
+
+In the last subsection, we derived Newtonian gravity from the irrotational equations; in this subsection we derive the equations of radiation from the solenoidal solutions. Several results obtained here will be needed later.
+
+Outside the mass, the solenoidal field equations in vacuum are:
+
+\begin{equation}
+\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0, \qquad
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = 0
+\end{equation}
+
+We write the complete multipole expansion including both electric and magnetic type modes:
+
+\begin{equation}
+\begin{aligned}
+\vec{B}_+ &= \int d\omega \sum_{l,m} \bigg[
+a_E(l,m)\, W_{lm}^E(\omega)\, f_l(kr)\, \vec{X}_{lm}
+- \frac{i}{k}\, a_M(l,m)\, W_{lm}^M(\omega)\, \nabla \times \left( g_l(kr)\, \vec{X}_{lm} \right)
+\bigg] e^{-i\omega t} \\
+\vec{E}_+ &= \int d\omega \sum_{l,m} \bigg[
+\frac{i}{k}\, a_E(l,m)\, W_{lm}^E(\omega)\, \nabla \times \left( f_l(kr)\, \vec{X}_{lm} \right)
++ a_M(l,m)\, W_{lm}^M(\omega)\, g_l(kr)\, \vec{X}_{lm}
+\bigg] e^{-i\omega t}
+\end{aligned}
+\end{equation}
+
+\noindent with $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$. The functions $f_l$ and $g_l$ are linear combinations of spherical Hankel functions $h_l^{(1)}(kr)$ and $h_l^{(2)}(kr)$, and $W_{lm}^E(\omega)$ and $W_{lm}^M(\omega)$ are independent complex Gaussian stochastic variables satisfying:
+
+\begin{equation}
+\langle W_{lm}^E(\omega) \rangle = 0, \qquad
+\langle W_{lm}^E(\omega)\, W_{l'm'}^{E*}(\omega') \rangle = \delta_{ll'}\, \delta_{mm'}\, \delta(\omega - \omega')
+\end{equation}
+
+\noindent and identically for $W_{lm}^M$, with $\langle W_{lm}^E\, W_{l'm'}^{M*} \rangle = 0$. For a massive particle absorbing incoming radiation, we set $f_l(kr) = g_l(kr) = h_l^{(2)}(kr)$, since $h_l^{(2)}(kr)\, e^{-i\omega t} \sim e^{-i(kr + \omega t)}/(kr)$ at large $r$, representing ingoing waves.
+
+Since there is no physical reason to prefer electric-type over magnetic-type modes in the vacuum, we impose the symmetry condition $|a_E|^2 = |a_M|^2 \equiv |a|^2$.
+
+\subsubsection{Computing the Field Momentum}
+
+The total field momentum is:
+
+\begin{equation}
+\vec{P}_{\text{field}} = \frac{1}{4\pi} \int \vec{E} \times \vec{B} \, d^3x
+\end{equation}
+
+\noindent Writing $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$, the terms that survive the stochastic average are:
+
+\begin{equation}
+\langle \vec{E} \times \vec{B} \rangle = 2\,\text{Re}\left[\langle \vec{E}_+ \times \vec{B}_+^* \rangle\right]
+\end{equation}
+
+\noindent The independence of $W^E$ and $W^M$ eliminates cross terms between electric and magnetic modes. Working through the angular integrals using the orthogonality of $\vec{X}_{lm}$, $\hat{r} \times \vec{X}_{lm}$, and $\vec{Y}_{lm}$, and combining the electric and magnetic contributions (which enter symmetrically under $|a_E|^2 = |a_M|^2$), the radial component of the Poynting-type integrand involves the Wronskian of the spherical Hankel functions.
+
+Using the standard result $\mathcal{W}[j_l, n_l](x) = 1/x^2$ with the chain rule $d/dr = k\, d/dx$, one obtains:
+
+\begin{equation}
+h_l^{(2)} \frac{d}{dr}(r\, h_l^{(1)}) - h_l^{(1)} \frac{d}{dr}(r\, h_l^{(2)}) = \frac{2i}{kr}
+\end{equation}
+
+\noindent Assembling all factors:
+
+\begin{equation}
+\boxed{
+	\hat{r} \cdot \langle \vec{E} \times \vec{B} \rangle = -\sum_{l,m} \int d\omega\, \frac{4|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
+}
+\end{equation}
+
+\noindent and the total field momentum is:
+
+\begin{equation}
+\boxed{
+	\hat{r} \cdot \langle \vec{P}_{\text{field}} \rangle = -\frac{1}{\pi} \int d^3x \int d\omega \sum_{l,m} \frac{|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
+}
+\label{eq:momentum}
+\end{equation}
+
+\noindent The negative sign confirms that the momentum is directed inward, as expected for absorbed incoming radiation.
+
+\subsubsection{Field Energy in the Radiation Zone}
+
+The total field energy density is:
+
+\begin{equation}
+u = \frac{1}{8\pi}(\vec{E}^2 + \vec{B}^2)
+\end{equation}
+
+\noindent In the radiation zone ($kr \gg 1$), the Hankel functions simplify to $h_l^{(2)}(kr) \approx \frac{(+i)^{l+1}}{kr}\, e^{-ikr}$, and the curl of $h_l^{(2)} \vec{X}_{lm}$ reduces to $-\hat{r} \times \vec{X}_{lm}$ times the same scalar factor. The stochastic averages $\langle \vec{E}^2 \rangle$ and $\langle \vec{B}^2 \rangle$ each receive equal contributions from electric and magnetic modes, and cross terms vanish both by orthogonality ($\vec{X}_{lm} \cdot (\hat{r} \times \vec{X}_{lm}) = 0$) and by the independence of $W^E$ and $W^M$. The result is:
+
+\begin{equation}
+\langle \vec{E}^2 + \vec{B}^2 \rangle = \frac{8|a|^2}{\omega^2\, r^2} \int d\omega \sum_{l,m} |\vec{X}_{lm}|^2
+\end{equation}
+
+\noindent giving the total field energy:
+
+\begin{equation}
+\boxed{
+	\langle U \rangle = \frac{1}{\pi} \int d^3x \int d\omega \sum_{l,m} \frac{|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
+}
+\label{eq:energy}
+\end{equation}
+
+\noindent Comparing equations \eqref{eq:momentum} and \eqref{eq:energy}, we see that $\hat{r} \cdot \langle \vec{P}_{\text{field}} \rangle = -\langle U \rangle$, consistent with the momentum--energy relation for incoming radiation (with $c = 1$).
+
+The extension of the energy calculation beyond the radiation zone involves more intricate mathematics; we defer this to future work.
+
+
+\newpage
+
+\section{rederive newton}
+\subsection{Newton's Gravity (Irrotational Part of the Maxwell Equations)}
+
+For completeness, and to introduce notation used later, we derive the gravitational field of a static mass distribution. Consider a source
+
+$$\rho = m\,\delta^3_x$$
+
+where we are deliberately non-committal about the precise form of $\delta^3_x$; for the present purposes it suffices that outside some radius $R$ it behaves as $\delta^3_x = \delta(\vec x)$.
+
+The irrotational part of the Maxwell equations reads
+
+$$\nabla \cdot \vec{E}_I = -4\pi G\rho, \qquad \nabla \times \vec{E}_I = 0.$$
+
+Expanding $\vec{E}_I$ in vector spherical harmonics,
+
+$$\vec{E}_I = \sum_{l,m}\left[a_{lm}\,\vec{Y}_{lm} + b_{lm}\,(\hat r \times \vec{X}_{lm}) + c_{lm}\,\vec{X}_{lm}\right],$$
+
+and applying the curl identities from the previous section, the condition $\nabla \times \vec{E}_I = 0$ yields, upon equating the $\vec{Y}_{lm}$, $\vec{X}_{lm}$, and $(\hat r \times \vec{X}_{lm})$ components independently:
+
+$$c_{lm} = 0, \qquad a_{lm} = -\frac{i}{\sqrt{l(l+1)}}\frac{d}{dr}(r\,b_{lm}).$$
+
+The divergence equation then gives
+
+$$-4\pi G\,\rho_{lm} = \frac{1}{r^2}\frac{d}{dr}(r^2 a_{lm}) - i\sqrt{l(l+1)}\,\frac{b_{lm}}{r}\,.$$
+
+Substituting the expression for $a_{lm}$ and defining
+
+$$B_{lm} \equiv \frac{i\,r\,b_{lm}}{\sqrt{l(l+1)}}\,,$$
+
+we obtain the radial equation
+
+\begin{equation}\label{eq:radial}
+\frac{1}{r^2}\frac{d}{dr}\!\left(r^2\frac{d}{dr}B_{lm}\right) - \frac{l(l+1)}{r^2}\,B_{lm} = 4\pi G\,\rho_{lm}\,.
+\end{equation}
+
+Outside the source ($r > R$, where $\rho_{lm} = 0$), the homogeneous equation admits power-law solutions $B \sim r^n$ with $n(n+1) = l(l+1)$, giving $n = l$ or $n = -(l+1)$. Requiring regularity at infinity, the exterior solution takes the form
+
+$$B_{lm}(r) = \frac{\alpha_{lm}}{r^{l+1}}\,.$$
+
+To fix $\alpha_{lm}$, we multiply (\ref{eq:radial}) by $r^{l+2}$ and observe the identity
+
+$$r^l \frac{d}{dr}\!\left(r^2 \frac{dB}{dr}\right) - l(l+1)\,r^l\,B = \frac{d}{dr}\!\left[r^{l+2}\frac{dB}{dr} - l\,r^{l+1}B\right],$$
+
+which recasts the equation as a total derivative:
+
+$$\frac{d}{dr}\!\left[r^{l+2}\frac{dB_{lm}}{dr} - l\,r^{l+1}B_{lm}\right] = 4\pi G\,\rho_{lm}\,r^{l+2}\,.$$
+
+Integrating from $r = 0$ (where regularity kills the boundary term) to any $r = R' > R$ (where we can use the exterior solution), the left side evaluates to $-(2l+1)\,\alpha_{lm}$ and the right side gives $4\pi G\,q_{lm}$, where the multipole moments are defined as
+
+$$q_{lm} \equiv \int Y_{lm}^*(\theta,\phi)\,r^l\,\rho(\vec x)\,d^3x = \int \rho_{lm}(r)\,r^{l+2}\,dr\,.$$
+
+Thus
+
+$$B_{lm} = -\frac{4\pi G\,q_{lm}}{(2l+1)\,r^{l+1}}\,.$$
+
+Inverting the definition of $B_{lm}$ to recover $b_{lm}$, computing $a_{lm}$ from the curl-free condition, and assembling the expansion, the gravitational field outside the source is
+
+$$\vec{E}_I(\vec x) = \sum_{l,m}\frac{-4\pi G\,q_{lm}}{(2l+1)\,r^{l+2}}\left[(l+1)\,\vec{Y}_{lm} + i\sqrt{l(l+1)}\,(\hat r \times \vec{X}_{lm})\right].$$
+
+For a point source $\rho = m\,\delta(\vec x)$, only $q_{00} = m/\sqrt{4\pi}$ survives, and this reduces to
+
+$$\vec{E}_I(\vec x) = -\frac{mG}{r^2}\,\hat r, \qquad r > R,$$
+
+as expected.
+
+\newpage
+
 
 \section{Maxwell Equations}
 \subsection{From Electromagnetism to Gravity-magnetism}
@@ -233,16 +408,18 @@ We have
 
 $$\frac 1 {r^2} \frac d {dr} \left( r^2 \frac d {dr} B_{lm} \right) - \frac {l(l+1)} {r^2} B_{lm} = 4 \pi G \rho_{lm}$$
 
-The solution to this is well-known (see Jackson). We define,
+
+This is the standard radial Poisson equation in a spherical harmonic basis (see Jackson, \S 3.9). The exterior solution ($r > R$) is
+
+
+$$ B_{lm} = - \frac {4 \pi G }{2l + 1} \frac {q_{lm}}{r^{l+1}} $$ 
+
+where the multipole moments are
 
 $$q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l  \rho (\vec x) ~ d^3x = \int \rho_{lm} (r) r^{l+2} ~ dr $$
 
-Then 
 
-$$ B_{lm} = - \frac {4 \pi G \rho_{lm}} {(2l +1) r^{l+1}} $$ 
- 
-
-And we can write out the final solution:
+Now we can write out the final solution:
 
 $$\vec E_I(\vec x) = \sum_{l,m} \left[ -\frac {4\pi i G }{2l+1} \frac {q_{lm}}{r^{l+2}} \sqrt {l(l+1)} \left(\hat r \times \vec X_{lm} \right)  - \frac {4 \pi G (l+1)}{2l+1} \frac {q_{lm}}{r^{l+2}} \vec Y_{lm} \right] $$
 

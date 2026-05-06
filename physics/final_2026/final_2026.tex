@@ -115,22 +115,13 @@ The intuition underlying this hypothesis has respectable precedent. Feynman note
 
 \section{Zero Point Radiation (ZPR)}
 
-We now introduce our first assumption:  the \textbf{stochastic zero-point radiation field}.  ``Stochastic" means random, in a way that will be clearly defined below, ``zero-point" refers to zero-temperature and ``radiation" in this context simply means light.  
+We now introduce our first assumption: the \textbf{stochastic zero-point radiation field}. ``Stochastic'' means random, in a way that will be clearly defined below, ``zero-point'' refers to zero-temperature, and ``radiation'' in this context simply means light.
 
+Historically, the Michelson--Morley experiment aimed to detect the luminiferous aether, the medium through which light was thought to propagate. The null result helped solidify the notion of a truly empty vacuum. In contrast, the stochastic zero-point radiation field treats the vacuum as filled with fluctuating electromagnetic fields, even at absolute zero.
 
-Historically, the Michelson–Morley experiment aimed to detect the luminiferous aether, the medium through which light was thought to propagate. The null result helped solidify the notion of a truly empty vacuum. In contrast, the stochastic zero-point radiation field treats the vacuum as filled with fluctuating electromagnetic fields, even at absolute zero.
+This theory was first developed by T.H. Boyer in the 1960s and has since been extended by Boyer and others under the term stochastic electrodynamics (SED); see \cite{boyer2019} for a comprehensive review. Among its successes, SED has been shown to reproduce the Planck blackbody spectrum without quantum assumptions \cite{boyer1969}, the harmonic oscillator ground-state energy $\tfrac{1}{2}\hbar\omega$, and the Casimir and van der Waals forces, among other results.
 
-
-This theory was first developed by T.H. Boyer last century but has more interest as of late under the term stochastic electrodynamics (S.E.D.). Stochastic zero-point radiation has been shown to reproduce:
-\begin{itemize}
-	\item The Planck blackbody spectrum (Boyer, 1969) \cite{boyer1969}
-	\item Harmonic oscillator ground-state energy \( \tfrac{1}{2} \hbar \omega \) \cite{cole2003}
-	\item Casimir and van der Waals forces \cite{boyer1975}
-	\item Certain features of the hydrogen atom's ground state \cite{puthoff1987}
-	\item The Unruh effect \cite{boyer1980}
-\end{itemize}
-
-Taken together, these results support the view, held by Boyer and others, that the vacuum is an active medium, filled with fluctuating modes that persist even at \( T = 0 \). This is not the mainstream view of the vacuum. We adopt it nonetheless, on the grounds that it has a substantial body of supporting results and, as we will show, leads to a consistent and predictive theory of gravity.
+Taken together, these results support the view that the vacuum is an active medium, filled with fluctuating modes that persist even at $T = 0$. This is not the mainstream view. We adopt it on the grounds that it has a substantial body of supporting results and, as we will show, leads to a consistent and predictive theory of gravity. We take no position on whether SED can serve as a complete replacement for quantum mechanics; we use it here as a classical framework well-suited to the problem at hand.
 
 We therefore assume that the vacuum is filled with a classical, Lorentz-invariant random electromagnetic radiation field even at absolute zero, carrying a spectral energy density:
 
@@ -320,29 +311,67 @@ This decomposition reflects a meaningful physical distinction between the \textb
 
 In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
 
+
+\subsection{Irrotational and Solenoidal Decomposition}
+\label{subsec:decomp}
+
+Since any vector field can be split into irrotational (curl-free) and solenoidal (divergence-free) components,
+
+\begin{equation}
+\vec{V} = \vec{V}_I + \vec{V}_S, \quad 
+\nabla \cdot \vec{V}_S = 0, \quad 
+\nabla \times \vec{V}_I = 0
+\end{equation}
+
+We may apply this to our gravitational fields yielding two decoupled subsystems:
+
+\vspace{0.5em}
+\noindent\textbf{Static Fields (Irrotational):}
+
+\begin{equation}
+\nabla \cdot \vec{E}_I = -4 \pi G \rho, \quad 
+\partial_t \vec{E}_I = 4 \pi G \vec{J}_I, \quad 
+\nabla \cdot \vec{J}_I + \partial_t \rho = 0
+\end{equation}
+
+\noindent\textbf{Radiation Fields (Solenoidal):}
+
+
+\begin{equation}
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = 4 \pi G \vec{J}_S, \quad 
+\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
+\end{equation}
+
+
+
+This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. Importantly, the energy stored in the irrotational field carries a factor of $1/G$ reflecting the gravitational coupling, whereas the solenoidal radiation field carries energy in the standard electromagnetic sense. This asymmetry will play a role in the energy balance of Section~\ref{sec:stability}.
+
+In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
+
 We can make this explicit by defining a new current:
 
 
 \begin{equation}
-\vec {J_S'} = - G \vec {J_S}
+\vec{J}_S' = -4 \pi G \vec{J}_S
 \end{equation}
 
-\noindent This transforms the inhomogeneous solenoidal equation into:
+\noindent Since the solenoidal current is not constrained by the continuity equation (which governs only the irrotational subsystem), this redefinition carries no physical consequences. It transforms the inhomogeneous solenoidal equation into:
 
 \begin{equation}
-\nabla \times \vec B_S - \partial_t \vec E_S =  4 \pi \vec {J_S'}
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = \vec{J}_S'
 \end{equation}
 
-\noindent while leaving all other equations unchanged.
-
-Since this form matches the standard presentation in the literature on electromagnetic radiation, we will drop the prime and adopt the following as the solenoidal (radiation) Maxwell equations:
+\noindent while leaving all other equations unchanged. Dropping the prime, we adopt the following as the solenoidal (radiation) Maxwell equations:
 
 \begin{equation}
 \begin{aligned}
-\nabla \times \vec B_S - \partial_t \vec E_S =  4 \pi \vec J_S \\
-\nabla \times \vec E_S + \partial_t \vec B_S = 0 
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S &= \vec{J}_S \\
+\nabla \times \vec{E}_S + \partial_t \vec{B}_S &= 0
 \end{aligned}
 \end{equation}
+
+\noindent We choose this normalization so that the effective Ohm's law (Section~\ref{sec:ohm}) takes its simplest form.
+
 
 \subsection{Spherical Vector Harmonics}
 
@@ -375,54 +404,41 @@ g(\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} g_{lm}(r) Y_{lm}(\theta, \phi)
 
 \subsection{Irrotational Solutions}
 
-We now calculate Newtonian gravity as a solution to the irrotational parts of the Maxwell equations.
-
-In the case of a static point mass \( m \) located at the origin, we set:
+We now recover Newtonian gravity as a solution to the irrotational part of the Maxwell equations. For a static point mass $m$ at the origin,
 
 \begin{equation}
-\rho(\vec{x}) = m \delta^3(\vec{x}), \quad \vec{J} = 0
+\rho(\vec{x}) = m\delta^3(\vec{x}), \qquad \vec{J} = 0.
 \end{equation}
 
-
-\noindent Using the irrotational part of the Maxwell equations:
-
+\noindent The irrotational equations are
 
 \begin{equation}
-\nabla \cdot \vec{E}_I = -4 \pi G \rho ~~~~~~~~~~ \nabla \times \vec{E}_I = 0
+\nabla \cdot \vec{E}_I = -4\pi G \rho, \qquad \nabla \times \vec{E}_I = 0.
 \end{equation}
 
-\noindent and using the spherical vector harmonics we developed earlier,  we find:
-
+\noindent Expanding $\vec{E}_I$ in vector spherical harmonics and following the standard multipole expansion (see e.g.\ Jackson \S 3.9), the exterior solution is
 
 \begin{equation}
-\vec E_I(\vec x) = \sum_{l,m} \left[ -\frac {4\pi i G }{2l+1} \frac {q_{lm}}{r^{l+2}} \sqrt {l(l+1)} \left(\hat r \times \vec X_{lm} \right)  - \frac {4 \pi G (l+1)}{2l+1} \frac {q_{lm}}{r^{l+2}} \vec Y_{lm} \right] 
+\vec{E}_I(\vec{x}) = \sum_{l,m} \frac{-4\pi G\,q_{lm}}{(2l+1)\,r^{l+2}} \left[(l+1)\,\vec{Y}_{lm} + i\sqrt{l(l+1)}\,(\hat{r} \times \vec{X}_{lm})\right],
 \end{equation}
 
-\noindent Where,
+\noindent where the multipole moments are
 
 \begin{equation}
-q_{lm} \equiv \int Y_{lm}^* (\theta, \phi) r^l  \rho (\vec x) ~ d^3x = \int \rho_{lm} (r) r^{l+2} ~ dr 
+q_{lm} \equiv \int Y_{lm}^*(\theta,\phi)\,r^l\,\rho(\vec{x})\,d^3x.
 \end{equation}
 
-\noindent Clearly then, if
+\noindent For a point source, only $q_{00} = m/\sqrt{4\pi}$ is nonzero, and this reduces to
 
 \begin{equation}
-\rho(\vec{x}) = m \delta^3(\vec{x})
+\vec{E}_I(\vec{x}) = -\frac{Gm}{r^2}\,\hat{r},
 \end{equation}
-
-
-\noindent We get
-
-\begin{equation}
-\vec E_I(\vec x) = - \hat{r}\frac {mG} {r^2}
-\end{equation}
-
 
 \noindent as expected. This confirms that Newtonian gravity is recovered as a special case of the irrotational Maxwell equations , a necessary consistency check for the framework. Note that while the point mass idealization suffices here, in \textbf{Section 5} we refine this to a shell distribution (equation \ref{eq:delta_shell}) to address the gravitational self-energy problem.
 
 
 \subsection{Solenoidal Solutions}
-In the last subsection, we derived Newtonian gravity from the irrotational equations, in this subsection we will derive the equations of radiation from teh solenoidal solutions.
+In the last subsection, we derived Newtonian gravity from the irrotational equations, in this subsection we will derive the equations of radiation from the solenoidal solutions.
 Several results from the solutions of the solenoidal Maxwell equations will be needed later; we now solve the corresponding equations.
 
 Outside the mass, the solenoidal field equations in vacuum are:
@@ -467,7 +483,7 @@ The total field momentum is:
 \vec{P}_{\text{field}} = \frac{1}{4\pi } \int_V \vec{E} \times \vec{B} \, d^3x
 \end{equation}
 
-\comment{might be an 8 in that denominator .. but no, I don't think so}
+
 
 
 
@@ -658,7 +674,7 @@ Notably, the mathematical limit $\Phi = 1$ coincides with the black hole thresho
 
 \subsection{Frequency Domain: The Single-Mode Approximation}
 
-Boyer showed rigorously that a dipole oscillator in the ZPR field absorbs from a remarkably narrow frequency band \cite{boyer_relevant_paper}; our single-frequency model can be understood as the idealized limit of this result. Any real model of a macroscopic massive object that absorbs radiation will absorb over a non-singular domain. However, to gain traction, we adopt a toy model that absorbs at only one frequency. We choose:
+Boyer showed rigorously that a dipole oscillator in the ZPR field absorbs from a remarkably narrow frequency band \cite{boyer1975}; our single-frequency model can be understood as the idealized limit of this result. Any real model of a macroscopic massive object that absorbs radiation will absorb over a non-singular domain. However, to gain traction, we adopt a toy model that absorbs at only one frequency. We choose:
 
 \begin{equation}
 k_{\circ} = \omega_{\circ} = \frac{m}{\hbar}
@@ -778,11 +794,12 @@ The total energy vanishes on-shell, demonstrating that the radiation inflow exac
 
 
 \subsection{Momentum Conservation and an Effective Ohm's Law}
+\label{sec:ohm}
 
 We now turn to momentum conservation. The total momentum exchange in the system must vanish:
 
 \begin{equation}
-\int_V \left( \rho \vec{E}_I + \vec{J}_S \times \vec{B}_S \right) \, d^3x = 0
+\int_V \left( \rho \vec{E}_I + \vec{J}_S \times \vec{B}_S \right) d^3x = 0
 \end{equation}
 
 We assume the solenoidal current obeys a linear response:
@@ -791,28 +808,32 @@ We assume the solenoidal current obeys a linear response:
 \vec{J}_S = \sigma \vec{E}_S
 \end{equation}
 
-Using our on-shell model (see \eqref{eq:delta_shell}), with $\rho = m\delta^3(\vec{x})$, and averaging over the stochastic field, the momentum balance becomes:
+\noindent so that $\langle \vec{J}_S \times \vec{B}_S \rangle = \sigma \langle \vec{E}_S \times \vec{B}_S \rangle$. Using the result from equation~\eqref{eq:momentum}, the radial component of the stochastic average of the Poynting-type integrand is:
 
 \begin{equation}
--\hat{r} \int \left( m\delta^3(\vec{x}) \cdot \frac{Gm}{r^2} - \sigma \cdot \frac{Gm\hbar}{r^2} \right) d^3x = 0
+\hat{r} \cdot \langle \vec{E}_S \times \vec{B}_S \rangle = -\sum_{l,m} \int d\omega\, \frac{4|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
 \end{equation}
 
-Solving for $\sigma$:
+\noindent The gravitational force density is also directed inward:
 
 \begin{equation}
-\sigma = \frac{m}{\hbar} \delta^3(\vec{x})
+\rho \vec{E}_I = -m\delta^3(\vec{x})\, \frac{Gm}{r^2}\, \hat{r}
 \end{equation}
 
-This is a delta-function conductivity concentrated at the origin, or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a perfect point-like absorber for incoming radiation outside the radius $R$. The relevant Maxwell equation becomes:
+\noindent For these to balance, $\sigma$ must be negative: the current opposes the field, representing absorption. The factor of $1/r^2$ appears on both sides and cancels, leaving:
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
+\sigma = -\frac{m}{\hbar}\, \delta^3(\vec{x})
+\end{equation}
+
+\noindent This is a delta-function conductivity concentrated at the origin, or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a point-like absorber of incoming radiation. The solenoidal Maxwell equation (using the normalization adopted in Section~\ref{subsec:decomp}) becomes:
+
+\begin{equation}
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar}\, \vec{E}_S\, \delta^3(\vec{x})
 \label{eq:ohm}
 \end{equation}
 
-Together, the energy and momentum analyses of this section demonstrate that the hypothesis is internally consistent: a massive particle that sinks zero-point radiation is stabilized against gravitational collapse by drawing energy from the vacuum field itself.
-
-	
+\noindent Together, the energy and momentum analyses of this section demonstrate that the hypothesis is internally consistent: a massive particle that absorbs zero-point radiation is stabilized against gravitational collapse by drawing energy from the vacuum field itself.
 
 \section{Classical Tests of Gravity}
 
@@ -988,7 +1009,10 @@ Now consider the following duality transformation:
 \end{aligned}
 \end{equation}
 
-This transformation leaves the generalized Maxwell equations invariant. As Jackson \cite{jackson} notes, the distinction between electric and magnetic charge is, in this framework, a matter of convention. If all particles share the same magnetic-to-electric charge ratio, a duality rotation can eliminate magnetic charges entirely. This perspective opens the door for deeper reinterpretations of classical field theory.
+This transformation leaves the generalized Maxwell equations invariant. As Jackson \cite{jackson} notes, the distinction between electric and magnetic charge is, in this framework, a matter of convention. If all particles share the same magnetic-to-electric charge ratio, a duality rotation can eliminate magnetic charges entirely. This perspective opens the door for deeper reinterpretations of classical field theory.  Note that these equations use the normalization for the solenoidal current adopted in Section~\ref{subsec:decomp}, in which the factor of  \(4 \pi\) has been absorbed into the definition of \(\vec{J}\)
+
+
+
 
 \subsection{Spinor Representation of Field Operators}
 
@@ -1050,7 +1074,14 @@ Restricting to the on-shell condition (see Section~\ref{sec:toymodel}), we drop 
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S
 \end{equation}
 
-Applying the duality transformation, the solenoidal Maxwell equations become:
+
+\noindent The second solenoidal equation remains sourceless:
+
+\begin{equation}
+\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
+\end{equation}
+
+\noindent At this stage, only the first equation carries a mass term. However, applying a duality transformation at $\xi = \pi/4$ mixes $\vec{E}_S$ and $\vec{B}_S$, and simultaneously generates a magnetic current $\vec{J}_m = -\frac{m}{\hbar}\vec{B}_S$ from the electric current $\vec{J}_e = -\frac{m}{\hbar}\vec{E}_S$. The two solenoidal equations become:
 
 \begin{equation}
 \begin{aligned}
@@ -1106,7 +1137,8 @@ But something unexpected happened. When we re-expressed the field equations in a
 
 Here we simply state the hypothesis and explore its consequences. Several directions remain open for future work:
 
-\textbf{Derivation of the hypothesis.} The idea that mass sinks radiation appears explicitly in Feynman's lectures on gravity \comment{verify exact quote and citation}. What is novel here is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
+\comment{This is new}
+\textbf{Quantization} The Dirac equation presented here is not quantized. More importantly the interaction is left mysterious. It is the belief of this author that two photons in a singlet configuration could be the interaction particle. However, it should be pointed out that the believers in stochastic electromagnetism some believe that quantum mechanics is wrong.
 
 \textbf{Derivation of the hypothesis.} The intuition underlying the hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. What is novel is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
 
@@ -1140,7 +1172,59 @@ To both of them: thank you.
 
 \begin{thebibliography}{99}
 	
-
+	\bibitem{feynman_gravity}
+	R.P.~Feynman, F.B.~Morinigo, and W.G.~Wagner,
+	\textit{Feynman Lectures on Gravitation},
+	edited by B.~Hatfield
+	(Westview Press, Boulder, CO, 1995).
+	
+	\bibitem{boyer2019}
+	T.H.\ Boyer,
+	``Stochastic Electrodynamics: The Closest Classical Approximation to Quantum Theory,''
+	\textit{Atoms} \textbf{7}(1), 29 (2019).
+	
+	\bibitem{boyer1969}
+	T.H.\ Boyer,
+	``Derivation of the Blackbody Radiation Spectrum without Quantum Assumptions,''
+	\textit{Physical Review} \textbf{182}, 1374--1383 (1969).
+	
+	
+\bibitem{boyer1975}
+T.H.\ Boyer,
+``Random Electrodynamics: The Theory of Classical Electrodynamics with Classical Electromagnetic Zero-Point Radiation,''
+\textit{Physical Review D} \textbf{11}, 790--808 (1975).
+	
+	\bibitem{heaviside}
+	O.~Heaviside,
+	``A Gravitational and Electromagnetic Analogy,''
+	\textit{The Electrician} \textbf{31}, 281--282 (1893);
+	reprinted in \textit{Electromagnetic Theory}, vol.~1, pp.~455--466.
+	
+	
+\bibitem{rohrlich}
+F.~Rohrlich,
+\textit{Classical Charged Particles}, 3rd ed.
+(World Scientific, Singapore, 2007).
+	
+	\bibitem{jackson}
+	J.D.~Jackson,
+	\textit{Classical Electrodynamics}, 3rd ed.
+	(Wiley, New York, 1999).
+	
+	\bibitem{carroll}
+	S.M.~Carroll,
+	\textit{Spacetime and Geometry: An Introduction to General Relativity}
+	(Addison-Wesley, San Francisco, 2004).
+	
+\bibitem{einstein1916}
+A.~Einstein,
+``Die Grundlage der allgemeinen Relativit\"atstheorie,''
+\textit{Annalen der Physik} \textbf{49}, 769--822 (1916).
+	
+	\bibitem{sakurai}
+	J.J.~Sakurai,
+	\textit{Advanced Quantum Mechanics}
+	(Addison-Wesley, Reading, MA, 1967).
 	
 \end{thebibliography}
 
