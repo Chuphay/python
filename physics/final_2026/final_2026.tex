@@ -102,6 +102,8 @@ The hypothesis of this paper is that mass creates an inward-pointing spectral mo
 \label{eq:hypothesis}
 \end{equation}
 
+where $\vec{P}(r)$ is the momentum density per mode in $k$-space.
+
 A photon traveling through this field experiences a cumulative momentum shift:
 
 \begin{equation}
@@ -173,7 +175,16 @@ W_\lambda(\vec{k}) e^{i(\vec{k} \cdot \vec{x} - \omega t)} + \text{c.c.}
 
 We now verify that this field definition gives the correct energy spectrum. We need to evaluate $\langle \vec{E}^2 \rangle$ and $\langle \vec{B}^2 \rangle$. Let us focus on $\langle \vec{E}^2 \rangle$ as the calculation for the magnetic field is identical.
 
-Write $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ where $\vec{E}_+$ is the positive-frequency part (containing $W_\lambda$ but not $W_\lambda^*$). Then:
+Write $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ where $\vec{E}_+$ is 
+
+\begin{equation}
+\vec{E}_+(\vec{x}, t)  = \sum_{\lambda=1}^2 \int d^3k \, 
+\hat{\epsilon}(\vec{k}, \lambda) 
+\sqrt{\frac{\hbar \omega}{8\pi^2}} 
+W_\lambda(\vec{k}) e^{i(\vec{k} \cdot \vec{x} - \omega t)} 
+\end{equation}
+
+\noindent Then:
 
 \begin{equation}
 \vec{E}^2 = (\vec{E}_+ + \vec{E}_+^*)^2 = \vec{E}_+^2 + 2\vec{E}_+ \cdot \vec{E}_+^* + (\vec{E}_+^*)^2
@@ -236,6 +247,7 @@ Since $d^3k/(2\pi)^3$ represents the density of states in momentum space (the nu
 \begin{equation}
 \langle u \rangle = \int \frac{d^3k}{(2\pi)^3} \, \hbar\omega
 = \int [\text{modes per } k^3] \times [\text{energy per mode}]
+\label{eq:energy_per_mode_integral}
 \end{equation}
 
 This confirms that each electromagnetic normal mode (specified by wavevector $\vec{k}$ and polarization $\lambda$) carries energy $(1/2)\hbar\omega$ in the zero-point radiation field:
@@ -245,12 +257,10 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 \label{eq:energy_per_mode}
 \end{equation}
 
-\comment{I haven't actually verified any of these equations in the last chunk of time ... so we really need to do them by pen soon}
-
 
 \section{Maxwell Equations for Gravity}
 
-In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \cite{heaviside}, predating general relativity. This is a stronger assumption than it may appear: general relativity is one of the most precisely tested theories in physics. We adopt this framework nonetheless, because it reproduces the key predictions of general relativity to leading order, as shown in \textbf{Section 7}. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
+In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \cite{heaviside}, predating general relativity. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
 
 
 \begin{equation}
@@ -275,41 +285,6 @@ The presence of \( \vec{B} \), a gravitomagnetic field, may be unexpected. It em
 
 The remainder of this section develops mathematical tools that will be used throughout the paper.
 
-\subsection{Irrotational and Solenoidal Decomposition}
-\label{subsec:decomp}
-
-Since any vector field can be split into irrotational (curl-free) and solenoidal (divergence-free) components,
-
-\begin{equation}
-\vec{V} = \vec{V}_I + \vec{V}_S, \quad 
-\nabla \cdot \vec{V}_S = 0, \quad 
-\nabla \times \vec{V}_I = 0
-\end{equation}
-
-We may apply this to our gravitational fields yielding two decoupled subsystems:
-
-\vspace{0.5em}
-\noindent\textbf{Static Fields (Irrotational):}
-
-\begin{equation}
-\nabla \cdot \vec{E}_I = -4 \pi G \rho, \quad 
-\partial_t \vec{E}_I = 4 \pi G \vec{J}_I, \quad 
-\nabla \cdot \vec{J}_I + \partial_t \rho = 0
-\end{equation}
-
-\noindent\textbf{Radiation Fields (Solenoidal):}
-
-
-\begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = 4 \pi G \vec{J}_S, \quad 
-\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
-\end{equation}
-
-
-
-This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. Importantly, the energy stored in the irrotational field carries a factor of $1/G$ reflecting the gravitational coupling, whereas the solenoidal radiation field carries energy in the standard electromagnetic sense. This asymmetry will play a role in the energy balance of Section~\ref{sec:stability}.
-
-In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
 
 
 \subsection{Irrotational and Solenoidal Decomposition}
@@ -338,15 +313,13 @@ We may apply this to our gravitational fields yielding two decoupled subsystems:
 
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = 4 \pi G \vec{J}_S, \quad 
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -4 \pi G \vec{J}_S, \quad 
 \nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0
 \end{equation}
 
 
 
-This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. Importantly, the energy stored in the irrotational field carries a factor of $1/G$ reflecting the gravitational coupling, whereas the solenoidal radiation field carries energy in the standard electromagnetic sense. This asymmetry will play a role in the energy balance of Section~\ref{sec:stability}.
-
-In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
+This decomposition reflects a meaningful physical distinction between the \textbf{static gravitational attraction} and the \textbf{propagating radiation} field. In the rest frame of the mass, the irrotational and solenoidal subsystems decouple. The irrotational equations govern the static gravitational field sourced by the mass, while the solenoidal equations describe the propagating radiation field. This separation allows us to analyze the radiation field independently of the static gravitational component.
 
 We can make this explicit by defining a new current:
 
@@ -377,7 +350,7 @@ We can make this explicit by defining a new current:
 
 Due to the symmetric radial symmetry of most of the problems associated with gravity, we will benefit from using Vector Spherical Harmonics. 
 
-Following Berrara (http://iopscience.iop.org/article/10.1088/0143-0807/6/4/014/meta) (we should send this to the references when we get a chance) we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
+Following Barrera et al. \cite{barrera1985} we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
 
 
 
@@ -434,166 +407,141 @@ q_{lm} \equiv \int Y_{lm}^*(\theta,\phi)\,r^l\,\rho(\vec{x})\,d^3x.
 \vec{E}_I(\vec{x}) = -\frac{Gm}{r^2}\,\hat{r},
 \end{equation}
 
-\noindent as expected. This confirms that Newtonian gravity is recovered as a special case of the irrotational Maxwell equations , a necessary consistency check for the framework. Note that while the point mass idealization suffices here, in \textbf{Section 5} we refine this to a shell distribution (equation \ref{eq:delta_shell}) to address the gravitational self-energy problem.
+\noindent as expected. This confirms that Newtonian gravity is recovered as a special case of the irrotational Maxwell equations, a necessary consistency check for the framework. Note that while the point mass idealization suffices here, in \textbf{Section 5} we refine this to a shell distribution (equation \ref{eq:delta_shell}) to address the gravitational self-energy problem.
 
 
 \subsection{Solenoidal Solutions}
-In the last subsection, we derived Newtonian gravity from the irrotational equations, in this subsection we will derive the equations of radiation from the solenoidal solutions.
-Several results from the solutions of the solenoidal Maxwell equations will be needed later; we now solve the corresponding equations.
+
+
+In the last subsection, we derived Newtonian gravity from the irrotational equations; in this subsection we derive the equations of radiation from the solenoidal solutions. Several results obtained here will be needed later.
 
 Outside the mass, the solenoidal field equations in vacuum are:
 
 \begin{equation}
-\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0, \quad 
+\nabla \times \vec{E}_S + \partial_t \vec{B}_S = 0, \qquad
 \nabla \times \vec{B}_S - \partial_t \vec{E}_S = 0
 \end{equation}
-
 
 We write the complete multipole expansion including both electric and magnetic type modes:
 
 \begin{equation}
 \begin{aligned}
-\vec{B} &= \int d\omega \sum_{l,m} \bigg[
-a_E(l,m) f_l(kr) \vec{X}_{lm}
-- \frac{i}{k} a_M(l,m) \nabla \times \left( g_l(kr) \vec{X}_{lm} \right)
-\bigg] e^{-i\omega t} W_{l,m}(\omega) + \text{c.c.} \\
-\vec{E} &= \int d\omega \sum_{l,m} \bigg[
-\frac{i}{k} a_E(l,m) \nabla \times \left( f_l(kr) \vec{X}_{lm} \right)
-+ a_M(l,m) g_l(kr) \vec{X}_{lm}
-\bigg] e^{-i\omega t} W_{l,m}(\omega) + \text{c.c.}
+\vec{B}_+ &= \int d\omega \sum_{l,m} \bigg[
+a_E(l,m)\, W_{lm}^E(\omega)\, f_l(kr)\, \vec{X}_{lm} \\
+&\quad  - \frac{i}{k}\, a_M(l,m)\, W_{lm}^M(\omega)\, \nabla \times \left( g_l(kr)\, \vec{X}_{lm} \right)
+\bigg] e^{-i\omega t} \\
+\vec{E}_+ &= \int d\omega \sum_{l,m} \bigg[
+\frac{i}{k}\, a_E(l,m)\, W_{lm}^E(\omega)\, \nabla \times \left( f_l(kr)\, \vec{X}_{lm} \right) \\
+&\quad  + a_M(l,m)\, W_{lm}^M(\omega)\, g_l(kr)\, \vec{X}_{lm}
+\bigg] e^{-i\omega t}
 \end{aligned}
 \end{equation}
 
-where the functions $f_l$ and $g_l$ are linear superpositions of radial Hankel functions $h_l^{(1)}(kr)$ and $h_l^{(2)}(kr)$, and where $W_{l,m}(\omega)$ are complex Gaussian stochastic variables satisfying the same statistical conditions as equation \eqref{eq:stochastic}, now indexed by $(l,m,\omega)$ rather than $(\lambda, \vec{k})$:
+\noindent with $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$. The functions $f_l$ and $g_l$ are linear combinations of spherical Hankel functions $h_l^{(1)}(kr)$ and $h_l^{(2)}(kr)$, and $W_{lm}^E(\omega)$ and $W_{lm}^M(\omega)$ are independent complex Gaussian stochastic variables satisfying:
 
 \begin{equation}
-\langle W_{l,m}(\omega) \rangle = 0, \quad
-\langle W_{l,m}(\omega) W_{l',m'}^*(\omega') \rangle = \delta_{ll'} \delta_{mm'} \delta(\omega - \omega')
+\langle W_{lm}^E(\omega) \rangle = 0, \qquad
+\langle W_{lm}^E(\omega)\, W_{l'm'}^{E*}(\omega') \rangle = \delta_{ll'}\, \delta_{mm'}\, \delta(\omega - \omega')
 \end{equation}
 
-For a massive particle that absorbs radiation (only incoming waves), we have:
+\noindent and identically for $W_{lm}^M$, with $\langle W_{lm}^E\, W_{l'm'}^{M*} \rangle = 0$. This stochastic noise should be viewed as the natural extension of the noise introduced in \textbf{Section 3} for spherical coordinates.
+
+For a massive particle absorbing incoming radiation, we set $f_l(kr) = g_l(kr) = h_l^{(2)}(kr)$, since $h_l^{(2)}(kr)\, e^{-i\omega t} \sim e^{-i(kr + \omega t)}/(kr)$ at large $r$, representing ingoing waves.
+
+Since there is no physical reason to prefer electric-type over magnetic-type modes in the vacuum, we impose the symmetry condition:
+
+
 \begin{equation}
-f_l(kr) = h_l^{(1)}(kr), \quad g_l(kr) = h_l^{(1)}(kr)
+|a_E|^2 = |a_M|^2 \equiv |a|^2.
 \end{equation}
 
 \subsubsection{Computing the Field Momentum}
 
 The total field momentum is:
-\begin{equation}
-\vec{P}_{\text{field}} = \frac{1}{4\pi } \int_V \vec{E} \times \vec{B} \, d^3x
-\end{equation}
-
-
-
-
-
-Following the math we laid out in \textbf{Section 3}, we compute the stochastic average $\langle \vec{E} \times \vec{B} \rangle$. Writing $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$, the terms that survive the stochastic average are those involving $\langle W W^* \rangle$:
 
 \begin{equation}
-\langle \vec{E} \times \vec{B} \rangle = \langle \vec{E}_+ \times \vec{B}_+^* \rangle + \langle \vec{E}_+^* \times \vec{B}_+ \rangle
+\vec{P}_{\text{field}} = \frac{1}{4\pi} \int \vec{E} \times \vec{B} \, d^3x
 \end{equation}
 
-Working through the cross products using the orthogonality relations of vector spherical harmonics, and noting that $h_l^{(1)*} = h_l^{(2)}$, the angular integrals over $|\vec{X}_{lm}|^2$ yield normalization constants that can be absorbed. 
+\noindent Writing $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$, the terms that survive the stochastic average are:
 
 \begin{equation}
-\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \int dr \int d\omega \sum_{l,m} \left[
-\frac{-i}{k} |a_E|^2 h_l^{(2)} \frac{1}{r}\frac{d}{dr}\left(r h_l^{(1)}\right)
-+ \frac{i}{k} |a_M|^2 h_l^{(1)} \frac{1}{r}\frac{d}{dr}\left(r h_l^{(2)}\right)
-\right]
+\langle \vec{E} \times \vec{B} \rangle = 2\,\text{Re}\left[\langle \vec{E}_+ \times \vec{B}_+^* \rangle\right]
 \end{equation}
 
-The above can be simplified by use of the Wronskian, leaving:
+\noindent The independence of $W^E$ and $W^M$ eliminates cross terms between electric and magnetic modes. Working through the angular integrals using the orthogonality of $\vec{X}_{lm}$, $\hat{r} \times \vec{X}_{lm}$, and $\vec{Y}_{lm}$, and combining the electric and magnetic contributions (which enter symmetrically under $|a_E|^2 = |a_M|^2$), the radial component of the Poynting-type integrand involves the Wronskian of the spherical Hankel functions.
 
+Using the standard result $\mathcal{W}[j_l, n_l](x) = 1/x^2$ with the chain rule $d/dr = k\, d/dx$, one obtains:
+
+\begin{equation}
+h_l^{(2)} \frac{d}{dr}(r\, h_l^{(1)}) - h_l^{(1)} \frac{d}{dr}(r\, h_l^{(2)}) = \frac{2i}{kr}
+\end{equation}
+
+\noindent Assembling all factors:
 
 \begin{equation}
 \boxed{
-	\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \int dr \int d\omega \sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2}
+	\hat{r} \cdot \langle \vec{E} \times \vec{B} \rangle = -\sum_{l,m} \int d\omega\, \frac{4|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
+}
+\end{equation}
+
+\noindent and the total field momentum is:
+
+\begin{equation}
+\boxed{
+\langle \vec{P}_{\text{field}} \rangle = -	\hat{r} \int d^3x \int d\omega \sum_{l,m} \frac{|a|^2}{\pi ~ \omega^2\, r^2}\, |\vec{X}_{lm}|^2
+}
+\end{equation}
+
+\noindent The negative sign confirms that the momentum is directed inward, as expected for absorbed incoming radiation.
+
+Applying the hypothesis~\eqref{eq:hypothesis} and converting to frequency space using $d^3k = 4\pi\omega^2\,d\omega$, we identify:
+
+\begin{equation}
+\sum_{l,m} |a|^2\, |\vec{X}_{lm}|^2 = \frac {Gm\hbar\, \omega^4}{2 \pi}
+\label{eq:identification}
+\end{equation}
+
+\noindent so that the total field momentum takes the form:
+
+\begin{equation}
+\boxed{
+	\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \frac 1 {8 \pi^3}\int d^3x \int d^3k\, \frac{Gm\hbar}{r^2}
 }
 \label{eq:momentum}
 \end{equation}
 
-Applying the hypothesis , we identify the spectral momentum density in the integrand:
-
-\begin{equation}
-\vec{P}(r) = -\hat{r} \frac{Gm\hbar}{r^2}
-\tag{\ref{eq:hypothesis}}
-\end{equation}
-
-This allows us to write:
-
-\begin{equation}
-\langle \vec{P}_{\text{field}} \rangle = -\hat{r} \int dr \int d\omega \frac{Gm\hbar}{r^2}
-\end{equation}
-
-and therefore:
-
-\begin{equation}
-\sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2} = Gm\hbar
-\label{eq:identification}
-\end{equation}
-
-
-
 
 \subsubsection{Field Energy in the Radiation Zone}
 
-The total field energy density is given by:
+The total field energy density is:
+
 \begin{equation}
 u = \frac{1}{8\pi}(\vec{E}^2 + \vec{B}^2)
 \end{equation}
 
-Computing the stochastically averaged energy density for the full field is complicated due to cross terms between electric and magnetic multipoles. However, in the radiation zone where $k^2 r^2 >> 1$, the fields simplify considerably.
-
-In the radiation zone, using $f_l(kr) \approx h_l^{(1)}(kr) \approx \frac{(-i)^{l+1}}{kr} e^{ikr}$ for incoming waves, the stochastic fields become:
+\noindent In the radiation zone ($kr \gg 1$), the Hankel functions simplify to $h_l^{(2)}(kr) \approx \frac{(+i)^{l+1}}{kr}\, e^{-ikr}$, and the curl of $h_l^{(2)} \vec{X}_{lm}$ reduces to $-\hat{r} \times \vec{X}_{lm}$ times the same scalar factor. The stochastic averages $\langle \vec{E}^2 \rangle$ and $\langle \vec{B}^2 \rangle$ each receive equal contributions from electric and magnetic modes, and cross terms vanish both by orthogonality ($\vec{X}_{lm} \cdot (\hat{r} \times \vec{X}_{lm}) = 0$) and by the independence of $W^E$ and $W^M$. The result is:
 
 \begin{equation}
-\begin{aligned}
-\vec{B} &= \frac{e^{ikr}}{kr} \int d\omega \sum_{l,m} (-i)^{l+1} \left[
-a_E(l,m) \vec{X}_{lm}
-+ a_M(l,m) \hat{r} \times \vec{X}_{lm} 
-\right] e^{-i\omega t} W_{l,m}(\omega) + \text{c.c.} \\
-\vec{E} &= \frac{e^{ikr}}{kr} \int d\omega \sum_{l,m} (-i)^{l+1} \left[
-a_M(l,m) \vec{X}_{lm}
-- a_E(l,m) \hat{r} \times \vec{X}_{lm} 
-\right] e^{-i\omega t} W_{l,m}(\omega) + \text{c.c.}
-\end{aligned}
+\langle \vec{E}^2 + \vec{B}^2 \rangle = \frac{8|a|^2}{\omega^2\, r^2} \int d\omega \sum_{l,m} |\vec{X}_{lm}|^2
 \end{equation}
 
-Writing $\vec{E} = \vec{E}_+ + \vec{E}_+^*$ and $\vec{B} = \vec{B}_+ + \vec{B}_+^*$, we compute:
+\noindent giving the total field energy:
 
 \begin{equation}
-\langle \vec{E}^2 \rangle = 2\langle \vec{E}_+ \cdot \vec{E}_+^* \rangle, \quad
-\langle \vec{B}^2 \rangle = 2\langle \vec{B}_+ \cdot \vec{B}_+^* \rangle
+	\langle U \rangle =  \int d^3x \int d\omega \sum_{l,m} \frac{|a|^2}{\pi ~ \omega^2\, r^2}\, |\vec{X}_{lm}|^2
 \end{equation}
 
-For $\vec{E}_+ \cdot \vec{E}_+^*$:
-\begin{equation}
-\langle \vec{E}_+ \cdot \vec{E}_+^* \rangle = \frac{1}{k^2 r^2} \int d\omega \sum_{l,m} 
-\left[ |a_M|^2 |\vec{X}_{lm}|^2 + |a_E|^2 |\hat{r} \times \vec{X}_{lm}|^2 \right]
-\end{equation}
-
-where the cross terms vanish due to the orthogonality $\vec{X}_{lm} \cdot (\hat{r} \times \vec{X}_{lm}) = 0$.
-
-Similarly:
-\begin{equation}
-\langle \vec{B}_+ \cdot \vec{B}_+^* \rangle = \frac{1}{k^2 r^2} \int d\omega \sum_{l,m} 
-\left[ |a_E|^2 |\vec{X}_{lm}|^2 + |a_M|^2 |\hat{r} \times \vec{X}_{lm}|^2 \right]
-\end{equation}
-
-Since $|\hat{r} \times \vec{X}_{lm}| = |\vec{X}_{lm}|$ (both are unit vectors perpendicular to $\hat{r}$), and using the neutrality condition $|a_E|^2 = |a_M|^2$ (see Section~\ref{subsec:intuition}), we obtain:
-
-\begin{equation}
-\langle \vec{E}^2 + \vec{B}^2 \rangle = \frac{4}{k^2 r^2} \int d\omega \sum_{l,m} |a_E|^2 |\vec{X}_{lm}|^2
-\end{equation}
-
-The total field energy is therefore:
+Or, applying the hypothesis:
 
 \begin{equation}
 \boxed{
-	\langle U \rangle = \int_V d^3x \int d\omega \sum_{l,m} \frac{|a_E|^2 |\vec{X}_{lm}|^2}{4\pi k^2 r^2}
+	\langle U \rangle =  \frac 1 { 8 \pi^3} \int d^3x \int d^3k \frac{Gm\hbar}{r^2}
 }
 \label{eq:energy}
 \end{equation}
+
+
 
 The expansion of this calculation outside the radiation zone involves more intricate mathematics. We defer this more general treatment to future work.
 
@@ -632,23 +580,19 @@ For brevity, we write this as:
 \label{eq:delta_shell}
 \end{equation}
 
-In the next section, we show that the particle need not collapse. For now, we take it as given that it does not, and ask what gravitational self-energy implies for the radius.
+In \textbf{Section 6}, we show that the particle need not collapse. For now, we take it as given that it does not, and ask what gravitational self-energy implies for the radius.
 
 Since no forces other than gravity are present, the total energy satisfies:
 \begin{equation}
-U = m = -\frac{1}{2} \int \frac{Gm \rho(\vec{x})}{r} d^3x
+U = -\frac{1}{2} \int \frac{Gm \rho(\vec{x})}{r} d^3x
 \end{equation}
 
-The more fundamental relativistic statement is \(U^2=m^2\) (equivalently, \(p_\mu p^\mu = m^2\)), which we adopt throughout.
-
-Choosing the simplest mass distribution, a uniform spherical shell at radius \(R\), the self-energy integral yields:
-
+Since the self-energy is negative, we use the relativistic statement $U^2 = m^2$ (equivalently, $p_\mu p^\mu = m^2$), which allows $U = -m$, giving:
 \begin{equation}
-R = \frac{Gm}{2}
+m = \frac{1}{2} \int \frac{Gm \rho(\vec{x})}{r} d^3x
 \end{equation}
 
-
-Other choices of mass distribution (a uniform sphere, for example) give \(R\) of the same order. We therefore take \(R = Gm\) as the characteristic minimum radius:
+Choosing the simplest mass distribution, a uniform spherical shell at radius $R$, the self-energy integral yields $R = Gm/2$. Other choices (a uniform sphere, for example) give $R$ of the same order. We therefore take $R = Gm$ as the characteristic minimum radius, absorbing numerical prefactors of order unity. We apply the same reasoning in \textbf{Section 6} when similar factors arise:
 
 \begin{equation}
 \boxed{R = Gm}
@@ -686,7 +630,7 @@ In spherical coordinates, this corresponds to the frequency distribution:
 \frac{\delta\left(\omega - \frac{m}{\hbar}\right)}{4\pi\omega^2}
 \end{equation}
 
-The energy absorbed from the field is then, using \eqref{eq:energy_per_mode}:
+The energy absorbed from the field, using \eqref{eq:energy_per_mode_integral}, is then:
 
 \begin{equation}
 U = \int d\omega \, \hbar\omega \, \delta\left(\omega - \frac{m}{\hbar}\right) = m
@@ -716,7 +660,7 @@ Before moving on, we collect the defining quantities of the model and show they 
 R = Gm, \qquad k_{\circ} = \frac{m}{\hbar}, \qquad p = \frac{Gm\hbar}{R^2}
 \end{equation}
 
-Combining these:
+Combining these with $p = \hbar k_{\circ}$ yields:
 
 \begin{equation}
 \frac{Gm\hbar}{R^2} = \hbar k_{\circ} = m
@@ -725,7 +669,7 @@ Combining these:
 Multiplying through by $R/\hbar$:
 
 \begin{equation}
-\frac{Gm}{R} = k_{\circ} R = 1
+ k_{\circ} R = \frac{Gm}{R} = 1
 \end{equation}
 
 and therefore:
@@ -736,6 +680,8 @@ and therefore:
 \end{equation}
 
 This result places the model exactly at the boundary between the near and far field regimes — neither $k_\circ R \ll 1$ nor $k_\circ R \gg 1$. We refer to this as being \textit{on-shell}. Throughout what follows, $\delta^{(3)}_{\text{shell}}(\vec{x})$ denotes that we never probe scales smaller than $R$.
+
+Similarly, $\delta^{(3)}_{\text{shell}}(\vec{k})$ denotes restriction to the single absorbed mode at $k_\circ = m/\hbar$, corresponding to the frequency distribution $\frac{\delta(\omega - m/\hbar)}{4\pi\omega^2}$ introduced above.
 
 
 
@@ -758,21 +704,21 @@ Following Rohrlich, if the energy absorbed from the ZPR can offset the divergenc
 
 We now evaluate whether the inward radiation flow proposed in \textbf{Section~\ref{subsec:intuition}} can stabilize a massive particle against gravitational collapse. Specifically, we ask whether the energy absorbed from the ZPR can counterbalance the gravitational self-energy that would otherwise drive collapse.
 
-As established in \textbf{Section~\ref{subsec:decomp}}, the irrotational and solenoidal fields carry energy differently. The irrotational contribution is:
+The irrotational contribution is:
 
 \begin{equation}
-U_I = \frac{1}{4\pi G} \int |\vec{E}_I|^2 \, d^3x \sim \int \frac{Gm^2}{r^4} \, d^3x
+U_I = \frac{-1}{8\pi G} \int |\vec{E}_I|^2 \, d^3x \sim \int \frac{Gm^2}{r^4} \, d^3x
 \end{equation}
 
-\comment{verify the $E_I$ integral in next pass}
+
 
 This integral diverges, confirming that a massive particle would collapse under its own gravitational self-energy without a stabilizing mechanism. The radiation field provides precisely this stabilization. Including both contributions, the total energy is:
 
 \begin{equation}
-U_{\text{tot}} = \int_V \left( -\frac{1}{4\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
+U_{\text{tot}} = \int_V \left( -\frac{1}{8\pi G} |\vec{E}_I|^2 + |\vec{E}_S|^2 + |\vec{B}_S|^2 \right) \, d^3x
 \end{equation}
 
-From equation~\eqref{eq:energy}, and applying the hypothesis, the radiation contribution is:
+From equation~\eqref{eq:energy},  the radiation contribution is:
 
 \begin{equation*}
 U_{\text{rad}} = \frac{1}{8\pi^3} \int \int \frac{Gm\hbar}{r^2} \, d^3x \, d^3k
@@ -784,14 +730,13 @@ Integrating over $k$ and suppressing numerical prefactors, which are absorbed in
 U_{\text{tot}} = \int \left[ \frac{Gm\hbar}{r^2} k^3 - \frac{Gm^2}{r^4} \right] d^3x
 \end{equation}
 
-Evaluating on-shell, with $k = m/\hbar$ and $r = R = Gm$, both terms are equal and the integrand vanishes:
+Evaluating on-shell, with $k_{\circ} = m/\hbar$,  $k_{\circ}^2 R^2 = 1$  and $r = R = Gm$, both terms are equal and the integrand vanishes:
 
 \begin{equation}
 U_{\text{tot}} = 0
 \end{equation}
 
 The total energy vanishes on-shell, demonstrating that the radiation inflow exactly counterbalances the gravitational self-energy. The massive particle is stable.
-
 
 \subsection{Momentum Conservation and an Effective Ohm's Law}
 \label{sec:ohm}
@@ -808,28 +753,34 @@ We assume the solenoidal current obeys a linear response:
 \vec{J}_S = \sigma \vec{E}_S
 \end{equation}
 
-\noindent so that $\langle \vec{J}_S \times \vec{B}_S \rangle = \sigma \langle \vec{E}_S \times \vec{B}_S \rangle$. Using the result from equation~\eqref{eq:momentum}, the radial component of the stochastic average of the Poynting-type integrand is:
+\noindent Since the gravitational source is localized at the shell and the toy model absorbs at a single frequency, the conductivity must be localized in both position space and $k$-space:
 
 \begin{equation}
-\hat{r} \cdot \langle \vec{E}_S \times \vec{B}_S \rangle = -\sum_{l,m} \int d\omega\, \frac{4|a|^2}{\omega^2\, r^2}\, |\vec{X}_{lm}|^2
+\sigma \propto \delta^{(3)}_{\text{shell}}(\vec{x})\, \delta^{(3)}_{\text{shell}}(\vec{k})
+\end{equation}
+
+\noindent With this, $\langle \vec{J}_S \times \vec{B}_S \rangle = \sigma \langle \vec{E}_S \times \vec{B}_S \rangle$. Using the result from equation~\eqref{eq:momentum}, and absorbing numerical factors as we have done previously (see \eqref{eq:radius}), the radial component of the stochastic average of the Poynting-type integrand is:
+
+\begin{equation}
+\hat{r} \cdot \langle \vec{E}_S \times \vec{B}_S \rangle = - \int d^3k\, \frac{Gm\hbar}{r^2}
 \end{equation}
 
 \noindent The gravitational force density is also directed inward:
 
 \begin{equation}
-\rho \vec{E}_I = -m\delta^3(\vec{x})\, \frac{Gm}{r^2}\, \hat{r}
+\rho \vec{E}_I = -m\delta^{(3)}_{\text{shell}}(\vec{x})\, \frac{Gm}{r^2}\, \hat{r}
 \end{equation}
 
-\noindent For these to balance, $\sigma$ must be negative: the current opposes the field, representing absorption. The factor of $1/r^2$ appears on both sides and cancels, leaving:
+\noindent For these to balance, $\sigma$ must be negative: the current opposes the field, representing absorption. Evaluating on-shell, the factors of $1/r^2$ cancel and the integrals collapse, leaving:
 
 \begin{equation}
-\sigma = -\frac{m}{\hbar}\, \delta^3(\vec{x})
+\sigma = -\frac{m}{\hbar}\, \delta^{(3)}_{\text{shell}}(\vec{x})\, \delta^{(3)}_{\text{shell}}(\vec{k})
 \end{equation}
 
-\noindent This is a delta-function conductivity concentrated at the origin, or more precisely, at the shell $r = R$. It defines an effective Ohm's law in which the mass acts as a point-like absorber of incoming radiation. The solenoidal Maxwell equation (using the normalization adopted in Section~\ref{subsec:decomp}) becomes:
+\noindent This defines an effective Ohm's law in which the mass acts as a point-like absorber of incoming radiation at a single frequency. The solenoidal Maxwell equation (using the normalization adopted in Section~\ref{subsec:decomp}) becomes:
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar}\, \vec{E}_S\, \delta^3(\vec{x})
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar}\, \vec{E}_S\, \delta^{(3)}_{\text{shell}}(\vec{x})\, \delta^{(3)}_{\text{shell}}(\vec{k})
 \label{eq:ohm}
 \end{equation}
 
@@ -1064,16 +1015,15 @@ These matrices satisfy the algebra of infinitesimal rotations and generate the c
 Recall from Section~\ref{sec:stability} that the on-shell momentum conservation equation~\eqref{eq:ohm} gives:
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S \delta^3(\vec{x})
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar}\, \vec{E}_S\, \delta^{(3)}_{\text{shell}}(\vec{x})\, \delta^{(3)}_{\text{shell}}(\vec{k})
 \tag{\ref{eq:ohm}}
 \end{equation}
 
-Restricting to the on-shell condition (see Section~\ref{sec:toymodel}), we drop the delta function:
+Restricting to the on-shell condition (see Section~\ref{sec:toymodel}), we drop the delta functions:
 
 \begin{equation}
-\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar} \vec{E}_S
+\nabla \times \vec{B}_S - \partial_t \vec{E}_S = -\frac{m}{\hbar}\, \vec{E}_S
 \end{equation}
-
 
 \noindent The second solenoidal equation remains sourceless:
 
@@ -1114,7 +1064,7 @@ these two equations combine into:
 \left( \gamma^\mu \partial_\mu + \frac{m}{\hbar} \right) \psi = 0
 \end{equation}
 
-This has the exact form of the Dirac equation, as given in Sakurai's Advanced Quantum Mechanics\cite{sakurai}, Eq. 3.31.
+This has the exact form of the Dirac equation, as given in Sakurai's Advanced Quantum Mechanics\cite{sakurai}, Eq.\ 3.31.
 
 This is a remarkable result: starting from classical field equations and a single hypothesis, we arrive at a structure identical to the Dirac equation, without quantization or any reference to spin. The six-component field $\psi = (\vec{E}_S, \vec{B}_S)^T$ is a classical field object, not a quantum spinor. The quantum mechanical structure emerges from the geometry of the field equations themselves.
 
@@ -1200,6 +1150,10 @@ T.H.\ Boyer,
 	\textit{The Electrician} \textbf{31}, 281--282 (1893);
 	reprinted in \textit{Electromagnetic Theory}, vol.~1, pp.~455--466.
 	
+\bibitem{barrera1985}
+R.G.~Barrera, G.A.~Estevez, and J.~Giraldo,
+``Vector Spherical Harmonics and Their Application to Magnetostatics,''
+\textit{European Journal of Physics} \textbf{6}, 287--294 (1985).
 	
 \bibitem{rohrlich}
 F.~Rohrlich,
