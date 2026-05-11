@@ -12,11 +12,6 @@
 \let\OldHat\hat
 \renewcommand{\hat}[1]{\OldHat{\mathbf{#1}}}
 
-% \newcommand{\comment}[1]{}
-
-\newcommand{\comment}[1]{\textcolor{gray}{\small\textit{Comment: #1}}}
-
-
 
 
 \begin{document}
@@ -107,9 +102,11 @@ where $\vec{P}(r)$ is the momentum density per mode in $k$-space.
 A photon traveling through this field experiences a cumulative momentum shift:
 
 \begin{equation}
-\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
+\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, d\phi
 \label{eq:hypothesis2}
 \end{equation}
+
+\noindent where \(d\phi= k\, dr\) is the infinitesimal phase along the path.
 
 
 The intuition underlying this hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. We do not specify the microscopic mechanism by which mass couples to the ZPR field. The implications of this hypothesis are tested in \textbf{Section 7}.
@@ -259,6 +256,7 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 
 
 \section{Maxwell Equations for Gravity}
+\label{subsec:max}
 
 In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \cite{heaviside}, predating general relativity. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
 
@@ -738,7 +736,7 @@ U_{\text{tot}} = 0
 
 The total energy vanishes on-shell, demonstrating that the radiation inflow exactly counterbalances the gravitational self-energy. The massive particle is stable.
 
-\subsection{Momentum Conservation and an Effective Ohm's Law}
+\subsection{Momentum Conservation and Ohm's Law}
 \label{sec:ohm}
 
 We now turn to momentum conservation. The total momentum exchange in the system must vanish:
@@ -747,7 +745,7 @@ We now turn to momentum conservation. The total momentum exchange in the system 
 \int_V \left( \rho \vec{E}_I + \vec{J}_S \times \vec{B}_S \right) d^3x = 0
 \end{equation}
 
-We assume the solenoidal current obeys a linear response:
+We assume the solenoidal current obeys Ohm's law:
 
 \begin{equation}
 \vec{J}_S = \sigma \vec{E}_S
@@ -799,28 +797,22 @@ In electrodynamics, a static Coulomb field transforms under Lorentz boosts into 
 \vec{B}' = - \gamma \vec{v} \times \vec{E}
 \end{equation}
 
-where \( \gamma = 1 / \sqrt{1 - v^2} \).
+\noindent where \( \gamma = 1 / \sqrt{1 - v^2} \).
+ 
+ By the assumption laid out in Section~\ref{subsec:max}, we assume that the same transformation applies to the gravitational field 
+ 
+ \begin{equation}
+ \vec{E}_g = -GM\vec{r}/r^3. 
+ \end{equation}
+ 
+ \noindent In the low-velocity limit $v \ll 1$, we find:
+ 
+ \begin{equation}
+ \vec{B}_g = -\vec{v} \times \vec{r} \cdot \frac{GM}{r^3}
+ \end{equation}
+ 
 
-By analogy, we assume the same Lorentz transformation laws apply to gravity. We define the gravitational field:
-
-\begin{equation}
-\vec{E}_g = \vec{F} / m = - \frac{G M}{r^3} \vec{r}
-\end{equation}
-
-Then, under a Lorentz boost:
-
-\begin{equation}
-\vec{E}_g' = \gamma \vec{E}_g - \frac{\gamma^2}{\gamma + 1} \vec{v} (\vec{v} \cdot \vec{E}_g), \quad
-\vec{B}_g' = -\gamma \vec{v} \times \vec{E}_g
-\end{equation}
-
-In the low-velocity limit \( v \ll 1 \), we find:
-
-\begin{equation}
-\vec{B}_g = - \vec{v} \times \vec{r} \cdot \frac{GM}{r^3}
-\end{equation}
-
-This introduces a "gravitomagnetic" interaction analogous to magnetism in electrodynamics.
+This introduces a "gravitomagnetic" interaction analogous to magnetism in electrodynamics. (Here the subscript g refers to "gravity")
 
 \begin{figure}[t]
 	\centering
@@ -847,13 +839,13 @@ A moving charge induces a magnetic moment \( \vec{m} = \frac{1}{2} e (\vec{r} \t
 \vec{m}_g = \frac{1}{2} m (\vec{r} \times \vec{v})
 \end{equation}
 
-The potential energy of this moment in a magnetic field is:
+The interaction energy between this gravitomagnetic moment and a gravitomagnetic field $\vec{B}_g$ is:
 
 \begin{equation}
-U = -\vec{m}_g \cdot \vec{B}_g = -\frac{GM m}{2} |\vec{r} \times \vec{v}|^2 / r^3
+U = -\vec{m}_g \cdot \vec{B}_g = -\frac{GM m}{2} \frac {|\vec{r} \times \vec{v}|^2} { r^3}
 \end{equation}
 
-This adds a correction to the potential energy. Including the reciprocal effect (from the motion of the central mass), we double this term and find the corrected potential:
+This adds a correction to the potential energy. Including the reciprocal effect (from the motion of the other mass), we double this term and find the corrected potential:
 
 \begin{equation}
 U_{\text{Einstein}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{r}
@@ -863,11 +855,11 @@ U_{\text{Einstein}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{
 
 This is the same correction obtained in general relativity to first order. As Carroll\cite{carroll} notes , general relativity produces this result exactly; in our theory, it emerges as a leading-order approximation. The higher-order terms in our expansion are not present in general relativity, and in principle offer an observational test that could distinguish between the two frameworks. We leave the computation of these higher-order terms for future work.
 
-\subsection{Deflection of Light}
+\subsection{Old Deflection of Light}
 
 
+We now consider the deflection of light near a massive object. Our hypothesis is that mass sinks radiation giving rise to an inward-pointing momentum density:
 
-We now consider the deflection of light near a massive object. Our central hypothesis is that mass creates a momentum-transfer field:
 
 \begin{equation}
 \vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
@@ -885,20 +877,22 @@ We now consider the deflection of light near a massive object. Our central hypot
 A photon traveling through this field receives a cumulative momentum shift:
 
 \begin{equation}
-\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, dl
+\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, d\phi
 \tag{\ref{eq:hypothesis2}}
 \end{equation}
 
-Assuming a straight-line path passing at minimum distance \( b \) (see figure \(\ref{fig:deflection}\)), we integrate:
+To first order, we assume that the photon travels a straight-line path. Assuming that this straight-line path passing at minimum distance \( b \) to the massive object (see figure \(\ref{fig:deflection}\)), we integrate:
 
 \begin{equation}
-\Delta \vec{p} = \int_{-\infty}^{\infty} - \frac{G m \hbar}{r^3} \vec{r} \, w \, dz
+\Delta \vec{p} = \int_{-\infty}^{\infty} - \frac{G m \hbar}{r^3} \vec{r} \, \omega \, dz
 \end{equation}
+
+\noindent where we use the infintesimal phase along the path \(d\phi =  \omega dz\).
 
 The parallel momentum shifts cancel symmetrically. The transverse component yields:
 
 \begin{equation}
-\Delta p_y = \hbar w \cdot \frac{2 G m}{b}
+\Delta p_y = \hbar \omega \cdot \frac{2 G m}{b}
 \end{equation}
 
 The angle of deflection is then:
@@ -907,9 +901,9 @@ The angle of deflection is then:
 \theta \approx \frac{\Delta p_y}{p_z} = \frac{2 G m}{b} \quad \Rightarrow \quad \alpha = \frac{4 G m}{b}
 \end{equation}
 
-This matches, to first-order, the deflection angle predicted by general relativity.
+This matches, to first-order, the deflection angle predicted by general relativity\cite{hartle}.
 
-\subsection{Gravitational Redshift}
+\subsection{Old Gravitational Redshift}
 
 Finally, we consider the redshift of light climbing out of a gravitational well. As before, a photon gains or loses momentum depending on its path through the momentum field.
 
@@ -926,6 +920,66 @@ The resulting frequency shift is:
 \end{equation}
 
 which, to first order, matches the prediction of general relativity for gravitational redshift.
+
+
+\subsection{Deflection of Light}
+
+We now consider the deflection of light near a massive object. Recall our hypothesis that mass creates an inward-pointing spectral momentum density:
+
+\begin{equation}
+\vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
+\tag{\ref{eq:hypothesis}}
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\fbox{\includegraphics[width=0.6\textwidth]{light-bending.png}}
+	\caption{Deflection of light}
+	\label{fig:deflection}
+\end{figure}
+
+A photon traveling through this field receives a cumulative momentum shift:
+
+\begin{equation}
+\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, d\phi
+\tag{\ref{eq:hypothesis2}}
+\end{equation}
+
+\noindent where $d\phi = k\,dz$ is the infinitesimal phase along the path. To first order, we assume the photon follows a straight-line path at minimum distance $b$ from the massive object (see Figure~\ref{fig:deflection}):
+
+\begin{equation}
+\Delta \vec{p} = - \int_{-\infty}^{\infty} \frac{G m \hbar}{r^3} \vec{r} \, k \, dz
+\end{equation}
+
+The parallel momentum shifts cancel symmetrically. The transverse component yields:
+
+\begin{equation}
+\Delta p_y = \hbar k \cdot \frac{2 G m}{b}
+\end{equation}
+
+The angle of deflection is then:
+
+\begin{equation}
+\theta \approx \frac{\Delta p_y}{p_z} = \frac{2 G m}{b} \quad \Rightarrow \quad \alpha = \frac{4 G m}{b}
+\end{equation}
+
+This matches, to first order, the deflection angle predicted by general relativity~\cite{hartle}.
+
+\subsection{Gravitational Redshift}
+
+Finally, we consider the redshift of light climbing out of a gravitational well. A photon escaping radially outward from $r = R$ to infinity accumulates a momentum shift along its path. Since $\vec{P}(r)$ points inward and the photon travels outward, the momentum transfer opposes the photon's motion:
+
+\begin{equation}
+\Delta p = \int_{R}^{\infty} \left(-\frac{G m \hbar}{r^2}\right) k \, dr = -\frac{G m \hbar k}{R}
+\end{equation}
+
+\noindent where $d\phi = k\,dr$ is the infinitesimal phase as before. The resulting frequency shift is:
+
+\begin{equation}
+\hbar k' = \hbar k + \Delta p = \hbar k \left( 1 - \frac{G m}{R} \right)
+\end{equation}
+
+\noindent That is, a photon escaping a gravitational well loses energy, arriving at infinity with a lower frequency than it had at emission. This matches, to first order, the gravitational redshift predicted by general relativity~\cite{hartle}.
 
 		
 \section{Duality and the Dirac Equation}
@@ -960,7 +1014,7 @@ Now consider the following duality transformation:
 \end{aligned}
 \end{equation}
 
-This transformation leaves the generalized Maxwell equations invariant. As Jackson \cite{jackson} notes, the distinction between electric and magnetic charge is, in this framework, a matter of convention. If all particles share the same magnetic-to-electric charge ratio, a duality rotation can eliminate magnetic charges entirely. This perspective opens the door for deeper reinterpretations of classical field theory.  Note that these equations use the normalization for the solenoidal current adopted in Section~\ref{subsec:decomp}, in which the factor of  \(4 \pi\) has been absorbed into the definition of \(\vec{J}\)
+This transformation leaves the generalized Maxwell equations invariant. Note that these equations use the normalization for the solenoidal current adopted in Section~\ref{subsec:decomp}, in which the factor of  \(4 \pi\) has been absorbed into the definition of \(\vec{J}\)
 
 
 
@@ -993,9 +1047,8 @@ g_3 = \begin{pmatrix}
 \end{pmatrix}
 \end{equation}
 
-These are the standard generators of SO(3) rotations, the antisymmetric $3 \times 3$ matrices representing infinitesimal rotations in three-dimensional space. The representation $\nabla \times \vec{V} = g_i \partial_i \vec{V}$ can be verified by direct computation.
 
-We define the gamma matrices as:
+We then define the gamma matrices as:
 
 \begin{equation}
 \gamma^0 = \begin{pmatrix}
@@ -1008,7 +1061,7 @@ We define the gamma matrices as:
 \end{pmatrix}
 \end{equation}
 
-These matrices satisfy the algebra of infinitesimal rotations and generate the curl operator in 3D. They are not the standard Dirac representation, which operates on four-component spinors in Minkowski space, but they serve to make the structural similarity to the Dirac equation manifest. This connection could be further explored with tools from representation theory and Clifford algebras.
+\noindent These allow us to write the solenoidal Maxwell equations in a compact spinor form.
 
 \subsection{Emergence of the Dirac Equation}
 
@@ -1066,28 +1119,24 @@ these two equations combine into:
 
 This has the exact form of the Dirac equation, as given in Sakurai's Advanced Quantum Mechanics\cite{sakurai}, Eq.\ 3.31.
 
-This is a remarkable result: starting from classical field equations and a single hypothesis, we arrive at a structure identical to the Dirac equation, without quantization or any reference to spin. The six-component field $\psi = (\vec{E}_S, \vec{B}_S)^T$ is a classical field object, not a quantum spinor. The quantum mechanical structure emerges from the geometry of the field equations themselves.
 
 \section{Conclusion}
 
-
-\comment{The next three paragraphs, ChatGPT helped me write ... they sound like ChatGPT wrote them ... Hopefully, we can make this sound more human in a new draft}
+This paper presented a fresh approach to the physics of gravity. It was neither based on general relativity nor  was it based on quatnum mechanics. Like a carefully threaded needle, we were able to stitch the results together. The theory of gravity presented here  stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it. Here, there is heat in the universe and that has made all the difference.
 
 Can gravity emerge from classical physics, without invoking curved spacetime or quantum gravity? That was the question we asked. Faced with two powerful but incompatible theories, quantum mechanics and general relativity, we chose a different path: to treat mass as a source of momentum flow, drawing from a pervasive background field. The result is a framework that is simple, classical, and deeply physical.
 
 To test the idea, we built the theory step by step. We formulated equations for how mass interacts with the vacuum field. We introduced cutoffs to make the interaction finite and consistent. We checked for conservation of energy and momentum. Then we asked: does this theory match observation? And the answer, to leading order, is yes. It reproduces the familiar predictions of general relativity: the bending of light, gravitational redshift, and the precession of Mercury. We also identify a testable difference between General Relativity and the theory presented here.
 
-But something unexpected happened. When we re-expressed the field equations in a different form, they gave rise to the Dirac equation, the same equation that governs quantum particles like electrons. This wasn’t assumed; it emerged. That a single classical field framework can describe gravity, electromagnetism, and quantum behavior is remarkable. It suggests these aren’t separate layers of physics, but different faces of the same underlying structure. One set of equations that does it all.
+We saw that when we re-expressed the field equations, we were able to derive the Dirac equation. That a single classical field framework can describe gravity, electromagnetism, and quantum behavior is remarkable. It suggests these are not separate layers of physics, but different faces of the same underlying structure. One set of equations that does it all.
 
-\comment{The below line I like a lot}
 
- This stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it
 
 \subsection{Where This Could Go}
 
 Here we simply state the hypothesis and explore its consequences. Several directions remain open for future work:
 
-\comment{This is new}
+
 \textbf{Quantization} The Dirac equation presented here is not quantized. More importantly the interaction is left mysterious. It is the belief of this author that two photons in a singlet configuration could be the interaction particle. However, it should be pointed out that the believers in stochastic electromagnetism some believe that quantum mechanics is wrong.
 
 \textbf{Derivation of the hypothesis.} The intuition underlying the hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. What is novel is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
@@ -1169,6 +1218,12 @@ F.~Rohrlich,
 	S.M.~Carroll,
 	\textit{Spacetime and Geometry: An Introduction to General Relativity}
 	(Addison-Wesley, San Francisco, 2004).
+	
+	
+	\bibitem{hartle}
+	J.B.~Hartle,
+	\textit{Gravity: An Introduction to Einstein's General Relativity}
+	(Addison-Wesley, San Francisco, 2003).
 	
 \bibitem{einstein1916}
 A.~Einstein,
