@@ -36,7 +36,7 @@
 	
 \newpage
 \begin{abstract}
-	This paper introduces a classical field theory of gravity built on the Maxwell equations and a hypothesis: that mass absorbs radiation, inducing a net inward momentum flow. We assume a Lorentz-invariant stochastic zero-point radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity: Mercury's precession, gravitational lensing, and gravitational redshift are reproduced to leading order, while also predicting a testable deviation at higher order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
+	This paper introduces a classical field theory of gravity built on the Maxwell equations and a hypothesis: that mass absorbs radiation, inducing a net inward momentum flow. We assume a Lorentz-invariant stochastic zero-point radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity: Mercury's precession, gravitational lensing, and gravitational redshift are reproduced to leading order, while also identifying where the theory diverges from general relativity at higher order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
 \end{abstract}
 \newpage
 
@@ -48,7 +48,7 @@ These two frameworks, however, are incompatible. When applied simultaneously, th
 
 The scientific method permits us to begin with a hypothesis. Newton postulated an inverse square force law without explaining why gravity falls off with distance. Maxwell wrote down his equations before anyone understood the photon. A hypothesis does not need to come with a microscopic derivation. A theory only needs to make testable predictions. That is the standard we hold ourselves to here.
 
-This paper proposes such an approach. Rather than quantizing Einstein’s field equations or geometrizing the Dirac equation, we suggest something simpler and stranger: what if mass eats the vacuum?
+This paper proposes such an approach. Rather than quantizing Einstein’s field equations or geometrizing the Dirac equation, we suggest something simpler and stranger: what if mass eats the vacuum? The consequences, as we will see, extend beyond gravity.
 
 
 \subsection{Roadmap}
@@ -62,7 +62,7 @@ In \textbf{Sections 3 and 4}, we lay out the two assumptions underlying the theo
 \textbf{Sections 5 and 6} contain the technical core of the paper. We introduce a toy model of a massive particle and discuss characteristics of the toy model. We examine whether the inflow of radiation can stabilize mass against gravitational self-energy and show that the energy needed for stability of our toy model is less than that available in the Z.P.R.  We also demonstrate conservation of energy and momentum and several other key mathematical results.
 
 
-In \textbf{Section 7}, we test the theory against observation. We demonstrate that it reproduces the three classic predictions of general relativity to leading order: perihelion precession, gravitational lensing, and redshift. We also identify a testable difference between general relativity and the theory presented here.
+In \textbf{Section 7}, we test the theory against observation. We demonstrate that it reproduces the three classic predictions of general relativity to leading order: perihelion precession, gravitational lensing, and redshift. We also identify where the theory diverges from general relativity, suggesting a possible observational test.
 
 \textbf{Section 8} explores a surprising result: when the field equations are rewritten in spinor form, they yield a structure identical to the Dirac equation, without quantization. And finally, \textbf{Section 9} concludes with a discussion of open questions, potential avenues for further investigation, and the broader implications of the framework proposed here.
 
@@ -70,7 +70,7 @@ In \textbf{Section 7}, we test the theory against observation. We demonstrate th
 
 In this section, we introduce the hypothesis of this paper. Before proceeding, we clarify the distinction between assumptions and hypothesis as used here:
 
-\textbf{Assumptions} are drawn from existing theoretical frameworks, even if unconventional. While we do not attempt to derive or fully justify these assumptions from first principles, we do examine their consequences — particularly in Section 7, where contact with experiment is made. The \textbf{hypothesis} refers to the novel claim proposed in this work.
+The scientific method begins with a \textbf{hypothesis}. We make one here. This is distinct from our two \textbf{assumptions}, which are drawn from existing theoretical frameworks. The hypothesis is the novel, testable claim of this paper.
 
 Here we first present the hypothesis intuitively, anchoring the theory in a physical picture, and then spell it out mathematically.
 
@@ -106,7 +106,7 @@ A photon traveling through this field experiences a cumulative momentum shift:
 \label{eq:hypothesis2}
 \end{equation}
 
-\noindent where \(d\phi= k\, dr\) is the infinitesimal phase along the path.
+\noindent where \(d\phi= k\, dr\) is the infinitesimal phase along the path, so that the momentum transfer accumulates per cycle of oscillation.
 
 
 The intuition underlying this hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. We do not specify the microscopic mechanism by which mass couples to the ZPR field. The implications of this hypothesis are tested in \textbf{Section 7}.
@@ -166,7 +166,7 @@ W_\lambda(\vec{k}) e^{i(\vec{k} \cdot \vec{x} - \omega t)} + \text{c.c.}
 \label{eq:stochastic}
 \end{equation}
 
-\noindent where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
+\noindent where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. And we work in natural units  where \( c = 1 \). This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
 
 \subsection{Derivation of Energy Spectrum}
 
@@ -255,7 +255,7 @@ This confirms that each electromagnetic normal mode (specified by wavevector $\v
 \end{equation}
 
 
-\section{Maxwell Equations for Gravity}
+\section{Maxwell Equations for Gravity and Their Solutions}
 \label{subsec:max}
 
 In this section we introduce the second of our two assumptions. The idea that gravity obeys equations analogous to those of electromagnetism was first proposed by Oliver Heaviside in 1893 \cite{heaviside}, predating general relativity. Specifically, we assume that gravity obeys the Maxwell equations with mass and mass currents replacing charge and charge currents as sources. In natural units (\( c = 1 \)):
@@ -271,7 +271,9 @@ In this section we introduce the second of our two assumptions. The idea that gr
 \end{equation}
 
 
-These equations describe a vector field sourced by mass density \( \rho \) and mass current \( \vec{J} \), with \( G \) the gravitational coupling constant.
+These equations describe a vector field sourced by mass density \( \rho \) and mass current \( \vec{J} \), with \( G \) the gravitational coupling constant. Note that \(\vec{E}\) here is a gravitational acceleration field (force per unit mass), analogous to the electric field being force per unit charge.
+
+
 
 The continuity equation, although derivable from the above, is worth stating explicitly:
 
@@ -280,6 +282,8 @@ The continuity equation, although derivable from the above, is worth stating exp
 \end{equation}
 
 The presence of \( \vec{B} \), a gravitomagnetic field, may be unexpected. It emerges naturally: just as a moving charge generates a magnetic field, a moving mass generates a gravitomagnetic field. The effect is negligible unless the mass is both extremely large and rapidly moving. \textbf{Section 7} discusses a physical manifestation and its potential testability.
+
+We note that Maxwell-like equations for gravity also arise in gravitoelectromagnetism (GEM), the linearized weak-field approximation to general relativity \cite{mashhoon2003}. The present approach differs in a key respect: GEM is derived as an approximation, valid only in the weak-field, slow-motion limit, and its equations are not Lorentz invariant. Here, we take the Maxwell equations as fundamental and exact, inheriting full Lorentz invariance by construction. The two frameworks agree at leading order, but differ at higher order (see Section 7) and in their deeper structure (see Section 8).
 
 The remainder of this section develops mathematical tools that will be used throughout the paper.
 
@@ -372,6 +376,8 @@ g(\vec x) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} g_{lm}(r) Y_{lm}(\theta, \phi)
 \vec X_{lm}(\theta, \phi) = \frac {-i}{\sqrt{l(l+1)}} \vec r \times \left( \nabla Y_{lm}(\theta, \phi) \right) 
 \label{eq:xlm}
 \end{equation}
+
+The orthogonality relations and curl identities for these vector harmonics, which we use throughout, can be found in Barrera et al.\ \cite{barrera1985} and Jackson \cite{jackson} Chapter 9.
 
 \subsection{Irrotational Solutions}
 
@@ -549,7 +555,7 @@ The expansion of this calculation outside the radiation zone involves more intri
 \section{A Toy Model}
 \label{sec:toymodel}
 
-Sections 3 and 4 laid out the two assumptions of the theory, both grounded in existing literature. From here, we enter new territory. In this section we introduce a simple model of a massive particle, making several idealizing assumptions in order to gain traction on the problem. Less idealized models are left for future work.
+We now step back from the field-theoretic machinery to construct a simple model of the particle itself. Sections 3 and 4 laid out the two assumptions of the theory, both grounded in existing literature. From here, we enter new territory, making several idealizing assumptions in order to gain traction on the problem. Where a choice must be made, we take the simplest option. Less idealized models are left for future work.
 
 We proceed in two steps. First, working in the space domain, we follow Rohrlich to establish a lower bound on the particle radius. Then, moving to the frequency domain, we introduce a single-frequency absorption model and show that the energy absorbed from the ZPR field is less than what is available, confirming the energetic consistency of the hypothesis.
 
@@ -681,6 +687,7 @@ This result places the model exactly at the boundary between the near and far fi
 
 Similarly, $\delta^{(3)}_{\text{shell}}(\vec{k})$ denotes restriction to the single absorbed mode at $k_\circ = m/\hbar$, corresponding to the frequency distribution $\frac{\delta(\omega - m/\hbar)}{4\pi\omega^2}$ introduced above.
 
+These relations are not imposed independently; each follows from the physical requirements of the model, and their mutual consistency is a nontrivial check.
 
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
@@ -805,7 +812,9 @@ In electrodynamics, a static Coulomb field transforms under Lorentz boosts into 
  \vec{E}_g = -GM\vec{r}/r^3. 
  \end{equation}
  
- \noindent In the low-velocity limit $v \ll 1$, we find:
+ \noindent This is simply the irrotational field $\vec{E}_I$ of Section~4; we use the subscript $g$ here to distinguish the gravitational field from the electromagnetic analogy.
+ 
+In the low-velocity limit $v \ll 1$, we find:
  
  \begin{equation}
  \vec{B}_g = -\vec{v} \times \vec{r} \cdot \frac{GM}{r^3}
@@ -821,7 +830,7 @@ This introduces a "gravitomagnetic" interaction analogous to magnetism in electr
 	\label{fig:two-masses}
 \end{figure}
 
-We now consider Kepler’s problem. The Newtonian effective potential is:
+We now consider Kepler’s problem. Here $M$ denotes the central mass and $m$ the orbiting body, in contrast to the single-mass notation used elsewhere in the paper. The Newtonian effective potential is:
 
 
 
@@ -855,71 +864,6 @@ U_{\text{Einstein}} = \frac{1}{2} m \left( \frac{dr}{dt} \right)^2 - \frac{GMm}{
 
 This is the same correction obtained in general relativity to first order. As Carroll\cite{carroll} notes , general relativity produces this result exactly; in our theory, it emerges as a leading-order approximation. The higher-order terms in our expansion are not present in general relativity, and in principle offer an observational test that could distinguish between the two frameworks. We leave the computation of these higher-order terms for future work.
 
-\subsection{Old Deflection of Light}
-
-
-We now consider the deflection of light near a massive object. Our hypothesis is that mass sinks radiation giving rise to an inward-pointing momentum density:
-
-
-\begin{equation}
-\vec{P}(r) = - \hat{r} \frac{G m \hbar}{r^2}
-\tag{\ref{eq:hypothesis}}
-\end{equation}
-
-
-\begin{figure}[h]
-	\centering
-	\fbox{\includegraphics[width=0.6\textwidth]{light-bending.png}}
-	\caption{Deflection of light}
-	\label{fig:deflection}
-\end{figure}
-
-A photon traveling through this field receives a cumulative momentum shift:
-
-\begin{equation}
-\Delta \vec{p} = \int_{\text{path}} \vec{P}(r) \, d\phi
-\tag{\ref{eq:hypothesis2}}
-\end{equation}
-
-To first order, we assume that the photon travels a straight-line path. Assuming that this straight-line path passing at minimum distance \( b \) to the massive object (see figure \(\ref{fig:deflection}\)), we integrate:
-
-\begin{equation}
-\Delta \vec{p} = \int_{-\infty}^{\infty} - \frac{G m \hbar}{r^3} \vec{r} \, \omega \, dz
-\end{equation}
-
-\noindent where we use the infintesimal phase along the path \(d\phi =  \omega dz\).
-
-The parallel momentum shifts cancel symmetrically. The transverse component yields:
-
-\begin{equation}
-\Delta p_y = \hbar \omega \cdot \frac{2 G m}{b}
-\end{equation}
-
-The angle of deflection is then:
-
-\begin{equation}
-\theta \approx \frac{\Delta p_y}{p_z} = \frac{2 G m}{b} \quad \Rightarrow \quad \alpha = \frac{4 G m}{b}
-\end{equation}
-
-This matches, to first-order, the deflection angle predicted by general relativity\cite{hartle}.
-
-\subsection{Old Gravitational Redshift}
-
-Finally, we consider the redshift of light climbing out of a gravitational well. As before, a photon gains or loses momentum depending on its path through the momentum field.
-
-Using:
-
-\begin{equation}
-\Delta p = \int_{\infty}^{R} \vec{P} \cdot \hat{r} \cdot w \, dr = \int_{\infty}^{R} - \frac{G m \hbar}{r^2} w \, dr = \hbar w \cdot \frac{G m}{R}
-\end{equation}
-
-The resulting frequency shift is:
-
-\begin{equation}
-\hbar w' = \hbar w + \Delta p = \hbar w \left( 1 + \frac{G m}{R} \right)
-\end{equation}
-
-which, to first order, matches the prediction of general relativity for gravitational redshift.
 
 
 \subsection{Deflection of Light}
@@ -984,7 +928,7 @@ Finally, we consider the redshift of light climbing out of a gravitational well.
 		
 \section{Duality and the Dirac Equation}
 
-Throughout this paper, we have stayed grounded in classical physics. We built a theory of gravity using field equations, conservation laws, and an underlying sea of vacuum radiation. No quantum assumptions, no curved spacetime. In this section, something surprising appears. When the field equations are rewritten in a new form, a familiar structure emerges: the Dirac equation, the cornerstone of quantum mechanics.
+Having established that the theory reproduces the classical tests of general relativity, we now ask whether the field equations themselves contain any deeper structure. Throughout this paper, we have stayed grounded in classical physics. We built a theory of gravity using field equations, conservation laws, and an underlying sea of vacuum radiation. No quantum assumptions, no curved spacetime. In this section, something surprising appears. When the field equations are rewritten in a new form, a familiar structure emerges: the Dirac equation, the cornerstone of quantum mechanics.
 
 \subsection{Duality Transformations}
 
@@ -1119,27 +1063,21 @@ these two equations combine into:
 
 This has the exact form of the Dirac equation, as given in Sakurai's Advanced Quantum Mechanics\cite{sakurai}, Eq.\ 3.31.
 
-
 \section{Conclusion}
 
-This paper presented a fresh approach to the physics of gravity. It was neither based on general relativity nor  was it based on quatnum mechanics. Like a carefully threaded needle, we were able to stitch the results together. The theory of gravity presented here  stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it. Here, there is heat in the universe and that has made all the difference.
+Can gravity emerge from classical physics, without invoking curved spacetime or quantum gravity? That was the question we asked. Faced with two powerful but incompatible theories, we chose a different path: to treat mass as a source of momentum flow, drawing from a pervasive background field. The result stands in contrast to general relativity, where mass is treated as a cold object sitting in empty space and curving spacetime around it. Here, there is heat in the universe, and that has made all the difference.
 
-Can gravity emerge from classical physics, without invoking curved spacetime or quantum gravity? That was the question we asked. Faced with two powerful but incompatible theories, quantum mechanics and general relativity, we chose a different path: to treat mass as a source of momentum flow, drawing from a pervasive background field. The result is a framework that is simple, classical, and deeply physical.
-
-To test the idea, we built the theory step by step. We formulated equations for how mass interacts with the vacuum field. We introduced cutoffs to make the interaction finite and consistent. We checked for conservation of energy and momentum. Then we asked: does this theory match observation? And the answer, to leading order, is yes. It reproduces the familiar predictions of general relativity: the bending of light, gravitational redshift, and the precession of Mercury. We also identify a testable difference between General Relativity and the theory presented here.
+To test the idea, we built the theory step by step. We formulated equations for how mass interacts with the vacuum field. We constructed a toy model, choosing the simplest possible idealizations. We checked for conservation of energy and momentum. Then we asked: does this theory match observation? And the answer, to leading order, is yes. It reproduces the familiar predictions of general relativity: the bending of light, gravitational redshift, and the precession of Mercury. We also identify where the theory diverges from general relativity, suggesting a possible observational test.
 
 We saw that when we re-expressed the field equations, we were able to derive the Dirac equation. That a single classical field framework can describe gravity, electromagnetism, and quantum behavior is remarkable. It suggests these are not separate layers of physics, but different faces of the same underlying structure. One set of equations that does it all.
 
-
-
 \subsection{Where This Could Go}
 
-Here we simply state the hypothesis and explore its consequences. Several directions remain open for future work:
+Several directions remain open for future work:
 
+\textbf{Quantization.} The Dirac equation presented here is not quantized, and the microscopic interaction mechanism is left unspecified. We suspect that a two-photon singlet state may play the role of the interaction particle, but this remains speculative.
 
-\textbf{Quantization} The Dirac equation presented here is not quantized. More importantly the interaction is left mysterious. It is the belief of this author that two photons in a singlet configuration could be the interaction particle. However, it should be pointed out that the believers in stochastic electromagnetism some believe that quantum mechanics is wrong.
-
-\textbf{Derivation of the hypothesis.} The intuition underlying the hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. What is novel is the specific form of the momentum density, $\vec{P}(r) = -\hat{r} Gm\hbar/r^2$. It is the belief of this author that this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
+\textbf{Derivation of the hypothesis.} The intuition underlying the hypothesis has respectable precedent. Feynman notes that light ``falls'' in a gravitational field \cite{feynman_gravity}, which is precisely the picture developed here: mass acts as a sink for radiation. What is novel is the specific form of the momentum density, $\vec{P}(r) = -\hat{r}\, Gm\hbar/r^2$. We suspect this expression can be derived directly from the two assumptions of the paper, rather than postulated. That derivation is left for future work.
 
 \textbf{Energy expansion outside the radiation zone.} The energy calculation in Section~\ref{sec:stability} was carried out only in the radiation zone. Extending this to the full domain involves richer mathematics and, we suspect, richer physics.
 
@@ -1147,12 +1085,13 @@ Here we simply state the hypothesis and explore its consequences. Several direct
 
 \textbf{Less idealized models.} The toy model of a massive particle adopted here is as simple as possible. Less idealized models would be worth studying in future work.
 
-\textbf{Experimental test.} We identified a testable difference between this theory and general relativity. Designing a concrete experiment to probe this difference is an interesting open challenge.
+\textbf{Experimental test.} We identified where the theory diverges from general relativity. Designing a concrete observational test is an open challenge.
 
+\textbf{Gravitational waves.} The solenoidal sector of the theory naturally supports radiative solutions. Whether these match the properties of gravitational waves observed by LIGO, including propagation speed, polarization, and energy loss in binary systems, is an important open question.
 
 \subsection{Final Thought}
 
-Physicists have long sought simplicity. Apparently the universe is built on simple laws. Einstein advised making a theory as simple as possible, but no simpler. When a single framework explains more with less, it earns our attention. Bringing electricity, magnetism, gravity, and the Dirac equation under one set of equations is a level of simplicity that deserves serious attention.
+Einstein advised making a theory as simple as possible, but no simpler. Bringing electricity, magnetism, gravity, and the Dirac equation under one set of equations is a level of simplicity that deserves serious attention.
 
 The history of physics is full of bold guesses. Some are wrong, some are premature, and some are foundational. This is just a guess. But it is a specific, testable, and mathematically structured one. If nothing else, it shifts the question. Gravity need not emerge from geometry. It might instead arise from the quiet hiss of radiation no one thought to listen to.
 
@@ -1198,6 +1137,11 @@ T.H.\ Boyer,
 	``A Gravitational and Electromagnetic Analogy,''
 	\textit{The Electrician} \textbf{31}, 281--282 (1893);
 	reprinted in \textit{Electromagnetic Theory}, vol.~1, pp.~455--466.
+	
+	\bibitem{mashhoon2003}
+	B.~Mashhoon,
+	``Gravitoelectromagnetism: A Brief Review,''
+	arXiv:gr-qc/0311030 (2003).
 	
 \bibitem{barrera1985}
 R.G.~Barrera, G.A.~Estevez, and J.~Giraldo,
