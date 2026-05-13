@@ -36,7 +36,7 @@
 	
 \newpage
 \begin{abstract}
-	This paper introduces a classical field theory of gravity built on the Maxwell equations and a hypothesis: that mass absorbs radiation, inducing a net inward momentum flow. We assume a Lorentz-invariant stochastic zero-point radiation field present throughout space and hypothesize that mass acts as a sink for this field.  We construct a consistent model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity: Mercury's precession, gravitational lensing, and gravitational redshift are reproduced to leading order, while also identifying where the theory diverges from general relativity at higher order. This approach provides a novel, Lorentz-invariant, classical alternative to general relativity, and lays a foundation for further exploration.
+	This paper introduces a classical field theory of gravity built on the Maxwell equations and a hypothesis: that mass absorbs zero-point radiation, inducing a net inward momentum flow. We construct a toy model of a massive particle, demonstrate energy and momentum conservation, and show that the three classic tests of general relativity (Mercury's precession, gravitational lensing, and gravitational redshift) are reproduced to leading order. We identify where the theory diverges from general relativity at higher order. This approach provides a Lorentz-invariant classical alternative to general relativity, with implications explored in the final sections.
 \end{abstract}
 \newpage
 
@@ -59,7 +59,7 @@ In \textbf{Section 2}, we introduce the hypothesis: that mass acts as a sink for
 
 In \textbf{Sections 3 and 4}, we lay out the two assumptions underlying the theory. By “assumptions,” we mean elements already present in the scientific literature, perhaps unconventional but not novel to this work. \textbf{Section 3} introduces the stochastic zero-point radiation (Z.P.R.) field as the physical manifestation of the vacuum. \textbf{Section 4} adopts the Maxwell equations as the correct mathematical framework for describing gravity. 
 
-\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce a toy model of a massive particle and discuss characteristics of the toy model. We examine whether the inflow of radiation can stabilize mass against gravitational self-energy and show that the energy needed for stability of our toy model is less than that available in the Z.P.R.  We also demonstrate conservation of energy and momentum and several other key mathematical results.
+\textbf{Sections 5 and 6} contain the technical core of the paper. We introduce a toy model of a massive particle and discuss characteristics of the toy model. We examine whether the inflow of radiation can stabilize mass against gravitational self-energy and show that the energy needed for stability of our toy model is less than that available in the Z.P.R.  We also demonstrate conservation of energy and momentum.
 
 
 In \textbf{Section 7}, we test the theory against observation. We demonstrate that it reproduces the three classic predictions of general relativity to leading order: perihelion precession, gravitational lensing, and redshift. We also identify where the theory diverges from general relativity, suggesting a possible observational test.
@@ -82,7 +82,7 @@ Before introducing equations, we present a simple physical picture to guide intu
 
 But at zero Kelvin, both classical and quantum theories suggest the presence of a background electromagnetic field called the stochastic zero-point radiation (Z.P.R.) field. A fuller treatment of the Z.P.R. will be offered in \textbf{Section 3}, but for now, it is enough to imagine a low-level radiation noise present even in the coldest vacuum. The iron sphere, after it has cooled down and come into equilibrium with the vacuum, then absorbs radiation from this ambient field.
 
-The hypothesis proposed here is that mass absorbs energy from the zero-point field even at absolute zero. This interaction produces a net inward flow of momentum toward the mass.
+The hypothesis proposed here is that mass absorbs radiation from the zero-point field even at absolute zero, producing a net inward flow of momentum toward the mass."
 
 The remainder of the paper builds from this intuition and develops the consequences of this idea.
 
@@ -132,7 +132,7 @@ We therefore assume that the vacuum is filled with a classical, Lorentz-invarian
 \subsection{Mathematical Definitions of the Z.P.R.}
 
 
-The Z.P.R. field is stochastic and Gaussian. The electric and magnetic fields are defined as:
+The Z.P.R. field is stochastic and Gaussian. The electric and magnetic fields, in natural units (\(c=1\)), are defined as:
 
 \begin{equation}
 \begin{aligned}
@@ -166,7 +166,7 @@ W_\lambda(\vec{k}) e^{i(\vec{k} \cdot \vec{x} - \omega t)} + \text{c.c.}
 \label{eq:stochastic}
 \end{equation}
 
-\noindent where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. And we work in natural units  where \( c = 1 \). This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
+\noindent where $\langle \cdot \rangle$ denotes the stochastic average over the ensemble of random field realizations. This background field is homogeneous, isotropic, and statistically stationary, with the full ensemble remaining invariant under Lorentz transformations.
 
 \subsection{Derivation of Energy Spectrum}
 
@@ -243,14 +243,13 @@ Since $d^3k/(2\pi)^3$ represents the density of states in momentum space (the nu
 
 \begin{equation}
 \langle u \rangle = \int \frac{d^3k}{(2\pi)^3} \, \hbar\omega
-= \int [\text{modes per } k^3] \times [\text{energy per mode}]
 \label{eq:energy_per_mode_integral}
 \end{equation}
 
 This confirms that each electromagnetic normal mode (specified by wavevector $\vec{k}$ and polarization $\lambda$) carries energy $(1/2)\hbar\omega$ in the zero-point radiation field:
 
 \begin{equation}
-\boxed{\rho(\omega) = \frac{1}{2} \hbar \omega \quad \text{[energy per mode]}}
+\rho(\omega) = \frac{1}{2} \hbar \omega 
 \label{eq:energy_per_mode}
 \end{equation}
 
@@ -350,7 +349,7 @@ We can make this explicit by defining a new current:
 
 \subsection{Spherical Vector Harmonics}
 
-Due to the symmetric radial symmetry of most of the problems associated with gravity, we will benefit from using Vector Spherical Harmonics. 
+Due to the radial symmetry of most problems in gravity, we will benefit from using vector spherical harmonics.
 
 Following Barrera et al. \cite{barrera1985} we assume that any vector field, $\vec V$, and any scalar, $g$, can be expanded as follows:
 
@@ -563,7 +562,7 @@ We proceed in two steps. First, working in the space domain, we follow Rohrlich 
 
 We follow Rohrlich\cite{rohrlich} closely here, as his framing captures the essential point precisely. The passage has been lightly adapted from the original to reflect that we are discussing massive particles rather than charged ones.
 
-We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that is is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consided a macroscopic massive sphere in more detail.
+We wish to construct a model of a massive particle. ``The most obvious model of a massive particle is a sphere carrying a spherically symmetrical mass distribution. While such a model is meant (and was indeed proposed) as a picture of a massive elementary particle (a neutron, for example), it is obvious that it is basically a macroscopic massive body, only much smaller. There is nothing 'elementary' about it. To see this clearly, let us consider a macroscopic massive sphere in more detail.
 
 ``Consider a sphere of radius $R$ and spherically symmetric mass density $\rho (\vec x)$. Its total mass is
 \begin{equation}
@@ -653,7 +652,7 @@ Combining these:
 \alpha = \frac{Gm}{R}
 \end{equation}
 
-Since we established in the previous section that $R > Gm$, we have $\alpha < 1$: the particle absorbs less energy from the ZPR than is available. The toy model is energetically consistent.
+For any physical object with $R > Gm$, we have $\alpha < 1$: the particle absorbs less energy than is available. At the limiting case $R = Gm$, $\alpha = 1$ and the particle absorbs all available energy at that mode. The toy model is energetically consistent.
 
 
 \subsection{On-Shell Conditions}
@@ -688,6 +687,10 @@ This result places the model exactly at the boundary between the near and far fi
 Similarly, $\delta^{(3)}_{\text{shell}}(\vec{k})$ denotes restriction to the single absorbed mode at $k_\circ = m/\hbar$, corresponding to the frequency distribution $\frac{\delta(\omega - m/\hbar)}{4\pi\omega^2}$ introduced above.
 
 These relations are not imposed independently; each follows from the physical requirements of the model, and their mutual consistency is a nontrivial check.
+
+
+
+
 
 
 \section{Field Energy and Momentum Balance: A Mechanism for Stability}
@@ -790,6 +793,10 @@ We assume the solenoidal current obeys Ohm's law:
 \end{equation}
 
 \noindent Together, the energy and momentum analyses of this section demonstrate that the hypothesis is internally consistent: a massive particle that absorbs zero-point radiation is stabilized against gravitational collapse by drawing energy from the vacuum field itself.
+
+
+
+
 
 \section{Classical Tests of Gravity}
 
